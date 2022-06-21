@@ -8,15 +8,17 @@
 }
 
 .roundedForm {
-    border-radius: 30px 30px 30px 30px !important;
-    height: 50px;
+    border-radius: 16px;
+    height: 48px;
 }
 
 .roundedButton {
-    border-radius: 30px 30px 30px 30px !important;
+    border-radius: 16px;
     background: #F93711;
     border: none;
-    width: 76%;
+    width: 100%;
+    height: 48px;
+    margin-top: 3%;
 }
 
 a{
@@ -24,3 +26,8 @@ a{
     color: #F93711;
 }
 
+.styleShowButton{
+    position: absolute;
+    margin-top: 0.5%;
+    margin-left: 12%;
+}

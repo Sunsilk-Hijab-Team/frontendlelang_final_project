@@ -1,0 +1,15 @@
+*{
+    font-family: poppins;
+}
+
+.styleCardText{
+    font-size: 10px;
+    color: #8A8A8A;
+}
+
+.img-thumbnail{
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+}
+
