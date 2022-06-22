@@ -2,11 +2,18 @@
     color: #3C3C3C;
     background: #FAD56C;
     border: none;
-    margin: 3%;
-    padding: 1%;
+    margin: 2%;
+    padding: 1% 2%;
     border-radius: 12px;
+    margin-top: 50px;
 }
 
 .button:hover {
     background-color:#F93711;
+  }
+
+  img{
+    color:#3C3C3C;
+    stroke: red;
+    fill: red;
   }

@@ -42,3 +42,9 @@ h1{
     border: none;
 }
 
+span{
+    position: absolute;
+    margin-top: -6%;
+    margin-left: 60%;
+}
+

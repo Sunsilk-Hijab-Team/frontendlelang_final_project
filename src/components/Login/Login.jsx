@@ -2,15 +2,23 @@ import React from 'react';
 import styleLogin from './login.module.css';
 import { Row, Col, Button, Container, Form } from 'react-bootstrap';
 import Background from './Subtract.svg';
-import {useState} from 'react';
-// import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import { useState } from 'react';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 function Login() {
 
-    const [passwordShown, setPasswordShown] = useState(false);
-    const TogglePassword = () => {
-        setPasswordShown(!passwordShown);
-    }
+    const [passwordType, setPasswordType] = useState("password");
+    const [passwordIcon, setPasswordIcon] = useState(<FaEyeSlash />)
+
+    const handelToggle = () => {
+        if (passwordType === "password") {
+            setPasswordType("text");
+            setPasswordIcon(FaEye);
+        } else {
+            setPasswordType("password");
+            setPasswordIcon(FaEyeSlash);
+        }
+    };
 
     return (
         <Row className={styleLogin.login} style={{ height: "100%" }}>
@@ -34,11 +42,15 @@ function Login() {
                             </Form.Group>
 
                             <Form.Group className="mb-3" controlId="formBasicPassword">
-                                <Form.Label className='d-flex text-start'>Password</Form.Label>
-                                <Button onClick={TogglePassword} className={styleLogin.styleShowButton}>Show</Button>
-                                <Form.Control type={passwordShown? "text" : "password"} placeholder="Password"
-                                    className={styleLogin.roundedForm} />
-                                    </Form.Group>
+                                <Form.Label className='d-flex text-start '>Password</Form.Label>
+
+                                <div className={styleLogin.iconSpan} onClick={handelToggle}>
+                                    {passwordIcon}
+                                </div>
+                                
+                                <Form.Control placeholder="Password"
+                                    className={styleLogin.roundedForm} type={passwordType} />
+                            </Form.Group>
 
                             <Button className={styleLogin.roundedButton}>
                                 Login
@@ -54,5 +66,6 @@ function Login() {
         </Row>
     )
 }
+
 
 export default Login;

@@ -24,10 +24,11 @@
 a{
     text-decoration: none;
     color: #F93711;
+
 }
 
-.styleShowButton{
+.iconSpan{
     position: absolute;
-    margin-top: 0.5%;
-    margin-left: 12%;
+    margin-top: 1%;
+    margin-left: 32%;
 }
