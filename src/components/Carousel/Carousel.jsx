@@ -1,5 +1,5 @@
 import Carousel from 'react-bootstrap/Carousel';
-import Image from './img_banner.png';
+// import Image from './img_banner.png';
 
 function UncontrolledExample() {
   return (
@@ -7,7 +7,7 @@ function UncontrolledExample() {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src={Image}
+          src="images/img_banner.png"
           alt="First slide"
         />
       </Carousel.Item>
@@ -15,7 +15,7 @@ function UncontrolledExample() {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src={Image}
+          src="images/img_banner.png"
           alt="Second slide"
         />
       </Carousel.Item>

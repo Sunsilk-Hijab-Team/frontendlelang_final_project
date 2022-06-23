@@ -1,19 +1,36 @@
-.button{
-    color: #3C3C3C;
-    background: #FAD56C;
-    border: none;
-    margin: 2%;
-    padding: 1% 2%;
-    border-radius: 12px;
-    margin-top: 50px;
+.button {
+  color: #3C3C3C;
+  background: #F2CA59;
+  border: none;
+  margin: 8px;
+  padding: 14px 24px;
+  border-radius: 12px;
+  margin-top: 50px;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.filterLogo {
+  height: 20px;
+  width: auto;
+  fill: black;
+}
+
+p {
+  font-size: 14px;
+  margin-bottom: 0;
+  margin-left: 8px;
+  /* width: 32px; */
+  height: 20px;
 }
 
 .button:hover {
-    background-color:#F93711;
-  }
+  background-color: #F93711;
+}
 
-  img{
-    color:#3C3C3C;
-    stroke: red;
-    fill: red;
-  }
+img {
+  color: #3C3C3C;
+  stroke:#F93711;
+  /* fill: red; */
+}
