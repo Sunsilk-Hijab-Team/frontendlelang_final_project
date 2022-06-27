@@ -22,11 +22,10 @@ function Login() {
 
     return (
         <Row className={styleLogin.login} style={{ height: "100%" }}>
-            <Col>
-                <img src={Background} alt="img" height={620} />
+            <Col className={styleLogin.styleCol1}>
             </Col>
 
-            <Col className='styleForm d-flex align-items-center'>
+            <Col id="col2" className='styleForm d-flex align-items-center'>
                 <Container className="d-flex row justify-content-center text-center">
                     <h1 className='mb-5'><strong>Welcome</strong></h1>
                     <h3><strong>Login to</strong> <strong>S</strong>econd <strong>H</strong>and</h3>
@@ -47,7 +46,7 @@ function Login() {
                                 <div className={styleLogin.iconSpan} onClick={handelToggle}>
                                     {passwordIcon}
                                 </div>
-                                
+
                                 <Form.Control placeholder="Password"
                                     className={styleLogin.roundedForm} type={passwordType} />
                             </Form.Group>
@@ -58,8 +57,6 @@ function Login() {
                         </Form>
 
                     </div>
-
-
                     <p className='mt-4'>don't have an account <a href="/register">Register Here</a></p>
                 </Container>
             </Col>

@@ -1,10 +1,13 @@
 .login {
-    font-family: poppins;
-    background-color: #FAD56C;
+    background: #FAD56C;
 }
 
-.styleForm{
-    position: absolute;
+.styleCol1 {
+    font-family: poppins;
+    background-color: #FAD56C;
+    background-image: url(./Subtract.svg);
+    background-size: 100%;
+    background-repeat: no-repeat;
 }
 
 .roundedForm {
@@ -21,14 +24,40 @@
     margin-top: 3%;
 }
 
-a{
+a {
     text-decoration: none;
     color: #F93711;
 
 }
 
-.iconSpan{
+.iconSpan {
     position: absolute;
     margin-top: 1%;
     margin-left: 32%;
 }
+
+.styleCol {
+    height: 100%;
+}
+
+.image {
+    height: 100%;
+}
+
+@media only screen and (max-width: 1200px) {
+    .styleCol1 {
+        display: none;
+    }
+
+    img {
+        display: none;
+    }
+
+    .iconSpan {
+        position: absolute;
+        margin-top: 3.5%;
+        margin-left: 55%;
+    }
+    
+}
+

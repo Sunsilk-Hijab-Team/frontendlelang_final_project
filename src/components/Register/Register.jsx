@@ -41,10 +41,10 @@ function Register() {
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
-            <Form.Control className={styleRegister.rounded} placeholder="min 6 characters" type={passwordType} />
             <span className="icons-span" onClick={handelToggle}>
               {passwordIcon}
             </span>
+            <Form.Control className={styleRegister.rounded} placeholder="min 6 characters" type={passwordType} />
           </Form.Group>
 
           <Button className={styleRegister.styleButton} variant="primary" type="submit">
