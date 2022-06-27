@@ -2,6 +2,10 @@
     background-color: #FFFFFF;
 }
 
+.brand{
+    width: 40.3%;
+}
+
 .search{
     display: flex;
     width: 400px;
@@ -25,3 +29,8 @@
     position: relative;
     margin-left: -25px;
 }
+
+.logo{
+    width: 100%;
+}
+

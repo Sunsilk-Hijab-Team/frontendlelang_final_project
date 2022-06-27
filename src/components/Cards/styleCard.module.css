@@ -2,17 +2,22 @@
     font-family: poppins;
 }
 
+.styleContainer{
+    margin-top: 40px;
+}
+
 .styleCardText {
     font-size: 10px;
     color: #8A8A8A;
 }
 
 .cardStyle {
+    max-width: 100%;
     border-radius: 10px;
     margin-bottom: 20px;
-    box-shadow: 0px -1px 7px 0px rgba(0,0,0,0.1);
-    -webkit-box-shadow: 0px -1px 7px 0px rgba(0,0,0,0.1);
-    -moz-box-shadow: 0px -1px 7px 0px rgba(0,0,0,0.1);
+    box-shadow: 0px -1px 7px 0px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0px -1px 7px 0px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0px -1px 7px 0px rgba(0, 0, 0, 0.1);
 }
 
 .imgThumbnail {

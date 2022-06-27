@@ -4,7 +4,7 @@ import styleButton from './button.module.css';
 
 function ButtonFilter() {
   return (
-    <Container className='d-flex justify-content-center'>
+    <Container className={styleButton.container}>
       <Button className={styleButton.button} type="search">
         <img className='filterLogo' src="assets/fi_search.svg" alt="" />
         <p>Semua</p>
