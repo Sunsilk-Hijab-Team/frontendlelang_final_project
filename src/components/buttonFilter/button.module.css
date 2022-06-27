@@ -5,14 +5,16 @@
   margin-top: 40px;
 }
 
-
 .button {
   color: #3C3C3C;
   background: #F2CA59;
   border: none;
-  margin: 1%;
-  padding: 1.2% 1%;
+  margin: 0 1%;
+  padding: 1.2% 2%;
+  /* margin: 8px;
+  padding: 14px 24px; */
   border-radius: 12px;
+  margin-top: 50px;
   display: flex;
   flex-direction: row;
 }
@@ -24,7 +26,8 @@
 }
 
 p {
-  font-size: 1.2rem;
+  /* font-size: 1.2rem; */
+  font-size: 14px;
   margin-bottom: 0;
   margin-left: 8px;
   height: 20px;
@@ -34,9 +37,9 @@ p {
   background-color: #F93711;
 }
 
-img {
+/* img {
   color: #3C3C3C;
   stroke:#F93711;
-  /* fill: red; */
-}
+  fill: red;
+} */
 
