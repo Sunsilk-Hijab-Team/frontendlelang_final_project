@@ -5,6 +5,7 @@ import Register from './components/Register/Register';
 import Home from './pages/Home/Home';
 import SellerHome from './pages/seller/Home/Home'
 import ProductDetail from './pages/Product/Product'
+import AddProduct from './pages/seller/Add Product/AddProduct';
 // import Card from './components/Cards/Card';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path="/register" element={<Register />} />
 
           <Route path="/seller/home" element={<SellerHome />} />
+          <Route path="/seller/add-product" element={<AddProduct />} />
           <Route path="/jam-tangan" element={<ProductDetail />} />
           {/* <Route path="/card" element={<Card />} /> */}
         </Routes>

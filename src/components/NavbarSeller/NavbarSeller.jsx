@@ -1,14 +1,12 @@
 import styleNavSeller from './styleNavSeller.module.css';
 import Logo from './Logo.svg';
-import { Row, Navbar, Nav, Form, Container, Button, NavDropdown } from 'react-bootstrap';
-import iconSearch from './search.svg';
+import { Row, Navbar, Nav, Container } from 'react-bootstrap';
 import Notificiation from './fi_bell.svg';
 import Message from './fi_message-square.svg';
-import { DropdownType, ButtonGroup, idx, Dropdown } from 'react-bootstrap';
 import Profile from './Group_15.svg';
-import DropdownIcon from './Vector.svg';
 
-function NavScroll() {
+function NavScroll( props ) {
+    
     return (
 
         <Navbar
@@ -24,15 +22,9 @@ function NavScroll() {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
                 <Row>
-                    <Form className={styleNavSeller.search}>
-                        <Form.Control
-                            type="search here"
-                            placeholder="  Search here"
-                            aria-label="Search"
-                            className={styleNavSeller.rounded}
-                        />
-                        <img src={iconSearch} alt="search" className={styleNavSeller.styleIcon} />
-                    </Form>
+                    {/* <div> */}
+                        {props.title}
+                    {/* </div> */}
                 </Row>
 
                 <Row>
