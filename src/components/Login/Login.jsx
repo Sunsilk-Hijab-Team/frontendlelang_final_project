@@ -1,7 +1,6 @@
 import React from 'react';
 import styleLogin from './login.module.css';
 import { Row, Col, Button, Container, Form } from 'react-bootstrap';
-import Background from './Subtract.svg';
 import { useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 

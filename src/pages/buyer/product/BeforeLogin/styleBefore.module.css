@@ -1,0 +1,74 @@
+.previous {
+    margin: 40px 0;
+}
+
+.carousel {
+    width: 600px;
+    height: 436px;
+}
+
+.h4 {
+    font-size: 14px;
+    margin-top: 95px;
+    margin-left: 8px;
+}
+
+.h1 {
+    font-size: 33px;
+    margin-left: 8px;
+}
+
+.h3 {
+    font-size: 14px;
+}
+
+.h2 {
+    font-size: 20px;
+    color: #F93711;
+    line-height: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+}
+
+.p {
+    font-size: 14px;
+    width: 443.04px;
+    color: #8A8A8A;
+    height: 160px;
+}
+
+.roundedButton {
+    border-radius: 16px;
+    border: none;
+    width: 100%;
+    height: 48px;
+    /* margin-top: 3%; */
+    width: 443px;
+    margin-top: 28px;
+    margin-left: 8px;
+}
+
+.roundedButton:disabled {
+    background: #8A8A8A;
+    color:white;
+}
+
+.notif {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.notifStyle {
+    background: #F9CC00;
+    width: 30%;
+    height: 7%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+}

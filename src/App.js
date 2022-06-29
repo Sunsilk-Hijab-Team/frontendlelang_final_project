@@ -6,7 +6,14 @@ import Home from './pages/Home/Home';
 import SellerHome from './pages/seller/Home/Home'
 import ProductDetail from './pages/Product/Product'
 import AddProduct from './pages/seller/Add Product/AddProduct';
-// import Card from './components/Cards/Card';
+
+
+//buyer pages
+import BuyerHome from './pages/buyer/Home/Home';
+import BuyerProduct from './pages/buyer/product/Product';
+import BuyerLogin from './pages/buyer/product/BeforeLogin/Before';
+import BuyerSent from './pages/buyer/product/Sent/Sent';
+
 
 function App() {
   return (
@@ -17,10 +24,17 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
 
+          {/* seller */}
           <Route path="/seller/home" element={<SellerHome />} />
           <Route path="/seller/add-product" element={<AddProduct />} />
           <Route path="/jam-tangan" element={<ProductDetail />} />
-          {/* <Route path="/card" element={<Card />} /> */}
+          
+          {/* buyer */}
+          <Route path="/buyer/home" element={<BuyerHome/>}/>
+          <Route path="/buyer/product" element={<BuyerProduct/>}/>
+          <Route path="/buyer/login" element={<BuyerLogin/>}/>
+          <Route path="/buyer/sent" element={<BuyerSent/>}/>
+
         </Routes>
       </BrowserRouter>
     </div>
