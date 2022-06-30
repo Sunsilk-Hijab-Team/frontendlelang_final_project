@@ -3,6 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import Home from './pages/Home/Home';
+
+//seller pages
 import SellerHome from './pages/seller/Home/Home'
 import ProductDetail from './pages/Product/Product'
 import AddProduct from './pages/seller/Add Product/AddProduct';

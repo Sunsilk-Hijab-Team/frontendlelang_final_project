@@ -4,14 +4,16 @@ import Navbar from '../../../../components/NavbarSeller/NavbarSeller'
 import { Carousel, Container, Col, Row} from 'react-bootstrap';
 import Previous from './fi_arrow-left.svg';
 import Image from './jam_1.png';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import SellerName from '../../../../components/SellerName/SellerName'
 
-function before() {
+
+function sent() {
+    const notify = () => toast.success("anda telah berhasil login",{position:"top-center"});
     return (
-        <div>
-            <Navbar />
-            <div className={Style.notif}>
-                <div className={Style.notifStyle}><p>Harga tawarmu berhasil dikirim ke penjual</p></div>
-            </div>
+        <div onClick={notify} >
+            <Navbar title="Product"/>
             <Container>
                 <img className={Style.previous} src={Previous} alt="halo" />
             </Container>
@@ -32,7 +34,7 @@ function before() {
                             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
                             culpa qui officia deserunt mollit anim id est laborum.</p>
 
-                        <button disabled={true} className={Style.roundedButton}>
+                        <button disabled={false} className={Style.roundedButton}>
                             Saya Tertarik dan Ingin Nego
                         </button>
 
@@ -58,9 +60,11 @@ function before() {
                         </Carousel>
                     </Col>
                 </Row>
+                <SellerName/>
             </Container>
+            <ToastContainer className={Style.toast}/>
         </div>
     )
 }
 
-export default before
+export default sent

@@ -14,7 +14,7 @@ function PopUp() {
     return (
         <div>
             <button
-                className={stylePopup.roundedButton}
+                className={stylePopup.roundedButtonMenu}
                 onClick={togglePopup}
             >
                 saya tertarik dan ingin Nego

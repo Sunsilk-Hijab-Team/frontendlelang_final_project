@@ -1,17 +1,18 @@
 import React from 'react';
 import Style from './styleBefore.module.css'
 import Navbar from '../../../../components/Navbar/Navbar';
-import { Carousel, Container, Col, Row, Button } from 'react-bootstrap';
+import { Carousel, Container, Col, Row } from 'react-bootstrap';
 import Previous from './fi_arrow-left.svg';
 import Image from './jam_1.png';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import SellerName from '../../../../components/SellerName/SellerName';
 
 function before() {
+    const notify = () => toast.warn("anda harus login terlebih dahulu",{position:"top-center"});
     return (
         <div>
-            <Navbar />
-            <div className={Style.notif}>
-                <div className={Style.notifStyle}><p>Anda harus Login terlebih dahulu.</p></div>
-            </div>
+            <Navbar navMiddle="Product"/>
             <Container>
                 <img className={Style.previous} src={Previous} alt="halo" />
             </Container>
@@ -32,7 +33,10 @@ function before() {
                             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
                             culpa qui officia deserunt mollit anim id est laborum.</p>
 
-                        <button disabled={true} className={Style.roundedButton}>
+                        <button
+                            className={Style.roundedButton}
+                            onClick={notify}
+                        >
                             Saya Tertarik dan Ingin Nego
                         </button>
 
@@ -58,7 +62,9 @@ function before() {
                         </Carousel>
                     </Col>
                 </Row>
+                <SellerName/>
             </Container>
+            <ToastContainer className={Style.toast}/>
         </div>
     )
 }

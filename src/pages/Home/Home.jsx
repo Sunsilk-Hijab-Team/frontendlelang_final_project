@@ -4,11 +4,12 @@ import CardProduct from '../../components/Cards/CardProduct';
 import ButtonFilter from '../../components/buttonFilter/ButtonFilter';
 import React from 'react';
 import './styleHome.css';
+import Search from '../../components/Search/Search'
 
 function Home() {
     return (
         <div>
-            <NavigationBar />
+            <NavigationBar navMiddle={<Search/>} />
             <Carousel />
             <ButtonFilter />
             <CardProduct />

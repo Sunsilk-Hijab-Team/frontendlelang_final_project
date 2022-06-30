@@ -1,6 +1,6 @@
 import React from 'react';
 import Previous from './fi_arrow-left.svg';
-import { Col, Container, Row, Button } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import Style from './styleDetails.module.css';
 import Carousel from 'react-bootstrap/Carousel';
 import Image from './jam_1.png';
