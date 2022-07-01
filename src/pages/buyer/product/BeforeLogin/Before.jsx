@@ -9,10 +9,10 @@ import 'react-toastify/dist/ReactToastify.css';
 import SellerName from '../../../../components/SellerName/SellerName';
 
 function before() {
-    const notify = () => toast.warn("anda harus login terlebih dahulu",{position:"top-center"});
+    const notify = () => toast.warn("anda harus login terlebih dahulu", { position: "top-center" });
     return (
         <div>
-            <Navbar navMiddle="Product"/>
+            <Navbar navMiddle="Product" />
             <Container>
                 <img className={Style.previous} src={Previous} alt="halo" />
             </Container>
@@ -62,9 +62,9 @@ function before() {
                         </Carousel>
                     </Col>
                 </Row>
-                <SellerName/>
+                <SellerName />
             </Container>
-            <ToastContainer className={Style.toast}/>
+            <ToastContainer className={Style.toast} />
         </div>
     )
 }

@@ -10,7 +10,7 @@ import SellerName from '../../../../components/SellerName/SellerName'
 
 
 function sent() {
-    const notify = () => toast.success("anda telah berhasil login",{position:"top-center"});
+    const notify = () => toast.success("Harga tawar anda telah terkirim, Tunggu balasan dari penjual",{position:"top-center"});
     return (
         <div onClick={notify} >
             <Navbar title="Product"/>

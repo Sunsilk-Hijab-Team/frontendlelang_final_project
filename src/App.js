@@ -9,7 +9,6 @@ import SellerHome from './pages/seller/Home/Home'
 import ProductDetail from './pages/Product/Product'
 import AddProduct from './pages/seller/Add Product/AddProduct';
 
-
 //buyer pages
 import BuyerHome from './pages/buyer/Home/Home';
 import BuyerProduct from './pages/buyer/product/Product';
@@ -35,7 +34,7 @@ function App() {
           <Route path="/buyer/home" element={<BuyerHome/>}/>
           <Route path="/buyer/product" element={<BuyerProduct/>}/>
           <Route path="/buyer/login" element={<BuyerLogin/>}/>
-          <Route path="/buyer/sent" element={<BuyerSent/>}/>
+          <Route path="/buyer/logged" element={<BuyerSent/>}/>
 
         </Routes>
       </BrowserRouter>
