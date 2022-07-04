@@ -1,8 +1,13 @@
-.container{
+.container {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 40px;
+  align-items: center;
+  width: 98%;
+  overflow-x: auto;
+}
+
+.container::-webkit-scrollbar{
+  width: 0;
 }
 
 .button {
@@ -10,9 +15,7 @@
   background: #F2CA59;
   border: none;
   margin: 0 1%;
-  padding: 1.2% 2%;
-  /* margin: 8px;
-  padding: 14px 24px; */
+  padding: 14px 24px;
   border-radius: 12px;
   margin-top: 50px;
   display: flex;
@@ -37,9 +40,24 @@ p {
   background-color: #F93711;
 }
 
-/* img {
-  color: #3C3C3C;
-  stroke:#F93711;
-  fill: red;
-} */
 
+@media only screen and (max-width: 768px) {
+  .container {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .button {
+    color: #3C3C3C;
+    background: #F2CA59;
+    border: none;
+    margin: 0 1%;
+    padding: 14px 24px;
+    border-radius: 12px;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+  }}
