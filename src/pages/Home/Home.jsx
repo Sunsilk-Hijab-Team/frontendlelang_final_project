@@ -1,6 +1,6 @@
 import NavigationBar from '../../components/Navbar/Navbar';
 import Carousel from '../../components/Carousel/Carousel';
-import CardProduct from '../../components/Cards/CardProduct';
+import CardComponent from '../../components/Cards/CardProduct';
 import ButtonFilter from '../../components/buttonFilter/ButtonFilter';
 import React from 'react';
 import './styleHome.css';
@@ -18,7 +18,8 @@ function Home() {
             />
             <Carousel />
             <ButtonFilter />
-            <CardProduct />
+            <CardComponent 
+            />
         </div>
     )
 }

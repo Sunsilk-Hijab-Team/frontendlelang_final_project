@@ -2,3 +2,9 @@
     width: 100%;
     display: flex;
 }
+
+@media screen and (max-width: 760px){
+    .logo img{
+        width: 70%;
+    }
+}

@@ -31,10 +31,10 @@ export const NavLink = styled(Link)`
 export const StyleBars = styled.div`
 @media screen and (max-width: 768px) {  
   background: #F93711;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   border-radius: 6px;
-  transform: translate(-50%, 25%);
+  transform: translate(-50%, 50%);
 }
 `;
 
@@ -47,9 +47,10 @@ export const Bars = styled(FaBars)`
     position: absolute;
     top: 0;
     right: 0;
-    transform: translate(-30%, 30%);
+    transform: translate(-40%, 10%);
     font-size: 1.8rem;
     cursor: pointer;
+    width: 17px;
   }
 `;
 
