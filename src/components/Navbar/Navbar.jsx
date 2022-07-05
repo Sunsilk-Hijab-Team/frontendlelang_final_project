@@ -1,37 +1,34 @@
-import styleNav from './styleNav.module.css';
-import Logo from './Logo.svg';
-import { Row, Navbar, Nav, Container, Button } from 'react-bootstrap';
-import imageLogin from './fi_log-in.svg';
+import React from 'react';
+import {
+    Nav,
+    NavLink,
+    Bars,
+    NavMenu,
+    NavBtn,
+    StyleBars
+} from './NavbarElemens';
 
-
-function NavScroll(props) {
+const Navbar = (props) => {
     return (
-        <Navbar expand="lg" bg="light" >
-            <Container md>
-                <Row className={styleNav.brand}>
-                    <Nav>
-                        <Nav.Link href="#">
-                            <img src={Logo} alt="halo" />
-                        </Nav.Link>
-                    </Nav>
-                </Row>
-                <Row>
-                    <Nav>
-                        {props.navMiddle}
-                    </Nav>
-                </Row>
+        <>
+            <Nav>
+                <NavLink to='/'>
+                    {props.navLeft}
+                </NavLink>
 
-                <Row>
-                    <a href="/login">
-                        <Button className={styleNav.styleLogin}>
-                            <img src={imageLogin} alt="" /> Log in
-                        </Button>
-                    </a>
-                </Row>
+                <StyleBars>
+                <Bars />
+                </StyleBars>
+                <NavMenu>
+                {props.navMiddle}
+                </NavMenu>
 
-            </Container>
-        </Navbar>
+                <NavBtn>
+                    {props.navRight}
+                </NavBtn>
+            </Nav>
+        </>
     );
-}
+};
 
-export default NavScroll;
+export default Navbar;

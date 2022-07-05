@@ -1,9 +1,12 @@
-* {
+.Container{
+    margin-top: 40px;
     font-family: poppins;
+    display: flex;
 }
 
-.styleContainer{
-    margin-top: 40px;
+.cardBody{
+    max-width: 300px;
+    min-width: 200px;
 }
 
 .styleCardText {
