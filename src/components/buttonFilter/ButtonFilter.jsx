@@ -8,27 +8,27 @@ function ButtonFilter() {
     <Container className='d-flex justify-content-center'>
       <Button className={styleButton.button} type="search">
         <img className='filterLogo' src={SearchIcon} alt="" />
-        <p>Semua</p>
+        <p className={styleButton.filterLabel} >Semua</p>
       </Button>
       <Button className={styleButton.button} type="search">
         <img className='filterLogo' src={SearchIcon} alt="" />
-        <p>Hobi</p>
+        <p className={styleButton.filterLabel}>Hobi</p>
       </Button>
       <Button className={styleButton.button} type="search">
         <img className='filterLogo' src={SearchIcon} alt="" />
-        <p>Kendaraan</p>
+        <p className={styleButton.filterLabel}>Kendaraan</p>
       </Button>
       <Button className={styleButton.button} type="search">
         <img className='filterLogo' src={SearchIcon} alt="" />
-        <p>Baju</p>
+        <p className={styleButton.filterLabel}>Baju</p>
       </Button>
       <Button className={styleButton.button} type="search">
         <img className='filterLogo' src={SearchIcon} alt="" />
-        <p>Elektronik</p>
+        <p className={styleButton.filterLabel}>Elektronik</p>
       </Button>
       <Button className={styleButton.button} type="search">
         <img className='filterLogo' src={SearchIcon} alt="" />
-        <p>Kesehatan</p>
+        <p className={styleButton.filterLabel}>Kesehatan</p>
       </Button>
     </Container>
 

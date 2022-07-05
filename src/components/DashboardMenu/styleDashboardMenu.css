@@ -1,0 +1,58 @@
+.button {
+    color: #3C3C3C;
+    background: transparent;
+    border: none;
+    /* margin: 0 1%; */
+    /* padding: 1.2% 2%; */
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 2rem;
+    margin-bottom: 4rem;
+    font-size: 16px;
+    height: 36px;
+
+    font-size: 16px;
+    width: 156px;
+    /* margin-bottom: 0; */
+    display: flex;
+    /* align-items: center; */
+    margin: 0 8px;
+    color: black;
+    justify-content: space-between;
+    width: 226px;
+}
+
+.button:hover {
+    background-color: #F93711;
+    color: white;
+}
+
+.dashboard-menu {
+    font-size: 16px;
+    width: 156px;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    margin: 0 8px;
+    color: black;
+}
+
+.logo {
+    height: 44px;
+    width: auto;
+}
+
+@media only screen and (max-width: 600px) {
+    .dashboardMenu {
+        display: none;
+    }
+
+    .menu-bar {
+        background-color: transparent;
+        border: none;
+        margin: 12px 0;
+        /* display: none; */
+    }
+}

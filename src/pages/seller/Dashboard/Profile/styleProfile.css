@@ -1,0 +1,78 @@
+.button-save {
+    width: 568px;
+    background: #F93711;
+    border-radius: 16px;
+    border: none;
+    height: 48px;
+    margin-bottom: 24px;
+}
+
+.form-profile {
+    width: 568px;
+}
+
+.content {
+    margin-left: 50px;
+}
+
+.profile-input {
+    background-color: transparent;
+    border: none;
+
+    /* width: 144px;
+    height: 144px;
+    background-color: #FAD56C;
+    border-radius: 80px;
+    border-color: #FAD56C; */
+    margin-bottom: 29px;
+}
+
+.profile-input:hover {
+    background-color: transparent;
+    border: none;
+    
+    /* width: 144px;
+    height: 144px;
+    background-color: #FAD56C;
+    border-radius: 80px;
+    border-color: #FAD56C; */
+}
+
+@media only screen and (max-width: 600px) {
+    .form-profile {
+        width: 328px;
+    }
+
+    .button-save {
+        width: 328px;
+        background: #F93711;
+        border-radius: 16px;
+        border: none;
+        height: 48px;
+        margin-bottom: 24px;
+    }
+
+    .content {
+        margin: 0;
+    }
+
+    .photo-profile {
+        width: 96px;
+        height: auto;
+    }
+
+    .form-profile {
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .previousButton {
+        display: none;
+    }
+    
+    .previous {
+        display: none;
+    }
+}

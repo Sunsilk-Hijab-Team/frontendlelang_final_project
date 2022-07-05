@@ -1,0 +1,20 @@
+.empty-favorite {
+    display: flex;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 600px) {
+    .previousButton {
+        display: none;
+    }
+
+    .empty-favorite {
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+    }
+
+    .offcanvas {
+        width: 266px;
+    }
+}

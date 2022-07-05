@@ -2,10 +2,83 @@
     font-family: 'IBM Plex Sans', Arial, Helvetica, sans-serif;
 }
 
+.form {
+    margin-left: 200px;
+}
+
+/* nyambung ke notif */
 /* .previous {
     margin: 40px 0;
 } */
 
-.previousCont {
-    margin-top: 40px;
+.image_1 {
+    width: 231px;
+    height: auto;
+}
+
+.image_2 {
+    margin-right: 28.83px;
+    /* margin-top: 6px; */
+}
+
+/* p {
+    font-size: 14px;
+    margin: 6px 0;
+    display: flex;
+    justify-content: center;
+    color: #8A8A8A;
+} */
+
+.button-add-product {
+    display: flex;
+    flex-direction: row;
+}
+
+.styleButtonPreview {
+    width: 100%;
+    border-radius: 16px;
+    height: 48px;
+    margin-top: 4%;
+    background: white;
+    border: 1px solid #F93711;
+    border-color: #F93711;
+    margin-right: 10px;
+    color: #F93711;
+}
+
+.styleButton {
+    width: 100%;
+    border-radius: 16px;
+    height: 48px;
+    margin-top: 4%;
+    background: #F93711;
+    border: none;
+}
+
+.add-product-label {
+    font-size: 12px;
+}
+
+.add-photo-label {
+    margin: 6px 0;
+    font-size: 14px;
+    margin: 6px 0;
+    display: flex;
+    justify-content: center;
+    color: #8A8A8A;
+}
+.rounded {
+    border-radius: 16px;
+    height: 48px;
+}
+
+.photo {
+    width: 10%;
+}
+
+@media only screen and (max-width: 600px) {
+    .form {
+        margin: 24px 0 0 0;
+    }
+
 }

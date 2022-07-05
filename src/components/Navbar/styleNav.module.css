@@ -2,10 +2,6 @@
     background-color: #FFFFFF;
 }
 
-.brand{
-    width: 40.3%;
-}
-
 .search{
     display: flex;
     width: 400px;
@@ -33,4 +29,3 @@
 .logo{
     width: 100%;
 }
-

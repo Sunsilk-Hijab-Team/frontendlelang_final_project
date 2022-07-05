@@ -1,49 +1,34 @@
-import styleNav from './styleNav.module.css';
-import Logo from './Logo.svg';
-import { Row, Navbar, Nav, Form, Container, Button } from 'react-bootstrap';
-import imageLogin from './fi_log-in.svg';
-import iconSearch from './search.svg';
+import React from 'react';
+import {
+    Nav,
+    NavLink,
+    Bars,
+    NavMenu,
+    NavBtn,
+    StyleBars
+} from './NavbarElemens';
 
-
-function NavScroll() {
+const Navbar = (props) => {
     return (
-        <Navbar expand="lg" className={styleNav.styleNav}>
-            <Container md>
-                <Row className={styleNav.brand}>
-                    <Nav>
-                        <Nav.Link href="#">
-                            <img src={Logo} alt="halo" />
-                        </Nav.Link>
-                    </Nav>
-                </Row>
-                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                <Navbar.Collapse id="responsive-navbar-nav" className='justify-content-between'>
-                    <Row>
-                        <Nav>
-                            <Form className={styleNav.search}>
-                                <Form.Control
-                                    type="search here"
-                                    placeholder="  Search here"
-                                    aria-label="Search"
-                                    className={styleNav.rounded}
-                                />
-                                <img src={iconSearch} alt="search" className={styleNav.styleIcon} />
-                            </Form>
-                        </Nav>
-                    </Row>
+        <>
+            <Nav>
+                <NavLink to='/'>
+                    {props.navLeft}
+                </NavLink>
 
-                    <Row>
-                        <a href="/login">
-                            <Button className={styleNav.styleLogin}>
-                                <img src={imageLogin} alt="" /> Log in
-                            </Button>
-                        </a>
-                    </Row>
-                </Navbar.Collapse>
+                <StyleBars>
+                <Bars />
+                </StyleBars>
+                <NavMenu>
+                {props.navMiddle}
+                </NavMenu>
 
-            </Container>
-        </Navbar>
+                <NavBtn>
+                    {props.navRight}
+                </NavBtn>
+            </Nav>
+        </>
     );
-}
+};
 
-export default NavScroll;
+export default Navbar;

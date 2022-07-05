@@ -32,14 +32,18 @@
 
 h3 {
     font-size: 16px;
-    margin: 0px 8px;
+    margin-left: 8px;
     /* width: 32px; */
     height: 20px;
 }
 
-.profile {
-    width: 38px;
-    height: 38px;
+
+.btnProfile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 8px;
 }
 
 .iconDropdown {
@@ -48,13 +52,113 @@ h3 {
 }
 
 .iconNotif {
+    display: flex;
     width: 24px;
     height: 24px;
     margin-right: 10px;
 }
 
 .iconMessage {
+    display: flex;
     width: 24px;
     height: 24px;
     margin-right: 18px;
+}
+
+.containerNavSell {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+    padding: 7px 16px;
+}
+
+/* .bars {
+    display: none;
+    color: #FFFFFF;
+
+    @media screen and (max-width: 768px) {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(-100, 75%);
+        font-size: 1.8rem;
+        cursor: pointer;
+    }
+} */
+
+/* .navMenu {
+    @media screen and (max-width: 768px) {
+     display: none;   
+    }
+}
+
+.navBtn {
+    display: flex;
+    align-items: center;
+    
+    
+    @media screen and (max-width: 768px) {
+     display: none;   
+    }
+} */
+
+@media only screen and (max-width: 600px) {
+    .menu {
+        display: none;
+    }
+
+    .btnProfile {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .containerNavSell {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 7px 16px;
+        align-self: center;
+    }
+
+    .NavBrand {
+        height: 35px;
+        width: auto;
+        display: none;
+    }
+
+    .search {
+        display: flex;
+        justify-content: start;
+        /* flex-wrap: wrap; */
+        width: 200px;
+    }
+
+    .iconNotif {
+        display: none;
+    }
+    
+    .iconMessage {
+        display: none;
+    }
+
+    .menu {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 780px) {
+    .search {
+        display: flex;
+        justify-content: end;
+        /* flex-wrap: wrap; */
+        width: 200px;
+    }
+
+    .menu {
+        display: flex;
+        flex-direction: row;
+    }
 }

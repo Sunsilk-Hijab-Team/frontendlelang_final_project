@@ -3,9 +3,10 @@ import Carousel from '../../../components/Carousel/Carousel';
 import CardProduct from '../../../components/Cards/CardProduct';
 import ButtonFilter from '../../../components/buttonFilter/ButtonFilter';
 import React from 'react';
-import { Form } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 import styleNavSeller from '../../../components/NavbarSeller/styleNavSeller.module.css';
 import iconSearch from '../../../components/NavbarSeller/search.svg';
+import SellButton from '../../../components/SellButton/SellButton';
 
 function SellerHome() {
     return (
@@ -24,6 +25,7 @@ function SellerHome() {
             <Carousel />
             <ButtonFilter />
             <CardProduct />
+            <SellButton />
         </div>
     )
 }

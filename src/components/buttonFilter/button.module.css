@@ -25,7 +25,7 @@
   fill: black;
 }
 
-p {
+.filterLabel {
   /* font-size: 1.2rem; */
   font-size: 14px;
   margin-bottom: 0;
@@ -36,6 +36,12 @@ p {
 .button:hover {
   background-color: #F93711;
 }
+
+.button:visited {
+  background-color: #F93711;
+}
+
+
 
 /* img {
   color: #3C3C3C;
