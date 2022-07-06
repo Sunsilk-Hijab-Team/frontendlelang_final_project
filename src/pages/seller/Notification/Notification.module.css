@@ -67,4 +67,22 @@
         width: 328px;
         /* justify-content: center; */
     }
+
+    .bid {
+        margin: 0 8px;
+    }
+
+    .status {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 8px;
+    }
+
+    .buyerName {
+        margin: 8px 0;
+    }
+
+    .date {
+        margin: 0;
+    }
 }

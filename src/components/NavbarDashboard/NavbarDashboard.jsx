@@ -1,4 +1,4 @@
-import styleNavSeller from './styleNavSeller.module.css';
+import styleNavSeller from './styleNavDashboard.module.css';
 import Logo from './Logo.svg';
 import { Row, Navbar, Nav, Container } from 'react-bootstrap';
 import Notificiation from './fi_bell.svg';
@@ -14,7 +14,9 @@ function NavScroll(props) {
             className='sticky-top'
             bg="light" expand="lg">
             <Container lg className={styleNavSeller.containerNavSell}>
-                {/* <DashboardMenu /> */}
+                <div className={styleNavSeller.dashboardMenu}>
+                    <DashboardMenu />
+                </div>
                 <Row>
                     <Navbar.Brand className={styleNavSeller.NavBrand} href="/seller/home">
                         <img className='d-flex logo' src={Logo} alt="halo" />
@@ -24,7 +26,7 @@ function NavScroll(props) {
                 {/* <Navbar.Toggle className='m-0' aria-controls="basic-navbar-nav" /> */}
 
                 {/* <Row> */}
-                <div>
+                <div className='d-flex justify-content-center'>
                     {props.title}
                 </div>
                 {/* </Row> */}

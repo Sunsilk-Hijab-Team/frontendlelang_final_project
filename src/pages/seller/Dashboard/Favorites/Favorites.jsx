@@ -1,6 +1,6 @@
 import React from 'react';
 import './styleFavorites.css';
-import Navbar from '../../../../components/NavbarSeller/NavbarSeller'
+import Navbar from '../../../../components/NavbarDashboard/NavbarDashboard'
 import { Container, Col, Row } from 'react-bootstrap';
 import DashboardMenu from '../../../../components/DashboardMenu/DashboardMenu';
 import PreviousButton from '../../../../components/PreviousButton/PreviousButton';
@@ -15,7 +15,7 @@ function Favorites() {
 
             <Container>
                 <Row>
-                    <Col sm={3}>
+                    <Col className='dashboardMenu' sm={3}>
                         <DashboardMenu />
                     </Col>
                     <Col sm={7} className='empty-favorite'>

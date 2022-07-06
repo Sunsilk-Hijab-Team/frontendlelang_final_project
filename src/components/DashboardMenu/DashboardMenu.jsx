@@ -19,11 +19,13 @@ function DashboardMenu() {
 
             <Offcanvas show={show} onHide={handleClose} responsive="md">
                 <Offcanvas.Header closeButton>
-                    <Offcanvas.Title href="/seller/home">
-                        <img className='d-flex logo' src="/assets/Logo.svg" alt="halo" />
+                    <Offcanvas.Title>
+                        <a href="/seller/home">
+                            <img className='d-flex logo' src="/assets/Logo.svg" alt="halo" />
+                        </a>
                     </Offcanvas.Title>
                 </Offcanvas.Header>
-                <Offcanvas.Body>
+                <Offcanvas.Body className='offcanfasBody'>
                     <Button href="/seller/dashboard/profile" className='button p-2 mb-4'>
                         <img className='d-flex' src="/assets/fi_user.svg" alt="" />
                         Profile

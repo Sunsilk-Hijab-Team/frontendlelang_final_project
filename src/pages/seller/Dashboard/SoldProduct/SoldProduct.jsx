@@ -1,10 +1,10 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import './styleSoldProduct.css';
-import Navbar from '../../../../components/NavbarSeller/NavbarSeller';
+import Navbar from '../../../../components/NavbarDashboard/NavbarDashboard';
 import DashboardMenu from '../../../../components/DashboardMenu/DashboardMenu';
 import PreviousButton from '../../../../components/PreviousButton/PreviousButton';
-import CardProduct from '../../../../components/Cards/CardProduct';
+import CardProduct from '../../../../components/CardsDashboard/CardDashboard';
 
 function SoldProduct() {
     return (
@@ -16,7 +16,7 @@ function SoldProduct() {
 
             <Container>
                 <Row>
-                    <Col sm={3}>
+                    <Col className='dashboardMenu' sm={3}>
                         <DashboardMenu />
                     </Col>
                     <Col sm={9}>

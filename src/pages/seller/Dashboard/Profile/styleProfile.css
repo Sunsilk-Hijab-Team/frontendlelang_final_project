@@ -53,7 +53,7 @@
     }
 
     .content {
-        margin: 0;
+        margin: 20px 0;
     }
 
     .photo-profile {
@@ -68,11 +68,9 @@
         justify-content: center;
     }
 
-    .previousButton {
-        display: none;
-    }
-    
+/*     
     .previous {
         display: none;
-    }
+    } */
+
 }

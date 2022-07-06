@@ -1,6 +1,6 @@
 import React from 'react';
 import style from './styleProductList.module.css';
-import Navbar from '../../../../components/NavbarSeller/NavbarSeller'
+import Navbar from '../../../../components/NavbarDashboard/NavbarDashboard'
 import { Col, Container, Row } from 'react-bootstrap';
 import CardProduct from '../../../../components/CardsDashboard/CardDashboard'
 import DashboardMenu from '../../../../components/DashboardMenu/DashboardMenu';
@@ -16,7 +16,7 @@ function ProductList() {
 
             <Container >
                 <Row className={style.container}>
-                    <Col sm={3}>
+                    <Col className='dashboardMenu' sm={3}>
                         <DashboardMenu />
                     </Col>
                     <Col sm={9}>

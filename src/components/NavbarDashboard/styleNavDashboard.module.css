@@ -72,6 +72,10 @@ h3 {
     padding: 7px 16px;
 }
 
+.dashboardMenu {
+    display: none;
+}
+
 /* .bars {
     display: none;
     color: #FFFFFF;
@@ -103,17 +107,52 @@ h3 {
     }
 } */
 
+/* @media only screen and (max-width: 765px) {
+    
+
+    .iconNotif {
+        display: none;
+    }
+    
+    .iconMessage {
+        display: none;
+    }
+
+    .menu {
+        display: flex;
+        flex-direction: column;
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 780px) {
+    
+} */
+
+/* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
     .menu {
         display: none;
     }
 
-    /* .btnProfile {
+    .btnProfile {
         display: none;
-    } */
+    }
+
+    .search {
+        display: flex;
+        justify-content: start;
+        /* flex-wrap: wrap; */
+        width: 180px;
+    }
+
+    .dashboardMenu {
+        display: block;
+    }
 }
 
-@media only screen and (max-width: 765px) {
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 768px) {
     .containerNavSell {
         display: flex;
         flex-direction: row;
@@ -130,49 +169,37 @@ h3 {
 
     .search {
         display: flex;
-        justify-content: start;
+        justify-content: center;
         /* flex-wrap: wrap; */
-        width: 200px;
-    }
-
-    .iconNotif {
-        display: none;
-    }
-    
-    .iconMessage {
-        display: none;
-    }
-
-    .menu {
-        display: flex;
-        flex-direction: column;
-    }
-}
-
-@media only screen and (max-width: 780px) {
-    .search {
-        display: flex;
-        justify-content: end;
-        /* flex-wrap: wrap; */
-        width: 200px;
+        /* width: 80px; */
     }
 
     .menu {
         display: flex;
         flex-direction: row;
+        display: none;
+    }
+
+    .dashboardMenu {
+        display: block;
+    }
+
+    .btnProfile {
+        display: none;
     }
 }
 
-@media only screen and (max-width: 990px) {
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
     .search {
         display: flex;
         justify-content: end;
         /* flex-wrap: wrap; */
-        /* width: 200px; */
+        width: 180px;
     }
 
-    .menu {
+    /* .menu {
         display: flex;
         flex-direction: row;
-    }
+    } */
 }
