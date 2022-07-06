@@ -6,9 +6,11 @@ import styleButton from './styleButton.module.css';
 function ButtonLogin() {
     return (
         <div>
+            <a href="/login">
             <Button className={styleButton.styleLogin}>
                 <img src={imageLogin} alt="" /> Log in
             </Button>
+            </a>
         </div>
     )
 }
