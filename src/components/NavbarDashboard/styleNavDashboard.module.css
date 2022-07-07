@@ -26,6 +26,7 @@
 }
 
 .styleIcon {
+    display: flex;
     position: relative;
     margin-left: -25px;
 }
@@ -143,11 +144,18 @@ h3 {
         display: flex;
         justify-content: start;
         /* flex-wrap: wrap; */
-        width: 180px;
+        width: 150px;
     }
 
     .dashboardMenu {
         display: block;
+    }
+
+    .styleIcon {
+        display: flex;
+        position: relative;
+        margin-left: -25px;
+        margin-right: 10px;
     }
 }
 
@@ -190,7 +198,7 @@ h3 {
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
+@media only screen and (max-width: 992px) {
     .search {
         display: flex;
         justify-content: end;

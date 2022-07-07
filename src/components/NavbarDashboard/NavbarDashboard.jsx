@@ -1,10 +1,10 @@
 import styleNavSeller from './styleNavDashboard.module.css';
 import Logo from './Logo.svg';
 import { Row, Navbar, Nav, Container } from 'react-bootstrap';
-import Notificiation from './fi_bell.svg';
 import Message from './fi_message-square.svg';
 import Profile from './Group_15.svg';
 import DashboardMenu from '../DashboardMenu/DashboardMenu';
+import NotifModal from '../NotifModal/NotifModal';
 
 function NavScroll(props) {
 
@@ -14,6 +14,7 @@ function NavScroll(props) {
             className='sticky-top'
             bg="light" expand="lg">
             <Container lg className={styleNavSeller.containerNavSell}>
+                {/* COMPONENT HAMBURGER */}
                 <div className={styleNavSeller.dashboardMenu}>
                     <DashboardMenu />
                 </div>
@@ -23,34 +24,29 @@ function NavScroll(props) {
                     </Navbar.Brand>
                 </Row>
 
-                {/* <Navbar.Toggle className='m-0' aria-controls="basic-navbar-nav" /> */}
-
-                {/* <Row> */}
                 <div className='d-flex justify-content-center'>
                     {props.title}
                 </div>
-                {/* </Row> */}
 
-                {/* <Row> */}
+                {/* PROFILE */}
                 <div>
                     <Nav className='menu d-flex flex-row align-items-center'>
                         <Nav.Link className='p-0' href="#message">
                             <img className={styleNavSeller.iconMessage} src={Message} alt="" />
                         </Nav.Link>
 
-                        <Nav.Link className='p-0' href="/seller/Notification">
-                            <img className={styleNavSeller.iconNotif} src={Notificiation} alt="" />
-                        </Nav.Link>
+                        <NotifModal />
 
-                        {/* <img className={styleNavSeller.iconMessage} src={Message} alt="" />
-                        <img className={styleNavSeller.iconNotif} src={Notificiation} alt="" /> */}
+                        {/* <Nav.Link className='p-0' href="/seller/Notification">
+                            <img className={styleNavSeller.iconNotif} src={Notificiation} alt="" />
+                        </Nav.Link> */}
+
                         <Nav.Link href="/seller/dashboard/profile" className={styleNavSeller.btnProfile}>
                             <img className='d-flex' src={Profile} alt="" />
                             Unis Badri
                         </Nav.Link>
                     </Nav>
                 </div>
-                {/* </Row> */}
             </Container>
         </Navbar>
     );
