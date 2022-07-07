@@ -1,18 +1,22 @@
 import React from 'react';
 import Style from './styleBefore.module.css'
-import Navbar from '../../../../components/Navbar/Navbar';
+import Navbar from '../../../../components/NavbarDashboardBuyer/NavbarDashboard';
 import { Carousel, Container, Col, Row } from 'react-bootstrap';
 import Previous from './fi_arrow-left.svg';
 import Image from './jam_1.png';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import SellerName from '../../../../components/SellerName/SellerName';
+import Login from '../../../../components/ButtonLogin/ButtonLogin'
 
 function before() {
     const notify = () => toast.warn("anda harus login terlebih dahulu", { position: "top-center" });
     return (
         <div>
-            <Navbar navMiddle="Product" />
+            <Navbar 
+            middle="Product"
+            right={<Login/>}
+            />
             <Container>
                 <img className={Style.previous} src={Previous} alt="halo" />
             </Container>

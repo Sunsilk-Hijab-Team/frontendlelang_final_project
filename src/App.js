@@ -32,9 +32,9 @@ function App() {
           
           {/* buyer */}
           <Route path="/buyer/home" element={<BuyerHome/>}/>
-          <Route path="/buyer/product" element={<BuyerProduct/>}/>
-          <Route path="/buyer/login" element={<BuyerLogin/>}/>
-          <Route path="/buyer/logged" element={<BuyerSent/>}/>
+          <Route path="/buyer/logged/product" element={<BuyerProduct/>}/>
+          <Route path="/buyer/product" element={<BuyerLogin/>}/>
+          <Route path="/buyer/logged/sent" element={<BuyerSent/>}/>
 
         </Routes>
       </BrowserRouter>

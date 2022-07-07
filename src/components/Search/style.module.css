@@ -12,5 +12,13 @@
 
 .styleIcon{
     position: relative;
-    margin-left: -25px;
+    transform: translate(-200%,0);
+    display: flex;
+}
+
+@media screen and (max-width:756px) {
+    .search{
+        width: 300px;
+    }
+    
 }

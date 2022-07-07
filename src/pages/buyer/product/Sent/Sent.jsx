@@ -1,6 +1,6 @@
 import React from 'react';
 import Style from './styleSend.module.css'
-import Navbar from '../../../../components/NavbarSeller/NavbarSeller'
+import Navbar from '../../../../components/NavbarDashboardBuyer/NavbarDashboard'
 import { Carousel, Container, Col, Row} from 'react-bootstrap';
 import Previous from './fi_arrow-left.svg';
 import Image from './jam_1.png';
@@ -8,12 +8,11 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import SellerName from '../../../../components/SellerName/SellerName'
 
-
 function sent() {
     const notify = () => toast.success("Harga tawar anda telah terkirim, Tunggu balasan dari penjual",{position:"top-center"});
     return (
         <div onClick={notify} >
-            <Navbar title="Product"/>
+            <Navbar middle="Product"/>
             <Container>
                 <img className={Style.previous} src={Previous} alt="halo" />
             </Container>

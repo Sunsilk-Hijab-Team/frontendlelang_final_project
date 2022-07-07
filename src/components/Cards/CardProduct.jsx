@@ -5,7 +5,7 @@ import Gambar from './behnam-norouzi-oLgurfJCrP4-unsplash.jpg'
 function CardComponent() {
     return (
         <Container className={styleCard.container} md>
-            <Row lg={6} md={3} sm={2}>
+            <Row lg={6} md={4} sm={3} xs={2}>
                 <Col className={styleCard.col}>
                     <div className={styleCard.cardBody}>
                         <Card className={styleCard.cardStyle}>
