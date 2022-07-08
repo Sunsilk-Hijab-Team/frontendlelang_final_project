@@ -8,13 +8,13 @@ import PopUp from '../../popup/PopUp'
 
 function SellerHome() {
     return (
-        <div>
+        <div className={Style.container}>
             <Container>
                 <img className={Style.previous} src={Previous} alt="halo" />
             </Container>
             <Container>
-                <Row>
-                    <Col>
+                <Row className={Style.styleRow}>
+                    <Col className={Style.col1}>
                         <h4 className={Style.h4}>Aksesoris</h4>
                         <h1 className={Style.h1}>Jam Tangan Casio</h1>
                         <div className='d-flex flex-row align-items-center'>
@@ -37,7 +37,7 @@ function SellerHome() {
                         <Carousel className={Style.carousel}>
                             <Carousel.Item className={Style.carousel}>
                                 <img
-                                    className={Style.carousel}
+                                    className="carouselImage d-block w-100"
                                     src={Image}
                                     alt="First slide"
                                 />

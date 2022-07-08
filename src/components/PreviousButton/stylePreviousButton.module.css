@@ -1,0 +1,19 @@
+.previous {
+    margin: 40px 0;
+    background-color: transparent;
+    border: none;
+}
+
+.previous:hover {
+    margin: 40px 0;
+    background-color: transparent;
+    border: none;
+}
+
+@media only screen and (max-width: 600px) {
+    .previous {
+        margin: 20px 0;
+        background-color: transparent;
+        border: none;
+    }
+}

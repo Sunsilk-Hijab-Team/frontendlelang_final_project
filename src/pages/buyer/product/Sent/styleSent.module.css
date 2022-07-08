@@ -40,15 +40,26 @@
 .roundedButton {
     border-radius: 16px;
     border: none;
-    width: 90%;
+    width: 100%;
     height: 48px;
-    margin-top: 40px;
-    background: #8A8A8A;
-    color: white;
+    /* margin-top: 3%; */
+    width: 443px;
+    margin-top: 28px;
+    background:#8A8A8A;
+    color:white;
+    
+}
+
+.notif {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
 }
 
 .notifStyle {
-    background: #F9CC00;
+    background: #73CA5C;
     width: 30%;
     height: 7%;
     display: flex;
@@ -59,7 +70,7 @@
     border-radius: 12px;
 }
 
-.toast {
+.toast{
     margin-top: 70px;
     width: 40%;
 }
@@ -137,11 +148,12 @@
 
     .roundedButton {
         width: 100%;
-        margin-top: 50px;
+        margin-top: 90px;
         margin-bottom: 20px;
     }
 
     .carousel-indikators{
         background:#F93711;
     }
+    
 }

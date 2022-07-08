@@ -48,3 +48,60 @@
     margin-top: 28px;
     margin-left: 8px;
 }
+
+.styleRow {
+    display: flex;
+}
+
+@media screen and (max-width:1024px) {
+    .styleRow {
+        flex-direction: column-reverse;
+    }
+
+    .roundedButton {
+        width: 70%;
+        margin-top: 10px;
+    }
+
+    .p {
+        width: 70%;
+        margin-top: 5px;
+        text-align: justify;
+    }
+
+    .carousel{
+        width: 500px;
+        height: 400px;
+    }
+
+    .col1{
+        margin-top: -70px;
+    }
+
+}
+
+
+@media screen and (max-width:756px) {
+    
+    .carousel {
+        width: 100%;
+        margin-top: 20px;
+        height: 300px;
+    }
+
+    .p {
+        width:95%;
+        text-align: justify;
+    }
+
+    .roundedButton {
+        width: 100%;
+        margin-top: 90px;
+        margin-bottom: 20px;
+    }
+
+    .carousel-indikators{
+        background:#F93711;
+    }
+    
+}

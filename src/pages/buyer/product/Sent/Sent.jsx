@@ -1,5 +1,5 @@
 import React from 'react';
-import Style from './styleSend.module.css'
+import Style from './styleSent.module.css'
 import Navbar from '../../../../components/NavbarDashboardBuyer/NavbarDashboard'
 import { Carousel, Container, Col, Row} from 'react-bootstrap';
 import Previous from './fi_arrow-left.svg';
@@ -17,8 +17,8 @@ function sent() {
                 <img className={Style.previous} src={Previous} alt="halo" />
             </Container>
             <Container>
-                <Row>
-                    <Col>
+                <Row className={Style.styleRow}>
+                    <Col className={Style.col1}>
                         <h4 className={Style.h4}>Aksesoris</h4>
                         <h1 className={Style.h1}>Jam Tangan Casio</h1>
                         <div className='d-flex flex-row align-items-center'>
@@ -43,7 +43,7 @@ function sent() {
                         <Carousel className={Style.carousel}>
                             <Carousel.Item className={Style.carousel}>
                                 <img
-                                    className={Style.carousel}
+                                    className="carouselImage d-block w-100"
                                     src={Image}
                                     alt="First slide"
                                 />
@@ -59,7 +59,6 @@ function sent() {
                         </Carousel>
                     </Col>
                 </Row>
-                <SellerName/>
             </Container>
             <ToastContainer className={Style.toast}/>
         </div>

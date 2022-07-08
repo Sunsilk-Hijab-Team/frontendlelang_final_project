@@ -12,17 +12,17 @@ import Login from '../../../../components/ButtonLogin/ButtonLogin'
 function before() {
     const notify = () => toast.warn("anda harus login terlebih dahulu", { position: "top-center" });
     return (
-        <div>
-            <Navbar 
-            middle="Product"
-            right={<Login/>}
+        <div className={Style.container}>
+            <Navbar
+                middle="Product"
+                right={<Login />}
             />
             <Container>
                 <img className={Style.previous} src={Previous} alt="halo" />
             </Container>
             <Container>
-                <Row>
-                    <Col>
+                <Row className={Style.styleRow}>
+                    <Col className={Style.col1}>
                         <h4 className={Style.h4}>Aksesoris</h4>
                         <h1 className={Style.h1}>Jam Tangan Casio</h1>
                         <div className='d-flex flex-row align-items-center'>
@@ -43,20 +43,19 @@ function before() {
                         >
                             Saya Tertarik dan Ingin Nego
                         </button>
-
                     </Col>
 
                     <Col>
                         <Carousel className={Style.carousel}>
                             <Carousel.Item className={Style.carousel}>
                                 <img
-                                    className={Style.carousel}
+                                    className="carouselImage d-block w-100"
                                     src={Image}
                                     alt="First slide"
                                 />
-                            </Carousel.Item>
+                            </Carousel.Item >
 
-                            <Carousel.Item>
+                            <Carousel.Item className={Style.carousel}>
                                 <img
                                     className="carouselImage d-block w-100"
                                     src={Image}
@@ -66,7 +65,6 @@ function before() {
                         </Carousel>
                     </Col>
                 </Row>
-                <SellerName />
             </Container>
             <ToastContainer className={Style.toast} />
         </div>
