@@ -1,4 +1,4 @@
-import {BrowserRouter , Routes, Route} from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
@@ -41,12 +41,13 @@ function App() {
           <Route path="/seller/dashboard/sold-product" element={<SoldProduct />} />
           <Route path="/seller/Notification" element={<Notification />} />
           {/* <Route path="/card" element={<Card />} /> */}
-          
+
+          {/* Unauthorized */}
+          <Route path="/buyer/home" element={<BuyerHome />} />
           {/* buyer */}
-          <Route path="/buyer/home" element={<BuyerHome/>}/>
-          <Route path="/buyer/logged/product" element={<BuyerProduct/>}/>
-          <Route path="/buyer/product" element={<BuyerLogin/>}/>
-          <Route path="/buyer/logged/sent" element={<BuyerSent/>}/>
+          <Route path="/buyer/logged/product" element={<BuyerProduct />} />
+          <Route path="/buyer/product" element={<BuyerLogin />} />
+          <Route path="/buyer/logged/sent" element={<BuyerSent />} />
 
         </Routes>
       </BrowserRouter>

@@ -47,7 +47,7 @@ function Register() {
             <Form.Control className={styleRegister.rounded} placeholder="min 6 characters" type={passwordType} />
           </Form.Group>
 
-          <Button className={styleRegister.styleButton} variant="primary" type="submit">
+          <Button className={styleRegister.styleButton} type="submit">
             Register
           </Button>
         </Form>
