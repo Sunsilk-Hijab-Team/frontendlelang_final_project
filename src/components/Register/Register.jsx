@@ -24,7 +24,7 @@ function Register() {
     <div className={styleRegister.container}>
       <img src={Image} alt="img" className={styleRegister.img} />
       <div className={styleRegister.formContainer}>
-        <h1 className={styleRegister.header}><strong>Register To Second Hand</strong></h1>
+        <h1 className={styleRegister.header}>Register To Second Hand</h1>
         <Form className={styleRegister.formStyle}>
 
           <Form.Group className="mb-3" controlId="formBasicEmail">

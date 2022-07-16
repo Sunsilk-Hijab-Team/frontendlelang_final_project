@@ -1,7 +1,6 @@
 import React from 'react';
 import styleLogin from './login.module.css';
 import { Row, Col, Button, Container, Form } from 'react-bootstrap';
-import Background from './Subtract.svg';
 import { useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
@@ -27,8 +26,8 @@ function Login() {
 
             <Col id="col2" className='styleForm d-flex align-items-center'>
                 <Container className="d-flex row justify-content-center text-center">
-                    <h1 className='mb-5'><strong>Welcome</strong></h1>
-                    <h3><strong>Login to</strong> <strong>S</strong>econd <strong>H</strong>and</h3>
+                    <div className={styleLogin.loginh1}>Welcome !</div>
+                    <div className={styleLogin.loginh2}>Login to Second Hand</div>
 
                     <div className="d-flex row justify-content-center align-items-spacebetween">
 
