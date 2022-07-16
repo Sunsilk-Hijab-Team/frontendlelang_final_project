@@ -120,4 +120,8 @@
         margin: 0;
         justify-content: center;
     }
+    .cardBody {
+        max-width: 200px;
+        min-width: 100px;
+    }
 }

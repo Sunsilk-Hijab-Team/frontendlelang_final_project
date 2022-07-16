@@ -5,12 +5,14 @@ import { useState, useEffect } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 const { REACT_APP_API_URL } = process.env
 
 
 function Login() {
 
     const url = `${REACT_APP_API_URL}/api/v1/auth/login`;
+    const nav = useNavigate();
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -25,18 +27,25 @@ function Login() {
     const handleLogin = async (e) => {
         e.preventDefault();
 
+        try {
+
             axios.post(url, { email, password })
             .then(res => {
-                // console.log(res.status, "dari then login");
-                // console.log(res.data, "dari then");
+
                 localStorage.setItem('token', res.data.token);
-
-                // window.location.href = '/seller/home';
+                nav('/');
 
             })
-            .catch(err => {
-                console.log(err.message, "dari error");
+            .catch(error => {
+                toast.error(error.response.data.message, {
+                    theme: 'colored',
+                    position: toast.POSITION.TOP_RIGHT
+                });
             })
+
+        } catch (error) {
+
+        }
     }
 
 

@@ -21,7 +21,7 @@ import BuyerProduct from './pages/buyer/product/Product';
 import BuyerLogin from './pages/buyer/product/BeforeLogin/Before';
 import BuyerSent from './pages/buyer/product/Sent/Sent';
 
-  import { ToastContainer } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 
 
 function App() {

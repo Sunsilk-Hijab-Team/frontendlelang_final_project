@@ -3,6 +3,7 @@ import Image from './Subtract.svg';
 import styleRegister from './register.module.css';
 import { Form, Button } from 'react-bootstrap';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import axios from 'axios';
@@ -23,6 +24,7 @@ function Register() {
     }
   };
 
+  const nav = useNavigate();
   const url = `${REACT_APP_API_URL}/api/v1/auth/register`;
 
   const [full_name, setFullName] = useState('');
@@ -31,13 +33,14 @@ function Register() {
 
   const handleRegister = async (e) => {
     e.preventDefault();
+
       try{
 
         await axios.post(url, { full_name, email, password })
         .then( res => {
           // console.log(res.data);
           localStorage.setItem('token', res.data.token);
-          // console.log(res.message, "dari then register");
+          nav('/');
         })
         .catch(error => {
           // console.log(error.response.data.message);
@@ -48,6 +51,7 @@ function Register() {
         })
 
       } catch (error) {
+           return error.message;
       }
 
   }
