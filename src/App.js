@@ -21,10 +21,13 @@ import BuyerProduct from './pages/buyer/product/Product';
 import BuyerLogin from './pages/buyer/product/BeforeLogin/Before';
 import BuyerSent from './pages/buyer/product/Sent/Sent';
 
+  import { ToastContainer } from 'react-toastify';
+
 
 function App() {
   return (
     <div className="App">
+      <ToastContainer />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />

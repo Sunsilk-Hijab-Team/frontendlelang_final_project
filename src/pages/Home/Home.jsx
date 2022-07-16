@@ -7,16 +7,18 @@ import './styleHome.css';
 import ButtonLogin from '../../components/ButtonLogin/ButtonLogin';
 import Search from '../../components/Search/Search';
 
+
 function Home() {
+
     return (
         <div>
-            <NavigationBar 
+            <NavigationBar
             middle={<Search/>}
-            right={<ButtonLogin/>} 
+            right={<ButtonLogin/>}
             />
             <Carousel />
             <ButtonFilter />
-            <CardComponent 
+            <CardComponent
             />
         </div>
     )
