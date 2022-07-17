@@ -1,6 +1,6 @@
 import React from 'react';
 import style from './styleProductList.module.css';
-import Navbar from '../../../../components/NavbarDashboard/NavbarDashboard'
+import Navbar from '../../../../components/NavbarAfterLogin/NavbarDashboard'
 import { Col, Container, Row } from 'react-bootstrap';
 import CardProduct from '../../../../components/CardsDashboard/CardDashboard'
 import DashboardMenu from '../../../../components/DashboardMenu/DashboardMenu';

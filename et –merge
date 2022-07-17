@@ -1,0 +1,127 @@
+[33mcommit d75bc5a44e47edab85d4c2ad3070d56ed86b1366[m[33m ([m[1;36mHEAD -> [m[1;32mmufid[m[33m, [m[1;31morigin/mufid[m[33m, [m[1;32mdev[m[33m, [m[1;32mcoba[m[33m)[m
+Author: FSW3-CH3-Muhammad Mufid Ridho <muhammadmufidridho77@gmail.com>
+Date:   Fri Jul 8 14:44:17 2022 +0700
+
+    fix responsif problem for product page
+
+[33mcommit 555a4de35cd466571cbcba40cd07f545f564fceb[m
+Author: FSW3-CH3-Muhammad Mufid Ridho <muhammadmufidridho77@gmail.com>
+Date:   Thu Jul 7 15:26:30 2022 +0700
+
+    fix responsive pages problem
+
+[33mcommit 19d304f7afc86269b1d6555d8d62ba5643b92dbf[m
+Author: FSW3-CH3-Muhammad Mufid Ridho <muhammadmufidridho77@gmail.com>
+Date:   Wed Jul 6 11:49:01 2022 +0700
+
+    fix card bug from component
+
+[33mcommit dbeef034ab941373755b0a603d506a1256d11bdc[m
+Author: FSW3-CH3-Muhammad Mufid Ridho <muhammadmufidridho77@gmail.com>
+Date:   Tue Jul 5 11:12:09 2022 +0700
+
+    add responsive card, navbar,button and then change some code into components note: unccomplete search icon and dropdown hamburger
+
+[33mcommit a05e6883e7b1fe270ad405a420c93e07d0de20d6[m
+Author: FSW3-CH3-Muhammad Mufid Ridho <muhammadmufidridho77@gmail.com>
+Date:   Tue Jul 5 10:35:46 2022 +0700
+
+    add reusable components
+
+[33mcommit 85566f380b59ff4fc3420bae2b9d73c6275c1c6c[m
+Author: FSW3-CH3-Muhammad Mufid Ridho <muhammadmufidridho77@gmail.com>
+Date:   Mon Jul 4 10:26:54 2022 +0700
+
+    add responsive scroll button
+
+[33mcommit 95f5c4e9abd74c963ce62b317012b0bc30ecd645[m
+Author: FSW3-CH3-Muhammad Mufid Ridho <muhammadmufidridho77@gmail.com>
+Date:   Fri Jul 1 10:51:07 2022 +0700
+
+    fix elements with props property
+
+[33mcommit 6fe05f8fe31c2422d6c1a20ca44f1df8977f7f52[m
+Author: FSW3-CH3-Muhammad Mufid Ridho <muhammadmufidridho77@gmail.com>
+Date:   Thu Jun 30 18:09:35 2022 +0700
+
+    add finish slicing all buyer pages
+
+[33mcommit 47bcf74ebb5917086b760c2f5c5842205fede651[m
+Author: FSW3-CH3-Muhammad Mufid Ridho <muhammadmufidridho77@gmail.com>
+Date:   Wed Jun 29 20:11:52 2022 +0700
+
+    add buyer pages
+
+[33mcommit 48ed4e902e9336e55ef19ad95a92bdab3841ca03[m
+Author: FSW3-CH3-Muhammad Mufid Ridho <muhammadmufidridho77@gmail.com>
+Date:   Wed Jun 29 10:58:09 2022 +0700
+
+    add buyer page
+
+[33mcommit e1f5882ea8e1c55662db0349e82c738379e3cdf0[m[33m ([m[1;31morigin/dev[m[33m)[m
+Author: farahqnf <qatrunnadafarah@gmail.com>
+Date:   Tue Jun 28 22:15:26 2022 +0700
+
+    change NavbarSeller to using props
+
+[33mcommit 0120af240721792d5381f83b52272993a2e2c744[m
+Author: farahqnf <qatrunnadafarah@gmail.com>
+Date:   Mon Jun 27 21:57:04 2022 +0700
+
+    add product pages and seller navbar component
+
+[33mcommit 40d4d9525ddd7c07f133e903adbeb49352a205ed[m
+Author: FSW3-CH3-Muhammad Mufid Ridho <muhammadmufidridho77@gmail.com>
+Date:   Mon Jun 27 16:46:06 2022 +0700
+
+    create responsive login and register pages
+
+[33mcommit f3eb0d6d49730ead0816a26afb75b486c34c3209[m
+Author: FSW3-CH3-Muhammad Mufid Ridho <muhammadmufidridho77@gmail.com>
+Date:   Mon Jun 27 14:41:49 2022 +0700
+
+    create responsive home page
+
+[33mcommit d89a1b7ad1a99e8187fb90a21263f0b3bde71cff[m
+Author: farahqnf <qatrunnadafarah@gmail.com>
+Date:   Thu Jun 23 21:36:34 2022 +0700
+
+    home page done
+
+[33mcommit 744144f381467da96f01ababf07275bd515810a6[m
+Author: FSW3-CH3-Muhammad Mufid Ridho <muhammadmufidridho77@gmail.com>
+Date:   Wed Jun 22 17:48:40 2022 +0700
+
+    tambah fitur icon hidden dan shown password dan memperbaiki homepage
+
+[33mcommit d78fad6b951cf33a5736a51bb1eae246b4def5d7[m
+Author: FSW3-CH3-Muhammad Mufid Ridho <muhammadmufidridho77@gmail.com>
+Date:   Tue Jun 21 17:55:19 2022 +0700
+
+    memperbaiki styling login dan register dan buat home page
+
+[33mcommit 25570f2a02fead86a0e2d02f01276d7f0b9db754[m
+Author: FSW3-CH3-Muhammad Mufid Ridho <muhammadmufidridho77@gmail.com>
+Date:   Mon Jun 20 11:13:33 2022 +0700
+
+    add login and register pages
+
+[33mcommit d782c636759abfe21b3f1db3b4d8d7a0773a2c6d[m
+Author: FSW3-CH3-Muhammad Mufid Ridho <muhammadmufidridho77@gmail.com>
+Date:   Sat Jun 18 10:17:29 2022 +0700
+
+    Add Boiler Plate
+
+[33mcommit 3830b30fa79bb4d6f64acd5355a2316b1cf5f54f[m
+Author: Muhammad Mufid Ridho <muhammadmufidridho77@gmail.com>
+Date:   Tue Jun 14 20:15:34 2022 +0700
+
+    Update README.md
+    
+    add
+
+[33mcommit abaea6c151b1a0218da1d2c7945aabb63cda2670[m
+Author: farahqnf <qatrunnadafarah@gmail.com>
+Date:   Tue Jun 14 20:05:15 2022 +0700
+
+    add readme
