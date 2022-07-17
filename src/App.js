@@ -23,7 +23,6 @@ import BuyerSent from './pages/buyer/product/Sent/Sent';
 
 import { ToastContainer } from 'react-toastify';
 
-
 function App() {
   return (
     <div className="App">
@@ -37,7 +36,7 @@ function App() {
           {/* SELLER */}
           <Route path="/seller/home" element={<SellerHome />} />
           <Route path="/seller/add-product" element={<AddProduct />} />
-          <Route path="/jam-tangan" element={<ProductDetail />} />
+          <Route path="/detail/:productId" element={<ProductDetail />} />
           <Route path="/seller/dashboard/profile" element={<Profile />} />
           <Route path="/seller/dashboard/product-list" element={<ProductList />} />
           <Route path="/seller/dashboard/favorite" element={<Favorites />} />

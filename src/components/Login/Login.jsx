@@ -37,7 +37,7 @@ function Login() {
 
             })
             .catch(error => {
-                toast.error(error.response.data.message, {
+                toast.warning(error.response.data.message, {
                     theme: 'colored',
                     position: toast.POSITION.TOP_RIGHT
                 });
