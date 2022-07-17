@@ -1,4 +1,4 @@
-import NavigationBar from '../../components/NavbarDashboardBuyer/NavbarDashboard';
+import NavigationBar from '../../components/NavbarBeforeLogin/NavbarDashboard';
 import Carousel from '../../components/Carousel/Carousel';
 import CardComponent from '../../components/Cards/CardProduct';
 import ButtonFilter from '../../components/buttonFilter/ButtonFilter';
