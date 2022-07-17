@@ -27,30 +27,29 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+          {/* BEFORE LOGIN */}
+            {/* MAIN */}
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+            {/* BUYER */}
+              <Route path="/buyer/product" element={<BuyerLogin />} />
 
-          {/* SELLER */}
-          <Route path="/seller/home" element={<SellerHome />} />
-          <Route path="/seller/add-product" element={<AddProduct />} />
-          {/* <Route path="/jam-tangan" element={<ProductDetail />} /> */}
-          <Route path="/seller/dashboard/profile" element={<Profile />} />
-          <Route path="/seller/dashboard/product-list" element={<ProductList />} />
-          <Route path="/seller/dashboard/favorite" element={<Favorites />} />
-          <Route path="/seller/dashboard/sold-product" element={<SoldProduct />} />
-          <Route path="/seller/Notification" element={<Notification />} />
-          {/* <Route path="/card" element={<Card />} /> */}
-
-          {/* Unauthorized */}
-          <Route path="/buyer/home" element={<BuyerHome />} />
-          {/* buyer */}
-          <Route path="/buyer/logged/product" element={<BuyerProduct />} />
-          <Route path="/buyer/product" element={<BuyerLogin />} />
-          <Route path="/buyer/logged/sent" element={<BuyerSent />} />
-
-        </Routes>
-      </BrowserRouter>
+          {/* AFTER LOGIN */}
+            {/* MAIN */}
+            <Route path="/logged/home" element={<SellerHome />} />
+            {/* SELLER */}
+            <Route path="/seller/add-product" element={<AddProduct />} />
+            <Route path="/seller/dashboard/profile" element={<Profile />} />
+            <Route path="/seller/dashboard/product-list" element={<ProductList />} />
+            <Route path="/seller/dashboard/favorite" element={<Favorites />} />
+            <Route path="/seller/dashboard/sold-product" element={<SoldProduct />} />
+            <Route path="/seller/Notification" element={<Notification />} />
+            {/* buyer */}
+            <Route path="/buyer/logged/product" element={<BuyerProduct />} />
+            <Route path="/buyer/logged/sent" element={<BuyerSent />} />
+          </Routes>
+        </BrowserRouter>
     </div>
   );
 }
