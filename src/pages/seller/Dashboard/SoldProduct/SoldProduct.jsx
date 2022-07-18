@@ -4,7 +4,7 @@ import './styleSoldProduct.css';
 import Navbar from '../../../../components/NavbarDashboard/NavbarDashboard';
 import DashboardMenu from '../../../../components/DashboardMenu/DashboardMenu';
 import PreviousButton from '../../../../components/PreviousButton/PreviousButton';
-import CardProduct from '../../../../components/CardsDashboard/CardDashboard';
+import CardProduct from '../../../../components/Cards/CardProduct';
 
 function SoldProduct() {
     return (
