@@ -27,19 +27,21 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
+
+          {/* BEFORE LOGIN */}
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
 
-          {/* SELLER */}
-          <Route path="/seller/home" element={<SellerHome />} />
-          <Route path="/seller/add-product" element={<AddProduct />} />
-          <Route path="/jam-tangan" element={<ProductDetail />} />
-          <Route path="/seller/dashboard/profile" element={<Profile />} />
-          <Route path="/seller/dashboard/product-list" element={<ProductList />} />
-          <Route path="/seller/dashboard/favorite" element={<Favorites />} />
-          <Route path="/seller/dashboard/sold-product" element={<SoldProduct />} />
-          <Route path="/seller/Notification" element={<Notification />} />
+          {/* AFTER LOGIN */}
+          <Route path="/user" element={<SellerHome />} />
+          <Route path="/details" element={<ProductDetail />} />
+          <Route path="/user/add-product" element={<AddProduct />} />
+          <Route path="/user/profile" element={<Profile />} />
+          <Route path="/user/product-list" element={<ProductList />} />
+          <Route path="/user/favorite" element={<Favorites />} />
+          <Route path="/user/sold-product" element={<SoldProduct />} />
+          <Route path="/user/Notification" element={<Notification />} />
           {/* <Route path="/card" element={<Card />} /> */}
 
           {/* Unauthorized */}

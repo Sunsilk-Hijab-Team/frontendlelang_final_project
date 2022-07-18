@@ -6,7 +6,7 @@ function CardComponent() {
     return (
         <Container className={styleCard.container} md>
             <Row lg={6} md={4} sm={3} xs={2}>
-                <Col className={styleCard.col}>
+                {/* <Col className={styleCard.col}> */}
                     <div className={styleCard.cardBody}>
                         <Card className={styleCard.cardStyle}>
                             <Card.Img variant="top" src={Gambar} className={styleCard.imgThumbnail} />
@@ -19,8 +19,8 @@ function CardComponent() {
                             </Card.Body>
                         </Card>
                     </div>
-                    </Col>
-                    <Col className={styleCard.col}>
+                    {/* </Col> */}
+                    {/* <Col className={styleCard.col}> */}
                     <div className={styleCard.cardBody}>
                         <Card className={styleCard.cardStyle}>
                             <Card.Img variant="top" src={Gambar} className={styleCard.imgThumbnail} />
@@ -33,7 +33,7 @@ function CardComponent() {
                             </Card.Body>
                         </Card>
                     </div>
-                    </Col><Col className={styleCard.col}>
+                    {/* </Col><Col className={styleCard.col}> */}
                     <div className={styleCard.cardBody}>
                         <Card className={styleCard.cardStyle}>
                             <Card.Img variant="top" src={Gambar} className={styleCard.imgThumbnail} />
@@ -46,7 +46,7 @@ function CardComponent() {
                             </Card.Body>
                         </Card>
                     </div>
-                    </Col><Col className={styleCard.col}>
+                    {/* </Col><Col className={styleCard.col}> */}
                     <div className={styleCard.cardBody}>
                         <Card className={styleCard.cardStyle}>
                             <Card.Img variant="top" src={Gambar} className={styleCard.imgThumbnail} />
@@ -59,7 +59,7 @@ function CardComponent() {
                             </Card.Body>
                         </Card>
                     </div>
-                    </Col><Col className={styleCard.col}>
+                    {/* </Col><Col className={styleCard.col}> */}
                     <div className={styleCard.cardBody}>
                         <Card className={styleCard.cardStyle}>
                             <Card.Img variant="top" src={Gambar} className={styleCard.imgThumbnail} />
@@ -72,7 +72,7 @@ function CardComponent() {
                             </Card.Body>
                         </Card>
                     </div>
-                    </Col><Col className={styleCard.col}>
+                    {/* </Col><Col className={styleCard.col}> */}
                     <div className={styleCard.cardBody}>
                         <Card className={styleCard.cardStyle}>
                             <Card.Img variant="top" src={Gambar} className={styleCard.imgThumbnail} />
@@ -85,7 +85,7 @@ function CardComponent() {
                             </Card.Body>
                         </Card>
                     </div>
-                    </Col><Col className={styleCard.col}>
+                    {/* </Col><Col className={styleCard.col}> */}
                     <div className={styleCard.cardBody}>
                         <Card className={styleCard.cardStyle}>
                             <Card.Img variant="top" src={Gambar} className={styleCard.imgThumbnail} />
@@ -98,7 +98,7 @@ function CardComponent() {
                             </Card.Body>
                         </Card>
                     </div>
-                    </Col><Col className={styleCard.col}>
+                    {/* </Col><Col className={styleCard.col}> */}
                     <div className={styleCard.cardBody}>
                         <Card className={styleCard.cardStyle}>
                             <Card.Img variant="top" src={Gambar} className={styleCard.imgThumbnail} />
@@ -111,7 +111,7 @@ function CardComponent() {
                             </Card.Body>
                         </Card>
                     </div>
-                    </Col>
+                    {/* </Col> */}
             </Row>
         </Container>
     );

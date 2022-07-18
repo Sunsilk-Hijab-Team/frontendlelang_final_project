@@ -25,7 +25,7 @@ function NotifModal() {
           <div className={stylePopup.modal}>
             {/* <div className={stylePopup.overlay}></div> */}
             <div className={stylePopup.modalContent}>
-              <Nav.Link className={stylePopup.product} href="/seller/Notification">
+              <Nav.Link className={stylePopup.product} href="/user/Notification">
                 <img className={styleNotif.productPicture} src="/assets/photo_product.jpg" alt="" />
                 <div>
                   <div className='d-flex flex-row justify-content-between'>
