@@ -1,6 +1,6 @@
 import React from 'react';
 import styleNotif from './Notification.module.css';
-import Navbar from '../../../../src/components/NavbarDashboard/NavbarDashboard'
+import Navbar from '../../../../src/components/NavbarAfterLogin/NavbarDashboard'
 import { Button, Col, Container, Row, Form } from 'react-bootstrap';
 import PreviousButton from '../../../components/PreviousButton/PreviousButton';
 import MatchModal from '../../../components/MatchModal/MatchModal';

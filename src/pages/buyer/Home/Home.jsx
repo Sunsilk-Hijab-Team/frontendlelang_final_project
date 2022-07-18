@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from '../../../components/Cards/CardProduct';
-import Nav from '../../../components/NavbarDashboardBuyer/NavbarDashboard';
+import Nav from '../../../components//NavbarBeforeLogin/NavbarDashboard';
 import Button from '../../../components/buttonFilter/ButtonFilter';
 import Carousel from '../../../components/Carousel/Carousel';
 import Search from '../../../components/Search/Search';

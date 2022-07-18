@@ -6,7 +6,7 @@
   overflow-x: auto;
 }
 
-.container::-webkit-scrollbar{
+.container::-webkit-scrollbar {
   width: 0;
 }
 
@@ -50,13 +50,13 @@ p {
     /* overflow-x: auto; */
   }
 
-  .filterLogo {
+  /* .filterLogo {
     height: 20px;
     width: auto;
     fill: black;
     display: flex;
     overflow-x: auto;
-  }
+  } */
 
   .button {
     color: #3C3C3C;

@@ -1,14 +1,42 @@
 import React from 'react';
 import './styleProfile.css';
-import Navbar from '../../../../components/NavbarDashboard/NavbarDashboard'
+import Navbar from '../../../../components/NavbarAfterLogin/NavbarDashboard'
 import { Button, Col, Container, Row, Form } from 'react-bootstrap';
 import DashboardMenu from '../../../../components/DashboardMenu/DashboardMenu';
 import PreviousButton from '../../../../components/PreviousButton/PreviousButton';
 import styleRegister from '../../../../components/Register/register.module.css';
 // import cameraIcon from './assets/photo_profile.svg';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+const { REACT_APP_API_URL } = process.env
 
 
 function Profile() {
+
+    const url = `${REACT_APP_API_URL}/api/v1/auth/user/whoami`;
+    const [item, setItem] = useState('');
+    const token = localStorage.getItem('token');
+
+    const getProfile = async () => {
+
+        try {
+            const profile = await axios.get(url, {
+                headers: {
+                            "Authorization" : `Bearer ${token}`
+                        }
+            })
+
+            setItem(profile.data.user)
+
+        } catch (error) {
+            console.log(error.response.data.message)
+        }
+    }
+
+    useEffect(() => {
+        getProfile();
+    }, [])
+
     return (
         <div>
             <Navbar title="Profile" />
@@ -30,22 +58,22 @@ function Profile() {
                                 <Form.Label className='add-product-label'>
                                     Name*
                                 </Form.Label>
-                                <Form.Control className={styleRegister.rounded} type="text" placeholder="Your Name" />
+                                <Form.Control className={styleRegister.rounded} type="text" value={item.full_name} placeholder="Your Name" />
                             </Form.Group>
 
                             <Form.Group className="mb-3" controlId="formBasicEmail">
                                 <Form.Label className='add-product-label'>City*</Form.Label>
-                                <Form.Control className={styleRegister.rounded} type="email" placeholder="City" />
+                                <Form.Control className={styleRegister.rounded} type="text" value={item.city} placeholder="City" />
                             </Form.Group>
 
                             <Form.Group className="mb-3" controlId="formBasicEmail">
                                 <Form.Label className='add-product-label'>Address*</Form.Label>
-                                <Form.Control className={styleRegister.rounded} type="email" placeholder="ex: Jalan Ikan Hiu 33" />
+                                <Form.Control className={styleRegister.rounded} type="text" value={item.address} placeholder="ex: Jalan Ikan Hiu 33" />
                             </Form.Group>
 
                             <Form.Group className="mb-3" controlId="formBasicEmail">
                                 <Form.Label className='add-product-label'>No. Handphone*</Form.Label>
-                                <Form.Control className={styleRegister.rounded} type="email" placeholder="ex: +62 1234 5678" />
+                                <Form.Control className={styleRegister.rounded} type="number" value={item.phone} placeholder="ex: +62 1234 5678" />
                             </Form.Group>
 
                             {/* <Form.Group className="mb-3" controlId="formBasicPassword">
