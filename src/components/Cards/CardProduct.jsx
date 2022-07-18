@@ -11,35 +11,47 @@ function CardComponent() {
 
     const url = `${REACT_APP_API_URL}/api/v1/product/all`;
     const [items, setItems] = useState([]);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
 
-    const getProducts = async () => {
-        setLoading(true)
-        try {
-
-            const products =  await axios.get(url)
-            .catch(error => {
-                
-            })
-            // console.log(products.data.data.product);
-            setItems(products.data.data.product);
-            setLoading(false)
-
-        } catch (error) {
-
-             setLoading(true);
-
-            // console.log(error.message);
+    
+    useEffect(() => {
+        const getProducts = async () => {
+            // setLoading(true)
+            try {
+                const products =  await axios.get(url)
+                // console.log(products.data.data.product)
+                // .catch(error => {
+                //     console.log(error.messages);
+                // })
+                // console.log(products.data.data.product);
+                setItems(products.data.data.product);
+                console.log("ini itemsss =====")
+                console.log(items)
+                setLoading(false);
+                // console.log("disini oiii")
+    
+            } catch (error) {
+                 setLoading(true);
+                // console.log(error.message);
+            }
         }
 
-    }
-
-    useEffect(() => {
         getProducts();
-    }, [])
+    }, [setItems, setLoading]);
 
     return (
-        <Container className={styleCard.container} md>
+        <Container className={styleCard.container} md={12} lg={12}>
+            {/* <ul>
+                {items &&
+                items.map(( item, index ) => (
+                    <li key={index}>
+                        <h3>{item.name}</h3>
+                        <img src={item.images[0].image_url} />
+                        <p>{item.categories.name}</p>
+                        <p>{item.description}</p>
+                    </li>
+                ))}
+            </ul> */}
             <Row lg={6} md={4} sm={3} xs={2}>
             {
                 loading ?
@@ -51,7 +63,7 @@ function CardComponent() {
 
                 : <></>
             }
-            {
+            {items &&
                 items.map((item, index) => {
                     return (
 
@@ -62,7 +74,7 @@ function CardComponent() {
                                     <Card.Body>
                                         <Card.Title> <strong>{item.name}</strong> </Card.Title>
                                         <Card.Text className={styleCard.styleCardText}>
-                                            { item.categories.name }
+                                            {item.categories.name }
                                         </Card.Text>
                                         <Card.Title>Rp { item.base_price }</Card.Title>
                                     </Card.Body>
@@ -73,7 +85,7 @@ function CardComponent() {
 
                     );
                 })
-            }
+            } 
             </Row>
         </Container>
     );
