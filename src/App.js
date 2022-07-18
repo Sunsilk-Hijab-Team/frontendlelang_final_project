@@ -6,7 +6,7 @@ import Home from './pages/Home/Home';
 
 //seller pages
 import SellerHome from './pages/seller/Home/Home'
-import ProductDetail from './pages/ProductDetails/ProductDetails'
+// import ProductDetail from './pages/ProductDetails/ProductDetails'
 import AddProduct from './pages/seller/Add Product/AddProduct';
 import ProductList from './pages/seller/Dashboard/ProductList/ProductList';
 import Profile from './pages/seller/Dashboard/Profile/Profile';
@@ -16,15 +16,17 @@ import Notification from './pages/seller/Notification/Notification';
 // import Card from './components/Cards/Card';
 
 //buyer pages
-import BuyerHome from './pages/buyer/Home/Home';
+// import BuyerHome from './pages/buyer/Home/Home';
 import BuyerProduct from './pages/buyer/product/Product';
 import BuyerLogin from './pages/buyer/product/BeforeLogin/Before';
 import BuyerSent from './pages/buyer/product/Sent/Sent';
 
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
     <div className="App">
+      <ToastContainer />
       <BrowserRouter>
         <Routes>
           {/* BEFORE LOGIN */}
