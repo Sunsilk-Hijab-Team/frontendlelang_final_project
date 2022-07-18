@@ -1,53 +1,58 @@
-import React from 'react';
-import styleNotif from './Notification.module.css';
-import Navbar from '../../../components/NavbarDashboard/NavbarDashboard'
-import { Button, Col, Container, Row, Form } from 'react-bootstrap';
-import PreviousButton from '../../../components/PreviousButton/PreviousButton';
+import {React, useEffect, useState} from 'react';
+import {Col, Container, Row } from 'react-bootstrap';
+import io from "socket.io-client";
 
 function NotificationTest() {
-    const token=localStorage.setItem("token", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJmdWxsX25hbWUiOm51bGwsImVtYWlsIjoidHJpeWFzbmlrbzJAZ21haWwuY29tIiwicGFzc3dvcmQiOiIxMjMiLCJjaXR5IjpudWxsLCJhZGRyZXNzIjpudWxsLCJpbWFnZV91cmwiOm51bGx9LCJpYXQiOjE2NTcxOTI4ODl9.fgiyC_YYtCR_fP4v_2J5Fw0XpAN04OxYN3THWu6cqo0");
-    
+    const token=localStorage.setItem("token", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJlbWFpbCI6InRyaXlhc25pa29AZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmEkMTAkRjl5OE5ReVJYeFF3cmJPWldOSmwxT2hLTUMwRUVtRktNMVN3dldRWEYxenU0ck0zUi52bGUiLCJwaG9uZSI6bnVsbCwiY2l0eSI6bnVsbCwiYWRkcmVzcyI6bnVsbCwiaW1hZ2VfdXJsIjpudWxsfSwiaWF0IjoxNjU3ODkxNDMxfQ.95dyCzazXpEmSxbt0rNRLNbnDV6oaNjAQhPIPSRWZjA");
+    // const [notification, setNotification]=useState("");
+    const [notificationList, setNotificationList]=useState([]);
+    // get item token from localstorage
+    const tokenItem=localStorage.getItem("token");
+
+    useEffect(()=>{
+        fetch("http://localhost:8000/api/v1/notification/all", {
+            method: "GET",
+            headers: {
+                "Authorization": tokenItem,
+                "Content-Type": "application/json"
+            }
+        })
+        .then(res=>{
+            // console.log("res oiii"+res.json());
+            return res.json();
+        })
+        .then(data=>{
+            console.log("data oiii"+data.data.Notifications);
+            // setNotificationList(data.data.Notifications);
+        })
+        .catch(err=>{
+            console.log(err);
+        })
+    }, []);
+    // console.log user id from user login
+    console.log(
+        
+    )
+
     return (
         <div>
-            <Navbar title="Notification" />
+            Notification Test
+            {/* <Navbar title="Notification" />
             <Container className='previous'>
                 <PreviousButton />
-            </Container>
+            </Container> */}
 
-            <Container>
+            {/* <Container>
                 <Row>
-                    <Col sm={3}></Col>
-                    <Col sm={7}>
-                        <div className={styleNotif.content}>
-                            <div className={styleNotif.product}>
-                                <img className={styleNotif.productPicture} src="/assets/photo_product.jpg" alt="" />
-                                <div>
-                                    <h1 className={styleNotif.productTitle}>Jam Tangan Casio</h1>
-                                    <h2 className={styleNotif.productPrice}>Rp 250.000</h2>
-                                </div>
+                    <Col md={12} >
+                        {notificationList.map((notification, index) => (
+                            <div key={index}>
+                                {notification}
                             </div>
-                            <div className={styleNotif.product}>
-                                <img className={styleNotif.buyerProfile} src="/assets/profile_buyer.jpg" alt="" />
-                                <div className='ms-3'>
-                                    <h1 className={styleNotif.date}>20 Apr, 14:04</h1>
-                                    <h2 className={styleNotif.buyerName}>Taylor Swift</h2>
-                                    <h1 className={styleNotif.date}>Gresik</h1>
-                                </div>
-                                <h2 className={styleNotif.bid}>Bid Rp 200.000</h2>
-                                <div className='status d-flex align-self-center'>
-                                    <a className='me-4' href="">
-                                        <img className='d-flex' src="/assets/fi_check.svg" alt="" />
-                                    </a>
-                                    <a href="">
-                                        <img className='d-flex' src="/assets/fi_x.svg" alt="" />
-                                    </a>
-                                </div>
-                            </div>
-                        </div>                        
+                        ))}
                     </Col>
-                    <Col sm={3}></Col>
                 </Row>
-            </Container>
+            </Container> */}
         </div >
 
     );
