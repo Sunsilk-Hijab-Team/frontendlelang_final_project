@@ -8,7 +8,8 @@ import styleRegister from '../../../../components/Register/register.module.css';
 // import cameraIcon from './assets/photo_profile.svg';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-const { REACT_APP_API_URL } = process.env
+import { useNavigate } from 'react-router-dom';
+const { REACT_APP_API_URL } = process.env;
 
 
 function Profile() {
@@ -16,9 +17,9 @@ function Profile() {
     const url = `${REACT_APP_API_URL}/api/v1/auth/user/whoami`;
     const [item, setItem] = useState('');
     const token = localStorage.getItem('token');
+    const nav = useNavigate();
 
     const getProfile = async () => {
-
         try {
             const profile = await axios.get(url, {
                 headers: {
@@ -34,8 +35,9 @@ function Profile() {
     }
 
     useEffect(() => {
+        token ? getProfile() : nav('/login')
         getProfile();
-    }, [])
+    }, [token, nav])
 
     return (
         <div>

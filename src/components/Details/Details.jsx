@@ -24,12 +24,12 @@ function SellerHome() {
     const Detail = async () => {
         setLoading(true)
         try {
-            const detail = await axios.get(url+productId)
-
-            setItem(detail.data.data.product);
-            setCategory(detail.data.data.product.categories);
-            setImages(detail.data.data.product.images);
-
+            await axios.get(url+productId)
+            .then(res => {
+                setItem(res.data.data.product);
+                setCategory(res.data.data.product.categories);
+                setImages(res.data.data.product.images);
+            })
             setLoading(false)
         } catch (error) {
             setLoading(true);
