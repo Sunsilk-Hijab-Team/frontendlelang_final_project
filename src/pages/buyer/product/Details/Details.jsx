@@ -5,12 +5,13 @@ import Style from './styleDetails.module.css';
 import Carousel from 'react-bootstrap/Carousel';
 import Image from './jam_1.png';
 import PopUp from '../../popup/PopUp'
+import PreviousButton from '../../../../components/PreviousButton/PreviousButton';
 
 function SellerHome() {
     return (
         <div className={Style.container}>
             <Container>
-                <img className={Style.previous} src={Previous} alt="halo" />
+                <PreviousButton />
             </Container>
             <Container>
                 <Row className={Style.styleRow}>

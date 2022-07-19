@@ -35,7 +35,8 @@ function App() {
 
           {/* AFTER LOGIN */}
           <Route path="/user" element={<SellerHome />} />
-          <Route path="/details" element={<ProductDetail />} />
+          {/* <Route path="/details" element={<ProductDetail />} /> */}
+          <Route path="/details" element={<BuyerProduct />} />
           <Route path="/user/add-product" element={<AddProduct />} />
           <Route path="/user/profile" element={<Profile />} />
           <Route path="/user/product-list" element={<ProductList />} />
