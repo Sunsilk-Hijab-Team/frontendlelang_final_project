@@ -21,7 +21,7 @@ function NavScroll(props) {
     {
         setLoading(true)
         try{
-            axios({
+            await axios({
                 method: 'get',
                 url,
                 headers: {

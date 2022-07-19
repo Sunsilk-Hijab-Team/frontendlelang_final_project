@@ -3,6 +3,9 @@ import styleCard from './styleCard.module.css'
 import Gambar from './jamTangan.jpg'
 
 function CardComponent() {
+
+    const
+
     return (
         <Container className={styleCard.container} md>
             <Row lg={4} md={2} sm={2}>
