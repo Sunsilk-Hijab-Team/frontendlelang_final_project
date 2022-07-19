@@ -3,7 +3,7 @@ import Previous from './fi_arrow-left.svg';
 import { Col, Container, Row, Button } from 'react-bootstrap';
 import Style from './styleDetails.module.css';
 import Carousel from 'react-bootstrap/Carousel';
-// import Image from './jam_1.png';
+import NoImage from '../../images/no_image.png'
 import PreviousButton from '../PreviousButton/PreviousButton';
 import { useParams } from "react-router-dom";
 import axios from 'axios';
@@ -24,12 +24,13 @@ function SellerHome() {
     const Detail = async () => {
         setLoading(true)
         try {
-            const detail = await axios.get(url+productId)
-
-            setItem(detail.data.data.product);
-            setCategory(detail.data.data.product.categories);
-            setImages(detail.data.data.product.images);
-
+            await axios.get(url+productId)
+            .then(res => {
+                setItem(res.data.data.product);
+                setCategory(res.data.data.product.categories);
+                setImages(res.data.data.product.images);
+                console.log(images, 'null')
+            })
             setLoading(false)
         } catch (error) {
             setLoading(true);
@@ -73,6 +74,14 @@ function SellerHome() {
                     <Col>
                         <Carousel className={Style.carousel}>
                                 {
+                                    images.length === 0 ?
+
+                                    <Carousel.Item className={Style.carousel}>
+                                        <img className={Style.carousel} src={NoImage} alt="productImage" />
+                                    </Carousel.Item>
+
+                                    :
+
                                     images.map((image, index) => {
                                         return (
                                             <Carousel.Item key={index} className={Style.carousel}>
