@@ -5,6 +5,7 @@ import Message from './fi_message-square.svg';
 import Profile from './Group_15.svg';
 import DashboardMenu from '../DashboardMenu/DashboardMenu';
 import NotifModal from '../NotifModal/NotifModal';
+import ButtonLogout from '../ButtonLogout/ButtonLogout';
 
 function NavScroll(props) {
 
@@ -45,6 +46,7 @@ function NavScroll(props) {
                             <img className='d-flex' src={Profile} alt="" />
                             Unis Badri
                         </Nav.Link>
+                        <ButtonLogout />
                     </Nav>
                 </div>
             </Container>

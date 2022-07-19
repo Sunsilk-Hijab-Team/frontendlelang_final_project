@@ -16,15 +16,17 @@ import Notification from './pages/seller/Notification/Notification';
 // import Card from './components/Cards/Card';
 
 //buyer pages
-import BuyerHome from './pages/buyer/Home/Home';
+// import BuyerHome from './pages/buyer/Home/Home';
 import BuyerProduct from './pages/buyer/product/Product';
 import BuyerLogin from './pages/buyer/product/BeforeLogin/Before';
 import BuyerSent from './pages/buyer/product/Sent/Sent';
 
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
     <div className="App">
+      <ToastContainer />
       <BrowserRouter>
         <Routes>
           {/* BEFORE LOGIN */}
@@ -34,7 +36,7 @@ function App() {
               <Route path="/register" element={<Register />} />
             {/* BUYER */}
               <Route path="/buyer/product" element={<BuyerLogin />} />
-
+              <Route path="/detail/:productId" element={<ProductDetail />} />
           {/* AFTER LOGIN */}
             {/* MAIN */}
             <Route path="/logged/home" element={<SellerHome />} />

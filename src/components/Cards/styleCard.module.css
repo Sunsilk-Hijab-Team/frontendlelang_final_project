@@ -12,7 +12,7 @@
 
 .styleCardText {
     font-size: 10px;
-    color: #8A8A8A;
+    color: #8A8A8A !important;
     margin: 0;
 }
 
@@ -119,5 +119,9 @@
         display: flex;
         margin: 0;
         justify-content: center;
+    }
+    .cardBody {
+        max-width: 200px;
+        min-width: 100px;
     }
 }
