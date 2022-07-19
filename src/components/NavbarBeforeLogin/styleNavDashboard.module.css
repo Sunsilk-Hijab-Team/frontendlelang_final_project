@@ -1,0 +1,207 @@
+.styleNav {
+    background-color: #FFFFFF;
+}
+
+.search {
+    display: flex;
+    /* justify-content: center;
+    flex-wrap: wrap; */
+    width: 400px;
+}
+
+.rounded {
+    border-radius: 16px;
+    height: 36px;
+    background: #EEEEEE;
+    color: #8A8A8A;
+}
+
+.styleLogin {
+    background: #F93711;
+    color: white;
+    ;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 12px;
+}
+
+.styleIcon {
+    position: relative;
+    margin-left: -25px;
+}
+
+h3 {
+    font-size: 16px;
+    margin-left: 8px;
+    /* width: 32px; */
+    height: 20px;
+}
+
+
+.btnProfile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 8px;
+}
+
+.iconDropdown {
+    width: 24px;
+    height: 24px;
+}
+
+.iconNotif {
+    display: flex;
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.iconMessage {
+    display: flex;
+    width: 24px;
+    height: 24px;
+    margin-right: 18px;
+}
+
+.containerNavSell {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+    padding: 7px 16px;
+}
+
+.dashboardMenu {
+    display: none;
+}
+
+/* .bars {
+    display: none;
+    color: #FFFFFF;
+
+    @media screen and (max-width: 768px) {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(-100, 75%);
+        font-size: 1.8rem;
+        cursor: pointer;
+    }
+} */
+
+/* .navMenu {
+    @media screen and (max-width: 768px) {
+     display: none;   
+    }
+}
+
+.navBtn {
+    display: flex;
+    align-items: center;
+    
+    
+    @media screen and (max-width: 768px) {
+     display: none;   
+    }
+} */
+
+/* @media only screen and (max-width: 765px) {
+    
+
+    .iconNotif {
+        display: none;
+    }
+    
+    .iconMessage {
+        display: none;
+    }
+
+    .menu {
+        display: flex;
+        flex-direction: column;
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 780px) {
+    
+} */
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .menu {
+        display: none;
+    }
+
+    .btnProfile {
+        display: none;
+    }
+
+    .search {
+        display: flex;
+        justify-content: start;
+        /* flex-wrap: wrap; */
+        width: 180px;
+    }
+
+    .dashboardMenu {
+        display: block;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 768px) {
+    .containerNavSell {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 7px 16px;
+        align-self: center;
+    }
+
+    .NavBrand {
+        height: 35px;
+        width: auto;
+        display: none;
+    }
+
+    .search {
+        display: flex;
+        justify-content: center;
+        /* flex-wrap: wrap; */
+        /* width: 80px; */
+    }
+
+    .menu {
+        display: flex;
+        flex-direction: row;
+        display: none;
+    }
+
+    .dashboardMenu {
+        display: block;
+    }
+
+    .btnProfile {
+        display: none;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .search {
+        display: flex;
+        justify-content: end;
+        /* flex-wrap: wrap; */
+        width: 180px;
+    }
+}
+
+@media screen and (max-width:756px) {
+    .loginCollapse {
+        display: none;
+    }
+
+}

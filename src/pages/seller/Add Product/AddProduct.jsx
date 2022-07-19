@@ -1,4 +1,4 @@
-import Navbar from '../../../components/NavbarDashboard/NavbarDashboard';
+import Navbar from '../../../components/NavbarAfterLogin/NavbarDashboard';
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import Previous from './fi_arrow-left.svg';

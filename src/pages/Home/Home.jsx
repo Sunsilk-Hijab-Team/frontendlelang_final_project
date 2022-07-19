@@ -1,17 +1,25 @@
-import NavigationBar from '../../components/Navbar/Navbar';
+import NavigationBar from '../../components/NavbarBeforeLogin/NavbarDashboard';
 import Carousel from '../../components/Carousel/Carousel';
-import CardProduct from '../../components/Cards/CardProduct';
+import CardComponent from '../../components/Cards/CardProduct';
 import ButtonFilter from '../../components/buttonFilter/ButtonFilter';
 import React from 'react';
 import './styleHome.css';
+import ButtonLogin from '../../components/ButtonLogin/ButtonLogin';
+import Search from '../../components/Search/Search';
+
 
 function Home() {
+
     return (
         <div>
-            <NavigationBar />
+            <NavigationBar
+            middle={<Search/>}
+            right={<ButtonLogin/>}
+            />
             <Carousel />
             <ButtonFilter />
-            <CardProduct />
+            <CardComponent
+            />
         </div>
     )
 }

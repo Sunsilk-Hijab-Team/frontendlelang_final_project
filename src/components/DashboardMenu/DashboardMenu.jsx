@@ -13,10 +13,12 @@ function DashboardMenu() {
 
     return (
         <div>
+            {/* HAMBURGER ICON */}
             <Button className="d-lg-none menu-bar" onClick={handleShow}>
                 <img className='d-flex' src="/assets/fi_menu.svg" alt="" />
             </Button>
 
+            {/* RESPONSIVE MODE */}
             <Offcanvas show={show} onHide={handleClose} responsive="md">
                 <Offcanvas.Header closeButton>
                     <Offcanvas.Title>
@@ -48,6 +50,8 @@ function DashboardMenu() {
                     </Button>
                 </Offcanvas.Body>
             </Offcanvas>
+
+            {/* NON-RESPONSIVE MODE*/}
             <div className='dashboardMenu'>
                 <Button href="/seller/dashboard/profile" className='button p-2 mb-4'>
                     <img className='d-flex' src="/assets/fi_user.svg" alt="" />
