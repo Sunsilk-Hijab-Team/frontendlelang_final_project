@@ -3,6 +3,7 @@ import Previous from './fi_arrow-left.svg';
 import { Col, Container, Row, Button } from 'react-bootstrap';
 import Style from './styleDetails.module.css';
 import Carousel from 'react-bootstrap/Carousel';
+import PopUp from '../../pages/buyer/popup/PopUp'
 // import Image from './jam_1.png';
 import PreviousButton from '../PreviousButton/PreviousButton';
 import { useParams } from "react-router-dom";
@@ -65,9 +66,7 @@ function SellerHome() {
                         </div>
                         <p className={Style.p}>{item.description}</p>
 
-                        <Button className={Style.roundedButton}>
-                            Saya Tertarik dan Ingin Nego
-                        </Button>
+                        <PopUp />
                     </Col>
 
                     <Col>

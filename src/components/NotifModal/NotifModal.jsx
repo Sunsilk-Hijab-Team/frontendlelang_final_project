@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import stylePopup from './styleNotifModal.module.css';
-import { Form, Nav } from 'react-bootstrap';
+import { Nav } from 'react-bootstrap';
 import { IoClose } from 'react-icons/io5'
 import Notificiation from './fi_bell.svg';
 import styleNotif from '../../pages/seller/Notification/Notification.module.css'

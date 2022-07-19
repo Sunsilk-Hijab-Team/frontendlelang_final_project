@@ -1,10 +1,48 @@
 import React, { useState } from 'react';
 import stylePopup from './stylePopup.module.css';
 import { Form, Row, Col} from 'react-bootstrap';
-import { IoClose } from 'react-icons/io5'
+import { IoClose } from 'react-icons/io5';
+import axios from 'axios';
+const { REACT_APP_API_URL } = process.env
 
 function PopUp() {
     const [modal, setModal] = useState(false);
+    const [bidPrice, setBidPrice] = useState('');
+    
+    const url = `${REACT_APP_API_URL}/api/v1/buyer/order/buy`;
+    const token = localStorage.getItem('token')
+    const handleOrder = async (e) => {
+            e.preventDefault();
+            
+            try{
+                // console.log(bidPrice);
+                // await axios.post(url, ,{ headers: {
+                //     'Authorization': `Bearer ${token}`
+                // } })
+                await axios({
+                    method: 'POST',
+                    url,
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    },
+                    data: {
+                        bid_price: bidPrice
+                    }
+                })
+                .then( res => { 
+                    console.log(res); 
+                })
+                .catch(error => {
+                console.log(error.response.data.message);
+                })
+        
+            } catch (error) {
+                return error.message;
+            }
+        }
+
+
+
     const setIcon = useState(<IoClose />)
     const togglePopup = () => {
         setModal(!modal);
@@ -17,7 +55,7 @@ function PopUp() {
                 className={stylePopup.roundedButtonMenu}
                 onClick={togglePopup}
             >
-                saya tertarik dan ingin Nego
+                Saya Tertarik dan Ingin Nego
             </button>
             {modal &&
                 (
@@ -46,19 +84,22 @@ function PopUp() {
                             
 
                             <div>
-                                <Form>
+                                <h1>{bidPrice}</h1>
+                                <Form >
                                     <Form.Group controlId="formBasicEmail">
                                         <Form.Control
                                             className={stylePopup.styleForm}
-                                            type="text"
-                                            placeholder="Rp. 0,00" />
+                                            type="number"
+                                            placeholder="Rp. 0,00" 
+                                            onChange={event =>setBidPrice(event.target.value)}/>
                                         <Form.Text className="text-muted d-flex justify-content-start">
                                         </Form.Text>
                                     </Form.Group>
+                                    <button className={stylePopup.roundedButton} onClick={handleOrder}>Kirim</button>
                                 </Form>
                             </div>
 
-                            <button className={stylePopup.roundedButton}>Kirim</button>
+                            
 
                             <div className={stylePopup.closeModal}
                                 onClick={togglePopup}
