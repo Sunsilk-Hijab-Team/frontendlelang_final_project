@@ -6,7 +6,7 @@ import Home from './pages/Home/Home';
 
 //seller pages
 import SellerHome from './pages/seller/Home/Home'
-// import ProductDetail from './pages/ProductDetails/ProductDetails'
+import ProductDetail from './pages/ProductDetails/ProductDetails'
 import AddProduct from './pages/seller/Add Product/AddProduct';
 import ProductList from './pages/seller/Dashboard/ProductList/ProductList';
 import Profile from './pages/seller/Dashboard/Profile/Profile';
@@ -36,7 +36,7 @@ function App() {
               <Route path="/register" element={<Register />} />
             {/* BUYER */}
               <Route path="/buyer/product" element={<BuyerLogin />} />
-
+              <Route path="/detail/:productId" element={<ProductDetail />} />
           {/* AFTER LOGIN */}
             {/* MAIN */}
             <Route path="/logged/home" element={<SellerHome />} />
