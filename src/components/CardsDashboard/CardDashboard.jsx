@@ -5,7 +5,7 @@ import NoImage from '../../images/no_image.png'
 import Spinner from 'react-bootstrap/Spinner';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import Gambar from './jamTangan.jpg'
+// import Gambar from './jamTangan.jpg'
 const { REACT_APP_API_URL } = process.env;
 
 function CardComponent() {

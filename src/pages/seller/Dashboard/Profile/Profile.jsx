@@ -55,20 +55,21 @@ function Profile() {
         formData.append('phone', phone);
         formData.append('image_url', imageUrl);
 
-        console.log(imageUrl, 'img')
+        console.log(imageUrl, phone, address, city, 'check')
 
         try {
             console.log(formData, 'formdata');
             await axios.put(`${url}/api/v1/auth/update`, formData, {
                 headers: {
-                    "Authorization": `Bearer ${token}`,
-                    "Content-Type": "multipart/form-data"
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'multipart/form-data'
                 }
             })
             .then(res => {
                 console.log(res, 'res')
 
                 if(res.data.userUpdate[0] === 1){
+
                     toast.success('Update profile has been success', {
                         theme: 'colored',
                         position: toast.POSITION.TOP_RIGHT
@@ -96,7 +97,6 @@ function Profile() {
     useEffect(() => {
         token ? getProfile() : nav('/login')
         getProfile();
-
     }, [token, nav])
 
     return (
@@ -137,7 +137,7 @@ function Profile() {
                                         :
                                             <img className='d-flex rounded-circle' src={item.image_url} alt="" />
                                     }
-                                <Form.Control id="image_url" className={styleRegister.rounded} type="file" hidden onChange={(e) => setImageUrl(e.target.value)} />
+                                <Form.Control id="image_url" className={styleRegister.rounded} type="file" name="image_url" hidden onChange={(e) => setImageUrl(e.target.files[0])} />
                                 </Form.Label>
                             </Form.Group>
 
