@@ -5,6 +5,7 @@ import Style from './styleDetails.module.css';
 import Carousel from 'react-bootstrap/Carousel';
 import Image from './jam_1.png';
 import PreviousButton from '../PreviousButton/PreviousButton';
+import './styleDetails.module.css';
 
 function SellerHome() {
     return (
@@ -14,7 +15,27 @@ function SellerHome() {
             </Container>
             <Container>
                 <Row>
-                    <Col>
+                    <Col className='ms-2'>
+                        <Carousel className={Style.carousel}>
+                            <Carousel.Item>
+                                <img
+                                    className="carouselImage d-block w-100"
+                                    src={Image}
+                                    alt="First slide"
+                                />
+                            </Carousel.Item>
+
+                            <Carousel.Item>
+                                <img
+                                    className="carouselImage d-block w-100"
+                                    src={Image}
+                                    alt="Second slide"
+                                />
+                            </Carousel.Item>
+                        </Carousel>
+                    </Col>
+
+                    <Col className={Style.desc}>
                         <h4 className={Style.h4}>Aksesoris</h4>
                         <h1 className={Style.h1}>Jam Tangan Casio</h1>
                         <div className='d-flex flex-row align-items-center'>
@@ -32,26 +53,6 @@ function SellerHome() {
                         <Button className={Style.roundedButton}>
                             Saya Tertarik dan Ingin Nego
                         </Button>
-                    </Col>
-
-                    <Col>
-                        <Carousel className={Style.carousel}>
-                            <Carousel.Item className={Style.carousel}>
-                                <img
-                                    className={Style.carousel}
-                                    src={Image}
-                                    alt="First slide"
-                                />
-                            </Carousel.Item>
-
-                            <Carousel.Item>
-                                <img
-                                    className="carouselImage d-block w-100"
-                                    src={Image}
-                                    alt="Second slide"
-                                />
-                            </Carousel.Item>
-                        </Carousel>
                     </Col>
                 </Row>
             </Container>
