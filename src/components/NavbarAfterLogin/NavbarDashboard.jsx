@@ -1,11 +1,11 @@
 import styleNavSeller from './styleNavDashboard.module.css';
 import Logo from './Logo.svg';
-import { Row, Navbar, Nav, Container } from 'react-bootstrap';
+import { Row, Navbar, Nav, Container, Dropdown } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import Message from './fi_message-square.svg';
 import Profile from './Group_15.svg';
 import DashboardMenu from '../DashboardMenu/DashboardMenu';
 import NotifModal from '../NotifModal/NotifModal';
-import ButtonLogout from '../ButtonLogout/ButtonLogout';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 const { REACT_APP_API_URL } = process.env
@@ -13,9 +13,11 @@ const { REACT_APP_API_URL } = process.env
 function NavScroll(props) {
 
     const url = `${REACT_APP_API_URL}/api/v1/auth/user/whoami`;
+    const nav = useNavigate();
 
     const [profile, setProfile] = useState('');
     const [loading, setLoading] = useState(false);
+    const [showDropdown, setShowDropdown] = useState(false);
 
     const getUser = async () =>
     {
@@ -36,6 +38,10 @@ function NavScroll(props) {
             setLoading(true)
         }
 
+    }
+    const handleLogout = () => {
+        localStorage.removeItem('token')
+        nav('/login')
     }
 
     useEffect( () => {
@@ -62,6 +68,12 @@ function NavScroll(props) {
                     {props.title}
                 </div>
 
+                {/* <Row> */}
+                <div className='d-flex justify-content-center'>
+                    {props.middle}
+                </div>
+                {/* </Row> */}
+
                 {/* PROFILE */}
                 <div>
                     <Nav className='menu d-flex flex-row align-items-center'>
@@ -75,22 +87,40 @@ function NavScroll(props) {
                             <img className={styleNavSeller.iconNotif} src={Notificiation} alt="" />
                         </Nav.Link> */}
 
-                        <Nav.Link href="/seller/dashboard/profile" className={styleNavSeller.btnProfile}>
-                            {
-                                loading ?
-                                <p className="text-dark">&nbsp;Loading....&nbsp;</p>
-                                :
-                                <></>
-                            }
-                            {
-                                profile.image_url === null ?
-                                 <img className='d-flex' src={Profile} alt="" />
-                                :
-                                <img className='d-flex' src={profile.image_url}  alt="" />
-                            }
-                            {profile.full_name}
-                        </Nav.Link>
-                        <ButtonLogout />
+                        <Dropdown
+                            onMouseLeave={() => setShowDropdown(false)}
+                            onMouseOver={() => setShowDropdown(true)}
+                            style={{ width: '166px' }}
+                            >
+                            <Dropdown.Toggle
+                                id="dropdown-basic" className={styleNavSeller.dropdownProfile}
+                            >
+                                <Nav.Link href="#" className={styleNavSeller.btnProfile}>
+                                    {
+                                        loading ?
+                                        <p className="text-dark">&nbsp;Loading....&nbsp;</p>
+                                        :
+                                        <></>
+                                    }
+                                    {
+                                        profile.image_url === null ?
+                                        <img className='d-flex' src={Profile} alt="" />
+                                        :
+                                        <img className='d-flex' src={profile.image_url} alt="" />
+                                    }
+                                    <p>{profile.full_name}</p>
+                                </Nav.Link>
+                            </Dropdown.Toggle>
+
+                            <Dropdown.Menu show={showDropdown}>
+                                <Dropdown.Item href="/seller/dashboard/profile">
+                                Profile
+                                </Dropdown.Item>
+                                <Dropdown.Item onClick={handleLogout}>
+                                Logout
+                                </Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>
                     </Nav>
                 </div>
             </Container>
