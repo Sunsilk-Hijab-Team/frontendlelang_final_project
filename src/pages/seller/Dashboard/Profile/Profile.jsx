@@ -64,7 +64,8 @@ function Profile() {
                 }
             })
             .then(res => {
-                console.log(res.data.userUpdate[0])
+                console.log(res, 'res')
+
                 if(res.data.userUpdate[0] === 1){
                     toast.success('Update profile has been success', {
                         theme: 'colored',
@@ -78,6 +79,7 @@ function Profile() {
                 }
             })
             .catch( error => {
+                console.log(error.response.data.message, 'catch')
                 toast.error(error.response.data.message, {
                     theme: 'colored',
                     position: toast.POSITION.TOP_RIGHT

@@ -86,7 +86,7 @@ function NavScroll(props) {
                                 profile.image_url === null ?
                                  <img className='d-flex' src={Profile} alt="" />
                                 :
-                                <img className='d-flex' src={profile.image_url} alt="" />
+                                <img className='d-flex' src={profile.image_url}  alt="" />
                             }
                             {profile.full_name}
                         </Nav.Link>

@@ -28,7 +28,7 @@ function CardComponent() {
 
             })
             .catch(error => {
-                console.log(error.response.data.message)
+                // console.log(error.response.data.message)
             })
             // await setItems(products.data.data.product);
             // setLoading(false)
@@ -78,7 +78,7 @@ function CardComponent() {
                                     <Card.Body>
                                         <Card.Title> <strong>{item.name}</strong> </Card.Title>
                                         <Card.Text className={styleCard.styleCardText} >
-                                            { item.categories.name }
+                                            { item.categories.name === 0 ? '-' : item.categories.name }
                                         </Card.Text>
                                         <Card.Title>Rp {item.base_price}</Card.Title>
                                     </Card.Body>
