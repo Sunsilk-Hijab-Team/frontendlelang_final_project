@@ -15,9 +15,11 @@ function NavScroll(props) {
     const url = `${REACT_APP_API_URL}/api/v1/auth/user/whoami`;
 
     const [profile, setProfile] = useState('');
+    const [loading, setLoading] = useState(false);
 
     const getUser = async () =>
     {
+        setLoading(true)
         try{
             axios({
                 method: 'get',
@@ -28,9 +30,10 @@ function NavScroll(props) {
             })
             .then(res => {
                 setProfile(res.data.user)
+                setLoading(false)
             })
         } catch (error){
-
+            setLoading(true)
         }
 
     }
@@ -73,6 +76,12 @@ function NavScroll(props) {
                         </Nav.Link> */}
 
                         <Nav.Link href="/seller/dashboard/profile" className={styleNavSeller.btnProfile}>
+                            {
+                                loading ?
+                                <p className="text-dark">&nbsp;Loading....&nbsp;</p>
+                                :
+                                <></>
+                            }
                             {
                                 profile.image_url === null ?
                                  <img className='d-flex' src={Profile} alt="" />
