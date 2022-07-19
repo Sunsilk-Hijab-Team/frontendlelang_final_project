@@ -6,8 +6,38 @@ import Profile from './Group_15.svg';
 import DashboardMenu from '../DashboardMenu/DashboardMenu';
 import NotifModal from '../NotifModal/NotifModal';
 import ButtonLogout from '../ButtonLogout/ButtonLogout';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+const { REACT_APP_API_URL } = process.env
 
 function NavScroll(props) {
+
+    const url = `${REACT_APP_API_URL}/api/v1/auth/user/whoami`;
+
+    const [profile, setProfile] = useState('');
+
+    const getUser = async () =>
+    {
+        try{
+            axios({
+                method: 'get',
+                url,
+                headers: {
+                    "Authorization": `Bearer ${localStorage.getItem('token')}`
+                }
+            })
+            .then(res => {
+                setProfile(res.data.user)
+            })
+        } catch (error){
+
+        }
+
+    }
+
+    useEffect( () => {
+        getUser()
+    }, [])
 
     return (
 
@@ -20,7 +50,7 @@ function NavScroll(props) {
                     <DashboardMenu />
                 </div>
                 <Row>
-                    <Navbar.Brand className={styleNavSeller.NavBrand} href="/seller/home">
+                    <Navbar.Brand className={styleNavSeller.NavBrand} href="/">
                         <img className='d-flex logo' src={Logo} alt="halo" />
                     </Navbar.Brand>
                 </Row>
@@ -43,8 +73,13 @@ function NavScroll(props) {
                         </Nav.Link> */}
 
                         <Nav.Link href="/seller/dashboard/profile" className={styleNavSeller.btnProfile}>
-                            <img className='d-flex' src={Profile} alt="" />
-                            Unis Badri
+                            {
+                                profile.image_url === null ?
+                                 <img className='d-flex' src={Profile} alt="" />
+                                :
+                                <img className='d-flex' src={profile.image_url} alt="" />
+                            }
+                            {profile.full_name}
                         </Nav.Link>
                         <ButtonLogout />
                     </Nav>
