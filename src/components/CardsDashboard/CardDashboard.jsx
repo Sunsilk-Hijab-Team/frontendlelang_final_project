@@ -3,6 +3,7 @@ import styleCard from './styleCard.module.css'
 import { useEffect, useState } from 'react';
 import NoImage from '../../images/no_image.png'
 import Spinner from 'react-bootstrap/Spinner';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Gambar from './jamTangan.jpg'
 const { REACT_APP_API_URL } = process.env;
@@ -10,17 +11,17 @@ const { REACT_APP_API_URL } = process.env;
 function CardComponent() {
 
     const url = `${REACT_APP_API_URL}`;
-
     const [items, setItems] = useState([]);
-
     const [loading, setLoading] = useState(false);
+    const token = localStorage.getItem('token');
+    let nav = useNavigate();
 
     const getProducts = async () => {
         setLoading(true);
         try{
             await axios.get(`${url}/api/v1/seller/product/all`, {
                 headers: {
-                    "Authorization": `Bearer ${localStorage.getItem('token')}`
+                    "Authorization": `Bearer ${token}`
                 }
             }).then(res => {
                 // console.log(res.data.product, 'prd')
@@ -34,7 +35,7 @@ function CardComponent() {
     }
 
     useEffect( () => {
-
+        token ? getProducts() : nav('/login');
         getProducts();
     }, []);
 

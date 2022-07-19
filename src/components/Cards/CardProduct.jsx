@@ -21,8 +21,8 @@ function CardComponent() {
             //  console.log(items, 'items--sebelum');
             await axios.get(url)
             .then(res => {
-                setItems(res.data.data.product)
                 setLoading(false)
+                setItems(res.data.data.product)
             }).then( () => {
                 // console.log(items, 'items-sesudah');
 

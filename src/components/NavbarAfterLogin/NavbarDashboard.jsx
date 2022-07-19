@@ -29,8 +29,8 @@ function NavScroll(props) {
                 }
             })
             .then(res => {
-                setProfile(res.data.user)
                 setLoading(false)
+                setProfile(res.data.user)
             })
         } catch (error){
             setLoading(true)
