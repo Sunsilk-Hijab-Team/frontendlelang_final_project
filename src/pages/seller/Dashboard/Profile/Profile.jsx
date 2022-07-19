@@ -56,6 +56,7 @@ function Profile() {
         formData.append('phone', phone);
 
         try {
+            console.log(formData, 'formdata');
             await axios.put(`${url}/api/v1/auth/update`, formData, {
                 headers: {
                     "Authorization": `Bearer ${token}`,

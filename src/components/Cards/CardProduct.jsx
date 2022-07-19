@@ -1,6 +1,6 @@
 import { Card, Container, Row  } from 'react-bootstrap';
 import styleCard from './styleCard.module.css'
-// import Gambar from './jamTangan.jpg'
+import NoImage from '../../images/no_image.png'
 import Spinner from 'react-bootstrap/Spinner';
 import { useState, useEffect } from 'react';
 import axios from 'axios'
@@ -72,11 +72,8 @@ function CardComponent() {
                         <div key={index} className={styleCard.cardBody}>
                             <Link to={'/detail/'+item.id}>
                                 <Card className={styleCard.cardStyle}>
-                                     {
-                                        item.images[0].image_url != null ?
-                                        <Card.Img variant="top" src={item.images[0].image_url} className={styleCard.imgThumbnail} />
-                                        : <></>
-                                    }
+
+                                    <Card.Img variant="top" src={ item.images.length === 0  ? NoImage : item.images[0].image_url } className={styleCard.imgThumbnail} />
 
                                     <Card.Body>
                                         <Card.Title> <strong>{item.name}</strong> </Card.Title>

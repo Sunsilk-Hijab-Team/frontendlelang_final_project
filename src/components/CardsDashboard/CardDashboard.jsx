@@ -1,8 +1,20 @@
 import { Card, Container, Row, Col } from 'react-bootstrap';
 import styleCard from './styleCard.module.css'
+import { useEffect, useSate } from 'react';
+import axios from 'axios';
 import Gambar from './jamTangan.jpg'
+const { REACT_APP_API_URL } = process.env;
 
 function CardComponent() {
+
+    const url = `${REACT_APP_API_URL}`;
+
+    const getProducts = async () => {
+
+            
+
+    }
+
     return (
         <Container className={styleCard.container} md>
             <Row lg={4} md={2} sm={2}>
