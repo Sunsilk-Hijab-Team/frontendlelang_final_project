@@ -2,6 +2,22 @@
     background-color: #FFFFFF;
 }
 
+.dropdownProfile{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:center;
+    background-color: #F8F9FA;
+    border:none;
+}
+.dropdownProfile:hover{
+    background-color: #e0e0e0;
+}
+.dropdownProfile::after {
+    /* display: none !important; */
+    color: #8A8A8A;
+  }
+
 .search {
     display: flex;
     /* justify-content: center;
@@ -45,6 +61,14 @@ h3 {
     align-items: center;
     padding: 0px;
     gap: 8px;
+}
+
+.btnProfile img{
+    min-width: 28px;
+    min-height: 28px;
+    max-width: 32px;
+    max-height: 32px;
+    border-radius: 30px;
 }
 
 .iconDropdown {
