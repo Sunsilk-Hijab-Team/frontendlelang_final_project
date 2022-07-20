@@ -21,6 +21,12 @@ function Profile() {
     const [loading, setLoading] = useState(false);
     const nav = useNavigate();
 
+        const [imageUrl, setImageUrl] = useState('');
+        const [fullName, setFullName] = useState('');
+        const [city, setCity] = useState('');
+        const [address, setAddress] = useState('');
+        const [phone, setPhone] = useState('');
+
     const getProfile = async () => {
         setLoading(true)
         try {
@@ -30,18 +36,20 @@ function Profile() {
                         }
             })
             setLoading(false)
+
             setItem(profile.data.user)
+
+            setImageUrl(profile.data.user.imageUrl)
+            setFullName(profile.data.user.fullName)
+            setCity(profile.data.user.city)
+            setAddress(profile.data.user.address)
+            setPhone(profile.data.user.phone)
+
         } catch (error) {
             setLoading(true);
             console.log(error.response.data.message)
         }
     }
-
-    const [imageUrl, setImageUrl] = useState('');
-    const [fullName, setFullName] = useState('');
-    const [city, setCity] = useState('');
-    const [address, setAddress] = useState('');
-    const [phone, setPhone] = useState('');
 
 
     const handleUpdate = async (e) => {
@@ -145,6 +153,7 @@ function Profile() {
                                     Name*
                                 </Form.Label>
                                 <Form.Control className={styleRegister.rounded} type="text" defaultValue={item.full_name} placeholder="Your Name" required onChange={(e) => setFullName(e.target.value)} />
+                                <h2>{item.full_name}</h2>
                             </Form.Group>
 
                             <Form.Group className="mb-3" controlId="formBasicEmail">
