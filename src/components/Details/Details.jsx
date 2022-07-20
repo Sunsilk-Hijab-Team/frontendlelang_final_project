@@ -14,6 +14,7 @@ const { REACT_APP_API_URL } = process.env
 function SellerHome() {
 
     const url = `${REACT_APP_API_URL}/api/v1/buyer/product/`;
+
     let { productId } = useParams();
 
     const [item, setItem] = useState([]);
