@@ -16,7 +16,7 @@ function NavScroll(props) {
             <Container lg className={styleNavSeller.containerNavSell}>
                 {/* <DashboardMenu /> */}
                 <Row>
-                    <Navbar.Brand className={styleNavSeller.NavBrand} href="/seller/home">
+                    <Navbar.Brand className={styleNavSeller.NavBrand} href="/">
                         <img className='d-flex logo' src={Logo} alt="halo" />
                     </Navbar.Brand>
                 </Row>
