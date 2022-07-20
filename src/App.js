@@ -13,6 +13,7 @@ import Profile from './pages/seller/Dashboard/Profile/Profile';
 import Favorites from './pages/seller/Dashboard/Favorites/Favorites';
 import SoldProduct from './pages/seller/Dashboard/SoldProduct/SoldProduct';
 import Notification from './pages/seller/Notification/Notification';
+import NotificationTest from './pages/seller/Notification/NotificationTest';
 // import Card from './components/Cards/Card';
 
 //buyer pages
@@ -47,6 +48,7 @@ function App() {
             <Route path="/seller/dashboard/favorite" element={<Favorites />} />
             <Route path="/seller/dashboard/sold-product" element={<SoldProduct />} />
             <Route path="/seller/Notification" element={<Notification />} />
+            <Route path="/seller/dashboard/notification-test" element={<NotificationTest />} />
             {/* buyer */}
             <Route path="/buyer/logged/product" element={<BuyerProduct />} />
             <Route path="/buyer/logged/sent" element={<BuyerSent />} />
