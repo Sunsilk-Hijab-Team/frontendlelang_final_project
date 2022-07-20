@@ -19,13 +19,15 @@ function Profile() {
     const url = `${REACT_APP_API_URL}`;
     const [item, setItem] = useState('');
     const [loading, setLoading] = useState(false);
+    const [btnLoading, setBtnLoading] = useState(false)
+
     const nav = useNavigate();
 
-        const [imageUrl, setImageUrl] = useState('');
-        const [fullName, setFullName] = useState('');
-        const [city, setCity] = useState('');
-        const [address, setAddress] = useState('');
-        const [phone, setPhone] = useState('');
+    const [imageUrl, setImageUrl] = useState('');
+    const [fullName, setFullName] = useState('');
+    const [city, setCity] = useState('');
+    const [address, setAddress] = useState('');
+    const [phone, setPhone] = useState('');
 
     const getProfile = async () => {
         setLoading(true)
@@ -39,8 +41,8 @@ function Profile() {
 
             setItem(profile.data.user)
 
-            setImageUrl(profile.data.user.imageUrl)
-            setFullName(profile.data.user.fullName)
+            setImageUrl(profile.data.user.image_url)
+            setFullName(profile.data.user.full_name)
             setCity(profile.data.user.city)
             setAddress(profile.data.user.address)
             setPhone(profile.data.user.phone)
@@ -63,10 +65,11 @@ function Profile() {
         formData.append('phone', phone);
         formData.append('image_url', imageUrl);
 
-        console.log(imageUrl, phone, address, city, 'check')
+        // console.log(imageUrl, phone, address, city, 'check')
 
         try {
             // console.log(formData, 'formdata');
+            setBtnLoading(true)
             await axios.put(`${url}/api/v1/auth/update`, formData, {
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -74,22 +77,26 @@ function Profile() {
                 }
             })
             .then(res => {
-                console.log(res, 'res')
-
+                // console.log(res, 'res')
+                setBtnLoading(false)
                 if(res.data.userUpdate[0] === 1){
+                    nav('/seller/dashboard/profile')
                     toast.success('Update profile has been success', {
                         theme: 'colored',
                         position: toast.POSITION.TOP_RIGHT
                     })
                 } else{
+                    nav('/seller/dashboard/profile')
                     toast.error('Update profile has been failed', {
                         theme: 'colored',
                         position: toast.POSITION.TOP_RIGHT
                     })
                 }
+                setBtnLoading(false)
             })
             .catch( error => {
-                console.log(error.response.data.message, 'catch')
+                setBtnLoading(false)
+                // console.log(error.response.data.message, 'catch')
                 toast.error(error.response.data.message, {
                     theme: 'colored',
                     position: toast.POSITION.TOP_RIGHT
@@ -97,7 +104,7 @@ function Profile() {
             })
 
         } catch (error) {
-
+            setBtnLoading(false)
         }
     }
 
@@ -153,7 +160,6 @@ function Profile() {
                                     Name*
                                 </Form.Label>
                                 <Form.Control className={styleRegister.rounded} type="text" defaultValue={item.full_name} placeholder="Your Name" required onChange={(e) => setFullName(e.target.value)} />
-                                <h2>{item.full_name}</h2>
                             </Form.Group>
 
                             <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -180,9 +186,24 @@ function Profile() {
                                 </Form.Group> */}
 
                             <div>
+                                {
+                                    btnLoading ?
+
+                                    <Button className='button-save' variant="primary" disabled>
+                                    <Spinner
+                                    as="span"
+                                    animation="grow"
+                                    size="sm"
+                                    role="status"
+                                    aria-hidden="true"
+                                    />
+                                    Loading...
+                                </Button>
+                                :
                                 <Button className='button-save' variant="primary" type="submit">
                                     Save
                                 </Button>
+                                }
                             </div>
                         </Form>
                     </Col>
