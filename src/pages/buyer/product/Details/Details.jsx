@@ -16,6 +16,14 @@ function SellerHome() {
             <Container>
                 <Row className={Style.styleRow}>
                     <Col className={Style.col1}>
+                        <div className={Style.product}>
+                            <img className={Style.buyerProfile} src="/assets/profile_buyer.jpg" alt="" />
+                            <div className='ms-3'>
+                                <h2 className={Style.buyerName}>Taylor Swift</h2>
+                                <h1 className={Style.date}>Gresik</h1>
+                            </div>
+                        </div>
+                        <hr className={Style.hRounded} />
                         <h4 className={Style.h4}>Aksesoris</h4>
                         <h1 className={Style.h1}>Jam Tangan Casio</h1>
                         <div className='d-flex flex-row align-items-center'>

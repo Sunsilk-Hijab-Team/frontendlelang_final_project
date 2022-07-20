@@ -6,6 +6,8 @@ import Carousel from 'react-bootstrap/Carousel';
 import Image from './jam_1.png';
 import PreviousButton from '../PreviousButton/PreviousButton';
 import './styleDetails.module.css';
+import BidModal from '../BidModal/BidModal';
+import PopUp from './popup/PopUp';
 
 function SellerHome() {
     return (
@@ -19,7 +21,7 @@ function SellerHome() {
                         <Carousel className={Style.carousel}>
                             <Carousel.Item>
                                 <img
-                                    className="carouselImage d-block w-100"
+                                    className={Style.carouselImage}
                                     src={Image}
                                     alt="First slide"
                                 />
@@ -27,7 +29,7 @@ function SellerHome() {
 
                             <Carousel.Item>
                                 <img
-                                    className="carouselImage d-block w-100"
+                                    className={Style.carouselImage}
                                     src={Image}
                                     alt="Second slide"
                                 />
@@ -36,6 +38,14 @@ function SellerHome() {
                     </Col>
 
                     <Col className={Style.desc}>
+                        <div className={Style.sellerProfile}>
+                            <img className={Style.sellerPhoto} src="/assets/profile_buyer.jpg" alt="" />
+                            <div className='ms-3'>
+                                <h2 className={Style.sellerName}>Taylor Swift</h2>
+                                <h1 className={Style.city}>Gresik</h1>
+                            </div>
+                        </div>
+
                         <h4 className={Style.h4}>Aksesoris</h4>
                         <h1 className={Style.h1}>Jam Tangan Casio</h1>
                         <div className='d-flex flex-row align-items-center'>
@@ -50,9 +60,7 @@ function SellerHome() {
                             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
                             culpa qui officia deserunt mollit anim id est laborum.</p>
 
-                        <Button className={Style.roundedButton}>
-                            Saya Tertarik dan Ingin Nego
-                        </Button>
+                        <PopUp />
                     </Col>
                 </Row>
             </Container>

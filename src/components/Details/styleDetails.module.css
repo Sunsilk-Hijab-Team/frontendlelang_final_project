@@ -3,13 +3,20 @@
 }
 
 .carousel {
-    width: 600px;
+    width: auto;
     height: 436px;
+    margin-left: 20px;
+}
+
+.carouselImage {
+    display: block;
+    width: 100%;
+    height: auto;
 }
 
 .h4 {
     font-size: 14px;
-    margin-top: 95px;
+    margin-top: 30px;
     margin-left: 8px;
 }
 
@@ -37,6 +44,7 @@
     width: 443.04px;
     color: #8A8A8A;
     height: 160px;
+    text-align: justify;
 }
 
 .roundedButton {
@@ -62,10 +70,38 @@
     width: 31px;
 }
 
+.sellerProfile {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    margin-bottom: 10px;
+    width: 568px;
+    /* justify-content: center; */
+}
+
+.sellerPhoto {
+    display: flex;
+    width: 48px;
+    height: 48px;
+    margin: 0 17px;
+}
+
+.city {
+    font-weight: 400;
+    font-size: 10px;
+}
+
+.sellerName {
+    font-weight: 500;
+    font-size: 14px;
+    align-self: center;
+    margin-right: 70px;
+}
+
 @media screen and (max-width:600px){
     .carouselImage {
         display: block;
-        width: auto;
+        width: 100%;
         height: auto;
     }
 
@@ -103,7 +139,7 @@
 
     .h4 {
         font-size: 14px;
-        margin-top: 40px;
+        margin-top: 20px;
         margin-left: 8px;
     }
 
@@ -119,4 +155,60 @@
         /* background-color: #FAD56C;
         border-radius: 16px; */
     }
+
+    .sellerProfile {
+        display: flex;
+        flex-direction: row;
+        align-self: center;
+        margin-bottom: 10px;
+        width: 328px;
+        margin-top: 20px;
+        /* justify-content: center; */
+    }
+
+    .sellerName {
+        margin: 8px 0;
+    }
+
+    .city {
+        margin: 0;
+    }
+
+    .sellerPhoto {
+        display: flex;
+        width: 48px;
+        height: 48px;
+        margin-right: 0;
+        margin-left: 10px;
+    }
 }
+
+@media only screen and (min-width: 1200px) {
+
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .carouselImage {
+        display: block;
+        width: 500px;
+        height: auto;
+    }
+
+    .carousel {
+        width: auto;
+        height: 400px;
+        display: flex;
+        margin-left: 5px;
+        /* d-flex justify-content-center */
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {}
