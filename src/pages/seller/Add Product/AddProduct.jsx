@@ -99,6 +99,9 @@ function AddProduct() {
     }
 
     useEffect(() => {
+
+        token ? <></> : nav('/login')
+
         getCategory();
     }, [])
 
