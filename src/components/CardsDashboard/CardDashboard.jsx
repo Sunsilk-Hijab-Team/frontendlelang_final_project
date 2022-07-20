@@ -41,6 +41,10 @@ function CardComponent() {
 
     return (
         <Container className={styleCard.container} md>
+
+            {
+                items ?
+
             <Row lg={4} md={2} sm={2}>
 
                 {
@@ -77,8 +81,18 @@ function CardComponent() {
 
                     })
 
+
+
+
                 }
             </Row>
+
+            :
+
+            <h5 className="fw-bold">Opps... Belum ada product yang kamu jual nih...</h5>
+
+            }
+
         </Container>
     );
 }
