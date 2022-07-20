@@ -21,9 +21,9 @@ function AddProduct() {
     const url = REACT_APP_API_URL;
     const token = localStorage.getItem('token');
     const [items, setItems] = useState([]);
-    const [loading, setLoading] = useState('')
+    const [loading, setLoading] = useState(false)
+    const [btnLoading, setBtnLoading] = useState(false)
     let nav = useNavigate();
-
 
     const getCategory = async () => {
         setLoading(true)
@@ -53,7 +53,7 @@ function AddProduct() {
     const [imageUrl, setImageUrl] = useState('');
 
     const handlePost = async (e) => {
-
+        setBtnLoading(true)
         e.preventDefault();
 
         const status = 'available';
@@ -71,7 +71,7 @@ function AddProduct() {
         try{
             // console.log(name, description, categoryId, price, status, published, imageUrl);
             // console.log(formData,'isi');
-
+            setBtnLoading(true)
             await axios.post(`${url}/api/v1/seller/product/add`, formData, {
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -79,7 +79,8 @@ function AddProduct() {
                 }
             })
             .then( res => {
-                console.log(res.status, 'response');
+                setBtnLoading(false)
+                // console.log(res.status, 'response');
                 if(res.status === 201){
                     nav('/seller/dashboard/product-list');
                     toast.success('Product has been added', {
@@ -90,9 +91,11 @@ function AddProduct() {
                 }
             })
             .catch((error => {
+                setBtnLoading(true)
                 // console.log(error.response.data.message, 'catch');
             }))
         } catch(error) {
+            setBtnLoading(true)
             // console.log(error.response.data.message, 'catch2');
         }
 
@@ -183,9 +186,27 @@ function AddProduct() {
                                     Preview
                                 </Button>
                                 <span></span>
+                                {
+
+                                    btnLoading ?
+
+                                    <Button className='styleButton' variant="primary" disabled>
+                                    <Spinner
+                                    as="span"
+                                    animation="grow"
+                                    size="sm"
+                                    role="status"
+                                    aria-hidden="true"
+                                    />
+                                    Loading...
+                                    </Button>
+
+                                :
+
                                 <Button onClick={handlePost} className='styleButton' variant="primary" type="submit">
                                     Post
                                 </Button>
+                                }
                             </div>
                         </Col>
                         <Col>

@@ -7,6 +7,8 @@ import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import axios from 'axios';
+import Spinner from 'react-bootstrap/Spinner';
+
 const { REACT_APP_API_URL } = process.env;
 
 function Register() {
@@ -30,19 +32,22 @@ function Register() {
   const [full_name, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false)
 
   const handleRegister = async (e) => {
     e.preventDefault();
-
+      setLoading(true)
       try{
 
         await axios.post(url, { full_name, email, password })
         .then( res => {
           // console.log(res.data);
           localStorage.setItem('token', res.data.token);
+          setLoading(false)
           nav('/');
         })
         .catch(error => {
+          setLoading(false)
           // console.log(error.response.data.message);
           toast.error(error.response.data.message, {
               theme: 'colored',
@@ -51,6 +56,7 @@ function Register() {
         })
 
       } catch (error) {
+        setLoading(false)
            return error.message;
       }
 
@@ -83,9 +89,29 @@ function Register() {
             <Form.Control className={styleRegister.rounded} placeholder="min 8 characters" type={passwordType} onChange={(e) => setPassword(e.target.value)}/>
           </Form.Group>
 
+          {
+
+            loading ?
+
+            <Button className={styleRegister.styleButton} disabled>
+                <Spinner
+                as="span"
+                animation="grow"
+                size="sm"
+                role="status"
+                aria-hidden="true"
+                />
+                Loading...
+            </Button>
+
+            :
+
           <Button className={styleRegister.styleButton} type="submit">
             Register
           </Button>
+
+          }
+
         </Form>
 
       </div>
