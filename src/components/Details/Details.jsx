@@ -43,10 +43,10 @@ function SellerHome() {
 
     return (
         <div>
-            <Container>
+            <Container className={Style.container}>
                 <PreviousButton />
             </Container>
-            <Container>
+            <Container className={Style.container}>
                 {
                     loading ?
                         <Row className='d-flex justify-content-center'>
@@ -56,7 +56,7 @@ function SellerHome() {
                         </Row>
                     : <></>
                 }
-                <Row>
+                <Row className={Style.rowStyle}>
                     <Col>
                         <h4 className={Style.h4}>{category.name}</h4>
                         <h1 className={Style.h1}>{item.name}</h1>

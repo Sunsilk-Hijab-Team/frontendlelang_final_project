@@ -16,15 +16,6 @@ function AddProduct() {
                 <PreviousButton />
             </Container>
             <Container className='form'>
-                {this.state.submitted ? (
-                    <div>
-                        <h4>Produkmu telah ditambahkan</h4>
-                        <button
-                            className="btn btn-success" onClick={this.newProduct}>
-                            Tambahkan lainya
-                        </button>
-                    </div>
-                ) : (
                     <div>
                         <Row>
                             <Col sm={12}>
@@ -37,11 +28,6 @@ function AddProduct() {
                                             className={styleRegister.rounded}
                                             type="text"
                                             placeholder="Product Name"
-                                            id="productname"
-                                            required
-                                            valeu={this.state.productname}
-                                            onChange={this.onChangeProductname}
-                                            name="productname"
                                         />
                                     </Form.Group>
 
@@ -51,11 +37,6 @@ function AddProduct() {
                                             className={styleRegister.rounded}
                                             type="text"
                                             placeholder="Rp 0,00"
-                                            id="price"
-                                            required
-                                            value={this.state.price}
-                                            onChange={this.onChangePrice}
-                                            name="price"
                                         />
                                     </Form.Group>
 
@@ -65,11 +46,6 @@ function AddProduct() {
                                             className={styleRegister.rounded}
                                             type="text"
                                             placeholder="Choose Category"
-                                            id="category"
-                                            required
-                                            value={this.state.category}
-                                            onChange={this.onChangeCategory}
-                                            name="category"
                                         />
                                     </Form.Group>
 
@@ -79,14 +55,17 @@ function AddProduct() {
                                             className={styleRegister.rounded}
                                             type="text"
                                             placeholder="ex: Jalan Ikan Hiu 33"
-                                            id="description"
-                                            required
-                                            value={this.state.description}
-                                            onChange={this.onChangeDescription}
-                                            name="description"
                                         />
                                     </Form.Group>
 
+                                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                                        <Form.Label className='add-product-label'>Category</Form.Label>
+                                        <Form.Control
+                                            className={styleRegister.rounded}
+                                            type="text"
+                                            placeholder="Category"
+                                        />
+                                    </Form.Group>
                                     {/* <Form.Group className="mb-3" controlId="formBasicPassword">
                                         <Form.Label className='add-product-label'>Category</Form.Label>
                                         <span className="icons-span" onClick={handelToggle}>
@@ -97,7 +76,7 @@ function AddProduct() {
                                 </Form>
                             </Col>
 
-                            <Col sm={12} className='photo d-flex flex-column align-content-center'>
+                            <Col className='photo d-flex flex-column align-content-center'>
                                 <img className='image_1' src={Image_1} alt="" />
                                 <p className='add-photo-label'>Product Photo</p>
                                 <div className='d-flex additional'>
@@ -118,7 +97,6 @@ function AddProduct() {
                                         className='styleButton'
                                         variant="primary"
                                         type="submit"
-                                        onClick={this.saveProduct}
                                     >
                                         Post
                                     </Button>
@@ -127,7 +105,7 @@ function AddProduct() {
                             <Col>
                             </Col>
                         </Row>
-                    </div>)}
+                    </div>
             </Container>
         </div>
 
