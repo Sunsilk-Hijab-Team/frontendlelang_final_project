@@ -53,7 +53,7 @@ function CardComponent() {
     return (
         <Container className={styleCard.container} md>
 
-            <Row lg={6} md={4} sm={3} xs={2}>
+            <Row lg={6} md={4} sm={3} xs={2} className={styleCard.containerCard}>
              {
                 loading ?
                 <Row className='d-flex justify-content-center'>
@@ -85,7 +85,6 @@ function CardComponent() {
                                 </Card>
                             </Link>
                         </div>
-
                     );
                 })
         }

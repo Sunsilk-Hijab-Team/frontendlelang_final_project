@@ -3,6 +3,13 @@
     font-family: poppins;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+}
+
+.containerCard{
+    display: flex;
+    flex-direction: wrap;
+    justify-content: center;
 }
 
 .cardBody {
@@ -115,6 +122,7 @@
 } */
 
 @media screen and (max-width:500px){
+    
     .col{
         display: flex;
         margin: 0;
