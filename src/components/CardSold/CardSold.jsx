@@ -24,13 +24,13 @@ function CardSold() {
                     "Authorization": `Bearer ${token}`
                 }
             }).then(res => {
-                console.log(res.data.product.product, 'prd')
+                // console.log(res.data.product, 'prd')
                 setLoading(false)
                 setItems(res.data.product.product)
             })
         } catch (error){
             console.log(error.message)
-            setLoading(true)
+            setLoading(false)
         }
     }
 
@@ -45,7 +45,7 @@ function CardSold() {
             {
                 items ?
 
-            <Row lg={4} md={2} sm={2}>
+                <Row lg={4} md={2} sm={2}>
 
                 {
                     loading ?
@@ -54,7 +54,9 @@ function CardSold() {
                         <span className="visually-hidden">Loading...</span>
                     </Spinner>
 
-                    : <></>
+                    :
+
+                    <></>
                 }
 
                 {
@@ -83,9 +85,9 @@ function CardSold() {
                 }
             </Row>
 
-            :
+                :
 
-            <h5 className="fw-bold">Opps... Belum ada product yang kamu jual nih...</h5>
+                <h5 className="fw-bold text-center">Opps... Belum ada product yang kamu jual nih...</h5
 
             }
 
