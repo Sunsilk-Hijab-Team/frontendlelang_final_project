@@ -64,6 +64,7 @@ function CardComponent() {
 
                 : <></>
             }
+
             {
 
                 items.map((item, index) => {
