@@ -54,7 +54,6 @@ function CardComponent() {
                         <span className="visually-hidden">Loading...</span>
                     </Spinner>
 
-
                     : <></>
                 }
 
@@ -80,9 +79,6 @@ function CardComponent() {
                         );
 
                     })
-
-
-
 
                 }
             </Row>
