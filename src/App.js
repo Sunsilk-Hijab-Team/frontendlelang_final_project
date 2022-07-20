@@ -3,7 +3,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import Home from './pages/Home/Home';
-import sCategory from './pages/sCategory/sCategory';
 
 //seller pages
 import SellerHome from './pages/seller/Home/Home'
@@ -36,7 +35,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
-              <Route path="/category/:slug" element={<sCategory />} />
+              <Route path="/category/:slug" element={<Home />} />
             {/* BUYER */}
               <Route path="/buyer/product" element={<BuyerLogin />} />
               <Route path="/detail/:productId" element={<ProductDetail />} />
