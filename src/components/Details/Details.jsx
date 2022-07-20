@@ -1,5 +1,4 @@
 import React from 'react';
-import Previous from './fi_arrow-left.svg';
 import { Col, Container, Row, Button } from 'react-bootstrap';
 import Style from './styleDetails.module.css';
 import Carousel from 'react-bootstrap/Carousel';
@@ -14,9 +13,7 @@ const { REACT_APP_API_URL } = process.env
 function SellerHome() {
 
     const url = `${REACT_APP_API_URL}/api/v1/buyer/product/`;
-
     let { productId } = useParams();
-
     const [item, setItem] = useState([]);
     const [category, setCategory]  = useState([]);
     const [images, setImages] = useState([]);
@@ -58,7 +55,7 @@ function SellerHome() {
                     : <></>
                 }
                 <Row className={Style.rowStyle}>
-                    <Col>
+                    <Col className={Style.col}>
                         <h4 className={Style.h4}>{category.name}</h4>
                         <h1 className={Style.h1}>{item.name}</h1>
                         <div className='d-flex flex-row align-items-center'>
@@ -72,7 +69,7 @@ function SellerHome() {
                         </Button>
                     </Col>
 
-                    <Col>
+                    <Col className={Style.col}>
                         <Carousel className={Style.carousel}>
                                 {
                                     images.length === 0 ?
