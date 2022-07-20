@@ -87,7 +87,7 @@ function CardSold() {
 
                 :
 
-                <h5 className="fw-bold text-center">Opps... Belum ada product yang kamu jual nih...</h5
+                <h5 className="fw-bold text-center">Opps... Belum ada product yang kamu jual nih...</h5>
 
             }
 
