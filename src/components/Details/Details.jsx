@@ -6,7 +6,6 @@ import Carousel from 'react-bootstrap/Carousel';
 import Image from './jam_1.png';
 import PreviousButton from '../PreviousButton/PreviousButton';
 import './styleDetails.module.css';
-import BidModal from '../BidModal/BidModal';
 import PopUp from './popup/PopUp';
 
 function SellerHome() {
