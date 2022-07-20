@@ -11,7 +11,7 @@ function CardComponent() {
 
     const url = `${REACT_APP_API_URL}/api/v1/product/all`;
     const [items, setItems] = useState([]);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
 
    const getProducts = async () => {
 
@@ -21,14 +21,14 @@ function CardComponent() {
             //  console.log(items, 'items--sebelum');
             await axios.get(url)
             .then(res => {
-                setItems(res.data.data.product)
                 setLoading(false)
+                setItems(res.data.data.product)
             }).then( () => {
                 // console.log(items, 'items-sesudah');
 
             })
             .catch(error => {
-                console.log(error.response.data.message)
+                // console.log(error.response.data.message)
             })
             // await setItems(products.data.data.product);
             // setLoading(false)
@@ -46,7 +46,7 @@ function CardComponent() {
 
     useEffect(() => {
         getProducts();
-    }, [])
+    }, [setItems, setLoading]);
 
 
 
@@ -78,7 +78,7 @@ function CardComponent() {
                                     <Card.Body>
                                         <Card.Title> <strong>{item.name}</strong> </Card.Title>
                                         <Card.Text className={styleCard.styleCardText} >
-                                            { item.categories.name }
+                                            { item.categories.name === 0 ? '-' : item.categories.name }
                                         </Card.Text>
                                         <Card.Title>Rp {item.base_price}</Card.Title>
                                     </Card.Body>
