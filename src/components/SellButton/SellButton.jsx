@@ -1,12 +1,20 @@
 import React from 'react';
 import { Button, Container } from 'react-bootstrap';
 import './styleSellButton.css';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
+const { REACT_APP_API_URL } = process.env;
 
 function SellButton() {
 
-
-    const getProfile = async () => {
-        
+    const url = REACT_APP_API_URL;
+    const token = localStorage.getItem('token');
+    const [loading, setLoading] = useState('')
+    let nav = useNavigate();
+    const hanleDirect = async (e) => {
+        e.preventDefault();
         setLoading(true)
         try{
             await axios.get(`${url}/api/v1/auth/user/whoami`, {
@@ -28,6 +36,8 @@ function SellButton() {
                         position: toast.POSITION.TOP_RIGHT,
                         autoClose: 4000
                     });
+                } else {
+                    nav('/seller/add-product');
                 }
 
             })
@@ -39,9 +49,13 @@ function SellButton() {
         }
     }
 
+    useEffect(() => {
+        hanleDirect();
+    }, [])
+
     return (
         <Container className='tombol-jual d-flex flex-row justify-content-center fixed-bottom'>
-            <Button href='/seller/add-product' className='roundedButton d-flex flex-row justify-content-center align-items-center'>
+            <Button onClick={hanleDirect} className='roundedButton d-flex flex-row justify-content-center align-items-center'>
                 <img className='plus-icon d-flex me-3' src="/assets/fi_plus.svg" alt="" />
                 Jual
             </Button>
