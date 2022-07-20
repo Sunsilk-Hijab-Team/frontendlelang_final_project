@@ -24,9 +24,17 @@ function CardSold() {
                     "Authorization": `Bearer ${token}`
                 }
             }).then(res => {
-                // console.log(res.data.product, 'prd')
+                // console.log(res, 'prd')
                 setLoading(false)
-                setItems(res.data.product.product)
+                // console.log(res.status, 'status')
+                if (res.status === 204) {
+                    setItems([]);
+                }
+                else {
+                    setLoading(false)
+                    setItems(res.data.product.product)
+                }
+                // setItems(res.data.product.product)
             })
         } catch (error){
             console.log(error.message)
@@ -43,7 +51,7 @@ function CardSold() {
         <Container className={styleCard.container} md>
 
             {
-                items ?
+                items.length>0 ?
 
                 <Row lg={4} md={2} sm={2}>
 
@@ -58,9 +66,8 @@ function CardSold() {
 
                     <></>
                 }
-
+                
                 {
-
                     items.map((item, index) => {
 
                         return (
@@ -79,15 +86,13 @@ function CardSold() {
                             </div>
 
                         );
-
                     })
 
                 }
             </Row>
 
                 :
-
-                <h5 className="fw-bold text-center">Opps... Belum ada product yang kamu jual nih...</h5>
+                <h5 className="justify-content-center">Opps... Belum ada product yang kamu jual nih...</h5>
 
             }
 
