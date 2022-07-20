@@ -29,16 +29,16 @@ function Profile() {
                             "Authorization" : `Bearer ${token}`
                         }
             })
-            setItem(profile.data.user)
             setLoading(false)
+            setItem(profile.data.user)
         } catch (error) {
             setLoading(true);
             console.log(error.response.data.message)
         }
     }
 
-    const [image_url, setImageUrl] = useState('');
-    const [full_name, setFullName] = useState('');
+    const [imageUrl, setImageUrl] = useState('');
+    const [fullName, setFullName] = useState('');
     const [city, setCity] = useState('');
     const [address, setAddress] = useState('');
     const [phone, setPhone] = useState('');
@@ -49,22 +49,27 @@ function Profile() {
 
         let formData = new FormData();
 
-        // formData.append('image_url', image_url);
-        formData.append('full_name', full_name);
+        formData.append('full_name', fullName);
         formData.append('city', city);
         formData.append('address', address);
         formData.append('phone', phone);
+        formData.append('image_url', imageUrl);
+
+        console.log(imageUrl, phone, address, city, 'check')
 
         try {
+            console.log(formData, 'formdata');
             await axios.put(`${url}/api/v1/auth/update`, formData, {
                 headers: {
-                    "Authorization": `Bearer ${token}`,
-                    "Content-Type": "multipart/form-data"
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'multipart/form-data'
                 }
             })
             .then(res => {
-                console.log(res.data.userUpdate[0])
+                console.log(res, 'res')
+
                 if(res.data.userUpdate[0] === 1){
+
                     toast.success('Update profile has been success', {
                         theme: 'colored',
                         position: toast.POSITION.TOP_RIGHT
@@ -77,6 +82,7 @@ function Profile() {
                 }
             })
             .catch( error => {
+                console.log(error.response.data.message, 'catch')
                 toast.error(error.response.data.message, {
                     theme: 'colored',
                     position: toast.POSITION.TOP_RIGHT
@@ -91,7 +97,6 @@ function Profile() {
     useEffect(() => {
         token ? getProfile() : nav('/login')
         getProfile();
-
     }, [token, nav])
 
     return (
@@ -121,10 +126,21 @@ function Profile() {
                     </Col>
                     <Col sm={7} className="content">
                         <Form onSubmit={handleUpdate} className='form-profile d-flex flex-column align-self-center'>
-                            <Button className='profile-input align-self-center' >
+                            {/* <Button className='profile-input align-self-center'>
                                 <img className='d-flex' src='/assets/photo_profile.svg' alt="" />
-                            </Button>
-                             <Form.Control id="image" className={styleRegister.rounded} type="file" hidden onChange={(e) => setImageUrl(e.target.value)} />
+                            </Button> */}
+                            <Form.Group className="mb-3 profile-input align-self-center" controlId="formBasicEmail">
+                                <Form.Label className='add-product-label' for="image_url">
+                                    {
+                                        item.image_url === null ?
+                                            <img className='d-flex rounded-circle' src='/assets/photo_profile.svg' alt="" />
+                                        :
+                                            <img className='d-flex rounded-circle' src={item.image_url} alt="" />
+                                    }
+                                <Form.Control id="image_url" className={styleRegister.rounded} type="file" name="image_url" hidden onChange={(e) => setImageUrl(e.target.files[0])} />
+                                </Form.Label>
+                            </Form.Group>
+
                             <Form.Group className="mb-3" controlId="formBasicEmail">
                                 <Form.Label className='add-product-label'>
                                     Name*

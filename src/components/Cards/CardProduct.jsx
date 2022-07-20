@@ -1,6 +1,6 @@
 import { Card, Container, Row  } from 'react-bootstrap';
 import styleCard from './styleCard.module.css'
-// import Gambar from './jamTangan.jpg'
+import NoImage from '../../images/no_image.png'
 import Spinner from 'react-bootstrap/Spinner';
 import { useState, useEffect } from 'react';
 import axios from 'axios'
@@ -11,7 +11,7 @@ function CardComponent() {
 
     const url = `${REACT_APP_API_URL}/api/v1/product/all`;
     const [items, setItems] = useState([]);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
 
    const getProducts = async () => {
 
@@ -21,14 +21,14 @@ function CardComponent() {
             //  console.log(items, 'items--sebelum');
             await axios.get(url)
             .then(res => {
-                setItems(res.data.data.product)
                 setLoading(false)
+                setItems(res.data.data.product)
             }).then( () => {
                 // console.log(items, 'items-sesudah');
 
             })
             .catch(error => {
-                console.log(error.response.data.message)
+                // console.log(error.response.data.message)
             })
             // await setItems(products.data.data.product);
             // setLoading(false)
@@ -46,7 +46,7 @@ function CardComponent() {
 
     useEffect(() => {
         getProducts();
-    }, [])
+    }, [setItems, setLoading]);
 
 
 
@@ -72,16 +72,13 @@ function CardComponent() {
                         <div key={index} className={styleCard.cardBody}>
                             <Link to={'/detail/'+item.id}>
                                 <Card className={styleCard.cardStyle}>
-                                     {
-                                        item.images[0].image_url != null ?
-                                        <Card.Img variant="top" src={item.images[0].image_url} className={styleCard.imgThumbnail} />
-                                        : <></>
-                                    }
+
+                                    <Card.Img variant="top" src={ item.images.length === 0  ? NoImage : item.images[0].image_url } className={styleCard.imgThumbnail} />
 
                                     <Card.Body>
                                         <Card.Title> <strong>{item.name}</strong> </Card.Title>
                                         <Card.Text className={styleCard.styleCardText} >
-                                            { item.categories.name }
+                                            { item.categories.name === 0 ? '-' : item.categories.name }
                                         </Card.Text>
                                         <Card.Title>Rp {item.base_price}</Card.Title>
                                     </Card.Body>
