@@ -1,10 +1,24 @@
+.container{
+    margin: 0;
+    display: flex;
+    width: 100%;
+    margin: 0 100px;
+}
+
+.rowStyle{
+    width: 85%;
+    height: 90%;
+   
+}
+
 .previous {
     margin: 40px 0;
 }
 
 .carousel {
-    width: 600px;
-    height: 436px;
+    width: 100%;
+    height: auto;
+    display: flex;
 }
 
 .h4 {
@@ -41,10 +55,8 @@
     border-radius: 16px;
     background: #F93711;
     border: none;
-    width: 100%;
+    width: 95%;
     height: 48px;
-    /* margin-top: 3%; */
-    width: 443px;
     margin-top: 28px;
     margin-left: 8px;
 
@@ -58,4 +70,55 @@
 .jual {
     margin: 0;
     width: 31px;
+}
+
+@media screen and (max-width:768px) {
+    
+    .rowStyle{
+        display: flex;
+        flex-direction: column-reverse;
+    
+        flex-direction: column-reverse;
+    }
+
+    .carousel {
+        width: 80%;
+        height: 100%;
+        display: flex;
+    }
+
+    .container{
+    margin: 0;
+    display: flex;
+    width: 100%;
+    margin: 0 100px;
+}
+
+.container{
+    margin: 0;
+}
+
+.roundedButton {
+    width: 90%;
+}
+}
+@media screen and (max-width:425px) {
+    .rowStyle{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .carousel {
+        width: auto;
+        height: 100%;
+        display: flex;
+    }
+
+    .container{
+        margin: 0;
+    }
+
+    .roundedButton {
+        width: 100%;
+    }
 }
