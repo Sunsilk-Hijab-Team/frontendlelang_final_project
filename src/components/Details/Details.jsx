@@ -9,6 +9,7 @@ import { useParams } from "react-router-dom";
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import Spinner from 'react-bootstrap/Spinner';
+import PopUp from './popup/PopUp';
 const { REACT_APP_API_URL } = process.env
 
 function SellerHome() {
@@ -59,7 +60,7 @@ function SellerHome() {
                 }
                 <Row>
                     <Col>
-                        <h4 className={Style.h4}>{category.name}</h4>
+                        <h4 className={Style.h4}>{category === null ? 'Tidak Berkategori' : category.name}</h4>
                         <h1 className={Style.h1}>{item.name}</h1>
                         <div className='d-flex flex-row align-items-center'>
                             <h3 className={Style.h3}>Price</h3>
@@ -67,9 +68,7 @@ function SellerHome() {
                         </div>
                         <p className={Style.p}>{item.description}</p>
 
-                        <Button className={Style.roundedButton}>
-                            Saya Tertarik dan Ingin Nego
-                        </Button>
+                        <PopUp />
                     </Col>
 
                     <Col>

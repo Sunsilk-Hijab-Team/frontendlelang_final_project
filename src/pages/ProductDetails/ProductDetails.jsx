@@ -6,7 +6,7 @@ import Details from '../../components/Details/Details';
 function ProductDetail() {
     return (
         <div>
-            <Navbar />
+            <Navbar title="Product Details" />
             <Details />
         </div>
     )
