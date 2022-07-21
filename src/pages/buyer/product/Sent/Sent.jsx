@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Style from './styleSent.module.css'
 import Navbar from '../../../../components/NavbarBeforeLogin/NavbarDashboard'
 import { Carousel, Container, Col, Row} from 'react-bootstrap';
@@ -8,10 +8,11 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import SellerName from '../../../../components/SellerName/SellerName'
 
-function sent() {
-    const notify = () => toast.success("Harga tawar anda telah terkirim, Tunggu balasan dari penjual",{position:"top-center"});
+function Sent() {
+    const Notify = () => 
+        toast.success("Harga tawar anda telah terkirim, Tunggu balasan dari penjual",{position:"top-center", autoClose: 4000})
     return (
-        <div onClick={notify} >
+        <div onClick={Notify}>
             <Navbar middle="Product"/>
             <Container>
                 <img className={Style.previous} src={Previous} alt="halo" />
@@ -65,4 +66,4 @@ function sent() {
     )
 }
 
-export default sent
+export default Sent

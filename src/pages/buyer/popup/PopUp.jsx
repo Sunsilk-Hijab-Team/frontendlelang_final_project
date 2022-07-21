@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import stylePopup from './stylePopup.module.css';
 import { Form, Row, Col, Spinner} from 'react-bootstrap';
 import { IoClose } from 'react-icons/io5';
@@ -14,7 +14,8 @@ function PopUp() {
     const [item, setItem] = useState([]);
     const [category, setCategory]  = useState([]);
     const [images, setImages] = useState([]);
-    
+    let nav = useNavigate();
+
     const url = `${REACT_APP_API_URL}/api/v1/buyer/order/buy`;
     const token = localStorage.getItem('token')
     const handleOrder = async (e) => {
@@ -36,7 +37,8 @@ function PopUp() {
                     }
                 })
                 .then( res => { 
-                    console.log(res); 
+                    console.log(res);
+                    nav('/buyer/logged/sent') 
                 })
                 .catch(error => {
                 console.log(error.response.data.message);
