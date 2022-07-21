@@ -1,35 +1,81 @@
 import React from 'react';
-import { Container, Button } from 'react-bootstrap';
+import { Form, Container, Button } from 'react-bootstrap';
 import styleButton from './button.module.css';
 import SearchIcon from './fi_search.svg';
+import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+const { REACT_APP_API_URL } = process.env;
 
 function ButtonFilter() {
+
+    let nav = useNavigate();
+    const url = REACT_APP_API_URL;
+    const [loading, setLoading] = useState('')
+    const [category, setCategory] = useState([])
+
+    const toHome = async (e) => {
+        e.preventDefault();
+        nav('/');
+    }
+
+    const getCategory = async (e) => {
+        setLoading(true)
+        try{
+          setLoading(true)
+          await axios.get(`${url}/api/v1/category/all`).then(res => {
+            setLoading(false)
+            setCategory(res.data.categories)
+            // console.log(res.data.categories)
+          })
+        } catch(err) {
+          setLoading(false)
+        }
+    }
+
+    //  const [slug, setSlug] = useState('')
+
+    const handleSearchCategory = async (e, slug) => {
+      // e.preventDefault();
+      // nav(`/category/${slug}`)
+    }
+
+    useEffect(() => {
+        toHome();
+        getCategory()
+        handleSearchCategory()
+    }, [])
+
   return (
     <Container className={styleButton.container}>
-      <Button className={styleButton.button} type="search">
+
+      <Button onClick={toHome} className={styleButton.button} type="button">
         <img className='filterLogo d-flex' src={SearchIcon} alt="" />
         <p>Semua</p>
       </Button>
-      <Button className={styleButton.button} type="search">
-        <img className='filterLogo d-flex' src={SearchIcon} alt="" />
-        <p>Hobi</p>
-      </Button>
-      <Button className={styleButton.button} type="search">
-        <img className='filterLogo d-flex' src={SearchIcon} alt="" />
-        <p>Kendaraan</p>
-      </Button>
-      <Button className={styleButton.button} type="search">
-        <img className='filterLogo d-flex' src={SearchIcon} alt="" />
-        <p>Baju</p>
-      </Button>
-      <Button className={styleButton.button} type="search">
-        <img className='filterLogo d-flex' src={SearchIcon} alt="" />
-        <p>Elektronik</p>
-      </Button>
-      <Button className={styleButton.button} type="search">
-        <img className='filterLogo d-flex' src={SearchIcon} alt="" />
-        <p>Kesehatan</p>
-      </Button>
+
+        {
+            loading ?
+            <p className="text-center fw-bold m-3 mt-5">Loading....</p>
+            :
+            <>
+            </>
+        }
+        {
+          category ?
+            category.map((item, index) => {
+            return (
+              <>
+                  <Button onClick={(e) => handleSearchCategory(e, item.slug ) }  className={styleButton.button} type="submit">
+                      <img className='filterLogo d-flex' src={SearchIcon} alt="" />
+                      <p>{item.name}</p>
+                </Button>
+              </>
+              )
+            })
+            :
+            <> </>
+        }
     </Container>
   )
 }

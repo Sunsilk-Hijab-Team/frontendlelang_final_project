@@ -1,5 +1,4 @@
 import React from 'react';
-import Previous from './fi_arrow-left.svg';
 import { Col, Container, Row, Button } from 'react-bootstrap';
 import Style from './styleDetails.module.css';
 import Carousel from 'react-bootstrap/Carousel';
@@ -18,9 +17,7 @@ const { REACT_APP_API_URL } = process.env
 function SellerHome() {
 
     const url = `${REACT_APP_API_URL}/api/v1/buyer/product/`;
-
     let { productId } = useParams();
-
     const [item, setItem] = useState([]);
     const [category, setCategory] = useState([]);
     const [images, setImages] = useState([]);
@@ -47,11 +44,11 @@ function SellerHome() {
     }, [])
 
     return (
-        <div>
-            <Container>
+        <div className={Style.div}>
+            <Container className={Style.container}>
                 <PreviousButton />
             </Container>
-            <Container>
+            <Container className={Style.container}>
                 {
                     loading ?
                         <Row className='d-flex justify-content-center'>

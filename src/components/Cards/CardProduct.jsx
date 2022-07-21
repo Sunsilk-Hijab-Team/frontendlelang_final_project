@@ -1,4 +1,4 @@
-import { Card, Container, Row  } from 'react-bootstrap';
+import { Card, Container, Row } from 'react-bootstrap';
 import styleCard from './styleCard.module.css'
 import NoImage from '../../images/no_image.png'
 import Spinner from 'react-bootstrap/Spinner';
@@ -13,13 +13,14 @@ function CardComponent() {
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(true);
 
-   const getProducts = async () => {
+    const getProducts = async () => {
 
         setLoading(true)
 
         try {
             //  console.log(items, 'items--sebelum');
             await axios.get(url)
+
             .then(res => {
                 // console.log(res, 'prd')
                 setLoading(false)

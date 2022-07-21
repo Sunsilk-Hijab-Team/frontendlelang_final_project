@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import NoImage from '../../images/no_image.png'
 import Spinner from 'react-bootstrap/Spinner';
 import { useNavigate } from 'react-router-dom';
+import { Rupiah } from '../CostumFunction/Rupiah';
 import axios from 'axios';
 // import Gambar from './jamTangan.jpg'
 const { REACT_APP_API_URL } = process.env;
@@ -66,7 +67,7 @@ function CardSold() {
 
                     <></>
                 }
-                
+
                 {
                     items.map((item, index) => {
 
@@ -80,7 +81,7 @@ function CardSold() {
                                         <Card.Text className={styleCard.styleCardText}>
                                             { item.categories.name === 0 ? '-' : item.categories.name }
                                         </Card.Text>
-                                        <Card.Title>Rp { item.base_price }</Card.Title>
+                                        <Card.Title>{Rupiah(item.base_price)}</Card.Title>
                                     </Card.Body>
                                 </Card>
                             </div>

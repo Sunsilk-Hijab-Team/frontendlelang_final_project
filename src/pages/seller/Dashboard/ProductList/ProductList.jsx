@@ -5,6 +5,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import CardProduct from '../../../../components/Cards/CardProduct'
 import DashboardMenu from '../../../../components/DashboardMenu/DashboardMenu';
 import PreviousButton from '../../../../components/PreviousButton/PreviousButton';
+import ButtonAdd from '../../../../components/SellButton/SellButton'
 
 function ProductList() {
     return (
@@ -27,6 +28,9 @@ function ProductList() {
                     {/* <Col>3 of 3</Col> */}
                 </Row>
             </Container>
+            <ButtonAdd
+            tambah="add"
+            />
         </div >
 
     )

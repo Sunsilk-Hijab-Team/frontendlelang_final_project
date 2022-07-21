@@ -1,3 +1,7 @@
+.div {
+    margin-bottom: 30px;
+}
+
 .previous {
     margin: 40px 0;
 }
@@ -12,6 +16,10 @@
     display: block;
     width: 100%;
     height: auto;
+}
+
+.imgcarousel {
+    width: 100%;
 }
 
 .h4 {
@@ -32,6 +40,7 @@
 }
 
 .h2 {
+    margin-left: 8px;
     font-size: 20px;
     color: #F93711;
     line-height: 24px;
@@ -50,7 +59,6 @@
 
 .roundedButton {
     border-radius: 16px;
-    background: #F93711;
     border: none;
     width: 90%;
     height: 48px;
@@ -102,11 +110,36 @@
     font-size: 14px;
     align-self: center;
     margin-right: 70px;
+    margin-top: 40px;
+    background: #F93711;
+    color: white;
+}
+
+.notifStyle {
+    background: #F9CC00;
+    width: 30%;
+    height: 7%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+}
+
+.toast {
+    margin-top: 70px;
+    width: 40%;
+}
+
+.styleRow {
+    display: flex;
 }
 
 @media screen and (max-width:1199px) {
     .styleRow {
         flex-direction: column-reverse;
+        margin-bottom: 50px;
     }
 
     .roundedButton {
@@ -119,12 +152,17 @@
         margin-top: 5px;
     }
 
-    .carousel{
+    .carousel {
         width: 500px;
         height: 400px;
+
     }
 
-    .col1{
+    .imgcarousel {
+        width: 100%;
+    }
+
+    .col1 {
         margin-top: -70px;
     }
 

@@ -72,5 +72,4 @@ function PopUp() {
         </div>
     )
 }
-
 export default PopUp
