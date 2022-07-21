@@ -53,7 +53,6 @@ function CardComponent() {
 
     return (
         <Container className={styleCard.container} md>
-            {items.length>0 ?
             <Row lg={6} md={4} sm={3} xs={2}>
              {
                 loading ?
@@ -65,8 +64,7 @@ function CardComponent() {
 
                 : <></>
             }
-
-            {
+            {items.length>0 ?
 
                 items.map((item, index) => {
                     // console.log(item, '--map');
@@ -90,10 +88,10 @@ function CardComponent() {
 
                     );
                 })
+                : <h5 className="justify-content-center">Opps... Belum ada product yang dijual nih...</h5>
             }
             </Row>
-            : <h5 className="justify-content-center">Opps... Belum ada product yang dijual nih...</h5>
-        }
+           
         </Container>
     );
 }
