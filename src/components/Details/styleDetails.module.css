@@ -1,4 +1,4 @@
-.div{
+.div {
     margin-bottom: 30px;
 }
 
@@ -9,6 +9,10 @@
 .carousel {
     width: 600px;
     height: 436px;
+}
+
+.imgcarousel {
+    width: 100%;
 }
 
 .h4 {
@@ -22,11 +26,8 @@
     margin-left: 8px;
 }
 
-.h3 {
-    font-size: 14px;
-}
-
 .h2 {
+    margin-left: 8px;
     font-size: 20px;
     color: #F93711;
     line-height: 24px;
@@ -47,7 +48,7 @@
     width: 90%;
     height: 48px;
     margin-top: 40px;
-    background:#F93711;
+    background: #F93711;
     color: white;
 }
 
@@ -88,12 +89,17 @@
         margin-top: 5px;
     }
 
-    .carousel{
+    .carousel {
         width: 500px;
         height: 400px;
+
     }
 
-    .col1{
+    .imgcarousel {
+        width: 100%;
+    }
+
+    .col1 {
         margin-top: -70px;
     }
 
@@ -115,12 +121,16 @@
         text-align: justify;
     }
 
-    .carousel{
+    .carousel {
         width: 500px;
         height: 400px;
     }
 
-    .col1{
+    .imgcarousel {
+        width: 100%;
+    }
+
+    .col1 {
         margin-top: -70px;
     }
 
@@ -128,15 +138,19 @@
 
 
 @media screen and (max-width:756px) {
-    
+
     .carousel {
         width: 100%;
         margin-top: 20px;
         height: 300px;
     }
 
+    .imgcarousel {
+        width: 100%;
+    }
+
     .p {
-        width:95%;
+        width: 95%;
         text-align: justify;
     }
 
@@ -146,7 +160,7 @@
         margin-bottom: 20px;
     }
 
-    .carousel-indikators{
-        background:#F93711;
+    .carousel-indikators {
+        background: #F93711;
     }
 }
