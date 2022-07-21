@@ -60,7 +60,6 @@ function SellerHome() {
                     : <></>
                 }
                 <Row>
-<<<<<<< HEAD
                     <Col className='ms-2'>
                         <Carousel className={Style.carousel}>
                             <Carousel.Item>
@@ -92,11 +91,6 @@ function SellerHome() {
 
                         <h4 className={Style.h4}>Aksesoris</h4>
                         <h1 className={Style.h1}>Jam Tangan Casio</h1>
-=======
-                    <Col>
-                        <h4 className={Style.h4}>{category === null ? 'Tidak Berkategori' : category.name}</h4>
-                        <h1 className={Style.h1}>{item.name}</h1>
->>>>>>> fix
                         <div className='d-flex flex-row align-items-center'>
                             <h3 className={Style.h3}>Price</h3>
                             <h2 className={Style.h2}>Rp {item.base_price}</h2>
@@ -104,31 +98,6 @@ function SellerHome() {
                         <p className={Style.p}>{item.description}</p>
 
                         <PopUp />
-<<<<<<< HEAD
-=======
-                    </Col>
-
-                    <Col>
-                        <Carousel className={Style.carousel}>
-                                {
-                                    images.length === 0 ?
-
-                                    <Carousel.Item className={Style.carousel}>
-                                        <img className={Style.carousel} src={NoImage} alt="productImage" />
-                                    </Carousel.Item>
-
-                                    :
-
-                                    images.map((image, index) => {
-                                        return (
-                                            <Carousel.Item key={index} className={Style.carousel}>
-                                                <img className={Style.carousel} src={image.image_url} alt="productImage" />
-                                            </Carousel.Item>
-                                        )
-                                    })
-                                }
-                        </Carousel>
->>>>>>> fix
                     </Col>
                 </Row>
             </Container>
