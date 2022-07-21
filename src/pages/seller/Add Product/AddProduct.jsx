@@ -42,6 +42,7 @@ function AddProduct() {
             // })
 
         } catch(error){
+             setLoading(false)
             console.log(error);
         }
     }
@@ -146,11 +147,19 @@ function AddProduct() {
                                         <Form.Select className={styleRegister.rounded} onChange={(e) => setCategoryId(e.target.value)}>
                                             <option selected disabled> -- Choose Category -- </option>
                                             {
+
+                                                items > 0 ?
+
                                                 items.map((item, index) => {
                                                     return (
                                                         <option key={index} value={item.id}>{item.name}</option>
                                                     )
                                                 })
+
+                                                :
+
+                                                <option selected disabled> -- Category not found -- </option>
+
                                             }
                                         </Form.Select>
                                         {/* <Form.Control className={styleRegister.rounded} type="email" placeholder="Choose Category"/> */}
