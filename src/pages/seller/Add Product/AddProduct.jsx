@@ -128,8 +128,8 @@ function AddProduct() {
 
                 <Container className='form'>
                     <Form className={styleRegister.formStyle}>
-                        <Row>
-                            <Col sm={12}>
+                        <Row className='p-3'>
+                            <Col sm={12} lg={6}>
                                     <Form.Group className="mb-3" controlId="formBasicEmail">
                                         <Form.Label className='add-product-label'>
                                             Product Name
@@ -177,7 +177,7 @@ function AddProduct() {
 
                             </Col>
 
-                            <Col sm={12} className='photo d-flex flex-column align-content-center'>
+                            <Col sm={12} lg={6} className='photo d-flex flex-column align-content-center'>
                                 <img className='image_1' src={Image_1} alt="" />
                                 <p className='add-photo-label'>Product Photo</p>
                                 <div className='d-flex additional'>
@@ -188,7 +188,7 @@ function AddProduct() {
                             </Col>
                         </Row>
                     </Form>
-                    <Row>
+                    <Row className='p-3'>
                         <Col>
                             <div className='button-add-product mb-4'>
                                 <Button className='styleButtonPreview' type="submit">

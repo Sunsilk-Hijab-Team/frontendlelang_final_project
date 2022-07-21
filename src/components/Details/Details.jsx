@@ -13,27 +13,27 @@ import PopUp from './popup/PopUp';
 
 const { REACT_APP_API_URL } = process.env
 
-function  SellerHome() {
+function SellerHome() {
 
     const url = `${REACT_APP_API_URL}/api/v1/buyer/product/`;
 
     let { productId } = useParams();
 
     const [item, setItem] = useState([]);
-    const [category, setCategory]  = useState([]);
+    const [category, setCategory] = useState([]);
     const [images, setImages] = useState([]);
     const [loading, setLoading] = useState(false);
 
     const Detail = async () => {
         setLoading(true)
         try {
-            await axios.get(url+productId)
-            .then(res => {
-                setItem(res.data.data.product);
-                setCategory(res.data.data.product.categories);
-                setImages(res.data.data.product.images);
-                // console.log(images, 'null')
-            })
+            await axios.get(url + productId)
+                .then(res => {
+                    setItem(res.data.data.product);
+                    setCategory(res.data.data.product.categories);
+                    setImages(res.data.data.product.images);
+                    // console.log(images, 'null')
+                })
             setLoading(false)
         } catch (error) {
             setLoading(true);
@@ -57,10 +57,40 @@ function  SellerHome() {
                                 <span className="visually-hidden">Loading...</span>
                             </Spinner>
                         </Row>
-                    : <></>
+                        : <></>
                 }
                 <Row>
                     <Col>
+                        <Carousel className={Style.carousel}>
+                            {
+                                images.length === 0 ?
+
+                                    <Carousel.Item className={Style.carousel}>
+                                        <img className={Style.carouselImage} src={NoImage} alt="productImage" />
+                                    </Carousel.Item>
+
+                                    :
+
+                                    images.map((image, index) => {
+                                        return (
+                                            <Carousel.Item key={index} className={Style.carousel}>
+                                                <img className={Style.carouselImage} src={image.image_url} alt="productImage" />
+                                            </Carousel.Item>
+                                        )
+                                    })
+                            }
+                        </Carousel>
+                    </Col>
+
+                    <Col className={Style.desc}>
+                        <div className={Style.sellerProfile}>
+                            <img className={Style.sellerPhoto} src="/assets/profile_buyer.jpg" alt="" />
+                            <div className='ms-3'>
+                                <h2 className={Style.sellerName}>Taylor Swift</h2>
+                                <h1 className={Style.city}>Gresik</h1>
+                            </div>
+                        </div>
+
                         <h4 className={Style.h4}>{category === null ? 'Tidak Berkategori' : category.name}</h4>
                         <h1 className={Style.h1}>{item.name}</h1>
                         <div className='d-flex flex-row align-items-center'>
@@ -70,28 +100,6 @@ function  SellerHome() {
                         <p className={Style.p}>{item.description}</p>
 
                         <PopUp />
-                    </Col>
-
-                    <Col>
-                        <Carousel className={Style.carousel}>
-                                {
-                                    images.length === 0 ?
-
-                                    <Carousel.Item className={Style.carousel}>
-                                        <img className={Style.carousel} src={NoImage} alt="productImage" />
-                                    </Carousel.Item>
-
-                                    :
-
-                                    images.map((image, index) => {
-                                        return (
-                                            <Carousel.Item key={index} className={Style.carousel}>
-                                                <img className={Style.carousel} src={image.image_url} alt="productImage" />
-                                            </Carousel.Item>
-                                        )
-                                    })
-                                }
-                        </Carousel>
                     </Col>
                 </Row>
             </Container>
