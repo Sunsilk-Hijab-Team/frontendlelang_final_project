@@ -4,11 +4,7 @@ import './styleSoldProduct.css';
 import Navbar from '../../../../components/NavbarAfterLogin/NavbarDashboard';
 import DashboardMenu from '../../../../components/DashboardMenu/DashboardMenu';
 import PreviousButton from '../../../../components/PreviousButton/PreviousButton';
-<<<<<<< HEAD
-import CardProduct from '../../../../components/Cards/CardProduct';
-=======
 import CardProduct from '../../../../components/CardSold/CardSold';
->>>>>>> fix
 
 function SoldProduct() {
     return (

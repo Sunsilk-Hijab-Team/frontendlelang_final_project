@@ -54,114 +54,6 @@ function CardComponent() {
         <Container className={styleCard.container} md>
             {items.length>0 ?
             <Row lg={6} md={4} sm={3} xs={2}>
-<<<<<<< HEAD
-                {/* <Col className={styleCard.col}> */}
-                    <div className={styleCard.cardBody}>
-                        <Card className={styleCard.cardStyle}>
-                            <Card.Img variant="top" src={Gambar} className={styleCard.imgThumbnail} />
-                            <Card.Body>
-                                <Card.Title> <strong>Jam Tangan</strong> </Card.Title>
-                                <Card.Text className={styleCard.styleCardText}>
-                                    Aksesoris
-                                </Card.Text>
-                                <Card.Title>Rp 200.000</Card.Title>
-                            </Card.Body>
-                        </Card>
-                    </div>
-                    {/* </Col> */}
-                    {/* <Col className={styleCard.col}> */}
-                    <div className={styleCard.cardBody}>
-                        <Card className={styleCard.cardStyle}>
-                            <Card.Img variant="top" src={Gambar} className={styleCard.imgThumbnail} />
-                            <Card.Body>
-                                <Card.Title> <strong>Jam Tangan</strong> </Card.Title>
-                                <Card.Text className={styleCard.styleCardText}>
-                                    Aksesoris
-                                </Card.Text>
-                                <Card.Title>Rp 200.000</Card.Title>
-                            </Card.Body>
-                        </Card>
-                    </div>
-                    {/* </Col><Col className={styleCard.col}> */}
-                    <div className={styleCard.cardBody}>
-                        <Card className={styleCard.cardStyle}>
-                            <Card.Img variant="top" src={Gambar} className={styleCard.imgThumbnail} />
-                            <Card.Body>
-                                <Card.Title> <strong>Jam Tangan</strong> </Card.Title>
-                                <Card.Text className={styleCard.styleCardText}>
-                                    Aksesoris
-                                </Card.Text>
-                                <Card.Title>Rp 200.000</Card.Title>
-                            </Card.Body>
-                        </Card>
-                    </div>
-                    {/* </Col><Col className={styleCard.col}> */}
-                    <div className={styleCard.cardBody}>
-                        <Card className={styleCard.cardStyle}>
-                            <Card.Img variant="top" src={Gambar} className={styleCard.imgThumbnail} />
-                            <Card.Body>
-                                <Card.Title> <strong>Jam Tangan</strong> </Card.Title>
-                                <Card.Text className={styleCard.styleCardText}>
-                                    Aksesoris
-                                </Card.Text>
-                                <Card.Title>Rp 200.000</Card.Title>
-                            </Card.Body>
-                        </Card>
-                    </div>
-                    {/* </Col><Col className={styleCard.col}> */}
-                    <div className={styleCard.cardBody}>
-                        <Card className={styleCard.cardStyle}>
-                            <Card.Img variant="top" src={Gambar} className={styleCard.imgThumbnail} />
-                            <Card.Body>
-                                <Card.Title> <strong>Jam Tangan</strong> </Card.Title>
-                                <Card.Text className={styleCard.styleCardText}>
-                                    Aksesoris
-                                </Card.Text>
-                                <Card.Title>Rp 200.000</Card.Title>
-                            </Card.Body>
-                        </Card>
-                    </div>
-                    {/* </Col><Col className={styleCard.col}> */}
-                    <div className={styleCard.cardBody}>
-                        <Card className={styleCard.cardStyle}>
-                            <Card.Img variant="top" src={Gambar} className={styleCard.imgThumbnail} />
-                            <Card.Body>
-                                <Card.Title> <strong>Jam Tangan</strong> </Card.Title>
-                                <Card.Text className={styleCard.styleCardText}>
-                                    Aksesoris
-                                </Card.Text>
-                                <Card.Title>Rp 200.000</Card.Title>
-                            </Card.Body>
-                        </Card>
-                    </div>
-                    {/* </Col><Col className={styleCard.col}> */}
-                    <div className={styleCard.cardBody}>
-                        <Card className={styleCard.cardStyle}>
-                            <Card.Img variant="top" src={Gambar} className={styleCard.imgThumbnail} />
-                            <Card.Body>
-                                <Card.Title> <strong>Jam Tangan</strong> </Card.Title>
-                                <Card.Text className={styleCard.styleCardText}>
-                                    Aksesoris
-                                </Card.Text>
-                                <Card.Title>Rp 200.000</Card.Title>
-                            </Card.Body>
-                        </Card>
-                    </div>
-                    {/* </Col><Col className={styleCard.col}> */}
-                    <div className={styleCard.cardBody}>
-                        <Card className={styleCard.cardStyle}>
-                            <Card.Img variant="top" src={Gambar} className={styleCard.imgThumbnail} />
-                            <Card.Body>
-                                <Card.Title> <strong>Jam Tangan</strong> </Card.Title>
-                                <Card.Text className={styleCard.styleCardText}>
-                                    Aksesoris
-                                </Card.Text>
-                                <Card.Title>Rp 200.000</Card.Title>
-                            </Card.Body>
-                        </Card>
-                    </div>
-                    {/* </Col> */}
-=======
              {
                 loading ?
                 <Row className='d-flex justify-content-center'>
@@ -198,7 +90,6 @@ function CardComponent() {
                     );
                 })
             }
->>>>>>> fix
             </Row>
             : <h5 className="justify-content-center">Opps... Belum ada product yang dijual nih...</h5>
         }

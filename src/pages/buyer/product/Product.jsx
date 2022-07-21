@@ -1,4 +1,4 @@
-import Navbar from '../../../components/NavbarDashboard/NavbarDashboard';
+import Navbar from '../../../components/NavbarBeforeLogin/NavbarDashboard';
 import React from 'react';
 import './styleProductDetail.css';
 // import Details from './Details/Details';

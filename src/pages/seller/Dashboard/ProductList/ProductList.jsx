@@ -10,7 +10,7 @@ function ProductList() {
     return (
         <div>
             <Navbar title="Product List" />
-            <Container  className='previous'>
+            <Container className='previous'>
                 <PreviousButton className="previousButton" />
             </Container>
 

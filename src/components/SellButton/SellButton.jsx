@@ -55,13 +55,8 @@ function SellButton() {
     }, [])
 
     return (
-<<<<<<< HEAD
-        <Container className='d-flex justify-content-center fixed-bottom'>
-            <Button href='/user/add-product' className='roundedButton d-flex flex-row justify-content-center align-items-center'>
-=======
         <Container className='tombol-jual d-flex flex-row justify-content-center fixed-bottom'>
             <Button onClick={hanleDirect} className='roundedButton d-flex flex-row justify-content-center align-items-center'>
->>>>>>> fix
                 <img className='plus-icon d-flex me-3' src="/assets/fi_plus.svg" alt="" />
                 Jual
             </Button>

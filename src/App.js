@@ -31,35 +31,6 @@ function App() {
       <ToastContainer />
       <BrowserRouter>
         <Routes>
-<<<<<<< HEAD
-
-          {/* BEFORE LOGIN */}
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-
-          {/* AFTER LOGIN */}
-          <Route path="/user" element={<SellerHome />} />
-          {/* <Route path="/details" element={<ProductDetail />} /> */}
-          <Route path="/details" element={<BuyerProduct />} />
-          <Route path="/user/add-product" element={<AddProduct />} />
-          <Route path="/user/profile" element={<Profile />} />
-          <Route path="/user/product-list" element={<ProductList />} />
-          <Route path="/user/favorite" element={<Favorites />} />
-          <Route path="/user/sold-product" element={<SoldProduct />} />
-          <Route path="/user/Notification" element={<Notification />} />
-          {/* <Route path="/card" element={<Card />} /> */}
-
-          {/* Unauthorized */}
-          <Route path="/buyer/home" element={<BuyerHome />} />
-          {/* buyer */}
-          <Route path="/buyer/logged/product" element={<BuyerProduct />} />
-          <Route path="/buyer/product" element={<BuyerLogin />} />
-          <Route path="/buyer/logged/sent" element={<BuyerSent />} />
-
-        </Routes>
-      </BrowserRouter>
-=======
           {/* BEFORE LOGIN */}
             {/* MAIN */}
               <Route path="/" element={<Home />} />
@@ -85,7 +56,6 @@ function App() {
             <Route path="/buyer/logged/sent" element={<BuyerSent />} />
           </Routes>
         </BrowserRouter>
->>>>>>> fix
     </div>
   );
 }

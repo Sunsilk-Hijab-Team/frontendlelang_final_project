@@ -17,11 +17,7 @@ function PopUp() {
                 className={stylePopup.roundedButtonMenu}
                 onClick={togglePopup}
             >
-<<<<<<< HEAD
                 Saya Tertarik dan Ingin Nego
-=======
-                saya tertarik dan ingin Nego
->>>>>>> fix
             </button>
             {modal &&
                 (

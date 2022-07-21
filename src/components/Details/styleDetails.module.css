@@ -5,7 +5,7 @@
 .carousel {
     width: auto;
     height: 436px;
-    margin-left: 20px;
+    /* margin-left: 20px; */
 }
 
 .carouselImage {
@@ -16,6 +16,7 @@
 
 .h4 {
     font-size: 14px;
+    /* margin-top: 30px; */
     margin-top: 30px;
     margin-left: 8px;
 }
@@ -27,7 +28,7 @@
 
 .h3 {
     font-size: 14px;
-    margin-top: 5px;
+    /* margin-top: 5px; */
 }
 
 .h2 {
@@ -36,7 +37,7 @@
     line-height: 24px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 700;
-    margin-left: 10px;
+    /* margin-left: 10px; */
 }
 
 .p {
@@ -51,18 +52,23 @@
     border-radius: 16px;
     background: #F93711;
     border: none;
-    width: 100%;
+    width: 90%;
     height: 48px;
     /* margin-top: 3%; */
     width: 443px;
-    margin-top: 28px;
-    margin-left: 8px;
+    /* margin-top: 28px; */
+    margin-top: 40px;
+    /* margin-left: 8px; */
 
-    display: flex;
+    /* display: flex;
     flex-direction: row;
     justify-content: center;
     align-content: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap; */
+}
+
+.styleRow {
+    display: flex;
 }
 
 .jual {
@@ -83,7 +89,7 @@
     display: flex;
     width: 48px;
     height: 48px;
-    margin: 0 17px;
+    margin: 0 10px;
 }
 
 .city {
@@ -98,6 +104,84 @@
     margin-right: 70px;
 }
 
+@media screen and (max-width:1199px) {
+    .styleRow {
+        flex-direction: column-reverse;
+    }
+
+    .roundedButton {
+        width: 70%;
+        margin-top: 10px;
+    }
+
+    .p {
+        width: 70%;
+        margin-top: 5px;
+    }
+
+    .carousel{
+        width: 500px;
+        height: 400px;
+    }
+
+    .col1{
+        margin-top: -70px;
+    }
+
+}
+
+@media screen and (max-width:1024px) {
+    .styleRow {
+        flex-direction: column-reverse;
+    }
+
+    .roundedButton {
+        width: 70%;
+        margin-top: 10px;
+    }
+
+    .p {
+        width: 70%;
+        margin-top: 5px;
+        text-align: justify;
+    }
+
+    .carousel{
+        width: 500px;
+        height: 400px;
+    }
+
+    .col1{
+        margin-top: -70px;
+    }
+
+}
+
+
+@media screen and (max-width:756px) {
+    
+    .carousel {
+        width: 100%;
+        /* margin-top: 20px; */
+        height: 300px;
+    }
+
+    .p {
+        width:95%;
+        text-align: justify;
+    }
+
+    .roundedButton {
+        width: 100%;
+        margin-top: 50px;
+        margin-bottom: 20px;
+    }
+
+    .carousel-indikators{
+        background:#F93711;
+    }
+}
+
 @media screen and (max-width:600px){
     .carouselImage {
         display: block;
@@ -106,8 +190,8 @@
     }
 
     .carousel {
-        width: 370px;
-        height: auto;
+        width: auto;
+        height: 360px;
         display: flex;
         margin-left: 5px;
         /* d-flex justify-content-center */
@@ -134,7 +218,7 @@
         font-size: 14px;
         width: 340px;
         color: #8A8A8A;
-        height: 160px;
+        height: max-content;
     }
 
     .h4 {
@@ -186,9 +270,6 @@
 @media only screen and (min-width: 1200px) {
 
 }
-
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {}
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {

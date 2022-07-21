@@ -1,5 +1,5 @@
 .container {
-    margin-top: 40px;
+    margin-top: 10px;
     font-family: poppins;
     display: flex;
     flex-wrap: wrap;
@@ -120,10 +120,6 @@
         margin: 0;
         justify-content: center;
     }
-<<<<<<< HEAD
-
-=======
->>>>>>> fix
     .cardBody {
         max-width: 200px;
         min-width: 100px;

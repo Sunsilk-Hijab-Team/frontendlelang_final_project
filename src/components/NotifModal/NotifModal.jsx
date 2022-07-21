@@ -61,15 +61,6 @@ function NotifModal() {
         (
           <div className={stylePopup.modal}>
             {/* <div className={stylePopup.overlay}></div> */}
-<<<<<<< HEAD
-            <div className={stylePopup.modalContent}>
-              <Nav.Link className={stylePopup.product} href="/user/Notification">
-                <img className={styleNotif.productPicture} src="/assets/photo_product.jpg" alt="" />
-                <div>
-                  <div className='d-flex flex-row justify-content-between'>
-                    <h1 className={stylePopup.date}>Penawaran produk</h1>
-                    <h1 className={stylePopup.date}>20 Apr, 14:04</h1>
-=======
             {notification.map((item, index)=>{
               console.log(item.orders.orders);
               return(
@@ -114,7 +105,6 @@ function NotifModal() {
                         <h2 className={stylePopup.productPrice}>Rp 250.000</h2>
                       </div>
                     </div>
->>>>>>> fix
                   </div>
 
                   <div className={stylePopup.closeModal}

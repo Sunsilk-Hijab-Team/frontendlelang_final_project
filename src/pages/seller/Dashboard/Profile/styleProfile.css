@@ -38,6 +38,11 @@
     border-color: #FAD56C; */
 }
 
+.rounded-circle {
+    width: 144px;
+    height: 144px;
+}
+
 @media only screen and (max-width: 600px) {
     .form-profile {
         width: 328px;
