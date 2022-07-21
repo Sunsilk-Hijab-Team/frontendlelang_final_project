@@ -21,38 +21,38 @@ function CardComponent() {
             //  console.log(items, 'items--sebelum');
             await axios.get(url)
             .then(res => {
+                // console.log(res, 'prd')
                 setLoading(false)
-                setItems(res.data.data.product)
-            }).then( () => {
-                // console.log(items, 'items-sesudah');
-
+                console.log(res.data, 'data')
+                if (res.status === 204) {
+                    setItems([]);
+                }
+                else {
+                    setLoading(false)
+                    setItems(res.data.data.product)
+                }
+                // setItems(res.data.product.product)
             })
             .catch(error => {
-                // console.log(error.response.data.message)
+                console.log(error.message)
+                setLoading(false)
             })
-            // await setItems(products.data.data.product);
-            // setLoading(false)
-
 
         } catch (error) {
-
             //  setLoading(true);
-
             console.log(error.message);
         }
 
     }
-
+    // console.log(items, 'items--setelah');
 
     useEffect(() => {
         getProducts();
-    }, [setItems, setLoading]);
-
-
+    }, []);
 
     return (
         <Container className={styleCard.container} md>
-
+            {items.length>0 ?
             <Row lg={6} md={4} sm={3} xs={2}>
              {
                 loading ?
@@ -79,7 +79,7 @@ function CardComponent() {
                                     <Card.Body>
                                         <Card.Title> <strong>{item.name}</strong> </Card.Title>
                                         <Card.Text className={styleCard.styleCardText} >
-                                            { item.categories.name === 0 ? '-' : item.categories.name }
+                                            { item.categories == null ? 'Tidak Berkategori' : item.categories.name }
                                         </Card.Text>
                                         <Card.Title>Rp {item.base_price}</Card.Title>
                                     </Card.Body>
@@ -89,8 +89,10 @@ function CardComponent() {
 
                     );
                 })
-        }
+            }
             </Row>
+            : <h5 className="justify-content-center">Opps... Belum ada product yang dijual nih...</h5>
+        }
         </Container>
     );
 }
