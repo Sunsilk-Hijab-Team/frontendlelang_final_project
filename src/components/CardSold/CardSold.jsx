@@ -8,7 +8,7 @@ import axios from 'axios';
 // import Gambar from './jamTangan.jpg'
 const { REACT_APP_API_URL } = process.env;
 
-function CardComponent() {
+function CardSold() {
 
     const url = `${REACT_APP_API_URL}`;
     const [items, setItems] = useState([]);
@@ -19,18 +19,26 @@ function CardComponent() {
     const getProducts = async () => {
         setLoading(true);
         try{
-            await axios.get(`${url}/api/v1/seller/product/all`,{
+            await axios.get(`${url}/api/v1/seller/productSell`,{
                 headers: {
                     "Authorization": `Bearer ${token}`
                 }
             }).then(res => {
-                // console.log(res.data.product, 'prd')
+                // console.log(res, 'prd')
                 setLoading(false)
-                setItems(res.data.product)
+                // console.log(res.status, 'status')
+                if (res.status === 204) {
+                    setItems([]);
+                }
+                else {
+                    setLoading(false)
+                    setItems(res.data.product.product)
+                }
+                // setItems(res.data.product.product)
             })
         } catch (error){
-            // console.log(error.message)
-            setLoading(true)
+            console.log(error.message)
+            setLoading(false)
         }
     }
 
@@ -43,9 +51,9 @@ function CardComponent() {
         <Container className={styleCard.container} md>
 
             {
-                items ?
+                items.length>0 ?
 
-            <Row lg={4} md={2} sm={2}>
+                <Row lg={4} md={2} sm={2}>
 
                 {
                     loading ?
@@ -54,11 +62,12 @@ function CardComponent() {
                         <span className="visually-hidden">Loading...</span>
                     </Spinner>
 
-                    : <></>
+                    :
+
+                    <></>
                 }
-
+                
                 {
-
                     items.map((item, index) => {
 
                         return (
@@ -77,15 +86,13 @@ function CardComponent() {
                             </div>
 
                         );
-
                     })
 
                 }
             </Row>
 
-            :
-
-            <h5 className="fw-bold">Opps... Belum ada product yang kamu jual nih...</h5>
+                :
+                <h5 className="justify-content-center">Opps... Belum ada product yang kamu jual nih...</h5>
 
             }
 
@@ -93,4 +100,4 @@ function CardComponent() {
     );
 }
 
-export default CardComponent;
+export default CardSold;

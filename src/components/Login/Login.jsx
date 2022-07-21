@@ -6,6 +6,7 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import Spinner from 'react-bootstrap/Spinner';
 
 const { REACT_APP_API_URL } = process.env
 
@@ -21,23 +22,26 @@ function Login() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const token = localStorage.getItem('token');
 
+    const [loading, setLoading] = useState(false);
+
     useEffect(() => {
         token ? setIsLoggedIn(true) : setIsLoggedIn(false)
     }, [token]);
 
     const handleLogin = async (e) => {
         e.preventDefault();
-
+        setLoading(true)
         try {
 
             axios.post(url, { email, password })
             .then(res => {
-
                 localStorage.setItem('token', res.data.token);
+                setLoading(false)
                 nav('/');
 
             })
             .catch(error => {
+                setLoading(false)
                 toast.warning(error.response.data.message, {
                     theme: 'colored',
                     position: toast.POSITION.TOP_RIGHT
@@ -45,7 +49,7 @@ function Login() {
             })
 
         } catch (error) {
-
+            setLoading(false)
         }
     }
 
@@ -95,10 +99,27 @@ function Login() {
                                     className={styleLogin.roundedForm} type={passwordType}
                                     onChange={ (e) => setPassword( e.target.value )}/>
                             </Form.Group>
+                            {
+                                loading ?
 
-                            <Button className={styleLogin.roundedButton} type='submit' >
-                                Login
-                            </Button>
+                                <Button className={styleLogin.roundedButton} disabled>
+                                    <Spinner
+                                    as="span"
+                                    animation="grow"
+                                    size="sm"
+                                    role="status"
+                                    aria-hidden="true"
+                                    />
+                                    Loading...
+                                </Button>
+
+                                :
+
+                                <Button className={styleLogin.roundedButton} type='submit' >
+                                    Login
+                                </Button>
+
+                            }
                         </Form>
 
                     </div>

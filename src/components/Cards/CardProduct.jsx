@@ -38,6 +38,10 @@ function CardComponent() {
                 console.log(error.message)
                 setLoading(false)
             })
+<<<<<<< HEAD
+=======
+
+>>>>>>> ae4115e0ab044ace72096f0c4a199a27cad22cc4
         } catch (error) {
             //  setLoading(true);
             console.log(error.message);
@@ -52,7 +56,10 @@ function CardComponent() {
 
     return (
         <Container className={styleCard.container} md>
+<<<<<<< HEAD
 
+=======
+>>>>>>> ae4115e0ab044ace72096f0c4a199a27cad22cc4
             {items.length>0 ?
             <Row lg={6} md={4} sm={3} xs={2}>
              {

@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import stylePopup from './styleMatchModal.module.css';
 import { Form, Row, Col } from 'react-bootstrap';
 import { IoClose } from 'react-icons/io5'
 import styleNotif from '../../pages/seller/Notification/Notification.module.css'
+import axios from 'axios';
 
 function MatchModal() {
     const [modal, setModal] = useState(false);
