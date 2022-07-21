@@ -55,15 +55,9 @@ function SellerHome() {
                         </Row>
                     : <></>
                 }
-<<<<<<< HEAD
                 <Row className={Style.styleRow}>
                     <Col className={Style.col1}>
-                        <h4 className={Style.h4}>{category.name}</h4>
-=======
-                <Row>
-                    <Col>
                         <h4 className={Style.h4}>{category === null ? 'Tidak Berkategori' : category.name}</h4>
->>>>>>> ae4115e0ab044ace72096f0c4a199a27cad22cc4
                         <h1 className={Style.h1}>{item.name}</h1>
                         <div className='d-flex flex-row align-items-center'>
                             <h2 className={Style.h2}>Price : </h2>
