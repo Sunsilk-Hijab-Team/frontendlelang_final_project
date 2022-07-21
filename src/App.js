@@ -13,6 +13,8 @@ import Profile from './pages/seller/Dashboard/Profile/Profile';
 import Favorites from './pages/seller/Dashboard/Favorites/Favorites';
 import SoldProduct from './pages/seller/Dashboard/SoldProduct/SoldProduct';
 import Notification from './pages/seller/Notification/Notification';
+import NotificationTest from './pages/seller/Notification/NotificationTest';
+import PreviewProduct from './pages/seller/PreviewProduct/PreviewProduct';
 // import Card from './components/Cards/Card';
 
 //buyer pages
@@ -34,6 +36,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
+              {/* <Route path="/category/:slug" element={<Home />} /> */}
             {/* BUYER */}
               <Route path="/buyer/product" element={<BuyerLogin />} />
               <Route path="/detail/:productId" element={<ProductDetail />} />
@@ -44,9 +47,11 @@ function App() {
             <Route path="/seller/add-product" element={<AddProduct />} />
             <Route path="/seller/dashboard/profile" element={<Profile />} />
             <Route path="/seller/dashboard/product-list" element={<ProductList />} />
+            <Route path="/seller/preview-product" element={<PreviewProduct />} />
             <Route path="/seller/dashboard/favorite" element={<Favorites />} />
             <Route path="/seller/dashboard/sold-product" element={<SoldProduct />} />
             <Route path="/seller/Notification" element={<Notification />} />
+            <Route path="/seller/dashboard/notification-test" element={<NotificationTest />} />
             {/* buyer */}
             <Route path="/buyer/logged/product" element={<BuyerProduct />} />
             <Route path="/buyer/logged/sent" element={<BuyerSent />} />
