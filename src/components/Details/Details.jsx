@@ -59,7 +59,7 @@ function SellerHome() {
                 }
                 <Row>
                     <Col>
-                        <h4 className={Style.h4}>{category.name}</h4>
+                        <h4 className={Style.h4}>{category === null ? 'Tidak Berkategori' : category.name}</h4>
                         <h1 className={Style.h1}>{item.name}</h1>
                         <div className='d-flex flex-row align-items-center'>
                             <h3 className={Style.h3}>Price</h3>

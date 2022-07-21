@@ -23,17 +23,13 @@ function ButtonFilter() {
         setLoading(true)
         try{
           setLoading(true)
-          await axios.get(`${url}/api/v1/seller/category/all`, {
-            headers: {
-              'Authorization': `Bearer ${localStorage.getItem('token')}`
-            }
-          }).then(res => {
+          await axios.get(`${url}/api/v1/category/all`).then(res => {
             setLoading(false)
             setCategory(res.data.categories)
             // console.log(res.data.categories)
           })
         } catch(err) {
-          setLoading(true)
+          setLoading(false)
         }
     }
 
@@ -41,7 +37,7 @@ function ButtonFilter() {
 
     const handleSearchCategory = async (e, slug) => {
       // e.preventDefault();
-      nav(`/category/${slug}`)
+      // nav(`/category/${slug}`)
     }
 
     useEffect(() => {
@@ -58,25 +54,28 @@ function ButtonFilter() {
         <p>Semua</p>
       </Button>
 
-      {
-        loading ?
-        <p className="text-center fw-bold m-3 mt-5">Loading....</p>
-         :
-         <>
-        </>
-      }
-      {
-        category.map((item, index) => {
-          return (
+        {
+            loading ?
+            <p className="text-center fw-bold m-3 mt-5">Loading....</p>
+            :
             <>
-                <Button onClick={(e) => handleSearchCategory(e, item.slug ) }  className={styleButton.button} type="submit">
-                    <img className='filterLogo d-flex' src={SearchIcon} alt="" />
-                    <p>{item.name}</p>
-              </Button>
-          </>
-          )
-        })
-      }
+            </>
+        }
+        {
+          category ?
+            category.map((item, index) => {
+            return (
+              <>
+                  <Button onClick={(e) => handleSearchCategory(e, item.slug ) }  className={styleButton.button} type="submit">
+                      <img className='filterLogo d-flex' src={SearchIcon} alt="" />
+                      <p>{item.name}</p>
+                </Button>
+              </>
+              )
+            })
+            :
+            <> </>
+        }
     </Container>
   )
 }
