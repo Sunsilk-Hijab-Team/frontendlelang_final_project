@@ -115,6 +115,57 @@ function AddProduct() {
             <Container>
                 <PreviousButton />
             </Container>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+            <Container className='form'>
+                <Form className={styleRegister.formStyle}>
+                    <Row>
+                        <Col sm={12}>
+                                <Form.Group className="mb-3" controlId="formBasicEmail">
+                                    <Form.Label className='add-product-label'>
+                                        Product Name
+                                    </Form.Label>
+                                    <Form.Control className={styleRegister.rounded} type="text" placeholder="Product Name" onChange={(e) => setName(e.target.value)} />
+                                </Form.Group>
+
+                                <Form.Group className="mb-3" controlId="formBasicEmail">
+                                    <Form.Label className='add-product-label'>Price</Form.Label>
+                                    <Form.Control className={styleRegister.rounded} type="number" placeholder="Rp 0,00" onChange={(e) => setPrice(e.target.value)} />
+                                </Form.Group>
+
+                                <Form.Group className="mb-3" controlId="formBasicEmail">
+                                    <Form.Label className='add-product-label'>Category</Form.Label>
+                                    <Form.Select className={styleRegister.rounded} onChange={(e) => setCategoryId(e.target.value)}>
+                                        <option selected disabled> -- Choose Category -- </option>
+                                        <option value="1"> 1 </option>
+                                    </Form.Select>
+                                    {/* <Form.Control className={styleRegister.rounded} type="email" placeholder="Choose Category"/> */}
+                                </Form.Group>
+
+                                <Form.Group className="mb-3" controlId="formBasicEmail">
+                                    <Form.Label className='add-product-label'>Product Description</Form.Label>
+                                    <Form.Control className={styleRegister.rounded} type="text" placeholder="ex: Lorem ipsum dolor sit amet" onChange={(e) => setDescription(e.target.value)}  />
+                                </Form.Group>
+                                <Form.Group className="mb-3" controlId="formBasicEmail">
+                                    <Form.Label className='add-product-label'>Gambar</Form.Label>
+                                    <Form.Control className={styleRegister.rounded} type="file" placeholder="ex: Lorem ipsum dolor sit amet" onChange={(e) => setImageUrl(e.target.files[0])}  />
+                                </Form.Group>
+                        </Col>
+=======
+            {
+                loading ?
+
+                <Row className='d-flex justify-content-center'>
+                    <Spinner animation="border" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                    </Spinner>
+                </Row>
+>>>>>>> ae4115e0ab044ace72096f0c4a199a27cad22cc4
+
+                :
+
+>>>>>>> dae711cd7be2fe723723e67586ec2367f6d8ef93
                 <Container className='form'>
                     <Form className={styleRegister.formStyle}>
                         <Row>
