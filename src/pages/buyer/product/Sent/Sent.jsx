@@ -9,9 +9,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import SellerName from '../../../../components/SellerName/SellerName'
 
 function sent() {
-    const notify = () => toast.success("Harga tawar anda telah terkirim, Tunggu balasan dari penjual",{position:"top-center"});
     return (
-        <div onClick={notify} >
+        <div >
+            {toast.success("Harga tawar anda telah terkirim, Tunggu balasan dari penjual",{position:"top-center"})}
             <Navbar middle="Product"/>
             <Container>
                 <img className={Style.previous} src={Previous} alt="halo" />
