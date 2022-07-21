@@ -71,6 +71,7 @@
 @media screen and (max-width:1199px) {
     .styleRow {
         flex-direction: column-reverse;
+        margin-bottom: 50px;
     }
 
     .roundedButton {

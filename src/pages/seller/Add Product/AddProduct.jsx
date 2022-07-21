@@ -1,7 +1,7 @@
 import Navbar from '../../../components/NavbarAfterLogin/NavbarDashboard';
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-// import Previous from './fi_arrow-left.svg';
+
 import './styleAddProduct.css';
 import Image_1 from './Group_1.png';
 import Image_2 from './Group_86.png';
