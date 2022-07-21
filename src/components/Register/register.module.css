@@ -28,7 +28,7 @@ h1 {
     flex-direction: column;
     justify-content: center;
     align-items:center;
-    
+
 }
 
 .rounded {
@@ -99,7 +99,7 @@ span {
         margin-top: 15%;
         margin-left: 38%;
     }
-    
+
     .header {
         text-align: center;
         margin-bottom: 30px;

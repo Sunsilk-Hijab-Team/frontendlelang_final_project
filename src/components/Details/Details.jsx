@@ -28,7 +28,7 @@ function SellerHome() {
                 setItem(res.data.data.product);
                 setCategory(res.data.data.product.categories);
                 setImages(res.data.data.product.images);
-                console.log(images, 'null')
+                // console.log(images, 'null')
             })
             setLoading(false)
         } catch (error) {
@@ -55,8 +55,10 @@ function SellerHome() {
                         </Row>
                     : <></>
                 }
+
                 <Row className={Style.styleRow}>
                     <Col className={Style.col1}>
+
                         <h4 className={Style.h4}>{category === null ? 'Tidak Berkategori' : category.name}</h4>
                         <h1 className={Style.h1}>{item.name}</h1>
                         <div className='d-flex flex-row align-items-center'>
