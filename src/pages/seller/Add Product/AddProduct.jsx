@@ -148,7 +148,7 @@ function AddProduct() {
                                             <option selected disabled> -- Choose Category -- </option>
                                             {
 
-                                                items > 0 ?
+                                                items.length > 0 ?
 
                                                 items.map((item, index) => {
                                                     return (
