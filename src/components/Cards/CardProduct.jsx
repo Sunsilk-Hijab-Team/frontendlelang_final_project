@@ -1,4 +1,4 @@
-import { Card, Container, Row  } from 'react-bootstrap';
+import { Card, Container, Row } from 'react-bootstrap';
 import styleCard from './styleCard.module.css'
 import NoImage from '../../images/no_image.png'
 import Spinner from 'react-bootstrap/Spinner';
@@ -14,13 +14,14 @@ function CardComponent() {
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(true);
 
-   const getProducts = async () => {
+    const getProducts = async () => {
 
         setLoading(true)
 
         try {
             //  console.log(items, 'items--sebelum');
             await axios.get(url)
+
             .then(res => {
                 // console.log(res, 'prd')
                 setLoading(false)
@@ -38,7 +39,10 @@ function CardComponent() {
                 console.log(error.message)
                 setLoading(false)
             })
+<<<<<<< HEAD
+=======
 
+>>>>>>> ae4115e0ab044ace72096f0c4a199a27cad22cc4
         } catch (error) {
             //  setLoading(true);
             console.log(error.message);
@@ -53,6 +57,10 @@ function CardComponent() {
 
     return (
         <Container className={styleCard.container} md>
+<<<<<<< HEAD
+
+=======
+>>>>>>> ae4115e0ab044ace72096f0c4a199a27cad22cc4
             {items.length>0 ?
             <Row lg={6} md={4} sm={3} xs={2}>
              {

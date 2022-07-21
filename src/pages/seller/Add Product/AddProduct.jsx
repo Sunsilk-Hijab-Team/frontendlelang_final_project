@@ -1,7 +1,7 @@
 import Navbar from '../../../components/NavbarAfterLogin/NavbarDashboard';
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-// import Previous from './fi_arrow-left.svg';
+
 import './styleAddProduct.css';
 import Image_1 from './Group_1.png';
 import Image_2 from './Group_86.png';
@@ -115,17 +115,6 @@ function AddProduct() {
             <Container>
                 <PreviousButton />
             </Container>
-            {
-                loading ?
-
-                <Row className='d-flex justify-content-center'>
-                    <Spinner animation="border" role="status">
-                        <span className="visually-hidden">Loading...</span>
-                    </Spinner>
-                </Row>
-
-                :
-
                 <Container className='form'>
                     <Form className={styleRegister.formStyle}>
                         <Row>
@@ -221,7 +210,6 @@ function AddProduct() {
                     </Row>
                 </Container>
 
-            }
         </div>
     )
 }
