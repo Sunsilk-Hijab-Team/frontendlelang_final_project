@@ -58,7 +58,7 @@ function Profile() {
         console.log(imageUrl, phone, address, city, 'check')
 
         try {
-            console.log(formData, 'formdata');
+            // console.log(formData, 'formdata');
             await axios.put(`${url}/api/v1/auth/update`, formData, {
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -69,7 +69,6 @@ function Profile() {
                 console.log(res, 'res')
 
                 if(res.data.userUpdate[0] === 1){
-
                     toast.success('Update profile has been success', {
                         theme: 'colored',
                         position: toast.POSITION.TOP_RIGHT

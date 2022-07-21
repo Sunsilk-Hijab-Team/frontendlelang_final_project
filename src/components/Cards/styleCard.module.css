@@ -38,6 +38,7 @@
     padding: 3%;
     border-radius: 15px;
     display: flex;
+    object-fit: cover;
 }
 
 /* @media screen and (max-width: 600px) {

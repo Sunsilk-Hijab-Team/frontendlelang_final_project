@@ -40,7 +40,7 @@ function SellerHome() {
     }, [])
 
     return (
-        <div>
+        <div className={Style.div}>
             <Container className={Style.container}>
                 <PreviousButton />
             </Container>
@@ -54,12 +54,12 @@ function SellerHome() {
                         </Row>
                     : <></>
                 }
-                <Row className={Style.rowStyle}>
-                    <Col className={Style.col}>
+                <Row className={Style.styleRow}>
+                    <Col className={Style.col1}>
                         <h4 className={Style.h4}>{category.name}</h4>
                         <h1 className={Style.h1}>{item.name}</h1>
                         <div className='d-flex flex-row align-items-center'>
-                            <h3 className={Style.h3}>Price</h3>
+                            <h2 className={Style.h2}>Price : </h2>
                             <h2 className={Style.h2}>Rp {item.base_price}</h2>
                         </div>
                         <p className={Style.p}>{item.description}</p>
@@ -69,13 +69,13 @@ function SellerHome() {
                         </Button>
                     </Col>
 
-                    <Col className={Style.col}>
+                    <Col>
                         <Carousel className={Style.carousel}>
                                 {
                                     images.length === 0 ?
 
                                     <Carousel.Item className={Style.carousel}>
-                                        <img className={Style.carousel} src={NoImage} alt="productImage" />
+                                        <img className={Style.imgcarousel} src={NoImage} alt="productImage" />
                                     </Carousel.Item>
 
                                     :
@@ -83,7 +83,7 @@ function SellerHome() {
                                     images.map((image, index) => {
                                         return (
                                             <Carousel.Item key={index} className={Style.carousel}>
-                                                <img className={Style.carousel} src={image.image_url} alt="productImage" />
+                                                <img className={Style.imgcarousel} src={image.image_url} alt="productImage" />
                                             </Carousel.Item>
                                         )
                                     })
