@@ -1,6 +1,6 @@
 import React from 'react';
 import './styleFavorites.css';
-import Navbar from '../../../../components/NavbarDashboard/NavbarDashboard'
+import Navbar from '../../../../components/NavbarAfterLogin/NavbarDashboard'
 import { Container, Col, Row } from 'react-bootstrap';
 import DashboardMenu from '../../../../components/DashboardMenu/DashboardMenu';
 import PreviousButton from '../../../../components/PreviousButton/PreviousButton';

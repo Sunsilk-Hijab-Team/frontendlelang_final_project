@@ -1,6 +1,6 @@
 import React from 'react';
 import Style from './styleSent.module.css'
-import Navbar from '../../../../components/NavbarDashboardBuyer/NavbarDashboard'
+import Navbar from '../../../../components/NavbarBeforeLogin/NavbarDashboard'
 import { Carousel, Container, Col, Row} from 'react-bootstrap';
 import Previous from './fi_arrow-left.svg';
 import Image from './jam_1.png';

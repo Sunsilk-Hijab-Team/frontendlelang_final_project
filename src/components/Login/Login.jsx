@@ -4,33 +4,53 @@ import { Row, Col, Button, Container, Form } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import axios from 'axios';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
+import Spinner from 'react-bootstrap/Spinner';
+
+const { REACT_APP_API_URL } = process.env
+
 
 function Login() {
+
+    const url = `${REACT_APP_API_URL}/api/v1/auth/login`;
+    const nav = useNavigate();
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const token = localStorage.getItem('token');
+
+    const [loading, setLoading] = useState(false);
+
     useEffect(() => {
         token ? setIsLoggedIn(true) : setIsLoggedIn(false)
     }, [token]);
 
     const handleLogin = async (e) => {
         e.preventDefault();
-        axios.post('http://lelang-euyy.herokuapp.com/api/v1/auth/login', { email, password })
+        setLoading(true)
+        try {
+
+            axios.post(url, { email, password })
             .then(res => {
-                
-                console.log(res.data, "dari then");
                 localStorage.setItem('token', res.data.token);
-                
-                // window.location.href = '/seller/home';
+                setLoading(false)
+                nav('/');
 
             })
-            .catch(err => {
-                console.log(err.message, "dari error");
+            .catch(error => {
+                setLoading(false)
+                toast.warning(error.response.data.message, {
+                    theme: 'colored',
+                    position: toast.POSITION.TOP_RIGHT
+                });
             })
 
+        } catch (error) {
+            setLoading(false)
+        }
     }
 
 
@@ -60,7 +80,7 @@ function Login() {
                     <div className="d-flex row justify-content-center align-items-spacebetween">
 
                         <Form onSubmit={handleLogin} style={{ width: '80%' }} >
-                            <Form.Group className="mb-3" controlId="formBasicEmail">
+                            <Form.Group className="mb-3" >
                                 <Form.Label className='d-flex text-start'>Email address</Form.Label>
                                 <Form.Control type="email" placeholder="Enter email" name='email' className={styleLogin.roundedForm}
                                     onChange={(e) => setEmail(e.target.value)} />
@@ -68,7 +88,7 @@ function Login() {
                                 </Form.Text>
                             </Form.Group>
 
-                            <Form.Group className="mb-3" controlId="formBasicPassword">
+                            <Form.Group className="mb-3">
                                 <Form.Label className='d-flex text-start '>Password</Form.Label>
 
                                 <div className={styleLogin.iconSpan} onClick={handelToggle}>
@@ -76,13 +96,30 @@ function Login() {
                                 </div>
 
                                 <Form.Control placeholder="Password" name='password'
-                                    className={styleLogin.roundedForm} type={passwordType} 
+                                    className={styleLogin.roundedForm} type={passwordType}
                                     onChange={ (e) => setPassword( e.target.value )}/>
                             </Form.Group>
+                            {
+                                loading ?
 
-                            <Button className={styleLogin.roundedButton} type='submit' >
-                                Login
-                            </Button>
+                                <Button className={styleLogin.roundedButton} disabled>
+                                    <Spinner
+                                    as="span"
+                                    animation="grow"
+                                    size="sm"
+                                    role="status"
+                                    aria-hidden="true"
+                                    />
+                                    Loading...
+                                </Button>
+
+                                :
+
+                                <Button className={styleLogin.roundedButton} type='submit' >
+                                    Login
+                                </Button>
+
+                            }
                         </Form>
 
                     </div>

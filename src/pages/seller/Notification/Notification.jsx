@@ -1,11 +1,16 @@
 import React from 'react';
 import styleNotif from './Notification.module.css';
-import Navbar from '../../../../src/components/NavbarDashboard/NavbarDashboard'
+import Navbar from '../../../../src/components/NavbarAfterLogin/NavbarDashboard'
 import { Button, Col, Container, Row, Form } from 'react-bootstrap';
 import PreviousButton from '../../../components/PreviousButton/PreviousButton';
 import MatchModal from '../../../components/MatchModal/MatchModal';
+import {Rupiah} from '../../../components/CostumFunction/Rupiah';
 
 function Notification() {
+    // test display 10000 to rupiah format use Rupiah()
+    // const test = Rupiah(10000);
+    // console.log(test, 'Data Rupiah')
+
     return (
         <div>
             <Navbar title="Notification" />
@@ -17,6 +22,7 @@ function Notification() {
                 <Row>
                     <Col sm={3}></Col>
                     <Col sm={7}>
+
                         <div className={styleNotif.content}>
                             <div className={styleNotif.product}>
                                 <img className={styleNotif.productPicture} src="/assets/photo_product.jpg" alt="" />
@@ -40,7 +46,7 @@ function Notification() {
                                     </a>
                                 </div>
                             </div>
-                            <hr class="rounded"></hr>
+                            <hr className="rounded"></hr>
                             <div className={styleNotif.product}>
                                 <img className={styleNotif.productPicture} src="/assets/photo_product.jpg" alt="" />
                                 <div>
