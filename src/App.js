@@ -23,8 +23,6 @@ import BuyerProduct from './pages/buyer/product/Product';
 import BuyerLogin from './pages/buyer/product/BeforeLogin/Before';
 import BuyerSent from './pages/buyer/product/Sent/Sent';
 
-import BuyerOrder from './pages/buyer/popup/PopUp';
-
 import { ToastContainer } from 'react-toastify';
 
 function App() {
@@ -57,7 +55,6 @@ function App() {
             {/* buyer */}
             <Route path="/buyer/logged/product" element={<BuyerProduct />} />
             <Route path="/buyer/logged/sent" element={<BuyerSent />} />
-            <Route path="/buyer/logged/order" element={<BuyerOrder />} />
           </Routes>
         </BrowserRouter>
     </div>
