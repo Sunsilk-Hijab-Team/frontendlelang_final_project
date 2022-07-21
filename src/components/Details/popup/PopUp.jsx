@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import stylePopup from './stylePopup.module.css';
 import { Form, Row, Col, Spinner} from 'react-bootstrap';
 import { IoClose } from 'react-icons/io5';
@@ -14,6 +14,9 @@ function PopUp() {
     const [item, setItem] = useState([]);
     const [category, setCategory]  = useState([]);
     const [images, setImages] = useState([]);
+
+    const nav = useNavigate();
+    let { productId } = useParams();
     
     const url = `${REACT_APP_API_URL}/api/v1/buyer/order/buy`;
     const token = localStorage.getItem('token')
@@ -32,11 +35,15 @@ function PopUp() {
                         'Authorization': `Bearer ${token}`
                     },
                     data: {
-                        bid_price: bidPrice
+                        bid_price: bidPrice,
+                        product_id: productId,
+                        seller_id: item.user_id,                   
                     }
                 })
                 .then( res => { 
-                    console.log(res); 
+                    console.log(res);
+                    nav('/buyer/logged/sent')
+                    
                 })
                 .catch(error => {
                 console.log(error.response.data.message);
@@ -48,7 +55,6 @@ function PopUp() {
         }
 
     const url2 = `${REACT_APP_API_URL}/api/v1/buyer/product/`;
-    let { productId } = useParams();
 
     const Detail = async () => {
         try {
