@@ -40,7 +40,7 @@ function SellerHome() {
     }, [])
 
     return (
-        <div>
+        <div className={Style.div}>
             <Container className={Style.container}>
                 <PreviousButton />
             </Container>
@@ -54,8 +54,8 @@ function SellerHome() {
                         </Row>
                     : <></>
                 }
-                <Row className={Style.rowStyle}>
-                    <Col className={Style.col}>
+                <Row className={Style.styleRow}>
+                    <Col className={Style.col1}>
                         <h4 className={Style.h4}>{category.name}</h4>
                         <h1 className={Style.h1}>{item.name}</h1>
                         <div className='d-flex flex-row align-items-center'>
@@ -69,7 +69,7 @@ function SellerHome() {
                         </Button>
                     </Col>
 
-                    <Col className={Style.col}>
+                    <Col>
                         <Carousel className={Style.carousel}>
                                 {
                                     images.length === 0 ?
@@ -83,7 +83,7 @@ function SellerHome() {
                                     images.map((image, index) => {
                                         return (
                                             <Carousel.Item key={index} className={Style.carousel}>
-                                                <img className={Style.carousel} src={image.image_url} alt="productImage" />
+                                                <img src={image.image_url} alt="productImage" />
                                             </Carousel.Item>
                                         )
                                     })

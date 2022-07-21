@@ -1,14 +1,5 @@
-.container{
-    margin: 0;
-    display: flex;
-    width: 100%;
-    margin: 0 100px;
-}
-
-.rowStyle{
-    width: 85%;
-    height: 90%;
-   
+.div{
+    margin-bottom: 30px;
 }
 
 .previous {
@@ -16,10 +7,8 @@
 }
 
 .carousel {
-    width: 100%;
-    height: 90%;
-    display: flex;
-    margin-left: 20px;
+    width: 600px;
+    height: 436px;
 }
 
 .h4 {
@@ -54,72 +43,110 @@
 
 .roundedButton {
     border-radius: 16px;
-    background: #F93711;
     border: none;
-    width: 95%;
-    height: 48px;
-    margin-top: 28px;
-    margin-bottom: 20px;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-content: center;
-    flex-wrap: wrap;
-}
-
-.jual {
-    margin: 0;
-    width: 31px;
-}
-
-@media screen and (max-width:768px) {
-    
-    .rowStyle{
-        display: flex;
-        flex-direction: column-reverse;
-    
-        flex-direction: column-reverse;
-    }
-
-    .carousel {
-        width: 80%;
-        height: 100%;
-        display: flex;
-    }
-
-    .container{
-    margin: 0;
-    display: flex;
-    width: 100%;
-    margin: 0 100px;
-}
-
-.container{
-    margin: 0;
-}
-
-.roundedButton {
     width: 90%;
+    height: 48px;
+    margin-top: 40px;
+    background:#F93711;
+    color: white;
 }
+
+.notifStyle {
+    background: #F9CC00;
+    width: 30%;
+    height: 7%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
 }
-@media screen and (max-width:425px) {
-    .rowStyle{
-        display: flex;
+
+.toast {
+    margin-top: 70px;
+    width: 40%;
+}
+
+.styleRow {
+    display: flex;
+}
+
+@media screen and (max-width:1199px) {
+    .styleRow {
+        flex-direction: column-reverse;
+        margin-bottom: 50px;
+    }
+
+    .roundedButton {
+        width: 70%;
+        margin-top: 10px;
+    }
+
+    .p {
+        width: 70%;
+        margin-top: 5px;
+    }
+
+    .carousel{
+        width: 500px;
+        height: 400px;
+    }
+
+    .col1{
+        margin-top: -70px;
+    }
+
+}
+
+@media screen and (max-width:1024px) {
+    .styleRow {
         flex-direction: column-reverse;
     }
 
-    .carousel {
-        width: auto;
-        height: 100%;
-        display: flex;
+    .roundedButton {
+        width: 70%;
+        margin-top: 10px;
     }
 
-    .container{
-        margin: 0;
+    .p {
+        width: 70%;
+        margin-top: 5px;
+        text-align: justify;
+    }
+
+    .carousel{
+        width: 500px;
+        height: 400px;
+    }
+
+    .col1{
+        margin-top: -70px;
+    }
+
+}
+
+
+@media screen and (max-width:756px) {
+    
+    .carousel {
+        width: 100%;
+        margin-top: 20px;
+        height: 300px;
+    }
+
+    .p {
+        width:95%;
+        text-align: justify;
     }
 
     .roundedButton {
         width: 100%;
+        margin-top: 50px;
+        margin-bottom: 20px;
+    }
+
+    .carousel-indikators{
+        background:#F93711;
     }
 }

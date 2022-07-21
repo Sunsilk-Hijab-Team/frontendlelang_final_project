@@ -8,6 +8,9 @@ import DashboardMenu from '../DashboardMenu/DashboardMenu';
 import NotifModal from '../NotifModal/NotifModal';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { style } from '@mui/system';
+import SearchCollapse from '../DropdownSearch/DropdownSearch'
+
 const { REACT_APP_API_URL } = process.env
 
 function NavScroll(props) {
@@ -19,10 +22,9 @@ function NavScroll(props) {
     const [loading, setLoading] = useState(false);
     const [showDropdown, setShowDropdown] = useState(false);
 
-    const getUser = async () =>
-    {
+    const getUser = async () => {
         setLoading(true)
-        try{
+        try {
             await axios({
                 method: 'get',
                 url,
@@ -30,11 +32,11 @@ function NavScroll(props) {
                     "Authorization": `Bearer ${localStorage.getItem('token')}`
                 }
             })
-            .then(res => {
-                setLoading(false)
-                setProfile(res.data.user)
-            })
-        } catch (error){
+                .then(res => {
+                    setLoading(false)
+                    setProfile(res.data.user)
+                })
+        } catch (error) {
             setLoading(true)
         }
 
@@ -44,7 +46,7 @@ function NavScroll(props) {
         nav('/login')
     }
 
-    useEffect( () => {
+    useEffect(() => {
         getUser()
     }, [])
 
@@ -77,11 +79,15 @@ function NavScroll(props) {
                 {/* PROFILE */}
                 <div>
                     <Nav className='menu d-flex flex-row align-items-center'>
+                        <div className={styleNavSeller.iconSearch}>
+                            <SearchCollapse />
+                        </div>
                         <Nav.Link className='p-0' href="#message">
                             <img className={styleNavSeller.iconMessage} src={Message} alt="" />
                         </Nav.Link>
 
                         <NotifModal />
+
 
                         {/* <Nav.Link className='p-0' href="/seller/Notification">
                             <img className={styleNavSeller.iconNotif} src={Notificiation} alt="" />
@@ -90,34 +96,34 @@ function NavScroll(props) {
                         <Dropdown
                             onMouseLeave={() => setShowDropdown(false)}
                             onMouseOver={() => setShowDropdown(true)}
-                            style={{ width: '166px' }}
-                            >
+                        >
+
                             <Dropdown.Toggle
                                 id="dropdown-basic" className={styleNavSeller.dropdownProfile}
                             >
                                 <Nav.Link href="#" className={styleNavSeller.btnProfile}>
                                     {
                                         loading ?
-                                        <p className="text-dark">&nbsp;Loading....&nbsp;</p>
-                                        :
-                                        <></>
+                                            <p className="text-dark">&nbsp;Loading....&nbsp;</p>
+                                            :
+                                            <></>
                                     }
                                     {
                                         profile.image_url === null ?
-                                        <img className='d-flex' src={Profile} alt="" />
-                                        :
-                                        <img className='d-flex' src={profile.image_url} alt="" />
+                                            <img className='d-flex' src={Profile} alt="" />
+                                            :
+                                            <img className='d-flex' src={profile.image_url} alt="" />
                                     }
-                                    <p>{profile.full_name}</p>
+                                    <div>{profile.full_name}</div>
                                 </Nav.Link>
                             </Dropdown.Toggle>
 
                             <Dropdown.Menu show={showDropdown}>
                                 <Dropdown.Item href="/seller/dashboard/profile">
-                                Profile
+                                    Profile
                                 </Dropdown.Item>
                                 <Dropdown.Item onClick={handleLogout}>
-                                Logout
+                                    Logout
                                 </Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>

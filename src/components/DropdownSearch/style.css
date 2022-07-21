@@ -1,0 +1,64 @@
+@keyframes AnimatedDropdownappear {
+  0% {
+    margin-top: 0;
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 20px;
+  }
+}
+
+@keyframes AnimatedDropdowndisappear {
+  0% {
+    opacity: 1;
+    margin-top: 20px;
+  }
+  100% {
+    opacity: 0;
+    margin-top: 0px;
+  }
+}
+
+.openAnimation {
+  animation: AnimatedDropdownappear 0.3s forwards;
+}
+
+.closeAnimation {
+  animation: AnimatedDropdowndisappear 0.3s forwards;
+}
+
+.AnimatedDropdownStyles {
+  padding: 30px;
+  padding-bottom: 20px;
+  box-sizing: border-box;
+  background-color: white;
+  border-radius: 8px;
+  width: fit-content;
+}
+
+.AnimatedDropdownStyles > * {
+  white-space: nowrap;
+  margin-bottom: 10px;
+}
+
+.AnimatedDropdownButton {
+  background-color: #FFFFFF;
+  border:none;
+  margin-right: 10px;
+}
+
+img{
+    display: flex;
+}
+
+.search{
+    width: 200px;
+}
+
+.rounded{
+    border-radius: 16px;
+    height: 36px;
+    background: #EEEEEE;
+    color: #8A8A8A;
+}
