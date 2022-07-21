@@ -15,6 +15,7 @@ function Home() {
 
     const token = localStorage.getItem('token');
 
+
     return (
         <div>
             {
@@ -34,11 +35,14 @@ function Home() {
 
             <Carousel />
             <ButtonFilter />
+
             <CardComponent
             />
 
             {
-                token ? <SellButton /> : <></>
+                token ? <SellButton 
+                tambah="jual"
+                /> : <></>
             }
 
         </div>

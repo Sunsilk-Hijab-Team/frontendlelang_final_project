@@ -1,3 +1,7 @@
+.div {
+    margin-bottom: 30px;
+}
+
 .previous {
     margin: 40px 0;
 }
@@ -5,6 +9,10 @@
 .carousel {
     width: 600px;
     height: 436px;
+}
+
+.imgcarousel {
+    width: 100%;
 }
 
 .h4 {
@@ -18,11 +26,8 @@
     margin-left: 8px;
 }
 
-.h3 {
-    font-size: 14px;
-}
-
 .h2 {
+    margin-left: 8px;
     font-size: 20px;
     color: #F93711;
     line-height: 24px;
@@ -39,23 +44,123 @@
 
 .roundedButton {
     border-radius: 16px;
-    background: #F93711;
     border: none;
-    width: 100%;
+    width: 90%;
     height: 48px;
-    /* margin-top: 3%; */
-    width: 443px;
-    margin-top: 28px;
-    margin-left: 8px;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-content: center;
-    flex-wrap: wrap;
+    margin-top: 40px;
+    background: #F93711;
+    color: white;
 }
 
-.jual {
-    margin: 0;
-    width: 31px;
+.notifStyle {
+    background: #F9CC00;
+    width: 30%;
+    height: 7%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+}
+
+.toast {
+    margin-top: 70px;
+    width: 40%;
+}
+
+.styleRow {
+    display: flex;
+}
+
+@media screen and (max-width:1199px) {
+    .styleRow {
+        flex-direction: column-reverse;
+        margin-bottom: 50px;
+    }
+
+    .roundedButton {
+        width: 70%;
+        margin-top: 10px;
+    }
+
+    .p {
+        width: 70%;
+        margin-top: 5px;
+    }
+
+    .carousel {
+        width: 500px;
+        height: 400px;
+
+    }
+
+    .imgcarousel {
+        width: 100%;
+    }
+
+    .col1 {
+        margin-top: -70px;
+    }
+
+}
+
+@media screen and (max-width:1024px) {
+    .styleRow {
+        flex-direction: column-reverse;
+    }
+
+    .roundedButton {
+        width: 70%;
+        margin-top: 10px;
+    }
+
+    .p {
+        width: 70%;
+        margin-top: 5px;
+        text-align: justify;
+    }
+
+    .carousel {
+        width: 500px;
+        height: 400px;
+    }
+
+    .imgcarousel {
+        width: 100%;
+    }
+
+    .col1 {
+        margin-top: -70px;
+    }
+
+}
+
+
+@media screen and (max-width:756px) {
+
+    .carousel {
+        width: 100%;
+        margin-top: 20px;
+        height: 300px;
+    }
+
+    .imgcarousel {
+        width: 100%;
+    }
+
+    .p {
+        width: 95%;
+        text-align: justify;
+    }
+
+    .roundedButton {
+        width: 100%;
+        margin-top: 50px;
+        margin-bottom: 20px;
+    }
+
+    .carousel-indikators {
+        background: #F93711;
+    }
 }

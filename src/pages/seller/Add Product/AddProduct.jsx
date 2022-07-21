@@ -1,7 +1,7 @@
 import Navbar from '../../../components/NavbarAfterLogin/NavbarDashboard';
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-// import Previous from './fi_arrow-left.svg';
+
 import './styleAddProduct.css';
 import Image_1 from './Group_1.png';
 import Image_2 from './Group_86.png';
@@ -42,6 +42,7 @@ function AddProduct() {
             // })
 
         } catch(error){
+             setLoading(false)
             console.log(error);
         }
     }
@@ -146,11 +147,19 @@ function AddProduct() {
                                         <Form.Select className={styleRegister.rounded} onChange={(e) => setCategoryId(e.target.value)}>
                                             <option selected disabled> -- Choose Category -- </option>
                                             {
+
+                                                items > 0 ?
+
                                                 items.map((item, index) => {
                                                     return (
                                                         <option key={index} value={item.id}>{item.name}</option>
                                                     )
                                                 })
+
+                                                :
+
+                                                <option selected disabled> -- Category not found -- </option>
+
                                             }
                                         </Form.Select>
                                         {/* <Form.Control className={styleRegister.rounded} type="email" placeholder="Choose Category"/> */}

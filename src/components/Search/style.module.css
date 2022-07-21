@@ -16,9 +16,17 @@
     display: flex;
 }
 
+
+@media screen and (max-width:991px) {
+    .search{
+        display: none;
+    }
+    
+}
+
 @media screen and (max-width:756px) {
     .search{
-        width: 300px;
+        display: none;
     }
     
 }

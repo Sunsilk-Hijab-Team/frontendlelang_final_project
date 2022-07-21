@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 const { REACT_APP_API_URL } = process.env;
 
-function SellButton() {
+function SellButton(props) {
 
     const url = REACT_APP_API_URL;
     const token = localStorage.getItem('token');
@@ -58,7 +58,7 @@ function SellButton() {
         <Container className='tombol-jual d-flex flex-row justify-content-center fixed-bottom'>
             <Button onClick={hanleDirect} className='roundedButton d-flex flex-row justify-content-center align-items-center'>
                 <img className='plus-icon d-flex me-3' src="/assets/fi_plus.svg" alt="" />
-                Jual
+                {props.tambah}
             </Button>
         </Container>
     );

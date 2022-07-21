@@ -2,7 +2,7 @@
     font-size: 14px;
 }
 
-.roundedButton {
+.roundedButtonSend {
     color: white;
     border-radius: 16px;
     background: #F93711;
@@ -12,7 +12,24 @@
     /* margin-top: 3%; */
     margin-top: 28px;
     margin-left: 8px;
-    padding: 0;
+}
+.roundedButton {
+    color: white;
+    border-radius: 16px;
+    background: #F93711;
+    border: none;
+    width: 100%;
+    height: 48px;
+    /* margin-top: 3%; */
+    width: 443px;
+    margin-top: 28px;
+    margin-left: 8px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
 }
 
 .roundedButtonMenu {
@@ -27,14 +44,8 @@
     margin-left: 8px;
 }
 
-.iconNotif {
-    display: flex;
-    width: 24px;
-    height: 24px;
-}
-
 .roundedButton:hover {
-    background: #F2CA59;
+    background: blue;
 }
 
 body.active-modal {
@@ -64,68 +75,18 @@ body.active-modal {
     background: rgba(49, 49, 49, 0.8);
 }
 
-.date {
-    font-weight: 400;
-    font-size: 10px;
-    color: #8A8A8A;
-}
-
-.productTitle {
-    /* font-family: 'Poppins'; */
-    font-weight: 400;
-    font-size: 14px;
-    width: 175px;
-    margin: 0;
-    color: black;
-}
-
-.productPrice {
-    /* font-family: 'Poppins'; */
-    font-weight: 400;
-    font-size: 14px;
-    width: 175px;
-    margin: 5px 0;
-    color: black;
-}
-
-.product {
-    display: flex;
-    flex-direction: row;
-    align-self: center;
-    margin-bottom: 10px;
-    width: 568px;
-    padding: 0;
-    /* justify-content: center; */
-}
-
-
 .modalContent {
     position: absolute;
-    top: 200px;
-    left: 80%;
+    top: 40%;
+    left: 50%;
     transform: translate(-50%, -50%);
     line-height: 1.4;
     background: #FFFFFF;
-    padding: 25px 25px;
+    padding: 25px 38px;
     border-radius: 16px;
     max-width: 350px;
     min-width: 200px;
     z-index: 5;
-
-    /* Neutral/01 */
-
-    background: #FFFFFF;
-    /* Shadow/High */
-
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
-    border-radius: 16px;
-}
-
-/* Rounded border */
-hr.rounded {
-    border-top: 8px solid #bbb;
-    border-radius: 5px;
-    margin: 7px 0;
 }
 
 .closeModal {
@@ -173,36 +134,65 @@ hr.rounded {
 }
 
 .img {
-
+    
     height: 100%;
     width: 100%;
 }
 
-.img img {
+.img img{
     width: 100%;
     border-radius: 12px;
 }
 
-@media only screen and (max-width: 600px) {
-    .modalContent {
-        position: absolute;
-        top: 25%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        line-height: 1.4;
-        background: #FFFFFF;
-        padding: 25px 25px;
-        border-radius: 16px;
-        max-width: 350px;
-        min-width: 200px;
-        z-index: 5;
-
-        /* Neutral/01 */
-
-        background: #FFFFFF;
-        /* Shadow/High */
-
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
-        border-radius: 16px;
+@media screen and (max-width:1024px) {
+    .styleRow {
+        flex-direction: column-reverse;
     }
+
+    .roundedButtonMenu {
+        width: 70%;
+        margin-top: 10px;
+    }
+
+    .p {
+        width: 70%;
+        margin-top: 5px;
+        text-align: justify;
+    }
+
+    .carousel{
+        width: 500px;
+        height: 400px;
+    }
+
+    .col1{
+        margin-top: -70px;
+    }
+
+}
+
+
+@media screen and (max-width:756px) {
+    
+    .carousel {
+        width: 100%;
+        margin-top: 20px;
+        height: 300px;
+    }
+
+    .p {
+        width:95%;
+        text-align: justify;
+    }
+
+    .roundedButtonMenu {
+        width: 100%;
+        margin-top: 90px;
+        margin-bottom: 20px;
+    }
+
+    .carousel-indikators{
+        background:#F93711;
+    }
+    
 }
