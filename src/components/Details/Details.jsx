@@ -9,9 +9,11 @@ import { useParams } from "react-router-dom";
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import Spinner from 'react-bootstrap/Spinner';
+import PopUp from './popup/PopUp';
+
 const { REACT_APP_API_URL } = process.env
 
-function SellerHome() {
+function  SellerHome() {
 
     const url = `${REACT_APP_API_URL}/api/v1/buyer/product/`;
 
@@ -67,9 +69,7 @@ function SellerHome() {
                         </div>
                         <p className={Style.p}>{item.description}</p>
 
-                        <Button className={Style.roundedButton}>
-                            Saya Tertarik dan Ingin Nego
-                        </Button>
+                        <PopUp />
                     </Col>
 
                     <Col>
