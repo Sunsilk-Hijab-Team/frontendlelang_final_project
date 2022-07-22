@@ -42,7 +42,7 @@ function PopUp() {
                 })
                 .then( res => { 
                     console.log(res);
-                    nav('/buyer/logged/sent')
+                    nav(`/buyer/logged/sent/${productId}`)
                     
                 })
                 .catch(error => {

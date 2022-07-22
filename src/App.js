@@ -54,7 +54,7 @@ function App() {
             <Route path="/seller/dashboard/notification-test" element={<NotificationTest />} />
             {/* buyer */}
             <Route path="/buyer/logged/product" element={<BuyerProduct />} />
-            <Route path="/buyer/logged/sent" element={<BuyerSent />} />
+            <Route path="/buyer/logged/sent/:productId" element={<BuyerSent />} />
           </Routes>
         </BrowserRouter>
     </div>
