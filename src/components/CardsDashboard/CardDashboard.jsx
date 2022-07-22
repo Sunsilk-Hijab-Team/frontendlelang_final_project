@@ -20,6 +20,7 @@ function CardComponent() {
     const getProducts = async () => {
         setLoading(true);
         try{
+            console.log("url------------",url);
             await axios.get(`${url}/api/v1/seller/product/all`,{
                 headers: {
                     "Authorization": `Bearer ${token}`
@@ -28,13 +29,13 @@ function CardComponent() {
                 // console.log(res.data.product, 'prd')
                 setLoading(false)
                 setItems(res.data.product)
+                console.log('res data product#####', res.data.product);
             })
         } catch (error){
             // console.log(error.message)
             setLoading(true)
         }
     }
-
     useEffect( () => {
         token ? getProducts() : nav('/login');
         getProducts();

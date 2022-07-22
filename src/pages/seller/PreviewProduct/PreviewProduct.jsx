@@ -28,6 +28,7 @@ function PreviewProduct() {
     const getDetail = async () => {
         setLoading(true)
         try {
+            console.log('url product list-----------', url);
             await axios.get(`${url}/api/v1/seller/product/${productId}`,{
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -55,9 +56,19 @@ function PreviewProduct() {
         console.log(published, '-----bol-')
         // e.prevetDefault()
         try {
-            await axios.put(`${url}/api/v1/seller/product/update/${productId}`, published,{
+            // await axios.put(`${url}/api/v1/seller/product/update/${productId}`, published,{
+            //     headers: {
+            //         'Authorization': `Bearer ${token}`
+            //     }
+            // })
+            await axios({
+                url: `${url}/api/v1/seller/product/update/${productId}`,
+                method: 'PUT',
                 headers: {
                     'Authorization': `Bearer ${token}`
+                },
+                data: {
+                    published
                 }
             })
             .then(res => {
