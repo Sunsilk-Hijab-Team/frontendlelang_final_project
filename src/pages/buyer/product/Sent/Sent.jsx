@@ -24,6 +24,7 @@ function Sent() {
     
     const [item, setItem] = useState([]);
     const [category, setCategory]  = useState([]);
+    const [seller, setSeller] = useState([]);
     const [images, setImages] = useState([]);
     const [loading, setLoading] = useState(false);
 
@@ -34,6 +35,7 @@ function Sent() {
             .then(res => {
                 setItem(res.data.data.product);
                 setCategory(res.data.data.product.categories);
+                setSeller(res.data.data.product.users)
                 setImages(res.data.data.product.images);
                 // console.log(images, 'null')
             })
@@ -91,10 +93,15 @@ function Sent() {
 
                             <Col className={Style.desc}>
                                 <div className={Style.sellerProfile}>
-                                    <img className={Style.sellerPhoto} src="/assets/profile_buyer.jpg" alt="" />
+                                {
+                                    seller.image_url === null ?
+                                    <img className={Style.sellerPhoto} src={NoImage} alt="" />
+                                    :
+                                    <img className={Style.sellerPhoto} src={seller.image_url} alt="" />
+                                }
                                     <div className='ms-3'>
-                                        <h2 className={Style.sellerName}>Taylor Swift</h2>
-                                        <h1 className={Style.city}>Gresik</h1>
+                                        <h2 className={Style.sellerName}>{seller.full_name}</h2>
+                                        <h1 className={Style.city}>{seller.city}</h1>
                                     </div>
                                 </div>
 
