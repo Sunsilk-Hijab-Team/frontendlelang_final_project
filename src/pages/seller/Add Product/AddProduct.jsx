@@ -53,6 +53,8 @@ function AddProduct() {
     const [categoryId, setCategoryId] = useState('');
     const [price, setPrice] = useState('');
     const [imageUrl, setImageUrl] = useState('');
+    const reader = new FileReader();
+    console.log("ini readerrr------------",reader);
 
     const handlePost = async (e) => {
         setBtnLoading(true)
@@ -222,7 +224,7 @@ function AddProduct() {
                                     </Form.Group>
                                     <Form.Group className="mb-3" controlId="formBasicEmail">
                                         <Form.Label className='add-product-label'>Gambar</Form.Label>
-                                        <Form.Control className={styleRegister.rounded} type="file" placeholder="ex: Lorem ipsum dolor sit amet" onChange={(e) => setImageUrl(e.target.files[0])}  />
+                                        <Form.Control className={styleRegister.rounded} type="file" multiple={true} placeholder="ex: Lorem ipsum dolor sit amet" onChange={(e) => setImageUrl(e.target.files[0])}  />
                                     </Form.Group>
 
 
