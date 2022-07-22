@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios'
 import { Link } from "react-router-dom";
 import { Rupiah} from '../CostumFunction/Rupiah';
+import { style } from '@mui/system';
 const { REACT_APP_API_URL } = process.env
 
 function CardComponent() {
@@ -39,7 +40,6 @@ function CardComponent() {
                 console.log(error.message)
                 setLoading(false)
             })
-
         } catch (error) {
             //  setLoading(true);
             console.log(error.message);
@@ -54,7 +54,9 @@ function CardComponent() {
 
     return (
         <Container className={styleCard.container} md>
-            <Row lg={6} md={4} sm={3} xs={2} className={styleCard.rowCard}>
+
+            {items.length>0 ?
+            <Row lg={6} md={4} sm={3} xs={2} className={styleCard.rowCard}> 
              {
                 loading ?
                 <Row className='d-flex justify-content-center'>
@@ -65,7 +67,8 @@ function CardComponent() {
 
                 : <></>
             }
-            {items.length>0 ?
+
+            {
 
                 items.map((item, index) => {
                     // console.log(item, '--map');
@@ -81,7 +84,7 @@ function CardComponent() {
                                         <Card.Text className={styleCard.styleCardText} >
                                             { item.categories == null ? 'Tidak Berkategori' : item.categories.name }
                                         </Card.Text>
-                                        <Card.Title>{Rupiah(item.base_price)}</Card.Title>
+                                        <Card.Title>Rp {item.base_price}</Card.Title>
                                     </Card.Body>
                                 </Card>
                             </Link>
@@ -89,10 +92,10 @@ function CardComponent() {
 
                     );
                 })
-                : <h5 className="justify-content-center">Opps... Belum ada product yang dijual nih...</h5>
             }
             </Row>
-           
+            : <h5 className="justify-content-center">Opps... Belum ada product yang dijual nih...</h5>
+        }
         </Container>
     );
 }
