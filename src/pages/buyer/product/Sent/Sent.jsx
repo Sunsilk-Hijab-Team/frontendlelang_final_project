@@ -1,18 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Style from './styleSent.module.css'
-import Navbar from '../../../../components/NavbarBeforeLogin/NavbarDashboard'
+import Navbar from '../../../../components/NavbarAfterLogin/NavbarDashboard'
 import { Carousel, Container, Col, Row} from 'react-bootstrap';
 import Previous from './fi_arrow-left.svg';
 import Image from './jam_1.png';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Details from '../../../../components/Details/Details'
+import Details from './Details/Details'
 
-function sent() {
+function Sent() {
+    useEffect(() => {
+        // console.log("helloo")
+        toast.dismiss()
+        toast.success("Harga tawar anda telah terkirim, Tunggu balasan dari penjual",{position:"top-center"})
+    }, [])
     return (
         <div >
-            {/* {toast.success("Harga tawar anda telah terkirim, Tunggu balasan dari penjual",{position:"top-center"})} */}
-            <Navbar middle="Product"/>
+            <Navbar title="Product Detail"/>
             <Container>
                 <Details />
                 {/* <Row className={Style.styleRow}>
@@ -57,10 +61,11 @@ function sent() {
                         </Carousel>
                     </Col>
                 </Row> */}
+                {/* <ToastContainer className={Style.toast}/> */}
             </Container>
-            <ToastContainer className={Style.toast}/>
+            
         </div>
     )
 }
 
-export default sent
+export default Sent
