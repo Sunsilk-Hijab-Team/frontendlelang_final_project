@@ -6,26 +6,30 @@
     margin: 40px 0;
 }
 
+.carouselImage {
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    height: 100%;
+    border-radius: 16px;
+    margin-left: 25%;
+}
+
 .carousel {
+    width: 600px;
+    height: 400px;
+    border-radius: 16px;
+}
+
+/* .carousel {
     width: auto;
     height: 436px;
-    /* margin-left: 20px; */
-}
-
-.carouselImage {
-    display: block;
-    width: 100%;
-    height: auto;
-}
-
-.imgcarousel {
-    width: 100%;
-}
+    margin-left: 20px;
+} */
 
 .h4 {
     font-size: 14px;
-    /* margin-top: 30px; */
-    margin-top: 30px;
+    margin-top: 50px;
     margin-left: 8px;
 }
 
@@ -36,7 +40,7 @@
 
 .h3 {
     font-size: 14px;
-    /* margin-top: 5px; */
+    margin-top: 5px;
 }
 
 .h2 {
@@ -46,14 +50,14 @@
     line-height: 24px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 700;
-    /* margin-left: 10px; */
+    margin-left: 10px;
 }
 
 .p {
     font-size: 14px;
-    width: 443.04px;
+    width: 443px;
     color: #8A8A8A;
-    height: 160px;
+    height: 110px;
     text-align: justify;
 }
 
@@ -87,22 +91,28 @@
 .sellerProfile {
     display: flex;
     flex-direction: row;
-    align-self: center;
+    align-items: center;
     margin-bottom: 10px;
-    width: 568px;
     /* justify-content: center; */
+
+    height: 60px;
+    width: 443px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 16px;
 }
 
 .sellerPhoto {
     display: flex;
     width: 48px;
     height: 48px;
-    margin: 0 10px;
+    margin: 0 17px;
 }
 
 .city {
     font-weight: 400;
     font-size: 10px;
+    margin-bottom: 0;
 }
 
 .sellerName {
@@ -110,126 +120,21 @@
     font-size: 14px;
     align-self: center;
     margin-right: 70px;
-    margin-top: 40px;
-    background: #F93711;
-    color: white;
 }
 
-.notifStyle {
-    background: #F9CC00;
-    width: 30%;
-    height: 7%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
-    border-radius: 12px;
-}
-
-.toast {
-    margin-top: 70px;
-    width: 40%;
-}
-
-.styleRow {
-    display: flex;
-}
-
-@media screen and (max-width:1199px) {
-    .styleRow {
-        flex-direction: column-reverse;
-        margin-bottom: 50px;
-    }
-
-    .roundedButton {
-        width: 70%;
-        margin-top: 10px;
-    }
-
-    .p {
-        width: 70%;
-        margin-top: 5px;
-    }
-
-    .carousel {
-        width: 500px;
-        height: 400px;
-
-    }
-
-    .imgcarousel {
-        width: 100%;
-    }
-
-    .col1 {
-        margin-top: -70px;
-    }
-
-}
-
-@media screen and (max-width:1024px) {
-    .styleRow {
-        flex-direction: column-reverse;
-    }
-
-    .roundedButton {
-        width: 70%;
-        margin-top: 10px;
-    }
-
-    .p {
-        width: 70%;
-        margin-top: 5px;
-        text-align: justify;
-    }
-
-    .carousel{
-        width: 500px;
-        height: 400px;
-    }
-
-    .col1{
-        margin-top: -70px;
-    }
-
-}
-
-
-@media screen and (max-width:756px) {
-    
-    .carousel {
-        width: 100%;
-        /* margin-top: 20px; */
-        height: 300px;
-    }
-
-    .p {
-        width:95%;
-        text-align: justify;
-    }
-
-    .roundedButton {
-        width: 100%;
-        margin-top: 50px;
-        margin-bottom: 20px;
-    }
-
-    .carousel-indikators{
-        background:#F93711;
-    }
-}
-
-@media screen and (max-width:600px){
+@media screen and (max-width:600px) {
     .carouselImage {
-        display: block;
-        width: 100%;
-        height: auto;
+        display: flex;
+        flex-direction: row;
+        width: auto;
+        height: 300px;
+        border-radius: 16px;
+        margin-left: 17%;
     }
 
     .carousel {
-        width: auto;
-        height: 360px;
+        width: 370px;
+        height: auto;
         display: flex;
         margin-left: 5px;
         /* d-flex justify-content-center */
@@ -244,7 +149,6 @@
         /* margin-top: 3%; */
         width: 340px;
         margin-top: 50px;
-    
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -305,29 +209,4 @@
     }
 }
 
-@media only screen and (min-width: 1200px) {
-
-}
-
 /* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
-    .carouselImage {
-        display: block;
-        width: 500px;
-        height: auto;
-    }
-
-    .carousel {
-        width: auto;
-        height: 400px;
-        display: flex;
-        margin-left: 5px;
-        /* d-flex justify-content-center */
-    }
-}
-
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {}
-
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {}

@@ -42,6 +42,7 @@ function AddProduct() {
             // })
 
         } catch(error){
+             setLoading(false)
             console.log(error);
         }
     }
@@ -162,8 +163,8 @@ function AddProduct() {
 
                 <Container className='form'>
                     <Form className={styleRegister.formStyle}>
-                        <Row>
-                            <Col sm={12}>
+                        <Row className='p-3'>
+                            <Col sm={12} lg={6}>
                                     <Form.Group className="mb-3" controlId="formBasicEmail">
                                         <Form.Label className='add-product-label'>
                                             Product Name
@@ -181,11 +182,19 @@ function AddProduct() {
                                         <Form.Select className={styleRegister.rounded} onChange={(e) => setCategoryId(e.target.value)}>
                                             <option selected disabled> -- Choose Category -- </option>
                                             {
+
+                                                items > 0 ?
+
                                                 items.map((item, index) => {
                                                     return (
                                                         <option key={index} value={item.id}>{item.name}</option>
                                                     )
                                                 })
+
+                                                :
+
+                                                <option selected disabled> -- Category not found -- </option>
+
                                             }
                                         </Form.Select>
                                         {/* <Form.Control className={styleRegister.rounded} type="email" placeholder="Choose Category"/> */}
@@ -203,7 +212,7 @@ function AddProduct() {
 
                             </Col>
 
-                            <Col sm={12} className='photo d-flex flex-column align-content-center'>
+                            <Col sm={12} lg={6} className='photo d-flex flex-column align-content-center'>
                                 <img className='image_1' src={Image_1} alt="" />
                                 <p className='add-photo-label'>Product Photo</p>
                                 <div className='d-flex additional'>
@@ -214,7 +223,7 @@ function AddProduct() {
                             </Col>
                         </Row>
                     </Form>
-                    <Row>
+                    <Row className='p-3'>
                         <Col>
                             <div className='button-add-product mb-4'>
                                 <Button className='styleButtonPreview' type="submit">

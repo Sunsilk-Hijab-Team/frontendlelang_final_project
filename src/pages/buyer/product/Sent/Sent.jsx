@@ -1,23 +1,19 @@
 import React from 'react';
 import Style from './styleSent.module.css'
 import Navbar from '../../../../components/NavbarBeforeLogin/NavbarDashboard'
-import { Carousel, Container, Col, Row} from 'react-bootstrap';
-import Previous from './fi_arrow-left.svg';
-import Image from './jam_1.png';
+import { Container } from 'react-bootstrap';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import SellerName from '../../../../components/SellerName/SellerName'
+import Details from '../../../../components/Details/Details'
 
 function sent() {
-    const notify = () => toast.success("Harga tawar anda telah terkirim, Tunggu balasan dari penjual",{position:"top-center"});
     return (
-        <div onClick={notify} >
+        <div >
+            {/* {toast.success("Harga tawar anda telah terkirim, Tunggu balasan dari penjual",{position:"top-center"})} */}
             <Navbar middle="Product"/>
             <Container>
-                <img className={Style.previous} src={Previous} alt="halo" />
-            </Container>
-            <Container>
-                <Row className={Style.styleRow}>
+                <Details />
+                {/* <Row className={Style.styleRow}>
                     <Col className={Style.col1}>
                         <h4 className={Style.h4}>Aksesoris</h4>
                         <h1 className={Style.h1}>Jam Tangan Casio</h1>
@@ -58,7 +54,7 @@ function sent() {
                             </Carousel.Item>
                         </Carousel>
                     </Col>
-                </Row>
+                </Row> */}
             </Container>
             <ToastContainer className={Style.toast}/>
         </div>
