@@ -40,7 +40,9 @@ function Home() {
             />
 
             {
-                token ? <SellButton /> : <></>
+                token ? <SellButton 
+                tambah="jual"
+                /> : <></>
             }
 
         </div>

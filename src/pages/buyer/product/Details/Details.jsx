@@ -4,17 +4,29 @@ import { Col, Container, Row } from 'react-bootstrap';
 import Style from './styleDetails.module.css';
 import Carousel from 'react-bootstrap/Carousel';
 import Image from './jam_1.png';
+<<<<<<< HEAD
+import PreviousButton from '../../../../components/PreviousButton/PreviousButton';
+=======
+>>>>>>> alifahrial
 import PopUp from '../../../../components/Details/popup/PopUp'
 
 function SellerHome() {
     return (
         <div className={Style.container}>
             <Container>
-                <img className={Style.previous} src={Previous} alt="halo" />
+                <PreviousButton />
             </Container>
             <Container>
                 <Row className={Style.styleRow}>
                     <Col className={Style.col1}>
+                        <div className={Style.product}>
+                            <img className={Style.buyerProfile} src="/assets/profile_buyer.jpg" alt="" />
+                            <div className='ms-3'>
+                                <h2 className={Style.buyerName}>Taylor Swift</h2>
+                                <h1 className={Style.date}>Gresik</h1>
+                            </div>
+                        </div>
+                        <hr className={Style.hRounded} />
                         <h4 className={Style.h4}>Aksesoris</h4>
                         <h1 className={Style.h1}>Jam Tangan Casio</h1>
                         <div className='d-flex flex-row align-items-center'>

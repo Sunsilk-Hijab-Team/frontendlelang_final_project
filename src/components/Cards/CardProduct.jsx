@@ -1,11 +1,10 @@
-import { Card, Container, Row  } from 'react-bootstrap';
+import { Card, Container, Row } from 'react-bootstrap';
 import styleCard from './styleCard.module.css'
 import NoImage from '../../images/no_image.png'
 import Spinner from 'react-bootstrap/Spinner';
 import { useState, useEffect } from 'react';
 import axios from 'axios'
 import { Link } from "react-router-dom";
-import { Rupiah} from '../CostumFunction/Rupiah';
 const { REACT_APP_API_URL } = process.env
 
 function CardComponent() {
@@ -14,13 +13,14 @@ function CardComponent() {
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(true);
 
-   const getProducts = async () => {
+    const getProducts = async () => {
 
         setLoading(true)
 
         try {
             //  console.log(items, 'items--sebelum');
             await axios.get(url)
+
             .then(res => {
                 // console.log(res, 'prd')
                 setLoading(false)
@@ -82,7 +82,7 @@ function CardComponent() {
                                         <Card.Text className={styleCard.styleCardText} >
                                             { item.categories == null ? 'Tidak Berkategori' : item.categories.name }
                                         </Card.Text>
-                                        <Card.Title>{Rupiah(item.base_price)}</Card.Title>
+                                        <Card.Title>Rp {item.base_price}</Card.Title>
                                     </Card.Body>
                                 </Card>
                             </Link>

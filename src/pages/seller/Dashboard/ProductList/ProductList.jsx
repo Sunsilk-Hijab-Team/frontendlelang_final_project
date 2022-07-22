@@ -2,15 +2,16 @@ import React from 'react';
 import style from './styleProductList.module.css';
 import Navbar from '../../../../components/NavbarAfterLogin/NavbarDashboard'
 import { Col, Container, Row } from 'react-bootstrap';
-import CardProduct from '../../../../components/CardsDashboard/CardDashboard'
+import CardProduct from '../../../../components/Cards/CardProduct'
 import DashboardMenu from '../../../../components/DashboardMenu/DashboardMenu';
 import PreviousButton from '../../../../components/PreviousButton/PreviousButton';
+import ButtonAdd from '../../../../components/SellButton/SellButton'
 
 function ProductList() {
     return (
         <div>
             <Navbar title="Product List" />
-            <Container  className='previous'>
+            <Container className='previous'>
                 <PreviousButton className="previousButton" />
             </Container>
 
@@ -27,6 +28,9 @@ function ProductList() {
                     {/* <Col>3 of 3</Col> */}
                 </Row>
             </Container>
+            <ButtonAdd
+            tambah="add"
+            />
         </div >
 
     )

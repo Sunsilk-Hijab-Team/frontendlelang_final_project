@@ -24,6 +24,7 @@ import BuyerLogin from './pages/buyer/product/BeforeLogin/Before';
 import BuyerSent from './pages/buyer/product/Sent/Sent';
 
 import { ToastContainer } from 'react-toastify';
+import ProductDetailSeller from './pages/seller/DetailProductSeller/DetailProductSeller';
 
 function App() {
   return (
@@ -52,6 +53,7 @@ function App() {
             <Route path="/seller/dashboard/sold-product" element={<SoldProduct />} />
             <Route path="/seller/Notification" element={<Notification />} />
             <Route path="/seller/dashboard/notification-test" element={<NotificationTest />} />
+            <Route path="/seller/detail" element={<ProductDetailSeller />} />
             {/* buyer */}
             <Route path="/buyer/logged/product" element={<BuyerProduct />} />
             <Route path="/buyer/logged/sent/:productId" element={<BuyerSent />} />

@@ -12,6 +12,7 @@ import Previous from './fi_arrow-left.svg';
 import Image from './jam_1.png';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Details from '../../../../components/Details/Details'
 
 const { REACT_APP_API_URL } = process.env
 
@@ -51,22 +52,11 @@ function Sent() {
             {/* {toast.success("Harga tawar anda telah terkirim, Tunggu balasan dari penjual",{position:"top-center"})} */}
             <Navbar />
             <Container>
-                <PreviousButton />
-            </Container>
-            <Container>
-                {
-                    loading ?
-                        <Row className='d-flex justify-content-center'>
-                            <Spinner animation="border" role="status">
-                                <span className="visually-hidden">Loading...</span>
-                            </Spinner>
-                        </Row>
-                    : <></>
-                }
-                <Row>
-                    <Col>
-                        <h4 className={Style.h4}>{category === null ? 'Tidak Berkategori' : category.name}</h4>
-                        <h1 className={Style.h1}>{item.name}</h1>
+                <Details />
+                {/* <Row className={Style.styleRow}>
+                    <Col className={Style.col1}>
+                        <h4 className={Style.h4}>Aksesoris</h4>
+                        <h1 className={Style.h1}>Jam Tangan Casio</h1>
                         <div className='d-flex flex-row align-items-center'>
                             <h3 className={Style.h3}>Price</h3>
                             <h2 className={Style.h2}>Rp {item.base_price}</h2>
@@ -99,7 +89,7 @@ function Sent() {
                                 }
                         </Carousel>
                     </Col>
-                </Row>
+                </Row> */}
             </Container>
                    
         </div>
