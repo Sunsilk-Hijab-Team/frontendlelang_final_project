@@ -23,6 +23,7 @@ function AddProduct() {
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(false)
     const [btnLoading, setBtnLoading] = useState(false)
+    const [btnLoadings, setBtnLoadings] = useState(false)
     let nav = useNavigate();
 
     const getCategory = async () => {
@@ -102,6 +103,56 @@ function AddProduct() {
 
     }
 
+    const handlePreview = async (e) => {
+
+        setBtnLoadings(true)
+        e.preventDefault();
+
+        const status = 'available';
+        const published = false;
+        let formData = new FormData();
+
+        formData.append('name', name);
+        formData.append('description', description);
+        formData.append('base_price', price);
+        formData.append('categories_id', categoryId);
+        formData.append('status', status);
+        formData.append('published', published);
+        formData.append('image_url', imageUrl);
+
+        try{
+            // console.log(name, description, categoryId, price, status, published, imageUrl);
+            // console.log(formData,'isi');
+            setBtnLoadings(true)
+            await axios.post(`${url}/api/v1/seller/product/add`, formData, {
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'multipart/form-data'
+                }
+            })
+            .then( res => {
+                setBtnLoadings(false)
+                // console.log(res.status, 'response');
+                if(res.status === 201){
+                    nav('/seller/dashboard/product-list');
+                    toast.success('Product has been added', {
+                        theme: 'colored',
+                        position: toast.POSITION.TOP_RIGHT,
+                        autoClose: 4000
+                    });
+                }
+            })
+            .catch((error => {
+                setBtnLoadings(true)
+                // console.log(error.response.data.message, 'catch');
+            }))
+        } catch(error) {
+            setBtnLoading(true)
+            // console.log(error.response.data.message, 'catch2');
+        }
+
+    }
+
     useEffect(() => {
 
         token ? <></> : nav('/login')
@@ -148,7 +199,7 @@ function AddProduct() {
                                             <option selected disabled> -- Choose Category -- </option>
                                             {
 
-                                                items > 0 ?
+                                                items.length > 0 ?
 
                                                     items.map((item, index) => {
                                                         return (
@@ -187,41 +238,63 @@ function AddProduct() {
                                     <p className='add-photo-label-more'>Add More</p>
                                 </Col>
                             </Row>
-                        </Form>
-                        <Row className='p-3'>
-                            <Col>
-                                <div className='button-add-product mb-4'>
-                                    <Button className='styleButtonPreview' type="submit">
-                                        Preview
+                            </Form>
+                    <Row>
+                        <Col>
+                            <div className='button-add-product mb-4'>
+                                {
+
+                                    btnLoadings ?
+
+                                    <Button className='styleButton' variant="primary" disabled>
+                                    <Spinner
+                                    as="span"
+                                    animation="grow"
+                                    size="sm"
+                                    role="status"
+                                    aria-hidden="true"
+                                    />
+                                    Loading...
                                     </Button>
-                                    <span></span>
-                                    {
 
-                                        btnLoading ?
+                                :
+                                <Button onClick={handlePreview} className='styleButtonPreview' type="submit">
+                                    Preview
+                                </Button>
 
-                                            <Button className='styleButton' variant="primary" disabled>
-                                                <Spinner
-                                                    as="span"
-                                                    animation="grow"
-                                                    size="sm"
-                                                    role="status"
-                                                    aria-hidden="true"
-                                                />
-                                                Loading...
-                                            </Button>
+                                }
 
-                                            :
+                                <span></span>
 
-                                            <Button onClick={handlePost} className='styleButton' variant="primary" type="submit">
-                                                Post
-                                            </Button>
-                                    }
-                                </div>
-                            </Col>
-                            <Col>
-                            </Col>
-                        </Row>
-                    </Container>
+                                {
+
+                                    btnLoading ?
+
+                                    <Button className='styleButton' variant="primary" disabled>
+                                    <Spinner
+                                    as="span"
+                                    animation="grow"
+                                    size="sm"
+                                    role="status"
+                                    aria-hidden="true"
+                                    />
+                                    Loading...
+                                    </Button>
+
+                                :
+
+                                <Button onClick={handlePost} className='styleButton' variant="primary" type="submit">
+                                    Post
+                                </Button>
+                                }
+                            </div>
+                        </Col>
+                        <Col>
+                        </Col>
+                    </Row>
+                </Container>
+                    
+
             }
         </div>
     )

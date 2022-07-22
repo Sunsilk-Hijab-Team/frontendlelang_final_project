@@ -48,7 +48,7 @@ function App() {
             <Route path="/seller/add-product" element={<AddProduct />} />
             <Route path="/seller/dashboard/profile" element={<Profile />} />
             <Route path="/seller/dashboard/product-list" element={<ProductList />} />
-            <Route path="/seller/preview-product" element={<PreviewProduct />} />
+            <Route path="/seller/preview-product/:productId" element={<PreviewProduct />} />
             <Route path="/seller/dashboard/favorite" element={<Favorites />} />
             <Route path="/seller/dashboard/sold-product" element={<SoldProduct />} />
             <Route path="/seller/Notification" element={<Notification />} />
