@@ -13,6 +13,7 @@ function SellButton() {
     const token = localStorage.getItem('token');
     const [loading, setLoading] = useState('')
     let nav = useNavigate();
+
     const hanleDirect = async (e) => {
         e.preventDefault();
         setLoading(true)
@@ -31,7 +32,7 @@ function SellButton() {
                     && res.data.user.image_url === null
                 ){
                     nav('/seller/dashboard/profile');
-                    toast.error('Silahkan lengkapi profile anda dahulu !', {
+                    toast.warning('Silahkan lengkapi profile dahulu !', {
                         theme: 'colored',
                         position: toast.POSITION.TOP_RIGHT,
                         autoClose: 4000

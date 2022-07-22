@@ -3,7 +3,6 @@ import Previous from './fi_arrow-left.svg';
 import { Col, Container, Row, Button } from 'react-bootstrap';
 import Style from './styleDetails.module.css';
 import Carousel from 'react-bootstrap/Carousel';
-import PopUp from '../../pages/buyer/popup/PopUp'
 // import Image from './jam_1.png';
 import NoImage from '../../images/no_image.png'
 import PreviousButton from '../PreviousButton/PreviousButton';
@@ -11,9 +10,11 @@ import { useParams } from "react-router-dom";
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import Spinner from 'react-bootstrap/Spinner';
+import PopUp from './popup/PopUp';
+
 const { REACT_APP_API_URL } = process.env
 
-function SellerHome() {
+function  SellerHome() {
 
     const url = `${REACT_APP_API_URL}/api/v1/buyer/product/`;
 
@@ -32,7 +33,7 @@ function SellerHome() {
                 setItem(res.data.data.product);
                 setCategory(res.data.data.product.categories);
                 setImages(res.data.data.product.images);
-                console.log(images, 'null')
+                // console.log(images, 'null')
             })
             setLoading(false)
         } catch (error) {
@@ -61,7 +62,7 @@ function SellerHome() {
                 }
                 <Row>
                     <Col>
-                        <h4 className={Style.h4}>{category.name}</h4>
+                        <h4 className={Style.h4}>{category === null ? 'Tidak Berkategori' : category.name}</h4>
                         <h1 className={Style.h1}>{item.name}</h1>
                         <div className='d-flex flex-row align-items-center'>
                             <h3 className={Style.h3}>Price</h3>
