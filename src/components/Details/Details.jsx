@@ -1,13 +1,14 @@
 import React from 'react';
-import { Col, Container, Row, Button } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import Style from './styleDetails.module.css';
 import Carousel from 'react-bootstrap/Carousel';
-import NoImage from '../../images/no_image.png'
+import NoImage from '../../images/no_image.png';
 import PreviousButton from '../PreviousButton/PreviousButton';
 import { useParams } from "react-router-dom";
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import Spinner from 'react-bootstrap/Spinner';
+import PopUp from './popup/PopUp';
 const { REACT_APP_API_URL } = process.env
 
 function SellerHome() {
@@ -27,7 +28,7 @@ function SellerHome() {
                 setItem(res.data.data.product);
                 setCategory(res.data.data.product.categories);
                 setImages(res.data.data.product.images);
-                console.log(images, 'null')
+                // console.log(images, 'null')
             })
             setLoading(false)
         } catch (error) {
@@ -54,9 +55,11 @@ function SellerHome() {
                         </Row>
                     : <></>
                 }
+
                 <Row className={Style.styleRow}>
                     <Col className={Style.col1}>
-                        <h4 className={Style.h4}>{category.name}</h4>
+
+                        <h4 className={Style.h4}>{category === null ? 'Tidak Berkategori' : category.name}</h4>
                         <h1 className={Style.h1}>{item.name}</h1>
                         <div className='d-flex flex-row align-items-center'>
                             <h2 className={Style.h2}>Price : </h2>
@@ -64,9 +67,7 @@ function SellerHome() {
                         </div>
                         <p className={Style.p}>{item.description}</p>
 
-                        <Button className={Style.roundedButton}>
-                            Saya Tertarik dan Ingin Nego
-                        </Button>
+                        <PopUp />
                     </Col>
 
                     <Col>

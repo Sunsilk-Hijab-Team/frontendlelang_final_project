@@ -59,7 +59,7 @@ body.active-modal {
 
 .modalContent {
     position: absolute;
-    top: 55%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     line-height: 1.4;
@@ -176,9 +176,4 @@ body.active-modal {
     .carousel-indikators{
         background:#F93711;
     }
-
-    .imagePopup {
-        display: none;
-    }
-    
 }
