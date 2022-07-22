@@ -1,77 +1,31 @@
-.button-save {
-    width: 568px;
-    background: #F93711;
-    border-radius: 16px;
-    border: none;
-    height: 48px;
-    margin-bottom: 24px;
+.dashboard-menu {
+    font-size: 16px;
+    width: 156px;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    margin: 0 8px;
+    color: black;
 }
 
-.form-profile {
-    width: 568px;
-}
-
-.content {
-    margin-left: 50px;
-}
-
-.profile-input {
-    background-color: transparent;
-    border: none;
-
-    /* width: 144px;
-    height: 144px;
-    background-color: #FAD56C;
-    border-radius: 80px;
-    border-color: #FAD56C; */
-    margin-bottom: 29px;
-}
-
-.profile-input:hover {
-    background-color: transparent;
-    border: none;
-    
-    /* width: 144px;
-    height: 144px;
-    background-color: #FAD56C;
-    border-radius: 80px;
-    border-color: #FAD56C; */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 20px;
 }
 
 @media only screen and (max-width: 600px) {
-    .form-profile {
-        width: 328px;
+    .previousButton {
+        display: none;
     }
 
-    .button-save {
-        width: 328px;
-        background: #F93711;
-        border-radius: 16px;
-        border: none;
-        height: 48px;
-        margin-bottom: 24px;
-    }
-
-    .content {
-        margin: 20px 0;
-    }
-
-    .photo-profile {
-        width: 96px;
-        height: auto;
-    }
-
-    .form-profile {
-        /* margin: 0; */
-        margin-left: 20px;
+    .container {
         display: flex;
-        flex-direction: column;
-        justify-content: center;
+        flex-wrap: wrap;
+        margin-left: 0;
     }
 
-/*     
-    .previous {
+    /* .previous {
         display: none;
     } */
-
 }

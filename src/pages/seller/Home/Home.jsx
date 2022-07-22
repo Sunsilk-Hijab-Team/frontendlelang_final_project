@@ -26,6 +26,7 @@ function SellerHome() {
             <ButtonFilter />
             <CardProduct />
             <SellButton />
+            {console.log('tes')};
         </div>
     )
 }

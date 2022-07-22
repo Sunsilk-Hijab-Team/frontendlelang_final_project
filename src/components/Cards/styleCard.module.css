@@ -6,6 +6,11 @@
     justify-content: center;
 }
 
+.rowCard{
+    display: flex;
+    justify-content: center;
+}
+
 .containerCard{
     display: flex;
     flex-direction: wrap;
@@ -71,6 +76,8 @@
 } */
 
 /* * {
+.container{
+    margin-top: 40px;
     font-family: poppins;
     display: flex;
     flex-wrap: wrap;
@@ -103,7 +110,6 @@
     height: 100%;
     padding: 3%;
     border-radius: 15px;
-
     @media screen and (max-width: 600px) {
         width: 50%;
         height: 50%;

@@ -23,6 +23,7 @@ function AddProduct() {
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(false)
     const [btnLoading, setBtnLoading] = useState(false)
+    const [btnLoadings, setBtnLoadings] = useState(false)
     let nav = useNavigate();
 
     const getCategory = async () => {
@@ -42,6 +43,7 @@ function AddProduct() {
             // })
 
         } catch(error){
+             setLoading(false)
             console.log(error);
         }
     }
@@ -101,6 +103,56 @@ function AddProduct() {
 
     }
 
+    const handlePreview = async (e) => {
+
+        setBtnLoadings(true)
+        e.preventDefault();
+
+        const status = 'available';
+        const published = false;
+        let formData = new FormData();
+
+        formData.append('name', name);
+        formData.append('description', description);
+        formData.append('base_price', price);
+        formData.append('categories_id', categoryId);
+        formData.append('status', status);
+        formData.append('published', published);
+        formData.append('image_url', imageUrl);
+
+        try{
+            // console.log(name, description, categoryId, price, status, published, imageUrl);
+            // console.log(formData,'isi');
+            setBtnLoadings(true)
+            await axios.post(`${url}/api/v1/seller/product/add`, formData, {
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'multipart/form-data'
+                }
+            })
+            .then( res => {
+                setBtnLoadings(false)
+                // console.log(res.status, 'response');
+                if(res.status === 201){
+                    nav('/seller/dashboard/product-list');
+                    toast.success('Product has been added', {
+                        theme: 'colored',
+                        position: toast.POSITION.TOP_RIGHT,
+                        autoClose: 4000
+                    });
+                }
+            })
+            .catch((error => {
+                setBtnLoadings(true)
+                // console.log(error.response.data.message, 'catch');
+            }))
+        } catch(error) {
+            setBtnLoading(true)
+            // console.log(error.response.data.message, 'catch2');
+        }
+
+    }
+
     useEffect(() => {
 
         token ? <></> : nav('/login')
@@ -113,42 +165,7 @@ function AddProduct() {
             <Navbar title="Add Product" />
             <Container>
                 <PreviousButton />
-                </Container>
-                <Container className={styleRegister.formStyle}>
-                    <Row>
-                        <Col sm={12}>
-                                <Form.Group className="mb-3" controlId="formBasicEmail">
-                                    <Form.Label className='add-product-label'>
-                                        Product Name
-                                    </Form.Label>
-                                    <Form.Control className={styleRegister.rounded} type="text" placeholder="Product Name" onChange={(e) => setName(e.target.value)} />
-                                </Form.Group>
-
-                                <Form.Group className="mb-3" controlId="formBasicEmail">
-                                    <Form.Label className='add-product-label'>Price</Form.Label>
-                                    <Form.Control className={styleRegister.rounded} type="number" placeholder="Rp 0,00" onChange={(e) => setPrice(e.target.value)} />
-                                </Form.Group>
-
-                                <Form.Group className="mb-3" controlId="formBasicEmail">
-                                    <Form.Label className='add-product-label'>Category</Form.Label>
-                                    <Form.Select className={styleRegister.rounded} onChange={(e) => setCategoryId(e.target.value)}>
-                                        <option selected disabled> -- Choose Category -- </option>
-                                        <option value="1"> 1 </option>
-                                    </Form.Select>
-                                    {/* <Form.Control className={styleRegister.rounded} type="email" placeholder="Choose Category"/> */}
-                                </Form.Group>
-
-                                <Form.Group className="mb-3" controlId="formBasicEmail">
-                                    <Form.Label className='add-product-label'>Product Description</Form.Label>
-                                    <Form.Control className={styleRegister.rounded} type="text" placeholder="ex: Lorem ipsum dolor sit amet" onChange={(e) => setDescription(e.target.value)}  />
-                                </Form.Group>
-                                <Form.Group className="mb-3" controlId="formBasicEmail">
-                                    <Form.Label className='add-product-label'>Gambar</Form.Label>
-                                    <Form.Control className={styleRegister.rounded} type="file" placeholder="ex: Lorem ipsum dolor sit amet" onChange={(e) => setImageUrl(e.target.files[0])}  />
-                                </Form.Group>
-                        </Col>
-                        </Row>
-                        </Container>
+            </Container>
             {
                 loading ?
 
@@ -181,11 +198,19 @@ function AddProduct() {
                                         <Form.Select className={styleRegister.rounded} onChange={(e) => setCategoryId(e.target.value)}>
                                             <option selected disabled> -- Choose Category -- </option>
                                             {
+
+                                                items.length > 0 ?
+
                                                 items.map((item, index) => {
                                                     return (
                                                         <option key={index} value={item.id}>{item.name}</option>
                                                     )
                                                 })
+
+                                                :
+
+                                                <option selected disabled> -- Category not found -- </option>
+
                                             }
                                         </Form.Select>
                                         {/* <Form.Control className={styleRegister.rounded} type="email" placeholder="Choose Category"/> */}
@@ -217,10 +242,30 @@ function AddProduct() {
                     <Row>
                         <Col>
                             <div className='button-add-product mb-4'>
-                                <Button className='styleButtonPreview' type="submit">
+                                {
+
+                                    btnLoadings ?
+
+                                    <Button className='styleButton' variant="primary" disabled>
+                                    <Spinner
+                                    as="span"
+                                    animation="grow"
+                                    size="sm"
+                                    role="status"
+                                    aria-hidden="true"
+                                    />
+                                    Loading...
+                                    </Button>
+
+                                :
+                                <Button onClick={handlePreview} className='styleButtonPreview' type="submit">
                                     Preview
                                 </Button>
+
+                                }
+
                                 <span></span>
+
                                 {
 
                                     btnLoading ?
