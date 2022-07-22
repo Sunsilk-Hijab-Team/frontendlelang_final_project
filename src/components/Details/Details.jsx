@@ -1,5 +1,4 @@
 import React from 'react';
-import Previous from './fi_arrow-left.svg';
 import { Col, Container, Row, Button } from 'react-bootstrap';
 import Style from './styleDetails.module.css';
 import Carousel from 'react-bootstrap/Carousel';
@@ -16,9 +15,7 @@ const { REACT_APP_API_URL } = process.env
 function  SellerHome() {
 
     const url = `${REACT_APP_API_URL}/api/v1/buyer/product/`;
-
     let { productId } = useParams();
-
     const [item, setItem] = useState([]);
     const [category, setCategory]  = useState([]);
     const [images, setImages] = useState([]);
@@ -45,11 +42,11 @@ function  SellerHome() {
     }, [])
 
     return (
-        <div>
-            <Container>
+        <div className={Style.div}>
+            <Container className={Style.container}>
                 <PreviousButton />
             </Container>
-            <Container>
+            <Container className={Style.container}>
                 {
                     loading ?
                         <Row className='d-flex justify-content-center'>
@@ -64,7 +61,7 @@ function  SellerHome() {
                         <h4 className={Style.h4}>{category === null ? 'Tidak Berkategori' : category.name}</h4>
                         <h1 className={Style.h1}>{item.name}</h1>
                         <div className='d-flex flex-row align-items-center'>
-                            <h3 className={Style.h3}>Price</h3>
+                            <h2 className={Style.h2}>Price : </h2>
                             <h2 className={Style.h2}>Rp {item.base_price}</h2>
                         </div>
                         <p className={Style.p}>{item.description}</p>
@@ -78,7 +75,7 @@ function  SellerHome() {
                                     images.length === 0 ?
 
                                     <Carousel.Item className={Style.carousel}>
-                                        <img className={Style.carousel} src={NoImage} alt="productImage" />
+                                        <img className={Style.imgcarousel} src={NoImage} alt="productImage" />
                                     </Carousel.Item>
 
                                     :
@@ -86,7 +83,7 @@ function  SellerHome() {
                                     images.map((image, index) => {
                                         return (
                                             <Carousel.Item key={index} className={Style.carousel}>
-                                                <img className={Style.carousel} src={image.image_url} alt="productImage" />
+                                                <img className={Style.imgcarousel} src={image.image_url} alt="productImage" />
                                             </Carousel.Item>
                                         )
                                     })
