@@ -1,9 +1,9 @@
-import { Card, Container, Row } from 'react-bootstrap';
+import { Card, Container, Row, Badge } from 'react-bootstrap';
 import styleCard from './styleCard.module.css'
 import { useEffect, useState } from 'react';
 import NoImage from '../../images/no_image.png'
 import Spinner from 'react-bootstrap/Spinner';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import { Rupiah } from '../CostumFunction/Rupiah';
 // import Gambar from './jamTangan.jpg'
@@ -20,6 +20,7 @@ function CardComponent() {
     const getProducts = async () => {
         setLoading(true);
         try{
+            console.log("url------------",url);
             await axios.get(`${url}/api/v1/seller/product/all`,{
                 headers: {
                     "Authorization": `Bearer ${token}`
@@ -28,13 +29,13 @@ function CardComponent() {
                 // console.log(res.data.product, 'prd')
                 setLoading(false)
                 setItems(res.data.product)
+                console.log('res data product#####', res.data.product);
             })
         } catch (error){
             // console.log(error.message)
             setLoading(true)
         }
     }
-
     useEffect( () => {
         token ? getProducts() : nav('/login');
         getProducts();
@@ -65,16 +66,24 @@ function CardComponent() {
                         return (
 
                             <div key={index} className={styleCard.cardBody}>
-                                <Card className={styleCard.cardStyle}>
-                                    <Card.Img src={ item.images.length === 0 ? NoImage : item.images[0].image_url } className={styleCard.imgThumbnail} />
-                                    <Card.Body>
-                                        <Card.Title> <strong>{item.name}</strong> </Card.Title>
-                                        <Card.Text className={styleCard.styleCardText}>
-                                            { item.categories.name === 0 ? '-' : item.categories.name }
-                                        </Card.Text>
-                                        <Card.Title>{ Rupiah(item.base_price)}</Card.Title>
-                                    </Card.Body>
-                                </Card>
+                                <Link to={'/seller/preview-product/'+item.id}>
+                                    <Card className={styleCard.cardStyle}>
+                                        <Card.Img src={ item.images.length === 0 ? NoImage : item.images[0].image_url } className={styleCard.imgThumbnail} />
+                                        {
+                                            item.published === true ?
+                                            <Badge bg="success">Published</Badge>
+                                            :
+                                            <Badge bg="warning text-dark">Preview</Badge>
+                                        }
+                                        <Card.Body>
+                                            <Card.Title> <strong>{item.name}</strong> </Card.Title>
+                                            <Card.Text className={styleCard.styleCardText}>
+                                                { item.categories.name === 0 ? '-' : item.categories.name }
+                                            </Card.Text>
+                                            <Card.Title>{ Rupiah(item.base_price)}</Card.Title>
+                                        </Card.Body>
+                                    </Card>
+                                </Link>
                             </div>
 
                         );

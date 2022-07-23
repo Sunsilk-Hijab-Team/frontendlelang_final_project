@@ -6,7 +6,7 @@ import Previous from './fi_arrow-left.svg';
 import Image from './jam_1.png';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Details from './Details/Details'
+import Details from './DetailsSent/DetailsSent'
 
 function Sent() {
     useEffect(() => {
