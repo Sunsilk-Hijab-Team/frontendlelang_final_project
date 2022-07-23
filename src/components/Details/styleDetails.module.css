@@ -12,7 +12,7 @@
     width: auto;
     height: 100%;
     border-radius: 16px;
-    margin-left: 25%;
+    /* margin-left: 25%; */
 }
 
 .carousel {
@@ -126,10 +126,10 @@
     .carouselImage {
         display: flex;
         flex-direction: row;
-        width: auto;
+        max-width: 100%;
         height: 300px;
         border-radius: 16px;
-        margin-left: 17%;
+        /* margin-left: 17%; */
     }
 
     .carousel {
