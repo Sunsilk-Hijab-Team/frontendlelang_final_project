@@ -40,7 +40,7 @@ function NotifModal() {
           if(allNotification.length===0){
             setNotification([]);
           }else{
-            setNotification(allNotification);
+            setNotification(allNotification.reverse());
           }
           // console.log(notification);
       })
@@ -71,6 +71,8 @@ function NotifModal() {
               {
               notification.map((item, index)=>{
                 console.log("itemm order",item);
+                // if index < 2 do looping
+                if(index<2){
                 return(
                   <div>
                     <Nav.Link className={stylePopup.product} href="/seller/Notification">
@@ -107,7 +109,8 @@ function NotifModal() {
                       {setIcon}
                     </div>
                   </div>
-                  )
+                )
+                }
               })}
               <Row>
                 <Col md={12} className="d-flex justify-content-center">
