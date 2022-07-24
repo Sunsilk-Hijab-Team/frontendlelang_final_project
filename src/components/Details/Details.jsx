@@ -68,7 +68,7 @@ function SellerHome() {
                         : <></>
                 }
                 <Row>
-                    <Col>
+                    <Col className='d-flex justify-content-center'>
                         <Carousel className={Style.carousel}>
                             {
                                 images.length === 0 ?

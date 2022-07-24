@@ -234,7 +234,7 @@ function AddProduct() {
                             <Form.Group className="mb-3" controlId="formBasicEmail">
                                 <Form.Label className='add-product-label' for="add_img">
                                     Pictures
-                                    <img className='image_2 m-2' src={Image_2} alt="" />
+                                    <img className='image_2 m-2 d-flex' src={Image_2} alt="" />
                                 </Form.Label>
                                 <Form.Control hidden id="add_img" className={styleRegister.rounded} type="file" multiple={true} placeholder="ex: Lorem ipsum dolor sit amet" onChange={(e) => setImageUrl(e.target.files)} />
                             </Form.Group>

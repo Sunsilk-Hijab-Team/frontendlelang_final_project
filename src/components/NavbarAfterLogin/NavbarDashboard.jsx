@@ -82,9 +82,9 @@ function NavScroll(props) {
                         <div className={styleNavSeller.iconSearch}>
                             <SearchCollapse />
                         </div>
-                        <Nav.Link className='p-0' href="#message">
+                        {/* <Nav.Link className='p-0' href="#message">
                             <img className={styleNavSeller.iconMessage} src={Message} alt="" />
-                        </Nav.Link>
+                        </Nav.Link> */}
 
                         <NotifModal />
 

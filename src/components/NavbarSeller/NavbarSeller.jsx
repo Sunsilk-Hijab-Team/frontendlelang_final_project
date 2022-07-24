@@ -32,9 +32,9 @@ function NavScroll(props) {
                 {/* <Row> */}
                 <div>
                     <Nav className='menu d-flex flex-row align-items-center'>
-                        <Nav.Link className='p-0' href="#message">
+                        {/* <Nav.Link className='p-0' href="#message">
                             <img className={styleNavSeller.iconMessage} src={Message} alt="" />
-                        </Nav.Link>
+                        </Nav.Link> */}
 
                         <Nav.Link className='p-0' href="/seller/Notification">
                             <img className={styleNavSeller.iconNotif} src={Notificiation} alt="" />
