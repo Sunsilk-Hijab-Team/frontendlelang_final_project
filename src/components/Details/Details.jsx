@@ -84,10 +84,10 @@ function SellerHome() {
 
                     <Col className={Style.desc}>
                         <div className={Style.sellerProfile}>
-                            <img className={Style.sellerPhoto} src="/assets/profile_buyer.jpg" alt="" />
+                            <img className={Style.sellerPhoto} src={item.users.image_url?item.users.image_url: NoImage} alt="" />
                             <div className='ms-3'>
-                                <h2 className={Style.sellerName}>Taylor Swift</h2>
-                                <h1 className={Style.city}>Gresik</h1>
+                                <h2 className={Style.sellerName}>{item.users?item.users.full_name:"Undefined"}</h2>
+                                <h1 className={Style.city}>{item.users?item.users.address:"Undefined"}</h1>
                             </div>
                         </div>
 
