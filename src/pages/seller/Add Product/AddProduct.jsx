@@ -54,8 +54,9 @@ function AddProduct() {
     const [categoryId, setCategoryId] = useState('');
     const [price, setPrice] = useState('');
     const [imageUrl, setImageUrl] = useState([]);
+
     // const reader = new FileReader();
-    // console.log("ini readerrr------------",reader);
+
 
     const handlePost = async (e) => {
         setBtnLoading(true)
@@ -108,6 +109,7 @@ function AddProduct() {
         }
 
     }
+
 
     const handlePreview = async (e) => {
 
@@ -208,7 +210,7 @@ function AddProduct() {
                                             <option selected disabled> -- Choose Category -- </option>
                                             {
 
-                                                items.length > 0 ?
+                                                items > 0 ?
 
                                                 items.map((item, index) => {
                                                     return (
