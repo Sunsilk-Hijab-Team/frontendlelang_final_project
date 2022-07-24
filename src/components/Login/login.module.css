@@ -43,8 +43,8 @@ a {
 
 .iconSpan {
     position: absolute;
-    margin-top: 1%;
-    margin-left: 32%;
+    margin-top: 0.8%;
+    margin-left: 34.5%;
 }
 
 .styleCol {
@@ -66,8 +66,8 @@ a {
 
     .iconSpan {
         position: absolute;
-        margin-top: 3.5%;
-        margin-left: 55%;
+        margin-top: 1%;
+        margin-left: 57%;
     }
 
     .loginh1{
@@ -85,3 +85,28 @@ a {
 
 }
 
+@media only screen and (max-width: 600px) {
+    .iconSpan {
+        position: absolute;
+        margin-top: 3%;
+        margin-left: 63%;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 768px) {
+    .iconSpan {
+        position: absolute;
+        margin-top: 3%;
+        margin-left: 63%;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (max-width: 992px) {
+    .iconSpan {
+        position: absolute;
+        margin-top: 3%;
+        margin-left: 63%;
+    }
+}
