@@ -62,6 +62,7 @@ function NotifModal() {
         <img className={stylePopup.iconNotif} src={Notificiation} alt="" />
       </Nav.Link>
       
+      <Container>
       {modal &&
         (
           <div className={["mt-5",stylePopup.modal]}>
@@ -69,6 +70,7 @@ function NotifModal() {
             <Container fluid>
               <div className={stylePopup.modalContent}>
               {
+              notification.length>0?
               notification.map((item, index)=>{
                 console.log("itemm order",item);
                 // if index < 2 do looping
@@ -103,15 +105,16 @@ function NotifModal() {
                     </Nav.Link>
 
                     <hr class="rounded"></hr>
-
-                    <div className={stylePopup.closeModal}
-                      onClick={togglePopup}>
-                      {setIcon}
-                    </div>
                   </div>
                 )
                 }
-              })}
+              })
+              :<>Notification Empty</>
+              }
+              <div className={stylePopup.closeModal}
+                onClick={togglePopup}>
+              {setIcon}
+              </div>
               <Row>
                 <Col md={12} className="d-flex justify-content-center">
                   <p> <a href="/seller/notification">Lihat Selengkapnya</a></p>
@@ -123,6 +126,7 @@ function NotifModal() {
 
         )
       }
+      </Container>
     </div>
   )
 }
