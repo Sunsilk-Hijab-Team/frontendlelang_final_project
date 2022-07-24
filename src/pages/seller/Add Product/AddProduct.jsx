@@ -37,6 +37,7 @@ function AddProduct() {
             })
             .then(res => {
                 setItems(res.data.categories);
+                console.log('rest dataa itemsss ctg****'+res.data.categories);
                 setLoading(false)
             })
             // .catch(err => {
@@ -54,8 +55,9 @@ function AddProduct() {
     const [categoryId, setCategoryId] = useState('');
     const [price, setPrice] = useState('');
     const [imageUrl, setImageUrl] = useState([]);
+
     // const reader = new FileReader();
-    // console.log("ini readerrr------------",reader);
+
 
     const handlePost = async (e) => {
         setBtnLoading(true)
@@ -109,6 +111,7 @@ function AddProduct() {
 
     }
 
+
     const handlePreview = async (e) => {
 
         setBtnLoadings(true)
@@ -161,7 +164,7 @@ function AddProduct() {
         }
 
     }
-
+    // console.log("itemsss"+items);
     useEffect(() => {
 
         token ? <></> : nav('/login')
@@ -206,11 +209,12 @@ function AddProduct() {
                                         <Form.Label className='add-product-label'>Category</Form.Label>
                                         <Form.Select className={styleRegister.rounded} onChange={(e) => setCategoryId(e.target.value)}>
                                             <option selected disabled> -- Choose Category -- </option>
+                                            
                                             {
-
-                                                items.length > 0 ?
+                                                items!=null  ?
 
                                                 items.map((item, index) => {
+                                                    
                                                     return (
                                                         <option key={index} value={item.id}>{item.name}</option>
                                                     )
