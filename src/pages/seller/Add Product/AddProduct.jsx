@@ -289,11 +289,10 @@ function AddProduct() {
                                     }
                                 </div>
                             </Col>
-                            <Col>
+                            <Col sm={12} lg={6}>
                             </Col>
                         </Row>
                 </Container>
-
             }
         </div >
     )

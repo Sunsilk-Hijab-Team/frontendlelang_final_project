@@ -19,14 +19,14 @@
 
 @media screen and (max-width:991px) {
     .search{
-        display: none;
+        width: 100%;
     }
     
 }
 
-@media screen and (max-width:756px) {
+/* @media screen and (max-width:756px) {
     .search{
         display: none;
     }
     
-}
+} */
