@@ -44,10 +44,6 @@
 }
 
 @media only screen and (max-width: 600px) {
-    .form-profile {
-        width: 328px;
-    }
-
     .button-save {
         width: 328px;
         background: #F93711;
@@ -67,8 +63,9 @@
     }
 
     .form-profile {
+        width: 328px;
         /* margin: 0; */
-        margin-left: 20px;
+        /* margin-left: 20px; */
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -78,5 +75,25 @@
     .previous {
         display: none;
     } */
+
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
 
 }

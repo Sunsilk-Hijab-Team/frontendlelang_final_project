@@ -80,6 +80,7 @@ function Profile() {
                 // console.log(res, 'res')
                 setBtnLoading(false)
                 if(res.data.userUpdate[0] === 1){
+                    getProfile()
                     nav('/seller/dashboard/profile')
                     toast.success('Update profile has been success', {
                         theme: 'colored',
@@ -138,7 +139,7 @@ function Profile() {
                     <Col className='dashboardMenu' sm={3}>
                         <DashboardMenu />
                     </Col>
-                    <Col sm={7} className="content">
+                    <Col sm={7} className="content d-flex justify-content-center">
                         <Form onSubmit={handleUpdate} className='form-profile d-flex flex-column align-self-center'>
                             {/* <Button className='profile-input align-self-center'>
                                 <img className='d-flex' src='/assets/photo_profile.svg' alt="" />
@@ -206,9 +207,6 @@ function Profile() {
                                 }
                             </div>
                         </Form>
-                    </Col>
-                    <Col sm={2}>
-
                     </Col>
                     {/* <Col>3 of 3</Col> */}
                 </Row>

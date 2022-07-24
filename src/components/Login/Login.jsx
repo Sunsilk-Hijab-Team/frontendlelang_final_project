@@ -33,20 +33,20 @@ function Login() {
         setLoading(true)
         try {
 
-            axios.post(url, { email, password })
-            .then(res => {
-                localStorage.setItem('token', res.data.token);
-                setLoading(false)
-                nav('/');
+            await axios.post(url, { email, password })
+                .then(res => {
+                    localStorage.setItem('token', res.data.token);
+                    setLoading(false)
+                    nav('/');
 
-            })
-            .catch(error => {
-                setLoading(false)
-                toast.warning(error.response.data.message, {
-                    theme: 'colored',
-                    position: toast.POSITION.TOP_RIGHT
-                });
-            })
+                })
+                .catch(error => {
+                    setLoading(false)
+                    toast.warning(error.response.data.message, {
+                        theme: 'colored',
+                        position: toast.POSITION.TOP_RIGHT
+                    });
+                })
 
         } catch (error) {
             setLoading(false)
@@ -72,12 +72,12 @@ function Login() {
             <Col className={styleLogin.styleCol1}>
             </Col>
 
-            <Col id="col2" className='styleForm d-flex align-items-center'>
+            <Col id="col2" className='styleForm d-flex align-items-center justify-content-center p-0'>
                 <Container className="d-flex row justify-content-center text-center">
                     <div className={styleLogin.loginh1}>Welcome !</div>
                     <div className={styleLogin.loginh2}>Login to Second Hand</div>
 
-                    <div className="d-flex row justify-content-center align-items-spacebetween">
+                    <div className="d-flex justify-content-center align-items-spacebetween">
 
                         <Form onSubmit={handleLogin} style={{ width: '80%' }} >
                             <Form.Group className="mb-3" >
@@ -94,36 +94,37 @@ function Login() {
                                 <div className={styleLogin.iconSpan} onClick={handelToggle}>
                                     {passwordIcon}
                                 </div>
-
+                                
                                 <Form.Control placeholder="Password" name='password'
                                     className={styleLogin.roundedForm} type={passwordType}
-                                    onChange={ (e) => setPassword( e.target.value )}/>
+                                    onChange={(e) => setPassword(e.target.value)} />
+
                             </Form.Group>
                             {
                                 loading ?
 
-                                <Button className={styleLogin.roundedButton} disabled>
-                                    <Spinner
-                                    as="span"
-                                    animation="grow"
-                                    size="sm"
-                                    role="status"
-                                    aria-hidden="true"
-                                    />
-                                    Loading...
-                                </Button>
+                                    <Button className={styleLogin.roundedButton} disabled>
+                                        <Spinner
+                                            as="span"
+                                            animation="grow"
+                                            size="sm"
+                                            role="status"
+                                            aria-hidden="true"
+                                        />
+                                        Loading...
+                                    </Button>
 
-                                :
+                                    :
 
-                                <Button className={styleLogin.roundedButton} type='submit' >
-                                    Login
-                                </Button>
+                                    <Button className={styleLogin.roundedButton} type='submit' >
+                                        Login
+                                    </Button>
 
                             }
                         </Form>
 
                     </div>
-                    <p className='mt-4'>don't have an account <a href="/register">Register Here</a></p>
+                    <p className='mt-4'>Don't have an account? <a href="/register">Register Here</a></p>
                 </Container>
             </Col>
         </Row>

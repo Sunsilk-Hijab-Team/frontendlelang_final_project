@@ -110,21 +110,21 @@ function NavScroll(props) {
                                     }
                                     {
                                         profile.image_url === null ?
-                                            <img className='d-flex' src={Profile} alt="" />
+                                            <img className='d-flex me-2' src={Profile} alt="" />
                                             :
-                                            <img className='d-flex' src={profile.image_url} alt="" />
+                                            <img className='d-flex me-2' src={profile.image_url} alt="" />
                                     }
                                     <div>{profile.full_name}</div>
                                 </Nav.Link>
                             </Dropdown.Toggle>
 
-                            <Dropdown.Menu show={showDropdown}>
+                            <Dropdown.Menu show={showDropdown} className={styleNavSeller.dropdown}>
                                 <Dropdown.Item href="/seller/dashboard/product-list">
                                 Dashboard
                                 </Dropdown.Item>
-                                <Dropdown.Item href="/seller/dashboard/profile">
+                                {/* <Dropdown.Item href="/seller/dashboard/profile">
                                     Profile
-                                </Dropdown.Item>
+                                </Dropdown.Item> */}
                                 <Dropdown.Item onClick={handleLogout}>
                                     Logout
                                 </Dropdown.Item>

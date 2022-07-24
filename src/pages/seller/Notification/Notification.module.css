@@ -19,8 +19,9 @@
 }
 
 .productPicture {
-    display: flex;
-    margin-right: 16px;
+    margin-right: 10px;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .buyerProfile {
