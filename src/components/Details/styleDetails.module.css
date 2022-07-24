@@ -21,17 +21,14 @@
     border-radius: 16px;
 }
 
-<<<<<<< HEAD
 .imgcarousel {
     width: 100%;
 }
-=======
 /* .carousel {
     width: auto;
     height: 436px;
     margin-left: 20px;
 } */
->>>>>>> triyasniko
 
 .h4 {
     font-size: 14px;
@@ -66,7 +63,6 @@
     height: 110px;
     text-align: justify;
 }
-<<<<<<< HEAD
 .notifStyle {
     background: #F9CC00;
     width: 30%;
@@ -83,9 +79,6 @@
     margin-top: 70px;
     width: 40%;
 }
-=======
-
->>>>>>> triyasniko
 .roundedButton {
     border-radius: 16px;
     border: none;
