@@ -22,7 +22,7 @@ function CardComponent() {
     const getProducts = async () => {
         setLoading(true);
         try{
-            console.log("url------------",url);
+            // console.log("url------------",url);
             await axios.get(`${url}/api/v1/seller/product/all`,{
                 headers: {
                     "Authorization": `Bearer ${token}`
