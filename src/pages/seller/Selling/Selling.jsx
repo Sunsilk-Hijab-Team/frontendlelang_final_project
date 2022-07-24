@@ -29,8 +29,8 @@ function Selling(){
                 }
             }).then(res => {
                 setLoading(false)
-                setItems(res.data.Orders.Orders)
-                console.log("res ordersss"+items);
+                setItems(res.data.Orders)
+                // console.log("res ordersss ###"+res.data.Orders);
             })
         }catch(error){
             console.log(error);
@@ -53,7 +53,33 @@ function Selling(){
                         <DashboardMenu />
                     </Col>
                     <Col sm={9}>
-                        
+                        {
+                        items.map(item => {
+                            return (
+                                <div className="bg-light mb-2">
+                                    <img className="img-fluid" src="" alt="ini image" />
+                                    <p>{item.products.name}</p>
+                                    <p>{item.products.base_price}</p>
+                                    <div>
+                                        <img alt="ini image" />
+                                        <div className='ms-3'>
+                                            <h1>20 Apr, 14:04</h1>
+                                            <h2>Taylor Swift</h2>
+                                            <h1>Gresik</h1>
+                                        </div>
+                                        <h2>Bid Rp 200.000</h2>
+                                        {/* <div className='status d-flex align-self-center mt-3'>
+                                            <a href="">
+                                                <img src="" alt="image" />
+                                            </a>
+                                        </div> */}
+                                    </div>
+                                    <hr className="rounded"></hr>
+                                </div>
+                                
+                            );
+                        })
+                        }
                     </Col>
                 </Row>
             </Container>
