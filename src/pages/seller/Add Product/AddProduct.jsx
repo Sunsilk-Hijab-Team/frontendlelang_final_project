@@ -52,9 +52,9 @@ function AddProduct() {
     const [description, setDescription] = useState('');
     const [categoryId, setCategoryId] = useState('');
     const [price, setPrice] = useState('');
-    const [imageUrl, setImageUrl] = useState('');
-    const reader = new FileReader();
-    console.log("ini readerrr------------",reader);
+    const [imageUrl, setImageUrl] = useState([]);
+    // const reader = new FileReader();
+    // console.log("ini readerrr------------",reader);
 
     const handlePost = async (e) => {
         setBtnLoading(true)
