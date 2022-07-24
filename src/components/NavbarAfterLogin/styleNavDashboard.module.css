@@ -106,6 +106,7 @@ h3 {
     display: none;
 }
 
+
 /* .bars {
     display: none;
     color: #FFFFFF;
@@ -192,6 +193,10 @@ h3 {
         position: relative;
         margin-left: -25px;
         margin-right: 10px;
+    }
+
+    .dropdown {
+        position: absolute;
     }
 }
 

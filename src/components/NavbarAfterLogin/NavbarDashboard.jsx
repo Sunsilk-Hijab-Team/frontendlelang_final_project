@@ -118,7 +118,7 @@ function NavScroll(props) {
                                 </Nav.Link>
                             </Dropdown.Toggle>
 
-                            <Dropdown.Menu show={showDropdown} className={styleNavSeller.dropdown}>
+                            <Dropdown.Menu show={showDropdown} className='position-absolute me-4'>
                                 <Dropdown.Item href="/seller/dashboard/product-list">
                                 Dashboard
                                 </Dropdown.Item>
