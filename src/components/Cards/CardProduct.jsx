@@ -88,7 +88,7 @@ function CardComponent() {
 
                     );
                 })
-                : <h5 className="justify-content-center">Opps... Belum ada product yang dijual nih...</h5>
+                : <h5 className="justify-content-center w-100 mt-4">Opps... Belum ada product yang dijual nih...</h5>
             }
             </Row>
 
