@@ -13,6 +13,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import Spinner from 'react-bootstrap/Spinner';
+import _ from 'lodash';
 const { REACT_APP_API_URL } = process.env;
 
 
@@ -70,7 +71,10 @@ function AddProduct() {
         formData.append('categories_id', categoryId);
         formData.append('status', status);
         formData.append('published', published);
-        formData.append('image_url', imageUrl);
+
+        _.forEach(imageUrl, file => {
+            formData.append('image_url', file);
+        })
 
         try{
             // console.log(name, description, categoryId, price, status, published, imageUrl);
@@ -120,7 +124,10 @@ function AddProduct() {
         formData.append('categories_id', categoryId);
         formData.append('status', status);
         formData.append('published', published);
-        formData.append('image_url', imageUrl);
+
+        _.forEach(imageUrl, file => {
+            formData.append('image_url', file);
+        })
 
         try{
             // console.log(name, description, categoryId, price, status, published, imageUrl);
@@ -224,7 +231,7 @@ function AddProduct() {
                                     </Form.Group>
                                     <Form.Group className="mb-3" controlId="formBasicEmail">
                                         <Form.Label className='add-product-label'>Gambar</Form.Label>
-                                        <Form.Control className={styleRegister.rounded} type="file" multiple={true} placeholder="ex: Lorem ipsum dolor sit amet" onChange={(e) => setImageUrl(e.target.files[0])}  />
+                                        <Form.Control className={styleRegister.rounded} type="file" multiple={true} placeholder="ex: Lorem ipsum dolor sit amet" onChange={(e) => setImageUrl(e.target.files)}  />
                                     </Form.Group>
 
 

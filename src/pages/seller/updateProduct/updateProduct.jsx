@@ -101,6 +101,7 @@ function UpdateProduct() {
         formData.append('description', description);
         formData.append('base_price', price);
         formData.append('categories_id', categoryId);
+
         // formData.append('status', status);
         // formData.append('published', published);
 
@@ -108,7 +109,6 @@ function UpdateProduct() {
             formData.append('image_url', file);
         })
 
-        // console.log(formData, 'form data')
 
         try{
             console.log(name, description, categoryId, price, status, imageUrl);
@@ -133,12 +133,12 @@ function UpdateProduct() {
             })
             .catch((error => {
                 setBtnLoading(false)
-                console.log(error.response.data.message, 'catch');
-                console.log(error,'---');
+                // console.log(error.response.data.message, 'catch');
+                // console.log(error,'---');
             }))
         } catch(error) {
             setBtnLoading(false)
-            console.log(error.response.data.message, 'catch2');
+            // console.log(error.response.data.message, 'catch2');
         }
 
     }
