@@ -16,6 +16,7 @@ import SoldProduct from './pages/seller/Dashboard/SoldProduct/SoldProduct';
 import Notification from './pages/seller/Notification/Notification';
 import NotificationTest from './pages/seller/Notification/NotificationTest';
 import PreviewProduct from './pages/seller/PreviewProduct/PreviewProduct';
+import Selling from './pages/seller/Selling/Selling';
 // import Card from './components/Cards/Card';
 
 //buyer pages
@@ -56,6 +57,7 @@ function App() {
             <Route path="/seller/Notification" element={<Notification />} />
             <Route path="/seller/dashboard/notification-test" element={<NotificationTest />} />
             <Route path="/seller/detail" element={<ProductDetailSeller />} />
+            <Route path="/seller/dashboard/selling" element={<Selling />} />
             {/* buyer */}
             <Route path="/buyer/logged/product" element={<BuyerProduct />} />
             <Route path="/buyer/logged/sent/:productId" element={<BuyerSent />} />
