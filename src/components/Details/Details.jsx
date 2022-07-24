@@ -39,7 +39,7 @@ function SellerHome() {
             setLoading(true);
         }
     }
-
+    console.log("itemsss", item);
     useEffect(() => {
         Detail();
     }, [])
