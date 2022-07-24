@@ -66,7 +66,7 @@ function NavScroll(props) {
                     </Navbar.Brand>
                 </Row>
 
-                <div className='d-flex justify-content-center'>
+                <div className={styleNavSeller.title}>
                     {props.title}
                 </div>
 
