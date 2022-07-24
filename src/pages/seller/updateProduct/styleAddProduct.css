@@ -17,6 +17,11 @@
     height: auto;
 }
 
+.img_update{
+    max-width: 100px;
+    height: auto;
+}
+
 .image_2 {
     display: flex;
     margin-right: 28.83px;
