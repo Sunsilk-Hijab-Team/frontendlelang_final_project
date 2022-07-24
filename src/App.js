@@ -8,6 +8,7 @@ import Home from './pages/Home/Home';
 import SellerHome from './pages/seller/Home/Home'
 import ProductDetail from './pages/ProductDetails/ProductDetails'
 import AddProduct from './pages/seller/Add Product/AddProduct';
+import UpdateProduct from './pages/seller/updateProduct/updateProduct';
 import ProductList from './pages/seller/Dashboard/ProductList/ProductList';
 import Profile from './pages/seller/Dashboard/Profile/Profile';
 import Favorites from './pages/seller/Dashboard/Favorites/Favorites';
@@ -45,6 +46,7 @@ function App() {
             <Route path="/logged/home" element={<SellerHome />} />
             {/* SELLER */}
             <Route path="/seller/add-product" element={<AddProduct />} />
+            <Route path="/seller/product/update/:productId" element={<UpdateProduct />} />
             <Route path="/seller/dashboard/profile" element={<Profile />} />
             <Route path="/seller/dashboard/product-list" element={<ProductList />} />
             <Route path="/seller/preview-product/:productId" element={<PreviewProduct />} />
