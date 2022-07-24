@@ -230,14 +230,17 @@ function AddProduct() {
                                         <Form.Control className={styleRegister.rounded} type="text" placeholder="ex: Lorem ipsum dolor sit amet" onChange={(e) => setDescription(e.target.value)}  />
                                     </Form.Group>
                                     <Form.Group className="mb-3" controlId="formBasicEmail">
-                                        <Form.Label className='add-product-label'>Gambar</Form.Label>
-                                        <Form.Control className={styleRegister.rounded} type="file" multiple={true} placeholder="ex: Lorem ipsum dolor sit amet" onChange={(e) => setImageUrl(e.target.files)}  />
+                                        <Form.Label className='add-product-label' for="add_img">
+                                            Gambar
+                                             <img className='image_2 m-2' src={Image_2} alt="" />
+                                            </Form.Label>
+                                        <Form.Control hidden id="add_img" className={styleRegister.rounded} type="file" multiple={true} placeholder="ex: Lorem ipsum dolor sit amet" onChange={(e) => setImageUrl(e.target.files)}  />
                                     </Form.Group>
 
 
                             </Col>
 
-                            <Col sm={12} className='photo d-flex flex-column align-content-center'>
+                            {/* <Col sm={12} className='photo d-flex flex-column align-content-center'>
                                 <img className='image_1' src={Image_1} alt="" />
                                 <p className='add-photo-label'>Product Photo</p>
                                 <div className='d-flex additional'>
@@ -245,7 +248,7 @@ function AddProduct() {
                                     <img className='d-flex' src={Image_2} alt="" />
                                 </div>
                                 <p className='add-photo-label-more'>Add More</p>
-                            </Col>
+                            </Col> */}
                         </Row>
                     </Form>
                     <Row>
