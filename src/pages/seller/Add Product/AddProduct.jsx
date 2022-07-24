@@ -239,92 +239,59 @@ function AddProduct() {
                                 </Col>
                             </Row>
                         </Form>
-                        <Row className='p-3'>
+                        <Row>
                             <Col>
                                 <div className='button-add-product mb-4'>
-                                    <Button className='styleButtonPreview' type="submit">
+                                    {
+
+                                        btnLoadings ?
+
+                                        <Button className='styleButton' variant="primary" disabled>
+                                        <Spinner
+                                        as="span"
+                                        animation="grow"
+                                        size="sm"
+                                        role="status"
+                                        aria-hidden="true"
+                                        />
+                                        Loading...
+                                        </Button>
+
+                                    :
+                                    <Button onClick={handlePreview} className='styleButtonPreview' type="submit">
                                         Preview
                                     </Button>
+
+                                    }
+
                                     <span></span>
+
                                     {
 
                                         btnLoading ?
 
-                                            <Button className='styleButton' variant="primary" disabled>
-                                                <Spinner
-                                                    as="span"
-                                                    animation="grow"
-                                                    size="sm"
-                                                    role="status"
-                                                    aria-hidden="true"
-                                                />
-                                                Loading...
-                                            </Button>
+                                        <Button className='styleButton' variant="primary" disabled>
+                                        <Spinner
+                                        as="span"
+                                        animation="grow"
+                                        size="sm"
+                                        role="status"
+                                        aria-hidden="true"
+                                        />
+                                        Loading...
+                                        </Button>
 
-                                            :
+                                    :
 
-                                            <Button onClick={handlePost} className='styleButton' variant="primary" type="submit">
-                                                Post
-                                            </Button>
+                                    <Button onClick={handlePost} className='styleButton' variant="primary" type="submit">
+                                        Post
+                                    </Button>
                                     }
                                 </div>
                             </Col>
                             <Col>
                             </Col>
                         </Row>
-                    <Row>
-                        <Col>
-                            <div className='button-add-product mb-4'>
-                                {
-
-                                    btnLoadings ?
-
-                                    <Button className='styleButton' variant="primary" disabled>
-                                    <Spinner
-                                    as="span"
-                                    animation="grow"
-                                    size="sm"
-                                    role="status"
-                                    aria-hidden="true"
-                                    />
-                                    Loading...
-                                    </Button>
-
-                                :
-                                <Button onClick={handlePreview} className='styleButtonPreview' type="submit">
-                                    Preview
-                                </Button>
-
-                                }
-
-                                <span></span>
-
-                                {
-
-                                    btnLoading ?
-
-                                    <Button className='styleButton' variant="primary" disabled>
-                                    <Spinner
-                                    as="span"
-                                    animation="grow"
-                                    size="sm"
-                                    role="status"
-                                    aria-hidden="true"
-                                    />
-                                    Loading...
-                                    </Button>
-
-                                :
-
-                                <Button onClick={handlePost} className='styleButton' variant="primary" type="submit">
-                                    Post
-                                </Button>
-                                }
-                            </div>
-                        </Col>
-                        <Col>
-                        </Col>
-                    </Row>
                 </Container>
 
             }
