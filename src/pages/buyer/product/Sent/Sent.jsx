@@ -6,7 +6,7 @@ import Previous from './fi_arrow-left.svg';
 import Image from './jam_1.png';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Details from './DetailsSent/DetailsSent'
+import DetailsSent from './DetailsSent/DetailsSent'
 
 function Sent() {
     useEffect(() => {
@@ -18,7 +18,7 @@ function Sent() {
         <div >
             <Navbar title="Product Detail"/>
             <Container>
-                <Details />
+                <DetailsSent />
                 {/* <Row className={Style.styleRow}>
                     <Col className={Style.col1}>
                         <h4 className={Style.h4}>Aksesoris</h4>
