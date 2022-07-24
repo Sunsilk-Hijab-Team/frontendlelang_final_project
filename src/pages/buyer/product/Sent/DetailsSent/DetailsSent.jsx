@@ -17,6 +17,7 @@ function SellerHome() {
     const url = `${REACT_APP_API_URL}/api/v1/buyer/product/`;
     let { productId } = useParams();
     const [item, setItem] = useState([]);
+    const [seller, setSeller] = useState([]);
     const [category, setCategory] = useState([]);
     const [images, setImages] = useState([]);
     const [users, setUsers] = useState([]);

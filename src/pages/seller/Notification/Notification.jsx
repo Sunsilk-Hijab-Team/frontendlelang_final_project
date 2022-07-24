@@ -64,11 +64,11 @@ function Notification() {
                                 <h2 className={styleNotif.bid}>Bid Rp 200.000</h2>
                                 <div className={styleNotif.buttonStatus}>
                                     <Button className={styleNotif.ButtonUpdate} type="submit">
-                                        Preview
+                                        Update
                                     </Button>
                                     <span></span>
                                     <Button className={styleNotif.ButtonChat} variant="primary" type="submit">
-                                        Post
+                                        Chat
                                     </Button>
                                 </div>
                             </div>
