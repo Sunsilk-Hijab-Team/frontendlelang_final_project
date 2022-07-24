@@ -86,7 +86,7 @@ function SellerHome() {
 
                     <Col className={Style.desc}>
                         <div className={Style.sellerProfile}>
-                            <img className={Style.sellerPhoto} src="/assets/profile_buyer.jpg" alt="" />
+                            <img className={Style.sellerPhoto} src={seller.image_url} alt="" />
                             <div className='ms-3'>
                                 <h2 className={Style.sellerName}>{seller.full_name}</h2>
                                 <h1 className={Style.city}>{seller.city}</h1>
