@@ -5,6 +5,7 @@ import Spinner from 'react-bootstrap/Spinner';
 import { useState, useEffect } from 'react';
 import axios from 'axios'
 import { Link } from "react-router-dom";
+import { Rupiah } from '../CostumFunction/Rupiah';
 const { REACT_APP_API_URL } = process.env
 
 function CardComponent() {
@@ -79,7 +80,7 @@ function CardComponent() {
                                         <Card.Text className={styleCard.styleCardText} >
                                             { item.categories == null ? 'Tidak Berkategori' : item.categories.name }
                                         </Card.Text>
-                                        <Card.Title>Rp {item.base_price}</Card.Title>
+                                        <Card.Title>{Rupiah(item.base_price)}</Card.Title>
                                     </Card.Body>
                                 </Card>
                             </Link>
@@ -90,7 +91,7 @@ function CardComponent() {
                 : <h5 className="justify-content-center">Opps... Belum ada product yang dijual nih...</h5>
             }
             </Row>
-           
+
         </Container>
     );
 }

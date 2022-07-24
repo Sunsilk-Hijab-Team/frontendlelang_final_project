@@ -8,6 +8,7 @@ import Home from './pages/Home/Home';
 import SellerHome from './pages/seller/Home/Home'
 import ProductDetail from './pages/ProductDetails/ProductDetails'
 import AddProduct from './pages/seller/Add Product/AddProduct';
+import UpdateProduct from './pages/seller/updateProduct/updateProduct';
 import ProductList from './pages/seller/Dashboard/ProductList/ProductList';
 import Profile from './pages/seller/Dashboard/Profile/Profile';
 import Favorites from './pages/seller/Dashboard/Favorites/Favorites';
@@ -15,6 +16,7 @@ import SoldProduct from './pages/seller/Dashboard/SoldProduct/SoldProduct';
 import Notification from './pages/seller/Notification/Notification';
 import NotificationTest from './pages/seller/Notification/NotificationTest';
 import PreviewProduct from './pages/seller/PreviewProduct/PreviewProduct';
+import Selling from './pages/seller/Selling/Selling';
 // import Card from './components/Cards/Card';
 
 //buyer pages
@@ -46,6 +48,7 @@ function App() {
             <Route path="/logged/home" element={<SellerHome />} />
             {/* SELLER */}
             <Route path="/seller/add-product" element={<AddProduct />} />
+            <Route path="/seller/product/update/:productId" element={<UpdateProduct />} />
             <Route path="/seller/dashboard/profile" element={<Profile />} />
             <Route path="/seller/dashboard/product-list" element={<ProductList />} />
             <Route path="/seller/preview-product/:productId" element={<PreviewProduct />} />
@@ -54,6 +57,7 @@ function App() {
             <Route path="/seller/Notification" element={<Notification />} />
             <Route path="/seller/dashboard/notification-test" element={<NotificationTest />} />
             <Route path="/seller/detail" element={<ProductDetailSeller />} />
+            <Route path="/seller/dashboard/selling" element={<Selling />} />
             {/* buyer */}
             <Route path="/buyer/logged/product" element={<BuyerProduct />} />
             <Route path="/buyer/logged/sent/:productId" element={<BuyerSent />} />

@@ -1,78 +1,40 @@
-import React from 'react';
-import { useState ,useEffect } from 'react';
-import { useParams } from 'react-router-dom'
-import axios from 'axios'
-import Style from '../../../../components/Details/styleDetails.module.css'
+import React, { useEffect } from 'react';
+import Style from './styleSent.module.css'
 import Navbar from '../../../../components/NavbarAfterLogin/NavbarDashboard'
-import PreviousButton from '../../../../components/PreviousButton/PreviousButton';
-import NoImage from '../../../../images/no_image.png'
 import { Carousel, Container, Col, Row} from 'react-bootstrap';
 import Spinner from 'react-bootstrap/Spinner';
 import Previous from './fi_arrow-left.svg';
 import Image from './jam_1.png';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Details from '../../../../components/Details/Details'
-
-const { REACT_APP_API_URL } = process.env
+import DetailsSent from './DetailsSent/DetailsSent'
 
 function Sent() {
-
-    const url = `${REACT_APP_API_URL}/api/v1/buyer/product/`;
-
-    let { productId } = useParams();
-    
-    const [item, setItem] = useState([]);
-    const [category, setCategory]  = useState([]);
-    const [seller, setSeller] = useState([]);
-    const [images, setImages] = useState([]);
-    const [loading, setLoading] = useState(false);
-
-    const Detail = async () => {
-        setLoading(true)
-        try {
-            await axios.get(url+productId)
-            .then(res => {
-                setItem(res.data.data.product);
-                setCategory(res.data.data.product.categories);
-                setSeller(res.data.data.product.users)
-                setImages(res.data.data.product.images);
-                // console.log(images, 'null')
-            })
-            setLoading(false)
-        } catch (error) {
-            setLoading(true);
-        }
-    }
-
     useEffect(() => {
-        Detail();
+        // console.log("helloo")
+        toast.dismiss()
+        toast.success("Harga tawar anda telah terkirim, Tunggu balasan dari penjual",{position:"top-center"})
     }, [])
-
     return (
         <div >
-            {/* {toast.success("Harga tawar anda telah terkirim, Tunggu balasan dari penjual",{position:"top-center"})} */}
-            <Navbar />
+            <Navbar title="Product Detail"/>
             <Container>
-                    <div className={Style.div}>
-                    <Container className={Style.container}>
-                        <PreviousButton />
-                    </Container>
-                    <Container className={Style.container}>
-                        {
-                            loading ?
-                                <Row className='d-flex justify-content-center'>
-                                    <Spinner animation="border" role="status">
-                                        <span className="visually-hidden">Loading...</span>
-                                    </Spinner>
-                                </Row>
-                                : <></>
-                        }
-                        <Row>
-                            <Col>
-                                <Carousel className={Style.carousel}>
-                                    {
-                                        images.length === 0 ?
+                <DetailsSent />
+                {/* <Row className={Style.styleRow}>
+                    <Col className={Style.col1}>
+                        <h4 className={Style.h4}>Aksesoris</h4>
+                        <h1 className={Style.h1}>Jam Tangan Casio</h1>
+                        <div className='d-flex flex-row align-items-center'>
+                            <h3 className={Style.h3}>Price</h3>
+                            <h2 className={Style.h2}>Rp 250.000</h2>
+                        </div>
+                        <p className={Style.p}>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                            culpa qui officia deserunt mollit anim id est laborum.</p>
 
                                             <Carousel.Item className={Style.carousel}>
                                                 <img className={Style.carouselImage} src={NoImage} alt="productImage" />
@@ -91,37 +53,19 @@ function Sent() {
                                 </Carousel>
                             </Col>
 
-                            <Col className={Style.desc}>
-                                <div className={Style.sellerProfile}>
-                                {
-                                    seller.image_url === null ?
-                                    <img className={Style.sellerPhoto} src={NoImage} alt="" />
-                                    :
-                                    <img className={Style.sellerPhoto} src={seller.image_url} alt="" />
-                                }
-                                    <div className='ms-3'>
-                                        <h2 className={Style.sellerName}>{seller.full_name}</h2>
-                                        <h1 className={Style.city}>{seller.city}</h1>
-                                    </div>
-                                </div>
-
-                                <h4 className={Style.h4}>{category === null ? 'Tidak Berkategori' : category.name}</h4>
-                                <h1 className={Style.h1}>{item.name}</h1>
-                                <div className='d-flex flex-row align-items-center'>
-                                    <h3 className={Style.h3}>Price</h3>
-                                    <h2 className={Style.h2}>Rp {item.base_price}</h2>
-                                </div>
-                                <p className={Style.p}>{item.description}</p>
-
-                                <button disabled={false} className={Style.roundedButton}>
-                                    Saya Tertarik dan Ingin Nego
-                                </button>
-                            </Col>
-                        </Row>
-                    </Container>
-                </div>
+                            <Carousel.Item>
+                                <img
+                                    className="carouselImage d-block w-100"
+                                    src={Image}
+                                    alt="Second slide"
+                                />
+                            </Carousel.Item>
+                        </Carousel>
+                    </Col>
+                </Row> */}
+                {/* <ToastContainer className={Style.toast}/> */}
             </Container>
-                   
+            
         </div>
     )
 }

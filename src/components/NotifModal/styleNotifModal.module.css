@@ -101,9 +101,10 @@ body.active-modal {
 
 .modalContent {
     position: absolute;
-    top: 200px;
-    left: 80%;
-    transform: translate(-50%, -50%);
+    top: 25%;
+    right:15%;
+    /* left: 80%; */
+    /* transform: translate(-50%, -50%); */
     line-height: 1.4;
     background: #FFFFFF;
     padding: 25px 25px;

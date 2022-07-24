@@ -118,13 +118,13 @@ function NavScroll(props) {
                                 </Nav.Link>
                             </Dropdown.Toggle>
 
-                            <Dropdown.Menu show={showDropdown}>
+                            <Dropdown.Menu show={showDropdown} className={styleNavSeller.dropdown}>
                                 <Dropdown.Item href="/seller/dashboard/product-list">
                                 Dashboard
                                 </Dropdown.Item>
-                                <Dropdown.Item href="/seller/dashboard/profile">
+                                {/* <Dropdown.Item href="/seller/dashboard/profile">
                                     Profile
-                                </Dropdown.Item>
+                                </Dropdown.Item> */}
                                 <Dropdown.Item onClick={handleLogout}>
                                     Logout
                                 </Dropdown.Item>

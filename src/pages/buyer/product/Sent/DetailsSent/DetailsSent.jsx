@@ -2,18 +2,13 @@ import React from 'react';
 import { Col, Container, Row, Button } from 'react-bootstrap';
 import Style from './styleDetails.module.css';
 import Carousel from 'react-bootstrap/Carousel';
-// import Image from './jam_1.png';
-import NoImage from '../../images/no_image.png'
-import PreviousButton from '../PreviousButton/PreviousButton';
+import NoImage from '../../../../../images/no_image.png';
+import PreviousButton from '../../../../../components/PreviousButton/PreviousButton';
 import './styleDetails.module.css';
 import { useParams } from "react-router-dom";
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import Spinner from 'react-bootstrap/Spinner';
-import PopUp from './popup/PopUp';
-import Login from '../ButtonLogin/ButtonLogin';
-import Navbar from '../NavbarBeforeLogin/NavbarDashboard';
-import { Rupiah } from '../CostumFunction/Rupiah';
 
 const { REACT_APP_API_URL } = process.env
 
@@ -23,7 +18,6 @@ function SellerHome() {
     let { productId } = useParams();
     const [item, setItem] = useState([]);
     const [category, setCategory] = useState([]);
-    const [seller, setSeller] = useState([]);
     const [images, setImages] = useState([]);
     const [users, setUsers] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -35,18 +29,13 @@ function SellerHome() {
                 .then(res => {
                     setItem(res.data.data.product);
                     setCategory(res.data.data.product.categories);
-                    setSeller(res.data.data.product.users)
                     setImages(res.data.data.product.images);
+                    console.log(images, 'null');
                     setUsers(res.data.data.product.users);
-                    // console.log(images, 'null')
-                })
-                .catch(error => {
-                    console.log(error)
                 })
             setLoading(false)
         } catch (error) {
             setLoading(true);
-            console.log(error)
         }
     }
 
@@ -94,13 +83,13 @@ function SellerHome() {
 
                     <Col className={Style.desc}>
                         <div className={Style.sellerProfile}>
-                            <img className={Style.sellerPhoto} src={users.image_url===''? 'Loading...' : users.image_url} alt="" />
+                            <img className={Style.sellerPhoto} src={users.image_url? users.image_url:'Loading...'} alt="" />
                             <div className='ms-3'>
                                 <h2 className={Style.sellerName}>
-                                    {users.full_name? users.full_name : 'Loading...'}
+                                    {users.full_name? item.users.full_name : 'Loading...'}
                                 </h2>
                                 <h1 className={Style.city}>
-                                    {users.city? users.city : 'Loading...'}
+                                    {users.city? item.users.city : 'Loading...'}
                                 </h1>
                             </div>
                         </div>
@@ -108,12 +97,14 @@ function SellerHome() {
                         <h4 className={Style.h4}>{category === null ? 'Tidak Berkategori' : category.name}</h4>
                         <h1 className={Style.h1}>{item.name}</h1>
                         <div className='d-flex flex-row align-items-center'>
-                            <h2 className={Style.h2}>Price : </h2>
-                            <h2 className={Style.h2}>{Rupiah(item.base_price)}</h2>
+                            <h3 className={Style.h3}>Price</h3>
+                            <h2 className={Style.h2}>Rp {item.base_price}</h2>
                         </div>
                         <p className={Style.p}>{item.description}</p>
 
-                        <PopUp />
+                        <button disabled={false} className={Style.roundedButton}>
+                            Saya Tertarik dan Ingin Nego
+                        </button>
                     </Col>
                 </Row>
             </Container>

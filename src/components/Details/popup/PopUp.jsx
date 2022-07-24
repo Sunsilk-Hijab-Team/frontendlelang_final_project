@@ -41,7 +41,8 @@ function PopUp() {
                     }
                 })
                 .then( res => { 
-                    nav(`/buyer/logged/sent/${productId}`)
+                    console.log(res);
+                    nav('/buyer/logged/sent/'+item.id)
                     
                 })
                 .catch(error => {

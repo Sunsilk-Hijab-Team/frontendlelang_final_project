@@ -80,6 +80,7 @@ function Profile() {
                 // console.log(res, 'res')
                 setBtnLoading(false)
                 if(res.data.userUpdate[0] === 1){
+                    getProfile()
                     nav('/seller/dashboard/profile')
                     toast.success('Update profile has been success', {
                         theme: 'colored',

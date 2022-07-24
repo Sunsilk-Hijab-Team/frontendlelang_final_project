@@ -17,6 +17,11 @@
     height: auto;
 }
 
+.img_update{
+    max-width: 100px;
+    height: auto;
+}
+
 .image_2 {
     display: flex;
     margin-right: 28.83px;
@@ -40,6 +45,7 @@
     width: 100%;
     border-radius: 16px;
     height: 48px;
+    margin-top: 4%;
     background: white;
     border: 1px solid #F93711;
     border-color: #F93711;
@@ -51,6 +57,7 @@
     width: 100%;
     border-radius: 16px;
     height: 48px;
+    margin-top: 4%;
     background: #F93711;
     border: none;
 }
@@ -91,7 +98,6 @@
 .photo {
     width: max-content;
     height: max-content;
-    margin-left: 50px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -101,7 +107,6 @@
 
     .photo {
         flex-direction: column-reverse;
-        margin-left: 0;
     }
 
     .image_1 {
@@ -122,26 +127,7 @@
 
     .button-add-product {
         margin-top: 11px;
-        width: 100%;
-    }
-
-    .styleButtonPreview {
-        width: 20%;
-        border-radius: 16px;
-        height: 48px;
-        background: white;
-        border: 1px solid #F93711;
-        border-color: #F93711;
-        margin-right: 10px;
-        color: #F93711;
-    }
-    
-    .styleButton {
-        width: 100%;
-        border-radius: 16px;
-        height: 48px;
-        background: #F93711;
-        border: none;
+        width: 365px;
     }
 }
 

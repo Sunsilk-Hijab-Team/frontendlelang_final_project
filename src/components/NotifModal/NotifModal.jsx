@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import stylePopup from './styleNotifModal.module.css';
-import { Nav } from 'react-bootstrap';
+import { Nav, Container, Row, Col } from 'react-bootstrap';
 import { IoClose } from 'react-icons/io5'
 import Notificiation from './fi_bell.svg';
 import styleNotif from '../../pages/seller/Notification/Notification.module.css';
@@ -36,14 +36,19 @@ function NotifModal() {
           // console.log(response.data);
           const allNotification= response.data.Notifications;
           // console.log(allNotification);
-          setNotification(allNotification);
+          // if allNotification is empty
+          if(allNotification.length===0){
+            setNotification([]);
+          }else{
+            setNotification(allNotification.reverse());
+          }
           // console.log(notification);
       })
       .catch((error)=>{
           console.log(error);
       })
   }
-  console.log(notification);
+  console.log("notificationnn",notification);
 
   useEffect(()=>{
       getAllNotification();
@@ -57,67 +62,71 @@ function NotifModal() {
         <img className={stylePopup.iconNotif} src={Notificiation} alt="" />
       </Nav.Link>
       
+      <Container>
       {modal &&
         (
-          <div className={stylePopup.modal}>
+          <div className={["mt-5",stylePopup.modal]}>
             {/* <div className={stylePopup.overlay}></div> */}
-            {notification.map((item, index)=>{
-              console.log(item.orders.orders);
-              return(
-                    // <div key={index}>
-                    //     <h3>{item.read_status}</h3>
-                    //     <p></p>
-                    // </div>
-            
-                <div className={stylePopup.modalContent}>
-                  <Nav.Link className={stylePopup.product} href="/seller/Notification">
-                    <img className={styleNotif.productPicture} src="/assets/photo_product.jpg" alt="" />
-                    <div>
-                      <div className='d-flex flex-row justify-content-between'>
-                        <h1 className={stylePopup.date}>Penawaran produk</h1>
-                        <h1 className={stylePopup.date}>
-                          {item.transaction_date ? moment(item.transaction_date).format('DD-MM-YYYY') : 'undefined'}
-                        </h1>
-                      </div>
-                      <div>
-                        <h1 className={stylePopup.productTitle}>
-                          {item.orders.products ? item.orders.products.name : "Undefined"}
-                        </h1>
-                        <h2 className={stylePopup.productPrice}>
-                          {item.orders.products ? Rupiah(item.orders.products.base_price) : "Undefined"}
-                        </h2>
-                        <h2 className={stylePopup.productTitle}>Ditawar Rp 200.000</h2>
-                      </div>
-                    </div>
-                  </Nav.Link>
+            <Container fluid>
+              <div className={stylePopup.modalContent}>
+              {
+              notification.length>0?
+              notification.map((item, index)=>{
+                console.log("itemm order",item);
+                // if index < 2 do looping
+                if(index<2){
+                return(
+                  <div>
+                    <Nav.Link className={stylePopup.product} href="/seller/Notification">
+                      <Row>
+                        <Col sm={2}>
+                        <img className={[styleNotif.productPicture]} src={item.orders.products.images[0].image_url} alt="" />
+                        </Col>
+                        <Col sm={10}>
+                          <div>
+                            <div>
+                              <h1 className={stylePopup.date}>Penawaran produk</h1>
+                              <h4 className={stylePopup.date}>
+                                {item.transaction_date ? moment(item.transaction_date).format('DD MMM, HH:mm') : 'undefined'}
+                              </h4>
+                            </div>
+                            <div>
+                              <h1 className={stylePopup.productTitle}>
+                                {item.orders.products ? item.orders.products.name : "Undefined"}
+                              </h1>
+                              <h2 className={stylePopup.productPrice}>
+                                {item.orders.products ? Rupiah(item.orders.products.base_price) : "Undefined"}
+                              </h2>
+                              <h2 className={stylePopup.productTitle}>Ditawar {item.orders.bid_price? Rupiah(item.orders.bid_price) : "Undefined"}</h2>
+                            </div>
+                          </div>
+                        </Col>
+                      </Row>
+                    </Nav.Link>
 
-                  <hr class="rounded"></hr>
-
-                  <div className={styleNotif.product}>
-                    <img className={styleNotif.productPicture} src="/assets/photo_product.jpg" alt="" />
-                    <div>
-                      <div className='d-flex flex-row justify-content-between'>
-                        <h1 className={stylePopup.date}>Berhasil diterbitkan</h1>
-                        <h1 className={stylePopup.date}>19 Apr, 12:00</h1>
-                      </div>
-                      <div>
-                        <h1 className={stylePopup.productTitle}>Jam Tangan Casio</h1>
-                        <h2 className={stylePopup.productPrice}>Rp 250.000</h2>
-                      </div>
-                    </div>
+                    <hr class="rounded"></hr>
                   </div>
-
-                  <div className={stylePopup.closeModal}
-                    onClick={togglePopup}
-                  >
-                    {setIcon}
-                  </div>
-                </div>
                 )
-            })}
+                }
+              })
+              :<>Notification Empty</>
+              }
+              <div className={stylePopup.closeModal}
+                onClick={togglePopup}>
+              {setIcon}
+              </div>
+              <Row>
+                <Col md={12} className="d-flex justify-content-center">
+                  <p> <a href="/seller/notification">Lihat Selengkapnya</a></p>
+                </Col>
+              </Row>
+              </div>
+            </Container>
           </div>
+
         )
       }
+      </Container>
     </div>
   )
 }
