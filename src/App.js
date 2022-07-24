@@ -8,6 +8,7 @@ import Home from './pages/Home/Home';
 import SellerHome from './pages/seller/Home/Home'
 import ProductDetail from './pages/ProductDetails/ProductDetails'
 import AddProduct from './pages/seller/Add Product/AddProduct';
+import UpdateProduct from './pages/seller/updateProduct/updateProduct';
 import ProductList from './pages/seller/Dashboard/ProductList/ProductList';
 import Profile from './pages/seller/Dashboard/Profile/Profile';
 import Favorites from './pages/seller/Dashboard/Favorites/Favorites';
@@ -24,6 +25,7 @@ import BuyerLogin from './pages/buyer/product/BeforeLogin/Before';
 import BuyerSent from './pages/buyer/product/Sent/Sent';
 
 import { ToastContainer } from 'react-toastify';
+import ProductDetailSeller from './pages/seller/DetailProductSeller/DetailProductSeller';
 
 function App() {
   return (
@@ -31,40 +33,12 @@ function App() {
       <ToastContainer />
       <BrowserRouter>
         <Routes>
-<<<<<<< HEAD
-
-          {/* BEFORE LOGIN */}
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-
-          {/* AFTER LOGIN */}
-          <Route path="/user" element={<SellerHome />} />
-          {/* <Route path="/details" element={<ProductDetail />} /> */}
-          <Route path="/details" element={<BuyerProduct />} />
-          <Route path="/user/add-product" element={<AddProduct />} />
-          <Route path="/user/profile" element={<Profile />} />
-          <Route path="/user/product-list" element={<ProductList />} />
-          <Route path="/user/favorite" element={<Favorites />} />
-          <Route path="/user/sold-product" element={<SoldProduct />} />
-          <Route path="/user/Notification" element={<Notification />} />
-          {/* <Route path="/card" element={<Card />} /> */}
-
-          {/* Unauthorized */}
-          <Route path="/buyer/home" element={<BuyerHome />} />
-          {/* buyer */}
-          <Route path="/buyer/logged/product" element={<BuyerProduct />} />
-          <Route path="/buyer/product" element={<BuyerLogin />} />
-          <Route path="/buyer/logged/sent" element={<BuyerSent />} />
-
-        </Routes>
-      </BrowserRouter>
-=======
           {/* BEFORE LOGIN */}
             {/* MAIN */}
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
+              {/* <Route path="/category/:slug" element={<Home />} /> */}
             {/* BUYER */}
               <Route path="/buyer/product" element={<BuyerLogin />} />
               <Route path="/detail/:productId" element={<ProductDetail />} />
@@ -73,19 +47,20 @@ function App() {
             <Route path="/logged/home" element={<SellerHome />} />
             {/* SELLER */}
             <Route path="/seller/add-product" element={<AddProduct />} />
+            <Route path="/seller/product/update/:productId" element={<UpdateProduct />} />
             <Route path="/seller/dashboard/profile" element={<Profile />} />
             <Route path="/seller/dashboard/product-list" element={<ProductList />} />
-            <Route path="/seller/preview-product" element={<PreviewProduct />} />
+            <Route path="/seller/preview-product/:productId" element={<PreviewProduct />} />
             <Route path="/seller/dashboard/favorite" element={<Favorites />} />
             <Route path="/seller/dashboard/sold-product" element={<SoldProduct />} />
             <Route path="/seller/Notification" element={<Notification />} />
             <Route path="/seller/dashboard/notification-test" element={<NotificationTest />} />
+            <Route path="/seller/detail" element={<ProductDetailSeller />} />
             {/* buyer */}
             <Route path="/buyer/logged/product" element={<BuyerProduct />} />
             <Route path="/buyer/logged/sent" element={<BuyerSent />} />
           </Routes>
         </BrowserRouter>
->>>>>>> fix
     </div>
   );
 }

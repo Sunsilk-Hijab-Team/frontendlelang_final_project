@@ -1,0 +1,3 @@
+error notif, dia nggak muncul kalau datanya masih kosong
+kasih pengecekan if res kosong 
+card product error kalau datanya kosong

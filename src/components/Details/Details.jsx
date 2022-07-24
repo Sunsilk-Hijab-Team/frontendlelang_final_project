@@ -1,5 +1,4 @@
 import React from 'react';
-import Previous from './fi_arrow-left.svg';
 import { Col, Container, Row, Button } from 'react-bootstrap';
 import Style from './styleDetails.module.css';
 import Carousel from 'react-bootstrap/Carousel';
@@ -11,29 +10,30 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import Spinner from 'react-bootstrap/Spinner';
 import PopUp from './popup/PopUp';
+import Login from '../ButtonLogin/ButtonLogin';
+import Navbar from '../NavbarBeforeLogin/NavbarDashboard';
+
 const { REACT_APP_API_URL } = process.env
 
 function SellerHome() {
 
     const url = `${REACT_APP_API_URL}/api/v1/buyer/product/`;
-
     let { productId } = useParams();
-
     const [item, setItem] = useState([]);
-    const [category, setCategory]  = useState([]);
+    const [category, setCategory] = useState([]);
     const [images, setImages] = useState([]);
     const [loading, setLoading] = useState(false);
 
     const Detail = async () => {
         setLoading(true)
         try {
-            await axios.get(url+productId)
-            .then(res => {
-                setItem(res.data.data.product);
-                setCategory(res.data.data.product.categories);
-                setImages(res.data.data.product.images);
-                console.log(images, 'null')
-            })
+            await axios.get(url + productId)
+                .then(res => {
+                    setItem(res.data.data.product);
+                    setCategory(res.data.data.product.categories);
+                    setImages(res.data.data.product.images);
+                    // console.log(images, 'null')
+                })
             setLoading(false)
         } catch (error) {
             setLoading(true);
@@ -45,11 +45,11 @@ function SellerHome() {
     }, [])
 
     return (
-        <div>
-            <Container>
+        <div className={Style.div}>
+            <Container className={Style.container}>
                 <PreviousButton />
             </Container>
-            <Container>
+            <Container className={Style.container}>
                 {
                     loading ?
                         <Row className='d-flex justify-content-center'>
@@ -57,26 +57,28 @@ function SellerHome() {
                                 <span className="visually-hidden">Loading...</span>
                             </Spinner>
                         </Row>
-                    : <></>
+                        : <></>
                 }
                 <Row>
-                    <Col className='ms-2'>
+                    <Col>
                         <Carousel className={Style.carousel}>
-                            <Carousel.Item>
-                                <img
-                                    className={Style.carouselImage}
-                                    src={Image}
-                                    alt="First slide"
-                                />
-                            </Carousel.Item>
+                            {
+                                images.length === 0 ?
 
-                            <Carousel.Item>
-                                <img
-                                    className={Style.carouselImage}
-                                    src={Image}
-                                    alt="Second slide"
-                                />
-                            </Carousel.Item>
+                                    <Carousel.Item className={Style.carousel}>
+                                        <img className={Style.carouselImage} src={NoImage} alt="productImage" />
+                                    </Carousel.Item>
+
+                                    :
+
+                                    images.map((image, index) => {
+                                        return (
+                                            <Carousel.Item key={index} className={Style.carousel}>
+                                                <img className={Style.carouselImage} src={image.image_url} alt="productImage" />
+                                            </Carousel.Item>
+                                        )
+                                    })
+                            }
                         </Carousel>
                     </Col>
 
@@ -89,10 +91,10 @@ function SellerHome() {
                             </div>
                         </div>
 
-                        <h4 className={Style.h4}>Aksesoris</h4>
-                        <h1 className={Style.h1}>Jam Tangan Casio</h1>
+                        <h4 className={Style.h4}>{category === null ? 'Tidak Berkategori' : category.name}</h4>
+                        <h1 className={Style.h1}>{item.name}</h1>
                         <div className='d-flex flex-row align-items-center'>
-                            <h3 className={Style.h3}>Price</h3>
+                            <h2 className={Style.h2}>Price : </h2>
                             <h2 className={Style.h2}>Rp {item.base_price}</h2>
                         </div>
                         <p className={Style.p}>{item.description}</p>

@@ -22,7 +22,7 @@
     display: flex;
     /* justify-content: center;
     flex-wrap: wrap; */
-    width: 400px;
+    width: 100%;
 }
 
 .rounded {
@@ -54,13 +54,16 @@ h3 {
     height: 20px;
 }
 
+.iconSearch{
+    display: none;
+}
 
 .btnProfile {
     display: flex;
     flex-direction: row;
     align-items: center;
     padding: 0px;
-    gap: 8px;
+    margin: 0;
 }
 
 .btnProfile img{
@@ -87,7 +90,7 @@ h3 {
     display: flex;
     width: 24px;
     height: 24px;
-    margin-right: 18px;
+    margin-right: 5px;
 }
 
 .containerNavSell {
@@ -153,6 +156,13 @@ h3 {
 @media only screen and (max-width: 780px) {
     
 } */
+
+@media screen and (max-width:991px) {
+    .iconSearch{
+        display: block;
+    }
+}
+
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {

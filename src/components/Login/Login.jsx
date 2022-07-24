@@ -33,7 +33,7 @@ function Login() {
         setLoading(true)
         try {
 
-            axios.post(url, { email, password })
+            await axios.post(url, { email, password })
             .then(res => {
                 localStorage.setItem('token', res.data.token);
                 setLoading(false)
