@@ -23,6 +23,7 @@ function SellerHome() {
     const [seller, setSeller] = useState([]);
     const [category, setCategory] = useState([]);
     const [images, setImages] = useState([]);
+    const [users, setUsers] = useState([]);
     const [loading, setLoading] = useState(false);
 
     const Detail = async () => {
@@ -33,12 +34,16 @@ function SellerHome() {
                     setItem(res.data.data.product);
                     setCategory(res.data.data.product.categories);
                     setImages(res.data.data.product.images);
-                    setSeller(res.data.data.product.users);
+                    setUsers(res.data.data.product.users);
                     // console.log(images, 'null')
+                })
+                .catch(error => {
+                    console.log(error)
                 })
             setLoading(false)
         } catch (error) {
             setLoading(true);
+            console.log(error)
         }
     }
 
@@ -86,10 +91,14 @@ function SellerHome() {
 
                     <Col className={Style.desc}>
                         <div className={Style.sellerProfile}>
-                            <img className={Style.sellerPhoto} src={seller.image_url} alt="" />
+                            <img className={Style.sellerPhoto} src={users.image_url===''? 'Loading...' : users.image_url} alt="" />
                             <div className='ms-3'>
-                                <h2 className={Style.sellerName}>{seller.full_name}</h2>
-                                <h1 className={Style.city}>{seller.city}</h1>
+                                <h2 className={Style.sellerName}>
+                                    {users.full_name? users.full_name : 'Loading...'}
+                                </h2>
+                                <h1 className={Style.city}>
+                                    {users.city? users.city : 'Loading...'}
+                                </h1>
                             </div>
                         </div>
 

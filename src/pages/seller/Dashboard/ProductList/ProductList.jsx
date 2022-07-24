@@ -2,7 +2,7 @@ import React from 'react';
 import style from './styleProductList.module.css';
 import Navbar from '../../../../components/NavbarAfterLogin/NavbarDashboard'
 import { Col, Container, Row } from 'react-bootstrap';
-import CardProduct from '../../../../components/Cards/CardProduct'
+import CardDashboard from '../../../../components/CardsDashboard/CardDashboard'
 import DashboardMenu from '../../../../components/DashboardMenu/DashboardMenu';
 import PreviousButton from '../../../../components/PreviousButton/PreviousButton';
 import ButtonAdd from '../../../../components/SellButton/SellButton'
@@ -21,7 +21,7 @@ function ProductList() {
                         <DashboardMenu />
                     </Col>
                     <Col sm={9}>
-                        <CardProduct />
+                        <CardDashboard />
                     </Col>
                     {/* <Col sm={2}>
                     </Col> */}
