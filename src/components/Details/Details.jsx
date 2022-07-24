@@ -12,6 +12,7 @@ import Spinner from 'react-bootstrap/Spinner';
 import PopUp from './popup/PopUp';
 import Login from '../ButtonLogin/ButtonLogin';
 import Navbar from '../NavbarBeforeLogin/NavbarDashboard';
+import { Rupiah } from '../CostumFunction/Rupiah';
 
 const { REACT_APP_API_URL } = process.env
 
@@ -105,7 +106,7 @@ function SellerHome() {
                         <h1 className={Style.h1}>{item.name}</h1>
                         <div className='d-flex flex-row align-items-center'>
                             <h2 className={Style.h2}>Price : </h2>
-                            <h2 className={Style.h2}>Rp {item.base_price}</h2>
+                            <h2 className={Style.h2}>{Rupiah(item.base_price)}</h2>
                         </div>
                         <p className={Style.p}>{item.description}</p>
 
