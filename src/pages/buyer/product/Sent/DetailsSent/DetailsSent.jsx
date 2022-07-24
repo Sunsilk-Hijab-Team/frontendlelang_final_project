@@ -17,6 +17,7 @@ function SellerHome() {
     const url = `${REACT_APP_API_URL}/api/v1/buyer/product/`;
     let { productId } = useParams();
     const [item, setItem] = useState([]);
+    const [seller, setSeller] = useState([]);
     const [category, setCategory] = useState([]);
     const [images, setImages] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -29,7 +30,8 @@ function SellerHome() {
                     setItem(res.data.data.product);
                     setCategory(res.data.data.product.categories);
                     setImages(res.data.data.product.images);
-                    console.log(images, 'null')
+                    setSeller(res.data.data.product.users);
+                    // console.log(images, 'null')
                 })
             setLoading(false)
         } catch (error) {
@@ -83,8 +85,8 @@ function SellerHome() {
                         <div className={Style.sellerProfile}>
                             <img className={Style.sellerPhoto} src="/assets/profile_buyer.jpg" alt="" />
                             <div className='ms-3'>
-                                <h2 className={Style.sellerName}>Taylor Swift</h2>
-                                <h1 className={Style.city}>Gresik</h1>
+                                <h2 className={Style.sellerName}>{seller.full_name}</h2>
+                                <h1 className={Style.city}>{seller.city}</h1>
                             </div>
                         </div>
 
