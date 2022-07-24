@@ -22,9 +22,10 @@ function UpdateProduct() {
     const token = localStorage.getItem('token');
     const [items, setItems] = useState([]);
     const [data, setData] = useState([]);
-     const [dataImg, setDataImg] = useState([]);
+    const [dataImg, setDataImg] = useState([]);
     const [loading, setLoading] = useState(false)
     const [btnLoading, setBtnLoading] = useState(false)
+    const [dload, setDLoad] = useState(false)
 
     let nav = useNavigate();
 
@@ -136,6 +137,29 @@ function UpdateProduct() {
 
     }
 
+    const handleDelete = async (e, id) => {
+        e.preventDefault();
+        // console.log(id, 'id-gb')
+        setDLoad(true)
+        try {
+            await axios.delete(`${url}/api/v1/seller/product/image/delete/${id}`, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+            .then(res => {
+                setDLoad(false)
+                console.log(res, 'response-delete-image')
+            })
+            .catch(err => {
+                console.log(err, 'err-delete-image')
+            })
+        } catch (error) {
+            setDLoad(false)
+            // console.log(error);
+        }
+    }
+
     useEffect(() => {
 
         token ? <></> : nav('/login')
@@ -146,7 +170,7 @@ function UpdateProduct() {
 
     return (
         <div>
-            <Navbar title="Add Product" />
+            <Navbar title='Update Product' />
             <Container>
                 <PreviousButton />
             </Container>
@@ -230,8 +254,15 @@ function UpdateProduct() {
 
                                             return (
                                                 <div>
-                                                    <img className='image_2' src={image.image_url} alt="" />
-                                                    <Button className="btn btn-danger btn-sm mt-2">Hapus</Button>
+                                                    <img key={index} className='image_2' src={image.image_url} alt="" />
+
+                                                    {
+                                                        dload ?
+                                                        <Button disable className="btn btn-warning btn-sm mt-2 fw-bold" type="button">Loading..</Button>
+                                                        :
+                                                        <Button onClick={e => handleDelete(e, image.id)} className="btn btn-danger btn-sm mt-2 fw-bold" type="button">Hapus</Button>
+                                                    }
+
                                                 </div>
                                             )
 

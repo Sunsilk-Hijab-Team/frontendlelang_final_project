@@ -240,8 +240,8 @@ function AddProduct() {
                             </Row>
                         </Form>
                         <Row className='p-3'>
-                            <Col>
-                                <div className='button-add-product mb-4'>
+                            <Col sm={12} lg={6}>
+                                <div className='button-add-product'>
                                     <Button className='styleButtonPreview' type="submit">
                                         Preview
                                     </Button>
@@ -269,64 +269,10 @@ function AddProduct() {
                                     }
                                 </div>
                             </Col>
-                            <Col>
+                            <Col sm={12} lg={6}>
                             </Col>
                         </Row>
-                    <Row>
-                        <Col>
-                            <div className='button-add-product mb-4'>
-                                {
-
-                                    btnLoadings ?
-
-                                    <Button className='styleButton' variant="primary" disabled>
-                                    <Spinner
-                                    as="span"
-                                    animation="grow"
-                                    size="sm"
-                                    role="status"
-                                    aria-hidden="true"
-                                    />
-                                    Loading...
-                                    </Button>
-
-                                :
-                                <Button onClick={handlePreview} className='styleButtonPreview' type="submit">
-                                    Preview
-                                </Button>
-
-                                }
-
-                                <span></span>
-
-                                {
-
-                                    btnLoading ?
-
-                                    <Button className='styleButton' variant="primary" disabled>
-                                    <Spinner
-                                    as="span"
-                                    animation="grow"
-                                    size="sm"
-                                    role="status"
-                                    aria-hidden="true"
-                                    />
-                                    Loading...
-                                    </Button>
-
-                                :
-
-                                <Button onClick={handlePost} className='styleButton' variant="primary" type="submit">
-                                    Post
-                                </Button>
-                                }
-                            </div>
-                        </Col>
-                        <Col>
-                        </Col>
-                    </Row>
                 </Container>
-
             }
         </div >
     )

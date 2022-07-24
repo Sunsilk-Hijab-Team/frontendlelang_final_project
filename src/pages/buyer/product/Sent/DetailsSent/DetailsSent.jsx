@@ -29,7 +29,7 @@ function SellerHome() {
                     setItem(res.data.data.product);
                     setCategory(res.data.data.product.categories);
                     setImages(res.data.data.product.images);
-                    // console.log(images, 'null')
+                    console.log(images, 'null')
                 })
             setLoading(false)
         } catch (error) {
