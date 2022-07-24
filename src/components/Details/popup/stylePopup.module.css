@@ -11,19 +11,18 @@
     height: 48px;
     /* margin-top: 3%; */
     margin-top: 28px;
-    margin-left: 8px;
 }
 .roundedButton {
     color: white;
     border-radius: 16px;
     background: #F93711;
     border: none;
-    width: 100%;
+    /* width: 100%; */
     height: 48px;
     /* margin-top: 3%; */
     width: 443px;
     margin-top: 28px;
-    margin-left: 8px;
+    margin-bottom: 20px;
 
     display: flex;
     flex-direction: row;
@@ -41,11 +40,11 @@
     height: 48px;
     /* margin-top: 3%; */
     margin-top: 28px;
-    margin-left: 8px;
+    /* margin-left: 8px; */
 }
 
 .roundedButton:hover {
-    background: blue;
+    background: #F2CA59;
 }
 
 body.active-modal {
@@ -77,7 +76,7 @@ body.active-modal {
 
 .modalContent {
     position: absolute;
-    top: 40%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     line-height: 1.4;
@@ -105,6 +104,7 @@ body.active-modal {
     height: 80px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
     border-radius: 16px;
+    margin-top: 10px;
 }
 
 .styleForm {
@@ -134,9 +134,14 @@ body.active-modal {
 }
 
 .img {
-    
     height: 100%;
-    width: 100%;
+    width: auto;
+    margin-left: 10px;
+}
+
+.image {
+    display: flex;
+    height: 80px;
 }
 
 .img img{
@@ -186,13 +191,81 @@ body.active-modal {
     }
 
     .roundedButtonMenu {
-        width: 100%;
-        margin-top: 90px;
+        width: 95%;
+        margin-top: 40px;
         margin-bottom: 20px;
     }
 
     .carousel-indikators{
         background:#F93711;
+    }
+    
+}
+
+@media screen and (max-width:600px) {
+    
+    .carousel {
+        width: 100%;
+        margin-top: 20px;
+        height: 300px;
+    }
+
+    .p {
+        width:95%;
+        text-align: justify;
+    }
+
+    .roundedButtonMenu {
+        width: 80%;
+        margin-top: 40px;
+        margin-bottom: 20px;
+    }
+
+    .carousel-indikators{
+        background:#F93711;
+    }
+
+    .roundedButton {
+        color: white;
+        border-radius: 16px;
+        background: #F93711;
+        border: none;
+        width: 95%;
+        height: 48px;
+        /* margin-top: 3%; */
+        margin-top: 28px;
+        margin-bottom: 20px;
+    
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-content: center;
+        flex-wrap: wrap;
+    }
+
+    .img {
+        height: 100%;
+        width: auto;
+        margin-left: 0;
+    }
+    
+    .image {
+        display: flex;
+        height: auto;
+    }
+
+    .modalContent {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        line-height: 1.4;
+        background: #FFFFFF;
+        padding: 25px 38px;
+        border-radius: 16px;
+        max-width: 350px;
+        min-width: 300px;
+        z-index: 5;
     }
     
 }

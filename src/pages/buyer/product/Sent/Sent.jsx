@@ -1,23 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Style from './styleSent.module.css'
-import Navbar from '../../../../components/NavbarBeforeLogin/NavbarDashboard'
+import Navbar from '../../../../components/NavbarAfterLogin/NavbarDashboard'
 import { Carousel, Container, Col, Row} from 'react-bootstrap';
 import Previous from './fi_arrow-left.svg';
 import Image from './jam_1.png';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import SellerName from '../../../../components/SellerName/SellerName'
+import Details from './DetailsSent/DetailsSent'
 
-function sent() {
+function Sent() {
+    useEffect(() => {
+        // console.log("helloo")
+        toast.dismiss()
+        toast.success("Harga tawar anda telah terkirim, Tunggu balasan dari penjual",{position:"top-center"})
+    }, [])
     return (
         <div >
-            {toast.success("Harga tawar anda telah terkirim, Tunggu balasan dari penjual",{position:"top-center"})}
-            <Navbar middle="Product"/>
+            <Navbar title="Product Detail"/>
             <Container>
-                <img className={Style.previous} src={Previous} alt="halo" />
-            </Container>
-            <Container>
-                <Row className={Style.styleRow}>
+                <Details />
+                {/* <Row className={Style.styleRow}>
                     <Col className={Style.col1}>
                         <h4 className={Style.h4}>Aksesoris</h4>
                         <h1 className={Style.h1}>Jam Tangan Casio</h1>
@@ -58,11 +60,12 @@ function sent() {
                             </Carousel.Item>
                         </Carousel>
                     </Col>
-                </Row>
+                </Row> */}
+                {/* <ToastContainer className={Style.toast}/> */}
             </Container>
-            <ToastContainer className={Style.toast}/>
+            
         </div>
     )
 }
 
-export default sent
+export default Sent

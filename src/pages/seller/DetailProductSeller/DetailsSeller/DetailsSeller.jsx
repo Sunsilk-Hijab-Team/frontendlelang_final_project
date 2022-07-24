@@ -1,17 +1,15 @@
 import React from 'react';
 import { Col, Container, Row, Button } from 'react-bootstrap';
-import Style from './styleDetails.module.css';
+import Style from './styleSellerDetails.module.css';
 import Carousel from 'react-bootstrap/Carousel';
-import NoImage from '../../images/no_image.png';
-import PreviousButton from '../PreviousButton/PreviousButton';
-import './styleDetails.module.css';
+import NoImage from '../../../../images/no_image.png';
+import PreviousButton from '../../../../components/PreviousButton/PreviousButton';
 import { useParams } from "react-router-dom";
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import Spinner from 'react-bootstrap/Spinner';
-import PopUp from './popup/PopUp';
-import Login from '../ButtonLogin/ButtonLogin';
-import Navbar from '../NavbarBeforeLogin/NavbarDashboard';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 const { REACT_APP_API_URL } = process.env
 
@@ -23,6 +21,8 @@ function SellerHome() {
     const [category, setCategory] = useState([]);
     const [images, setImages] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [btnLoading, setBtnLoading] = useState(false);
+    let nav = useNavigate();
 
     const Detail = async () => {
         setLoading(true)
@@ -40,9 +40,64 @@ function SellerHome() {
         }
     }
 
+    const [name, setName] = useState('');
+    const [description, setDescription] = useState('');
+    const [categoryId, setCategoryId] = useState('');
+    const [price, setPrice] = useState('');
+    const [imageUrl, setImageUrl] = useState('');
+
+    const handlePost = async (e) => {
+        setBtnLoading(true)
+        e.preventDefault();
+
+        const status = 'available';
+        const published = true;
+        let formData = new FormData();
+
+        formData.append('name', name);
+        formData.append('description', description);
+        formData.append('base_price', price);
+        formData.append('categories_id', categoryId);
+        formData.append('status', status);
+        formData.append('published', published);
+        formData.append('image_url', imageUrl);
+
+        try {
+            // console.log(name, description, categoryId, price, status, published, imageUrl);
+            // console.log(formData,'isi');
+            setBtnLoading(true)
+            await axios.post(`${url}/api/v1/seller/product/add`, formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            })
+                .then(res => {
+                    setBtnLoading(false)
+                    // console.log(res.status, 'response');
+                    if (res.status === 201) {
+                        nav('/seller/dashboard/product-list');
+                        toast.success('Product has been added', {
+                            theme: 'colored',
+                            position: toast.POSITION.TOP_RIGHT,
+                            autoClose: 4000
+                        });
+                    }
+                })
+                .catch((error => {
+                    setBtnLoading(true)
+                    // console.log(error.response.data.message, 'catch');
+                }))
+        } catch (error) {
+            setBtnLoading(true)
+            // console.log(error.response.data.message, 'catch2');
+        }
+
+    }
+
     useEffect(() => {
         Detail();
     }, [])
+
 
     return (
         <div className={Style.div}>
@@ -94,12 +149,37 @@ function SellerHome() {
                         <h4 className={Style.h4}>{category === null ? 'Tidak Berkategori' : category.name}</h4>
                         <h1 className={Style.h1}>{item.name}</h1>
                         <div className='d-flex flex-row align-items-center'>
-                            <h2 className={Style.h2}>Price : </h2>
+                            <h3 className={Style.h3}>Price</h3>
                             <h2 className={Style.h2}>Rp {item.base_price}</h2>
                         </div>
                         <p className={Style.p}>{item.description}</p>
 
-                        <PopUp />
+                        <div className='button-add-product mb-4'>
+                            <Button className={Style.styleButtonPreview} type="submit">
+                                Edit
+                            </Button>
+                            <span></span>
+                            {
+
+                                btnLoading ?
+                                    <Button className='styleButton' variant="primary" disabled>
+                                        <Spinner
+                                            as="span"
+                                            animation="grow"
+                                            size="sm"
+                                            role="status"
+                                            aria-hidden="true"
+                                        />
+                                        Loading...
+                                    </Button>
+
+                                    :
+
+                                    <Button className={Style.styleButton} variant="primary" type="submit">
+                                        Post
+                                    </Button>
+                            }
+                        </div>
                     </Col>
                 </Row>
             </Container>

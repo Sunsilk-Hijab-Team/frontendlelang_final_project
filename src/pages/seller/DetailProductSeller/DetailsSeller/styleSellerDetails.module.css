@@ -9,10 +9,10 @@
 .carouselImage {
     display: flex;
     flex-direction: row;
-    max-width: 100%;
+    width: auto;
     height: 100%;
     border-radius: 16px;
-    /* margin-left: 25%; */
+    margin-left: 25%;
 }
 
 .carousel {
@@ -96,7 +96,7 @@
     /* justify-content: center; */
 
     height: 60px;
-    width: 443px;
+    width: 100%;
     background: #FFFFFF;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
     border-radius: 16px;
@@ -122,14 +122,42 @@
     margin-right: 70px;
 }
 
+.styleButtonPreview {
+    width: 100%;
+    border-radius: 16px;
+    height: 48px;
+    background: white;
+    border: 1px solid #F93711;
+    border-color: #F93711;
+    margin-right: 10px;
+    color: #F93711;
+}
+
+.styleButton {
+    width: 100%;
+    border-radius: 16px;
+    height: 48px;
+    background: #F93711;
+    border: none;
+}
+
+.styleButton:hover {
+    background: #F2CA59;
+}
+
+.styleButtonPreview:hover {
+    background: #F2CA59;
+    border: #F2CA59;
+}
+
 @media screen and (max-width:600px) {
     .carouselImage {
         display: flex;
         flex-direction: row;
-        width: 100%;
-        height: auto;
+        width: auto;
+        height: 300px;
         border-radius: 16px;
-        /* margin-left: 17%; */
+        margin-left: 17%;
     }
 
     .carousel {
@@ -176,7 +204,6 @@
 
     .desc {
         padding: 0 20px;
-        margin-left: 10px;
 
         /* background-color: #FAD56C;
         border-radius: 16px; */
@@ -187,7 +214,7 @@
         flex-direction: row;
         align-self: center;
         margin-bottom: 10px;
-        width: 328px;
+        width: 100%;
         margin-top: 20px;
         /* justify-content: center; */
     }

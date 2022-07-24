@@ -1,7 +1,7 @@
 error notif, dia nggak muncul kalau datanya masih kosong
-kasih pengecekan if res kosong 
+kasih pengecekan jika data notification kosong set state jadi kosong
+
 card product error kalau datanya kosong
 
-kasih pengecekan jika data notification kosong set state jadi kosong
+
 selesaikan bagian notifikasi..
-redeploy be (done, sudah)

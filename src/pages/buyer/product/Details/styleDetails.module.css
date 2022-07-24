@@ -9,8 +9,13 @@
 
 .h4 {
     font-size: 14px;
-    margin-top: 95px;
+    margin-top: 10px;
     margin-left: 8px;
+}
+
+.hRounded {
+    border-top: 3px solid #bbb;
+    width: 443px;
 }
 
 .h1 {
@@ -53,6 +58,34 @@
     display: flex;
 }
 
+.product {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    margin-bottom: 10px;
+    width: 568px;
+    /* justify-content: center; */
+}
+
+.buyerProfile {
+    display: flex;
+    width: 48px;
+    height: 48px;
+    margin: 0 17px;
+}
+
+.date {
+    font-weight: 400;
+    font-size: 10px;
+}
+
+.buyerName {
+    font-weight: 500;
+    font-size: 14px;
+    align-self: center;
+    margin-right: 70px;
+}
+
 @media screen and (max-width:1024px) {
     .styleRow {
         flex-direction: column-reverse;
@@ -69,12 +102,12 @@
         text-align: justify;
     }
 
-    .carousel{
+    .carousel {
         width: 500px;
         height: 400px;
     }
 
-    .col1{
+    .col1 {
         margin-top: -70px;
     }
 
@@ -82,7 +115,7 @@
 
 
 @media screen and (max-width:756px) {
-    
+
     .carousel {
         width: 100%;
         margin-top: 20px;
@@ -90,7 +123,7 @@
     }
 
     .p {
-        width:95%;
+        width: 95%;
         text-align: justify;
     }
 
@@ -100,8 +133,34 @@
         margin-bottom: 20px;
     }
 
-    .carousel-indikators{
-        background:#F93711;
+    .carousel-indikators {
+        background: #F93711;
     }
-    
+
+}
+
+@media only screen and (max-width: 600px) {
+    .product {
+        display: flex;
+        flex-direction: row;
+        align-self: center;
+        margin-bottom: 10px;
+        width: 328px;
+        /* justify-content: center; */
+    }
+
+    .buyerName {
+        margin: 8px 0;
+    }
+
+    .date {
+        margin: 0;
+    }
+
+    .buyerProfile {
+        display: flex;
+        width: 48px;
+        height: 48px;
+        margin: 0 17px;
+    }
 }

@@ -113,7 +113,7 @@ function PopUp() {
                                 <div className={stylePopup.row}>
                                     <div className={stylePopup.satu}>
                                         <div className={stylePopup.img}>
-                                            <img src={images[0].image_url} alt="imageproduct" /></div>
+                                            <img className={stylePopup.image} src={images[0].image_url} alt="imageproduct" /></div>
                                     </div>
                                     <div className={stylePopup.dua}>
                                         <strong>{category.name}</strong><br />
@@ -154,5 +154,4 @@ function PopUp() {
         </div>
     )
 }
-
 export default PopUp

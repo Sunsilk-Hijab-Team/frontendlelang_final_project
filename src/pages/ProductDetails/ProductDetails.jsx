@@ -13,6 +13,7 @@ function ProductDetail() {
             {
                 token ?
                  <NavigationBar
+                 title="Product Detail"
                     />
 
                  :

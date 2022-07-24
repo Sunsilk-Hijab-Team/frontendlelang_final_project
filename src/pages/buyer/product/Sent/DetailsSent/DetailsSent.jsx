@@ -2,16 +2,13 @@ import React from 'react';
 import { Col, Container, Row, Button } from 'react-bootstrap';
 import Style from './styleDetails.module.css';
 import Carousel from 'react-bootstrap/Carousel';
-import NoImage from '../../images/no_image.png';
-import PreviousButton from '../PreviousButton/PreviousButton';
+import NoImage from '../../../../../images/no_image.png';
+import PreviousButton from '../../../../../components/PreviousButton/PreviousButton';
 import './styleDetails.module.css';
 import { useParams } from "react-router-dom";
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import Spinner from 'react-bootstrap/Spinner';
-import PopUp from './popup/PopUp';
-import Login from '../ButtonLogin/ButtonLogin';
-import Navbar from '../NavbarBeforeLogin/NavbarDashboard';
 
 const { REACT_APP_API_URL } = process.env
 
@@ -94,12 +91,14 @@ function SellerHome() {
                         <h4 className={Style.h4}>{category === null ? 'Tidak Berkategori' : category.name}</h4>
                         <h1 className={Style.h1}>{item.name}</h1>
                         <div className='d-flex flex-row align-items-center'>
-                            <h2 className={Style.h2}>Price : </h2>
+                            <h3 className={Style.h3}>Price</h3>
                             <h2 className={Style.h2}>Rp {item.base_price}</h2>
                         </div>
                         <p className={Style.p}>{item.description}</p>
 
-                        <PopUp />
+                        <button disabled={false} className={Style.roundedButton}>
+                            Saya Tertarik dan Ingin Nego
+                        </button>
                     </Col>
                 </Row>
             </Container>

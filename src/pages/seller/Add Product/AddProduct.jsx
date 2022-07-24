@@ -28,22 +28,22 @@ function AddProduct() {
 
     const getCategory = async () => {
         setLoading(true)
-        try{
+        try {
             await axios.get(`${url}/api/v1/seller/category/all`, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
             })
-            .then(res => {
-                setItems(res.data.categories);
-                setLoading(false)
-            })
+                .then(res => {
+                    setItems(res.data.categories);
+                    setLoading(false)
+                })
             // .catch(err => {
             //     console.log(err);
             // })
 
-        } catch(error){
-             setLoading(false)
+        } catch (error) {
+            setLoading(false)
             console.log(error);
         }
     }
@@ -54,7 +54,7 @@ function AddProduct() {
     const [price, setPrice] = useState('');
     const [imageUrl, setImageUrl] = useState('');
     const reader = new FileReader();
-    console.log("ini readerrr------------",reader);
+    console.log("ini readerrr------------", reader);
 
     const handlePost = async (e) => {
         setBtnLoading(true)
@@ -72,7 +72,7 @@ function AddProduct() {
         formData.append('published', published);
         formData.append('image_url', imageUrl);
 
-        try{
+        try {
             // console.log(name, description, categoryId, price, status, published, imageUrl);
             // console.log(formData,'isi');
             setBtnLoading(true)
@@ -82,23 +82,23 @@ function AddProduct() {
                     'Content-Type': 'multipart/form-data'
                 }
             })
-            .then( res => {
-                setBtnLoading(false)
-                // console.log(res.status, 'response');
-                if(res.status === 201){
-                    nav('/seller/dashboard/product-list');
-                    toast.success('Product has been added', {
-                        theme: 'colored',
-                        position: toast.POSITION.TOP_RIGHT,
-                        autoClose: 4000
-                    });
-                }
-            })
-            .catch((error => {
-                setBtnLoading(true)
-                // console.log(error.response.data.message, 'catch');
-            }))
-        } catch(error) {
+                .then(res => {
+                    setBtnLoading(false)
+                    // console.log(res.status, 'response');
+                    if (res.status === 201) {
+                        nav('/seller/dashboard/product-list');
+                        toast.success('Product has been added', {
+                            theme: 'colored',
+                            position: toast.POSITION.TOP_RIGHT,
+                            autoClose: 4000
+                        });
+                    }
+                })
+                .catch((error => {
+                    setBtnLoading(true)
+                    // console.log(error.response.data.message, 'catch');
+                }))
+        } catch (error) {
             setBtnLoading(true)
             // console.log(error.response.data.message, 'catch2');
         }
@@ -122,7 +122,7 @@ function AddProduct() {
         formData.append('published', published);
         formData.append('image_url', imageUrl);
 
-        try{
+        try {
             // console.log(name, description, categoryId, price, status, published, imageUrl);
             // console.log(formData,'isi');
             setBtnLoadings(true)
@@ -132,23 +132,23 @@ function AddProduct() {
                     'Content-Type': 'multipart/form-data'
                 }
             })
-            .then( res => {
-                setBtnLoadings(false)
-                // console.log(res.status, 'response');
-                if(res.status === 201){
-                    nav('/seller/dashboard/product-list');
-                    toast.success('Product has been added', {
-                        theme: 'colored',
-                        position: toast.POSITION.TOP_RIGHT,
-                        autoClose: 4000
-                    });
-                }
-            })
-            .catch((error => {
-                setBtnLoadings(true)
-                // console.log(error.response.data.message, 'catch');
-            }))
-        } catch(error) {
+                .then(res => {
+                    setBtnLoadings(false)
+                    // console.log(res.status, 'response');
+                    if (res.status === 201) {
+                        nav('/seller/dashboard/product-list');
+                        toast.success('Product has been added', {
+                            theme: 'colored',
+                            position: toast.POSITION.TOP_RIGHT,
+                            autoClose: 4000
+                        });
+                    }
+                })
+                .catch((error => {
+                    setBtnLoadings(true)
+                    // console.log(error.response.data.message, 'catch');
+                }))
+        } catch (error) {
             setBtnLoading(true)
             // console.log(error.response.data.message, 'catch2');
         }
@@ -171,18 +171,18 @@ function AddProduct() {
             {
                 loading ?
 
-                <Row className='d-flex justify-content-center'>
-                    <Spinner animation="border" role="status">
-                        <span className="visually-hidden">Loading...</span>
-                    </Spinner>
-                </Row>
+                    <Row className='d-flex justify-content-center'>
+                        <Spinner animation="border" role="status">
+                            <span className="visually-hidden">Loading...</span>
+                        </Spinner>
+                    </Row>
 
-                :
+                    :
 
-                <Container className='form'>
-                    <Form className={styleRegister.formStyle}>
-                        <Row>
-                            <Col sm={12}>
+                    <Container className='form'>
+                        <Form className={styleRegister.formStyle}>
+                            <Row className='p-3'>
+                                <Col sm={12} lg={6}>
                                     <Form.Group className="mb-3" controlId="formBasicEmail">
                                         <Form.Label className='add-product-label'>
                                             Product Name
@@ -203,15 +203,15 @@ function AddProduct() {
 
                                                 items.length > 0 ?
 
-                                                items.map((item, index) => {
-                                                    return (
-                                                        <option key={index} value={item.id}>{item.name}</option>
-                                                    )
-                                                })
+                                                    items.map((item, index) => {
+                                                        return (
+                                                            <option key={index} value={item.id}>{item.name}</option>
+                                                        )
+                                                    })
 
-                                                :
+                                                    :
 
-                                                <option selected disabled> -- Category not found -- </option>
+                                                    <option selected disabled> -- Category not found -- </option>
 
                                             }
                                         </Form.Select>
@@ -220,27 +220,58 @@ function AddProduct() {
 
                                     <Form.Group className="mb-3" controlId="formBasicEmail">
                                         <Form.Label className='add-product-label'>Product Description</Form.Label>
-                                        <Form.Control className={styleRegister.rounded} type="text" placeholder="ex: Lorem ipsum dolor sit amet" onChange={(e) => setDescription(e.target.value)}  />
+                                        <Form.Control className={styleRegister.rounded} type="text" placeholder="ex: Lorem ipsum dolor sit amet" onChange={(e) => setDescription(e.target.value)} />
                                     </Form.Group>
                                     <Form.Group className="mb-3" controlId="formBasicEmail">
                                         <Form.Label className='add-product-label'>Gambar</Form.Label>
                                         <Form.Control className={styleRegister.rounded} type="file" multiple={true} placeholder="ex: Lorem ipsum dolor sit amet" onChange={(e) => setImageUrl(e.target.files[0])}  />
                                     </Form.Group>
+                                </Col>
 
+                                <Col sm={12} lg={6} className='photo d-flex flex-column align-content-center'>
+                                    <img className='image_1' src={Image_1} alt="" />
+                                    <p className='add-photo-label'>Product Photo</p>
+                                    <div className='d-flex additional'>
+                                        <img className='image_2' src={Image_2} alt="" />
+                                        <img className='d-flex' src={Image_2} alt="" />
+                                    </div>
+                                    <p className='add-photo-label-more'>Add More</p>
+                                </Col>
+                            </Row>
+                        </Form>
+                        <Row className='p-3'>
+                            <Col>
+                                <div className='button-add-product mb-4'>
+                                    <Button className='styleButtonPreview' type="submit">
+                                        Preview
+                                    </Button>
+                                    <span></span>
+                                    {
 
-                            </Col>
+                                        btnLoading ?
 
-                            <Col sm={12} className='photo d-flex flex-column align-content-center'>
-                                <img className='image_1' src={Image_1} alt="" />
-                                <p className='add-photo-label'>Product Photo</p>
-                                <div className='d-flex additional'>
-                                    <img className='image_2' src={Image_2} alt="" />
-                                    <img className='d-flex' src={Image_2} alt="" />
+                                            <Button className='styleButton' variant="primary" disabled>
+                                                <Spinner
+                                                    as="span"
+                                                    animation="grow"
+                                                    size="sm"
+                                                    role="status"
+                                                    aria-hidden="true"
+                                                />
+                                                Loading...
+                                            </Button>
+
+                                            :
+
+                                            <Button onClick={handlePost} className='styleButton' variant="primary" type="submit">
+                                                Post
+                                            </Button>
+                                    }
                                 </div>
-                                <p className='add-photo-label-more'>Add More</p>
+                            </Col>
+                            <Col>
                             </Col>
                         </Row>
-                    </Form>
                     <Row>
                         <Col>
                             <div className='button-add-product mb-4'>
@@ -297,7 +328,7 @@ function AddProduct() {
                 </Container>
 
             }
-        </div>
+        </div >
     )
 }
 
