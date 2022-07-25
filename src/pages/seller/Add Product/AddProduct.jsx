@@ -55,8 +55,16 @@ function AddProduct() {
     const [categoryId, setCategoryId] = useState('');
     const [price, setPrice] = useState('');
     const [imageUrl, setImageUrl] = useState([]);
+    const [previewImg, setPreviewImg] = useState('');
 
-    // const reader = new FileReader();
+    const reader = new FileReader();
+
+    if(imageUrl){
+        const fileArray = Array.from(imageUrl).map((files)=> URL.createObjectURL(files));
+    }
+
+
+
 
 
     const handlePost = async (e) => {
@@ -209,12 +217,12 @@ function AddProduct() {
                                         <Form.Label className='add-product-label'>Category</Form.Label>
                                         <Form.Select className={styleRegister.rounded} onChange={(e) => setCategoryId(e.target.value)}>
                                             <option selected disabled> -- Choose Category -- </option>
-                                            
+
                                             {
                                                 items!=null  ?
 
                                                 items.map((item, index) => {
-                                                    
+
                                                     return (
                                                         <option key={index} value={item.id}>{item.name}</option>
                                                     )
