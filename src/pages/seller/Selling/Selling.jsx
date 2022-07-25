@@ -145,7 +145,7 @@ function Selling(){
                                 <div key={item.id} className={styleSelling.content}>
                                     <div className={styleSelling.product}>
                                         <img className={styleSelling.productPicture} src={item.products.images? item.products.images[0].image_url:"Loading..."} alt="" />
-                                        <div>
+                                        <div className='d-flex align-items-center'>
                                             <h1 className={styleSelling.productTitle}>
                                                 {item.products?item.products.name:"Loading..."}
                                             </h1>
