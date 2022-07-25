@@ -175,16 +175,16 @@ function CardComponent() {
                                                 )
                                             }
 
-                                        }) */}
+                                        })
 
-                                        // :
+                                        :
 
-                                        //     <button className="btn btn-tranparent" onClick={ e => setToFavorite(e, item.id, item.user_id)} type="button">
-                                        //         <MdFavorite key={index} />
-                                        //     </button>
+                                            <button className="btn btn-tranparent" onClick={ e => setToFavorite(e, item.id, item.user_id)} type="button">
+                                                <MdFavorite key={index} />
+                                            </button>
 
 
-                                    // }
+                                    } */}
                                     <Card.Body>
                                         <Card.Title> <strong>{item.name}</strong> </Card.Title>
                                         <Card.Text className={styleCard.styleCardText} >
