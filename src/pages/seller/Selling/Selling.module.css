@@ -1,0 +1,142 @@
+.product {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    margin-bottom: 10px;
+    width: 568px;
+    /* justify-content: center; */
+}
+
+.productTitle {
+    /* font-family: 'Poppins'; */
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.productPrice {
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.productPicture {
+    margin-right: 10px;
+    max-width: 20%;
+    object-fit: contain;
+}
+
+.buyerProfile {
+    display: flex;
+    width: 48px;
+    height: 48px;
+    margin: 0 17px;
+}
+
+.date {
+    font-weight: 400;
+    font-size: 10px;
+}
+
+.buyerName {
+    font-weight: 500;
+    font-size: 14px;
+    align-self: center;
+    margin-right: 70px;
+}
+
+.bid {
+    font-weight: 500;
+    font-size: 14px;
+    align-self: center;
+    margin-right: 50px;
+    margin-bottom: 0;
+}
+
+.content {
+    margin-left: 65px;
+}
+
+.decline {
+    display: flex;
+    margin-left: 50px;
+}
+
+/* Rounded border */
+hr.rounded {
+    border-top: 8px solid #bbb;
+    border-radius: 5px;
+}
+
+.ButtonUpdate {
+    width: 72px;
+    height: 36px;
+    border-radius: 16px;
+    margin-top: 8%;
+    background: white;
+    border: 1px solid #F93711;
+    border-color: #F93711;
+    margin-right: 10px;
+    color: #F93711;
+}
+
+.ButtonChat {
+    width: 72px;
+    height: 36px;
+    border-radius: 16px;
+    margin-top: 8%;
+    background: #F93711;
+    border: none;
+}
+
+@media only screen and (max-width: 600px) {
+    .content {
+        margin: 10px 0 0 20px;
+    }
+
+    .product {
+        display: flex;
+        flex-direction: row;
+        align-self: center;
+        margin-bottom: 10px;
+        width: 328px;
+        /* justify-content: center; */
+    }
+
+    .bid {
+        margin: 0 8px;
+        margin-left: 20px;
+        width: 20%;
+        margin-right: 0;
+    }
+
+    .status {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 8px;
+    }
+
+    .buyerName {
+        margin: 8px 0;
+    }
+
+    .date {
+        margin: 0;
+    }
+
+    .buyerProfile {
+        display: flex;
+        width: 48px;
+        height: 48px;
+        margin: 0 17px;
+    }
+
+    .decline {
+        display: flex;
+        margin-left: 10px;
+    }
+
+    .buttonStatus {
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: 20px;
+    }
+}

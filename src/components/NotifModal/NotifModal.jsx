@@ -19,7 +19,7 @@ function NotifModal() {
     setIcon(IoClose);
   }
 
-  
+
   const [notification, setNotification]=useState([]);
   // get item token from localstorage
   const tokenItem=localStorage.getItem("token");
@@ -48,7 +48,7 @@ function NotifModal() {
           console.log(error);
       })
   }
-  console.log("notificationnn",notification);
+  // console.log("notificationnn",notification);
 
   useEffect(()=>{
       getAllNotification();
@@ -57,11 +57,11 @@ function NotifModal() {
   return (
     <div>
       <Nav.Link
-        // href="/seller/Notification" 
+        // href="/seller/Notification"
         onClick={togglePopup}>
         <img className={stylePopup.iconNotif} src={Notificiation} alt="" />
       </Nav.Link>
-      
+
       <Container>
       {modal &&
         (
@@ -85,7 +85,7 @@ function NotifModal() {
                         <Col sm={10}>
                           <div>
                             <div>
-                              <h1 className={stylePopup.date}>Penawaran produk</h1>
+                              <h1 className={stylePopup.date}>{item.notif_message? item.notif_message: "Undefined"}</h1>
                               <h4 className={stylePopup.date}>
                                 {item.transaction_date ? moment(item.transaction_date).format('DD MMM, HH:mm') : 'undefined'}
                               </h4>
