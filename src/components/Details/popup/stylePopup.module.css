@@ -147,6 +147,7 @@ body.active-modal {
 .img img{
     width: 100%;
     border-radius: 12px;
+    object-fit: cover;
 }
 
 @media screen and (max-width:1024px) {
