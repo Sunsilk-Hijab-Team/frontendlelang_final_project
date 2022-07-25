@@ -68,3 +68,8 @@ img{
     display: none;
   }
 }
+@media only screen and (min-width: 600px) {
+  .AnimatedDropdownButton {
+    display: none;
+  }
+}

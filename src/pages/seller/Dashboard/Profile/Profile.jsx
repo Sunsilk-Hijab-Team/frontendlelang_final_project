@@ -139,7 +139,7 @@ function Profile() {
                     <Col className='dashboardMenu' sm={3}>
                         <DashboardMenu />
                     </Col>
-                    <Col sm={7} className="content d-flex justify-content-center">
+                    <Col sm={7} className="content">
                         <Form onSubmit={handleUpdate} className='form-profile d-flex flex-column align-self-center'>
                             {/* <Button className='profile-input align-self-center'>
                                 <img className='d-flex' src='/assets/photo_profile.svg' alt="" />
