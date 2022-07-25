@@ -14,9 +14,9 @@ function MatchModal(props) {
         setModal(!modal);
         setIcon(IoClose);
     }
-    
+
     useEffect(() => {
-        console.log("ini propsss"+props.data);  
+        // console.log("ini propsss"+props.data);
     })
 
     // console.log("ini dari modal", items);
@@ -43,7 +43,7 @@ function MatchModal(props) {
                                 <div className={stylePopup.product}>
                                     <p className={stylePopup.title}>Product Match</p>
                                     <div className='d-flex flex-row'>
-                                        <img className={styleNotif.buyerProfile} src="/assets/profile_buyer.jpg" alt="" />
+                                        <img className={styleNotif.buyerProfile} src={props.data?props.data.users_buyer.image_url:"Loading..."} alt="" />
                                         <div>
                                             <h2 className={styleNotif.buyerName}>
                                                 {props.data?props.data.users_buyer.full_name:"Loading..."}
@@ -54,7 +54,7 @@ function MatchModal(props) {
                                         </div>
                                     </div>
                                     <div className='d-flex flex-row'>
-                                        <img className={styleNotif.buyerProfile} src="" alt="" />
+                                        <img className={styleNotif.buyerProfile} src={props.data?props.data.products.images[0].image_url:'Loading...'} alt="" />
                                         <div>
                                             <h1 className={stylePopup.productTitle}>
                                                 {props.data?props.data.products.name:"Loading..."}
@@ -70,7 +70,7 @@ function MatchModal(props) {
                                 </div>
                             </div>
 
-                            <a href="https://api.whatsapp.com/send?phone=${props.data.users_buyer.phone}`&text=Hai%20Kak">
+                            <a href={"https://api.whatsapp.com/send?phone="+props.data.users_buyer.phone+"&text=Hai%20Kak"}>
                                 <button className={stylePopup.roundedButton}>
                                     Hubungi via Whatsapp
                                     <img className='d-flex ms-3' src="/assets/Whatsapp.svg" alt="" />

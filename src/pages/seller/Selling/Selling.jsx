@@ -34,18 +34,21 @@ function Selling(){
                     "Authorization": `Bearer ${token}`
                 }
             }).then(res => {
-                setLoading(false)
                 setItems(res.data.Orders)
+                setLoading(false)
                 // console.log(res.data.Orders, 'or')
                 // console.log("res ordersss ###"+res.data.Orders);
             })
         }catch(error){
+              setLoading(false)
             console.log(error);
         }
     }
+
     useEffect(() => {
         getSellings();
     })
+
     const handleDecline= async (e, id) => {
         e.preventDefault();
         try{
@@ -140,6 +143,7 @@ function Selling(){
                     <Col sm={7}>
                         {
                             items!=null?
+
                             items.map(item => {
                             return (
                                 <div key={item.id} className={styleSelling.content}>
@@ -196,7 +200,10 @@ function Selling(){
                                 </div>
                             );
                         })
-                        :  <p>Product Selling Empty</p>
+                        :
+
+                        <p>Product Selling Empty</p>
+
                         }
                     </Col>
                     <Col sm={3}></Col>
