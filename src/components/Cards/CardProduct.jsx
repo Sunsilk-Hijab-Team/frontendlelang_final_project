@@ -64,7 +64,7 @@ function CardComponent() {
             })
             .then(res => {
                 setFLoad(false)
-                console.log(res.data.Favorites.id_product, 'favorite')
+                console.log(res.data.Favorites, 'favorite')
                 setFavorites(res.data.Favorites)
             })
         } catch(error){
@@ -110,8 +110,8 @@ function CardComponent() {
             })
             .then(res => {
                 setTload(false)
+                getFavorite()
                 console.log(res, 'delete')
-                  getFavorite()
             })
         } catch(error){
 
@@ -148,19 +148,13 @@ function CardComponent() {
                                 <Card className={styleCard.cardStyle}>
                                     <Card.Img variant="top" src={ item.images.length === 0  ? NoImage : item.images[0].image_url } className={styleCard.imgThumbnail} />
 
-                                    {
+                                    {/* {
 
-                                        favorites !== null ?
 
-                                        fLoad ?
-
-                                        <small className="text-center">Loading..</small>
-
-                                        :
 
                                         favorites.map((favorite, index) => {
 
-                                            if(favorite.id_product === item.id){
+                                            if(favorite.id_product == item.id){
 
                                                 return(
 
@@ -181,16 +175,16 @@ function CardComponent() {
                                                 )
                                             }
 
-                                        })
+                                        }) */}
 
-                                        :
+                                        // :
 
-                                            <button className="btn btn-tranparent" onClick={ e => setToFavorite(e, item.id, item.user_id)} type="button">
-                                                <MdFavorite key={index} />
-                                            </button>
+                                        //     <button className="btn btn-tranparent" onClick={ e => setToFavorite(e, item.id, item.user_id)} type="button">
+                                        //         <MdFavorite key={index} />
+                                        //     </button>
 
 
-                                    }
+                                    // }
                                     <Card.Body>
                                         <Card.Title> <strong>{item.name}</strong> </Card.Title>
                                         <Card.Text className={styleCard.styleCardText} >
