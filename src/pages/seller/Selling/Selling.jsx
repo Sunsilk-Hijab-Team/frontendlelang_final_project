@@ -18,7 +18,7 @@ import axios from 'axios';
 const { REACT_APP_API_URL } = process.env;
 
 function Selling(){
-    const url = `${REACT_APP_API_URL}/api/v1/seller/order/all`;
+    const url = `${REACT_APP_API_URL}`;
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(false);
     // const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -29,9 +29,7 @@ function Selling(){
     const getSellings= async () => {
         setLoading(true);
         try{
-            await axios({
-                method: 'GET',
-                url,
+            await axios.get(`${url}/api/v1/seller/order/all`,{
                 headers: {
                     "Authorization": `Bearer ${token}`
                 }
