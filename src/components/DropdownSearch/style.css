@@ -62,3 +62,9 @@ img{
     background: #EEEEEE;
     color: #8A8A8A;
 }
+
+@media only screen and (max-width: 600px) {
+  .AnimatedDropdownButton {
+    display: none;
+  }
+}

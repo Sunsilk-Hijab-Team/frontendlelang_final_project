@@ -17,11 +17,11 @@ h1 {
 .formContainer {
     position: absolute;
     background-color: #fff;
-    width: 50%;
+    width: 40%;
     height: fit-content;
     left: 50%;
     top: 50%;
-    padding: 5% 9%;
+    padding: 5% 5%;
     transform: translate(-50%, -50%);
     border-radius: 40px;
     display: flex;
@@ -54,56 +54,91 @@ h1 {
 
 span {
     position: absolute;
-    margin-top: 6%;
-    margin-left: 50%;
+    margin-top: 6.5%;
+    margin-left: 60%;
 }
 
 .formStyle{
     width: 100%;
 }
 
-
-@media only screen and (max-width: 1050px){
+@media only screen and (max-width: 1285.6px){
     span {
         position: absolute;
-        margin-top: 9%;
-        margin-left: 40%;
+        margin-top: 6.5%;
+        margin-left: 60%;
     }
-}
 
-
-@media only screen and (max-width: 760px) {
     .formContainer {
         position: absolute;
         background-color: #fff;
-        padding: 5% 10%;
+        padding: 15% 6%;
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
         border-radius: 30px;
-        width: 70%;
-        height: 80%;
+        width: 50%;
+        height: 75%;
+    }
+}
+
+@media only screen and (max-width: 1050px){
+    span {
+        position: absolute;
+        margin-top: 9.5%;
+        margin-left: 52%;
+    }
+}
+
+@media only screen and (max-width: 955px) {
+    .header {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 760px) {
+
+    span {
+        position: absolute;
+        margin-top: 9.8%;
+        margin-left: 50%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+
+    .formContainer {
+        position: absolute;
+        background-color: #fff;
+        padding: 15% 6%;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 30px;
+        width: 80%;
+        height: 68%;
     }
 
     span {
         position: absolute;
         margin-top: 8%;
-        margin-left: 50%;
+        margin-left: 65%;
     }
-
 }
 
 @media only screen and (max-width: 550px){
     span {
         position: absolute;
-        margin-top: 15%;
-        margin-left: 38%;
-    }
-
-    .header {
-        text-align: center;
-        margin-bottom: 30px;
-        font-size: 25px;
-        font-weight: bold;
+        margin-top: 9.5%;
+        margin-left: 63%;
     }
 }
+
+@media only screen and (max-width: 425px){
+    span {
+        position: absolute;
+        margin-top: 12%;
+        margin-left: 58%;
+    }
+}
+
