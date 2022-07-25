@@ -2,6 +2,7 @@ import React from 'react';
 import { Col, Container, Row, Button } from 'react-bootstrap';
 import Style from './styleRebid.module.css';
 import Carousel from 'react-bootstrap/Carousel';
+import NavigationBar from '../../../../components/NavbarAfterLogin/NavbarDashboard';
 // import Image from './jam_1.png';
 import NoImage from '../../../../images/no_image.png'
 import PreviousButton from '../../../../components/PreviousButton/PreviousButton';
@@ -18,10 +19,9 @@ const { REACT_APP_API_URL } = process.env
 function Rebid() {
    
     let { orderId } = useParams();
-    const url = `${REACT_APP_API_URL}/api/v1/buyer/product/${orderId}`;
+    const url = `${REACT_APP_API_URL}/api/v1/buyer/order/product/${orderId}`;
     const token = localStorage.getItem('token');
-    const [order, setOrder] = useState([]);
-    const [product, setProduct] = useState([])
+    const [product, setProduct] = useState([]);
     const [category, setCategory] = useState([]);
     const [seller, setSeller] = useState([]);
     const [images, setImages] = useState([]);
@@ -31,14 +31,13 @@ function Rebid() {
         setLoading(true)
         try {
             await axios({
-                method: 'GET',
+                method: 'Get',
                 url,
                 headers: {
                     'Authorization': `Bearer ${token}`
-                },
+                }
             })
                 .then(res => {
-                    setOrder(res.data.data.order);
                     setProduct(res.data.data.order.products);
                     setCategory(res.data.data.order.products.categories);
                     setImages(res.data.data.order.products.images);
@@ -59,8 +58,11 @@ function Rebid() {
         Detail();
     }, [])
 
-    return (
+    return (     
         <div className={Style.div}>
+            <NavigationBar
+                 title="Product Detail"
+            />
             <Container className={Style.container}>
                 <PreviousButton />
             </Container>

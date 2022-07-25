@@ -24,7 +24,7 @@ import Selling from './pages/seller/Selling/Selling';
 import BuyerProduct from './pages/buyer/product/Product';
 import BuyerLogin from './pages/buyer/product/BeforeLogin/Before';
 import BuyerSent from './pages/buyer/product/Sent/Sent';
-import BuyerRebid from './pages/buyer/product/Rebid/Rebid'
+import BuyerRebid from './pages/buyer/product/Rebid/Rebid';
 
 import { ToastContainer } from 'react-toastify';
 import ProductDetailSeller from './pages/seller/DetailProductSeller/DetailProductSeller';

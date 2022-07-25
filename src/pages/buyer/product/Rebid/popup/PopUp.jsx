@@ -16,9 +16,9 @@ function PopUp() {
     const nav = useNavigate();
     let { orderId } = useParams();
     
-    const url_rebid = `${REACT_APP_API_URL}/api/v1/buyer/order/price-appeal/${orderId}`;
+    const urlRebid = `${REACT_APP_API_URL}/api/v1/buyer/order/price-appeal/${orderId}`;
     const token = localStorage.getItem('token')
-    const handleOrder = async (e) => {
+    const handleRebid = async (e) => {
             e.preventDefault();
             
             try{
@@ -28,7 +28,7 @@ function PopUp() {
                 // } })
                 await axios({
                     method: 'PUT',
-                    url_rebid,
+                    url: urlRebid,
                     headers: {
                         'Authorization': `Bearer ${token}`
                     },
@@ -50,21 +50,22 @@ function PopUp() {
             }
         }
 
-    const url_detail = `${REACT_APP_API_URL}/api/v1/buyer/product/${orderId}`;
+    const urlDetail = `${REACT_APP_API_URL}/api/v1/buyer/order/product/${orderId}`;
 
     const Detail = async () => {
         try {
             await axios({
                 method: 'GET',
-                url_detail,
+                url: urlDetail,
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
             })
             .then(res => {
-                setProduct(res.data.data.product);
-                setCategory(res.data.data.product.categories);
-                setImages(res.data.data.product.images);
+                setProduct(res.data.data.order.products);
+                setCategory(res.data.data.order.products.categories);
+                setImages(res.data.data.order.products.images);
+                console.log(res);
             })
         } catch (error) {
             console.log(error.message);
@@ -89,7 +90,7 @@ function PopUp() {
                 className={stylePopup.roundedButton}
                 onClick={togglePopup}
             >
-                Saya Tertarik dan Ingin Nego
+                Saya Ingin Menawar Lagi
             </button>
             {modal &&
                 (
@@ -115,7 +116,8 @@ function PopUp() {
                                 <div className={stylePopup.row}>
                                     <div className={stylePopup.satu}>
                                         <div className={stylePopup.img}>
-                                            <img className={stylePopup.image} src={images[0].image_url} alt="imageproduct" /></div>
+                                            {console.log(images,'tes')}
+                                            <img className={stylePopup.image} src={ images != null ? images[0].image_url : 'loading'} alt="imageproduct" /></div>
                                     </div>
                                     <div className={stylePopup.dua}>
                                         <strong>{category.name}</strong><br />
@@ -137,7 +139,7 @@ function PopUp() {
                                         <Form.Text className="text-muted d-flex justify-content-start">
                                         </Form.Text>
                                     </Form.Group>
-                                    <button className={stylePopup.roundedButtonSend} onClick={handleOrder}>
+                                    <button className={stylePopup.roundedButtonSend} onClick={handleRebid}>
                                         Kirim</button>
                                 </Form>
                             </div>

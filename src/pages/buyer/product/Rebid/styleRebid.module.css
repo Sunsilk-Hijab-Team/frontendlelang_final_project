@@ -1,21 +1,39 @@
+.div {
+    margin-bottom: 30px;
+}
+
 .previous {
     margin: 40px 0;
 }
 
+.carouselImage {
+    display: flex;
+    flex-direction: row;
+    max-width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    /* margin-left: 25%; */
+}
+
 .carousel {
     width: 600px;
-    height: 436px;
+    height: 400px;
+    border-radius: 16px;
 }
+
+.imgcarousel {
+    width: 100%;
+}
+/* .carousel {
+    width: auto;
+    height: 436px;
+    margin-left: 20px;
+} */
 
 .h4 {
     font-size: 14px;
-    margin-top: 10px;
+    margin-top: 50px;
     margin-left: 8px;
-}
-
-.hRounded {
-    border-top: 3px solid #bbb;
-    width: 443px;
 }
 
 .h1 {
@@ -25,65 +43,222 @@
 
 .h3 {
     font-size: 14px;
+    margin-top: 5px;
 }
 
 .h2 {
+    margin-left: 8px;
     font-size: 20px;
     color: #F93711;
     line-height: 24px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 700;
+    margin-left: 10px;
 }
 
 .p {
     font-size: 14px;
-    width: 443.04px;
+    width: 443px;
     color: #8A8A8A;
-    height: 160px;
+    height: 110px;
+    text-align: justify;
+}
+.notifStyle {
+    background: #F9CC00;
+    width: 30%;
+    height: 7%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
 }
 
+.toast {
+    margin-top: 70px;
+    width: 40%;
+}
 .roundedButton {
     border-radius: 16px;
-    background: #F93711;
     border: none;
-    width: 100%;
+    width: 90%;
     height: 48px;
     /* margin-top: 3%; */
     width: 443px;
-    margin-top: 28px;
-    margin-left: 8px;
+    /* margin-top: 28px; */
+    margin-top: 40px;
+    /* margin-left: 8px; */
+
+    /* display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap; */
 }
 
 .styleRow {
     display: flex;
 }
 
-.product {
-    display: flex;
-    flex-direction: row;
-    align-self: center;
-    margin-bottom: 10px;
-    width: 568px;
-    /* justify-content: center; */
+.jual {
+    margin: 0;
+    width: 31px;
 }
 
-.buyerProfile {
+.sellerProfile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+    /* justify-content: center; */
+
+    height: 60px;
+    width: 443px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 16px;
+}
+
+.sellerPhoto {
     display: flex;
     width: 48px;
     height: 48px;
     margin: 0 17px;
+    border-radius: 12px;
 }
 
-.date {
+.city {
     font-weight: 400;
     font-size: 10px;
+    margin-bottom: 0;
 }
 
-.buyerName {
+.sellerName {
     font-weight: 500;
     font-size: 14px;
     align-self: center;
     margin-right: 70px;
+}
+
+@media screen and (max-width:600px) {
+    .carouselImage {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: auto;
+        border-radius: 16px;
+        /* margin-left: 17%; */
+    }
+
+    .carousel {
+        width: 370px;
+        height: auto;
+        display: flex;
+        margin-left: 5px;
+        /* d-flex justify-content-center */
+    }
+
+    .roundedButton {
+        border-radius: 16px;
+        background: #F93711;
+        border: none;
+        width: 100%;
+        height: 48px;
+        /* margin-top: 3%; */
+        width: 340px;
+        margin-top: 50px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-content: center;
+        flex-wrap: wrap;
+    }
+
+    .p {
+        font-size: 14px;
+        width: 340px;
+        color: #8A8A8A;
+        height: max-content;
+    }
+
+    .h4 {
+        font-size: 14px;
+        margin-top: 20px;
+        margin-left: 8px;
+    }
+
+    .column {
+        padding: 0 20px;
+        /* margin-left: 10px; */
+    }
+
+    .desc {
+        padding: 0 20px;
+        margin-left: 10px;
+
+        /* background-color: #FAD56C;
+        border-radius: 16px; */
+    }
+
+    .sellerProfile {
+        display: flex;
+        flex-direction: row;
+        align-self: center;
+        margin-bottom: 10px;
+        width: 328px;
+        margin-top: 20px;
+        /* justify-content: center; */
+    }
+
+    .sellerName {
+        margin: 8px 0;
+    }
+
+    .city {
+        margin: 0;
+    }
+
+    .sellerPhoto {
+        display: flex;
+        width: 48px;
+        height: 48px;
+        margin-right: 0;
+        margin-left: 10px;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media screen and (max-width:1199px) {
+    .styleRow {
+        flex-direction: column-reverse;
+        margin-bottom: 50px;
+    }
+
+    .roundedButton {
+        width: 70%;
+        margin-top: 10px;
+    }
+
+    .p {
+        width: 70%;
+        margin-top: 5px;
+    }
+
+    .carousel {
+        width: 500px;
+        height: 400px;
+
+    }
+
+    .imgcarousel {
+        width: 100%;
+    }
+
+    .col1 {
+        margin-top: -70px;
+    }
+
 }
 
 @media screen and (max-width:1024px) {
@@ -107,6 +282,10 @@
         height: 400px;
     }
 
+    .imgcarousel {
+        width: 100%;
+    }
+
     .col1 {
         margin-top: -70px;
     }
@@ -122,6 +301,10 @@
         height: 300px;
     }
 
+    .imgcarousel {
+        width: 100%;
+    }
+
     .p {
         width: 95%;
         text-align: justify;
@@ -129,38 +312,11 @@
 
     .roundedButton {
         width: 100%;
-        margin-top: 90px;
+        margin-top: 50px;
         margin-bottom: 20px;
     }
 
     .carousel-indikators {
         background: #F93711;
-    }
-
-}
-
-@media only screen and (max-width: 600px) {
-    .product {
-        display: flex;
-        flex-direction: row;
-        align-self: center;
-        margin-bottom: 10px;
-        width: 328px;
-        /* justify-content: center; */
-    }
-
-    .buyerName {
-        margin: 8px 0;
-    }
-
-    .date {
-        margin: 0;
-    }
-
-    .buyerProfile {
-        display: flex;
-        width: 48px;
-        height: 48px;
-        margin: 0 17px;
     }
 }
