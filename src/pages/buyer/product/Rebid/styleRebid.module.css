@@ -1,0 +1,166 @@
+.previous {
+    margin: 40px 0;
+}
+
+.carousel {
+    width: 600px;
+    height: 436px;
+}
+
+.h4 {
+    font-size: 14px;
+    margin-top: 10px;
+    margin-left: 8px;
+}
+
+.hRounded {
+    border-top: 3px solid #bbb;
+    width: 443px;
+}
+
+.h1 {
+    font-size: 33px;
+    margin-left: 8px;
+}
+
+.h3 {
+    font-size: 14px;
+}
+
+.h2 {
+    font-size: 20px;
+    color: #F93711;
+    line-height: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+}
+
+.p {
+    font-size: 14px;
+    width: 443.04px;
+    color: #8A8A8A;
+    height: 160px;
+}
+
+.roundedButton {
+    border-radius: 16px;
+    background: #F93711;
+    border: none;
+    width: 100%;
+    height: 48px;
+    /* margin-top: 3%; */
+    width: 443px;
+    margin-top: 28px;
+    margin-left: 8px;
+}
+
+.styleRow {
+    display: flex;
+}
+
+.product {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    margin-bottom: 10px;
+    width: 568px;
+    /* justify-content: center; */
+}
+
+.buyerProfile {
+    display: flex;
+    width: 48px;
+    height: 48px;
+    margin: 0 17px;
+}
+
+.date {
+    font-weight: 400;
+    font-size: 10px;
+}
+
+.buyerName {
+    font-weight: 500;
+    font-size: 14px;
+    align-self: center;
+    margin-right: 70px;
+}
+
+@media screen and (max-width:1024px) {
+    .styleRow {
+        flex-direction: column-reverse;
+    }
+
+    .roundedButton {
+        width: 70%;
+        margin-top: 10px;
+    }
+
+    .p {
+        width: 70%;
+        margin-top: 5px;
+        text-align: justify;
+    }
+
+    .carousel {
+        width: 500px;
+        height: 400px;
+    }
+
+    .col1 {
+        margin-top: -70px;
+    }
+
+}
+
+
+@media screen and (max-width:756px) {
+
+    .carousel {
+        width: 100%;
+        margin-top: 20px;
+        height: 300px;
+    }
+
+    .p {
+        width: 95%;
+        text-align: justify;
+    }
+
+    .roundedButton {
+        width: 100%;
+        margin-top: 90px;
+        margin-bottom: 20px;
+    }
+
+    .carousel-indikators {
+        background: #F93711;
+    }
+
+}
+
+@media only screen and (max-width: 600px) {
+    .product {
+        display: flex;
+        flex-direction: row;
+        align-self: center;
+        margin-bottom: 10px;
+        width: 328px;
+        /* justify-content: center; */
+    }
+
+    .buyerName {
+        margin: 8px 0;
+    }
+
+    .date {
+        margin: 0;
+    }
+
+    .buyerProfile {
+        display: flex;
+        width: 48px;
+        height: 48px;
+        margin: 0 17px;
+    }
+}

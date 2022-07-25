@@ -1,27 +1,27 @@
 import React from 'react';
 import { Col, Container, Row, Button } from 'react-bootstrap';
-import Style from './styleDetails.module.css';
+import Style from './styleRebid.module.css';
 import Carousel from 'react-bootstrap/Carousel';
 // import Image from './jam_1.png';
-import NoImage from '../../images/no_image.png'
-import PreviousButton from '../PreviousButton/PreviousButton';
-import './styleDetails.module.css';
+import NoImage from '../../../../images/no_image.png'
+import PreviousButton from '../../../../components/PreviousButton/PreviousButton';
+import './styleRebid.module.css';
 import { useParams } from "react-router-dom";
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import Spinner from 'react-bootstrap/Spinner';
 import PopUp from './popup/PopUp';
-import Login from '../ButtonLogin/ButtonLogin';
-import Navbar from '../NavbarBeforeLogin/NavbarDashboard';
-import { Rupiah } from '../CostumFunction/Rupiah';
+import { Rupiah } from '../../../../components/CostumFunction/Rupiah';
 
 const { REACT_APP_API_URL } = process.env
 
-function SellerHome() {
-
-    const url = `${REACT_APP_API_URL}/api/v1/buyer/product/`;
-    let { productId } = useParams();
-    const [item, setItem] = useState([]);
+function Rebid() {
+   
+    let { orderId } = useParams();
+    const url = `${REACT_APP_API_URL}/api/v1/buyer/product/${orderId}`;
+    const token = localStorage.getItem('token');
+    const [order, setOrder] = useState([]);
+    const [product, setProduct] = useState([])
     const [category, setCategory] = useState([]);
     const [seller, setSeller] = useState([]);
     const [images, setImages] = useState([]);
@@ -30,12 +30,19 @@ function SellerHome() {
     const Detail = async () => {
         setLoading(true)
         try {
-            await axios.get(url + productId)
+            await axios({
+                method: 'GET',
+                url,
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                },
+            })
                 .then(res => {
-                    setItem(res.data.data.product);
-                    setCategory(res.data.data.product.categories);
-                    setSeller(res.data.data.product.users);
-                    setImages(res.data.data.product.images);
+                    setOrder(res.data.data.order);
+                    setProduct(res.data.data.order.products);
+                    setCategory(res.data.data.order.products.categories);
+                    setImages(res.data.data.order.products.images);
+                    setSeller(res.data.data.order.users_seller);
                     // console.log(images, 'null')
                 })
                 .catch(error => {
@@ -104,12 +111,12 @@ function SellerHome() {
                         </div>
 
                         <h4 className={Style.h4}>{category === null ? 'Tidak Berkategori' : category.name}</h4>
-                        <h1 className={Style.h1}>{item.name}</h1>
+                        <h1 className={Style.h1}>{product.name}</h1>
                         <div className='d-flex flex-row align-items-center'>
                             <h2 className={Style.h2}>Price : </h2>
-                            <h2 className={Style.h2}>{Rupiah(item.base_price)}</h2>
+                            <h2 className={Style.h2}>{Rupiah(product.base_price)}</h2>
                         </div>
-                        <p className={Style.p}>{item.description}</p>
+                        <p className={Style.p}>{product.description}</p>
 
                         <PopUp />
                     </Col>
@@ -119,4 +126,4 @@ function SellerHome() {
     )
 }
 
-export default SellerHome
+export default Rebid
