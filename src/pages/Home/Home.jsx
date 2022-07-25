@@ -11,6 +11,7 @@ import Search from '../../components/Search/Search';
 import SellButton from '../../components/SellButton/SellButton';
 
 
+
 function Home() {
 
     const token = localStorage.getItem('token');
@@ -40,7 +41,7 @@ function Home() {
             />
 
             {
-                token ? <SellButton 
+                token ? <SellButton
                 tambah="jual"
                 /> : <></>
             }

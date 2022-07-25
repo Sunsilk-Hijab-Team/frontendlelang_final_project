@@ -7,14 +7,19 @@ import axios from 'axios'
 import { Link } from "react-router-dom";
 import { Rupiah } from '../CostumFunction/Rupiah';
 import { MdFavorite } from 'react-icons/md';
+import jwt from 'jwt-decode'
 const { REACT_APP_API_URL } = process.env
 
 function CardComponent() {
 
     const token = localStorage.getItem('token');
+    const decode = jwt(token);
     const url = `${REACT_APP_API_URL}/api/v1/product/all`;
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [fLoad, setFLoad] = useState(false);
+    const [tLoad, setTload] = useState(false);
+    const [uLoad, setULoad] = useState(false);
     const [favorites, setFavorites] = useState([])
 
     const getProducts = async () => {
@@ -34,6 +39,7 @@ function CardComponent() {
                 else {
                     setLoading(false)
                     setItems(res.data.data.product)
+                    console.log(res.data.data.product)
                 }
                 // setItems(res.data.product.product)
             })
@@ -49,6 +55,7 @@ function CardComponent() {
     }
 
     const getFavorite = async () => {
+        setFLoad(true)
         try{
             await axios.get(`${REACT_APP_API_URL}/api/v1/product/favorite/all`, {
                 headers: {
@@ -56,7 +63,8 @@ function CardComponent() {
                 }
             })
             .then(res => {
-                console.log(res.data.Favorites, 'favorite')
+                setFLoad(false)
+                console.log(res.data.Favorites.id_product, 'favorite')
                 setFavorites(res.data.Favorites)
             })
         } catch(error){
@@ -66,6 +74,7 @@ function CardComponent() {
 
     const setToFavorite = async (e, pId, sId) => {
         e.preventDefault();
+        setTload(true)
         try {
             await axios({
                     method: 'POST',
@@ -81,7 +90,8 @@ function CardComponent() {
                 })
                 .then(res => {
                     if(res.status === 201){
-
+                        setTload(false)
+                        getFavorite()
                     }
                 })
         } catch (error) {
@@ -89,8 +99,23 @@ function CardComponent() {
         }
     }
 
-    const setToUnFavorite = async (e, pId, sId) => {
+    const setToUnFavorite = async (e, id) => {
+        e.preventDefault();
+        setULoad(true)
+        try {
+            axios.delete(`${REACT_APP_API_URL}/api/v1/product/favorite/delete/${id}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
+            .then(res => {
+                setTload(false)
+                console.log(res, 'delete')
+                  getFavorite()
+            })
+        } catch(error){
 
+        }
     }
 
     // console.log(items, 'items--setelah');
@@ -124,25 +149,47 @@ function CardComponent() {
                                     <Card.Img variant="top" src={ item.images.length === 0  ? NoImage : item.images[0].image_url } className={styleCard.imgThumbnail} />
 
                                     {
+
+                                        favorites !== null ?
+
+                                        fLoad ?
+
+                                        <small className="text-center">Loading..</small>
+
+                                        :
+
                                         favorites.map((favorite, index) => {
+
                                             if(favorite.id_product === item.id){
+
+                                                return(
+
+                                                <button className="btn btn-tranparent" onClick={ e => setToUnFavorite(e, favorite.id)} type="button">
+                                                            <MdFavorite key={index} style={ {
+                                                                size: '24px',
+                                                                color: 'red'
+                                                                } } />
+                                                </button>
+                                                )
+                                            } else if(favorite.id_product !== item.id){
+
                                                 return (
-                                                    <button className="btn btn-tranparent" onClick={ e => setToUnFavorite(e, favorite.id)} type="button">
-                                                        <MdFavorite key={index} style={ {
-                                                            size: '24px',
-                                                            color: 'red'
-                                                            } } />
-                                                    </button>
+                                                      <button className="btn btn-tranparent" onClick={ e => setToFavorite(e, item.id, item.user_id)} type="button">
+                                                            <MdFavorite key={index} />
+                                                     </button>
+
                                                 )
                                             }
-                                             if(favorite.id_product !== item.id){
-                                                return (
-                                                    <button className="btn btn-tranparent" onClick={ e => setToFavorite(e, item.id, item.users.id)} type="button">
-                                                        <MdFavorite key={index} />
-                                                    </button>
-                                                )
-                                            }
+
                                         })
+
+                                        :
+
+                                            <button className="btn btn-tranparent" onClick={ e => setToFavorite(e, item.id, item.user_id)} type="button">
+                                                <MdFavorite key={index} />
+                                            </button>
+
+
                                     }
                                     <Card.Body>
                                         <Card.Title> <strong>{item.name}</strong> </Card.Title>
