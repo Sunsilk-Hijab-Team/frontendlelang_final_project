@@ -4,10 +4,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import Style from './styleDetails.module.css';
 import Carousel from 'react-bootstrap/Carousel';
 import Image from './jam_1.png';
-<<<<<<< HEAD
 import PreviousButton from '../../../../components/PreviousButton/PreviousButton';
-=======
->>>>>>> alifahrial
 import PopUp from '../../../../components/Details/popup/PopUp'
 
 function SellerHome() {
