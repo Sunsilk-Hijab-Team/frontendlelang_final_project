@@ -38,6 +38,11 @@ function DashboardMenu() {
                         Product List
                         <img className='dashboard-menu-arrow d-flex' src="/assets/fi_chevron-right.svg" alt="" />
                     </Button>
+                    <Button href="/seller/dashboard/myorder" className='button p-2 mb-4'>
+                        <img className='d-flex' src="/assets/fi_shopping-cart.svg" alt="" />
+                        My Order
+                        <img className='dashboard-menu-arrow d-flex' src="/assets/fi_chevron-right.svg" alt="" />
+                    </Button>
                     <Button href="/seller/dashboard/selling" className='button p-2 mb-4'>
                         <img className='d-flex' src="/assets/fi_shopping-cart.svg" alt="" />
                         Product Selling

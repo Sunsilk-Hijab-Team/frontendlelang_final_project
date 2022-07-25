@@ -25,6 +25,7 @@ import BuyerProduct from './pages/buyer/product/Product';
 import BuyerLogin from './pages/buyer/product/BeforeLogin/Before';
 import BuyerSent from './pages/buyer/product/Sent/Sent';
 import BuyerRebid from './pages/buyer/product/Rebid/Rebid';
+import MyOrder from './pages/seller/MyOrder/MyOrder';
 
 import { ToastContainer } from 'react-toastify';
 import ProductDetailSeller from './pages/seller/DetailProductSeller/DetailProductSeller';
@@ -59,6 +60,7 @@ function App() {
             <Route path="/seller/dashboard/notification-test" element={<NotificationTest />} />
             <Route path="/seller/detail" element={<ProductDetailSeller />} />
             <Route path="/seller/dashboard/selling" element={<Selling />} />
+            <Route path="/seller/dashboard/myorder" element={<MyOrder />} />
             {/* buyer */}
             <Route path="/buyer/logged/product" element={<BuyerProduct />} />
             <Route path="/buyer/logged/sent/:productId" element={<BuyerSent />} />

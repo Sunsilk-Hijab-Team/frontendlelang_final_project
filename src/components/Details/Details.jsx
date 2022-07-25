@@ -13,7 +13,6 @@ import Spinner from 'react-bootstrap/Spinner';
 import PopUp from './popup/PopUp';
 import Login from '../ButtonLogin/ButtonLogin';
 import Navbar from '../NavbarBeforeLogin/NavbarDashboard';
-import { Rupiah } from '../CostumFunction/Rupiah';
 
 const { REACT_APP_API_URL } = process.env
 
@@ -34,17 +33,13 @@ function SellerHome() {
                 .then(res => {
                     setItem(res.data.data.product);
                     setCategory(res.data.data.product.categories);
-                    setSeller(res.data.data.product.users);
+                    setSeller(res.data.data.product.users)
                     setImages(res.data.data.product.images);
                     // console.log(images, 'null')
-                })
-                .catch(error => {
-                    console.log(error)
                 })
             setLoading(false)
         } catch (error) {
             setLoading(true);
-            console.log(error)
         }
     }
 
@@ -68,7 +63,7 @@ function SellerHome() {
                         : <></>
                 }
                 <Row>
-                    <Col className='d-flex justify-content-center'>
+                    <Col>
                         <Carousel className={Style.carousel}>
                             {
                                 images.length === 0 ?
@@ -92,22 +87,23 @@ function SellerHome() {
 
                     <Col className={Style.desc}>
                         <div className={Style.sellerProfile}>
-                            <img className={Style.sellerPhoto} src={seller.image_url===''? 'Loading...' : seller.image_url} alt="" />
+                            {
+                                seller.image_url === null ?
+                                <img className={Style.sellerPhoto} src={NoImage} alt="" />
+                                :
+                                <img className={Style.sellerPhoto} src={seller.image_url} alt="" />
+                            }
                             <div className='ms-3'>
-                                <h2 className={Style.sellerName}>
-                                    {seller.full_name? seller.full_name : 'Loading...'}
-                                </h2>
-                                <h1 className={Style.city}>
-                                    {seller.city? seller.city : 'Loading...'}
-                                </h1>
+                                <h2 className={Style.sellerName}>{seller.full_name}</h2>
+                                <h1 className={Style.city}>{seller.city}</h1>
                             </div>
                         </div>
 
                         <h4 className={Style.h4}>{category === null ? 'Tidak Berkategori' : category.name}</h4>
                         <h1 className={Style.h1}>{item.name}</h1>
                         <div className='d-flex flex-row align-items-center'>
-                            <h2 className={Style.h2}>Price : </h2>
-                            <h2 className={Style.h2}>{Rupiah(item.base_price)}</h2>
+                            <h3 className={Style.h3}>Price</h3>
+                            <h2 className={Style.h2}>Rp {item.base_price}</h2>
                         </div>
                         <p className={Style.p}>{item.description}</p>
 
