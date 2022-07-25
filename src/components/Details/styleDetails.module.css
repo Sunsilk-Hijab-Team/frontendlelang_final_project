@@ -22,6 +22,9 @@
     border-radius: 16px;
 }
 
+.imgcarousel {
+    width: 100%;
+}
 /* .carousel {
     width: auto;
     height: 436px;
@@ -61,7 +64,22 @@
     height: 110px;
     text-align: justify;
 }
+.notifStyle {
+    background: #F9CC00;
+    width: 30%;
+    height: 7%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+}
 
+.toast {
+    margin-top: 70px;
+    width: 40%;
+}
 .roundedButton {
     border-radius: 16px;
     border: none;
@@ -101,6 +119,7 @@
     background: #FFFFFF;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
     border-radius: 16px;
+    
 }
 
 .sellerPhoto {
@@ -109,6 +128,7 @@
     height: 48px;
     margin: 0 17px;
     border-radius: 12px;
+    object-fit: cover;
 }
 
 .city {
@@ -212,3 +232,94 @@
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
+@media screen and (max-width:1199px) {
+    .styleRow {
+        flex-direction: column-reverse;
+        margin-bottom: 50px;
+    }
+
+    .roundedButton {
+        width: 70%;
+        margin-top: 10px;
+    }
+
+    .p {
+        width: 70%;
+        margin-top: 5px;
+    }
+
+    .carousel {
+        width: 500px;
+        height: 400px;
+
+    }
+
+    .imgcarousel {
+        width: 100%;
+    }
+
+    .col1 {
+        margin-top: -70px;
+    }
+
+}
+
+@media screen and (max-width:1024px) {
+    .styleRow {
+        flex-direction: column-reverse;
+    }
+
+    .roundedButton {
+        width: 70%;
+        margin-top: 10px;
+    }
+
+    .p {
+        width: 70%;
+        margin-top: 5px;
+        text-align: justify;
+    }
+
+    .carousel {
+        width: 500px;
+        height: 400px;
+    }
+
+    .imgcarousel {
+        width: 100%;
+    }
+
+    .col1 {
+        margin-top: -70px;
+    }
+
+}
+
+
+@media screen and (max-width:756px) {
+
+    .carousel {
+        width: 100%;
+        margin-top: 20px;
+        height: 300px;
+    }
+
+    .imgcarousel {
+        width: 100%;
+    }
+
+    .p {
+        width: 95%;
+        text-align: justify;
+    }
+
+    .roundedButton {
+        width: 100%;
+        margin-top: 50px;
+        margin-bottom: 20px;
+    }
+
+    .carousel-indikators {
+        background: #F93711;
+    }
+}

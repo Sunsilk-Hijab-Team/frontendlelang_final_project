@@ -105,7 +105,7 @@ function PreviewProduct() {
 
     return (
         <div>
-            <Navbar />
+            <Navbar title="Preview Detail"/>
 
             <Container>
                     {

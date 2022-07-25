@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import Style from './styleSent.module.css'
 import Navbar from '../../../../components/NavbarAfterLogin/NavbarDashboard'
 import { Carousel, Container, Col, Row} from 'react-bootstrap';
+import Spinner from 'react-bootstrap/Spinner';
 import Previous from './fi_arrow-left.svg';
 import Image from './jam_1.png';
 import { ToastContainer, toast } from 'react-toastify';
@@ -35,21 +36,22 @@ function Sent() {
                             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
                             culpa qui officia deserunt mollit anim id est laborum.</p>
 
-                        <button disabled={false} className={Style.roundedButton}>
-                            Saya Tertarik dan Ingin Nego
-                        </button>
+                                            <Carousel.Item className={Style.carousel}>
+                                                <img className={Style.carouselImage} src={NoImage} alt="productImage" />
+                                            </Carousel.Item>
 
-                    </Col>
+                                            :
 
-                    <Col>
-                        <Carousel className={Style.carousel}>
-                            <Carousel.Item className={Style.carousel}>
-                                <img
-                                    className="carouselImage d-block w-100"
-                                    src={Image}
-                                    alt="First slide"
-                                />
-                            </Carousel.Item>
+                                            images.map((image, index) => {
+                                                return (
+                                                    <Carousel.Item key={index} className={Style.carousel}>
+                                                        <img className={Style.carouselImage} src={image.image_url} alt="productImage" />
+                                                    </Carousel.Item>
+                                                )
+                                            })
+                                    }
+                                </Carousel>
+                            </Col>
 
                             <Carousel.Item>
                                 <img
