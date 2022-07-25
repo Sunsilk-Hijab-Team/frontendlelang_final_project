@@ -26,14 +26,14 @@ function NotificationTest() {
             // console.log(notification);
         })
         .catch((error)=>{
-            console.log(error);
+            // console.log(error);
         })
     }
 
     useEffect(()=>{
         getAllNotification();
     },[]);
-    
+
     // console.log("########"+notification);
     return (
         <div>

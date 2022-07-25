@@ -30,6 +30,7 @@ function Selling(){
             }).then(res => {
                 setLoading(false)
                 setItems(res.data.Orders)
+                console.log(res.data.Orders, 'or')
                 // console.log("res ordersss ###"+res.data.Orders);
             })
         }catch(error){
@@ -54,10 +55,13 @@ function Selling(){
                     </Col>
                     <Col sm={9}>
                         {
-                        items.map(item => {
+
+                        items !== null ?
+
+                        items.map((item, index) => {
                             return (
-                                <div className="bg-light mb-2">
-                                    <img className="img-fluid" src="" alt="ini image" />
+                                <div key={index} className="bg-light mb-2">
+                                    <img className="img-fluid" src={item.products.images.length === 0 ? 'No Image' :  item.products.images[0].image_url} alt="ini image" />
                                     <p>{item.products.name}</p>
                                     <p>{item.products.base_price}</p>
                                     <div>
@@ -76,9 +80,14 @@ function Selling(){
                                     </div>
                                     <hr className="rounded"></hr>
                                 </div>
-                                
+
                             );
                         })
+
+                        :
+
+                        <p className="text-center">Oppss... Belom ada product yang di tawar..</p>
+
                         }
                     </Col>
                 </Row>
