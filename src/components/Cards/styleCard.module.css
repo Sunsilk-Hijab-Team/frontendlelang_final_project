@@ -124,8 +124,9 @@
     /* display: flex;
 } */
 
+
 @media screen and (max-width:500px){
-    
+
     .col{
         display: flex;
         margin: 0;

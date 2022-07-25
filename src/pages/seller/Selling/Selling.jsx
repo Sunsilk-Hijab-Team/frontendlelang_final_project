@@ -38,6 +38,7 @@ function Selling(){
             }).then(res => {
                 setLoading(false)
                 setItems(res.data.Orders)
+                // console.log(res.data.Orders, 'or')
                 // console.log("res ordersss ###"+res.data.Orders);
             })
         }catch(error){
@@ -184,7 +185,7 @@ function Selling(){
                                             : item.status
                                             }
                                             {item.status === 'accepted' ?
-                                            
+
                                             <>
                                                 <MatchModal data={item} />
                                             </>:
