@@ -48,7 +48,7 @@ function NotifModal() {
           console.log(error);
       })
   }
-  console.log("notificationnn",notification);
+  // console.log("notificationnn",notification);
 
   useEffect(()=>{
       getAllNotification();

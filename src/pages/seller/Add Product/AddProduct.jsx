@@ -55,9 +55,13 @@ function AddProduct() {
     const [categoryId, setCategoryId] = useState('');
     const [price, setPrice] = useState('');
     const [imageUrl, setImageUrl] = useState([]);
+    const [previewImg, setPreviewImg] = useState('');
 
-    // const reader = new FileReader();
+    const reader = new FileReader();
 
+    if(imageUrl){
+        const fileArray = Array.from(imageUrl).map((files)=> URL.createObjectURL(files));
+    }
 
     const handlePost = async (e) => {
         setBtnLoading(true)
@@ -217,9 +221,7 @@ function AddProduct() {
                                                     <option key={index} value={item.id}>{item.name}</option>
                                                 )
                                             })
-
                                             :
-
                                             <option selected disabled> -- Category not found -- </option>
 
                                     }
