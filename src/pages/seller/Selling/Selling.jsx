@@ -159,7 +159,7 @@ function Selling(){
                                         </div>
                                     </div>
                                     <div className={styleSelling.product}>
-                                        <img className={styleSelling.buyerProfile} src="/assets/profile_buyer.jpg" alt="" />
+                                        <img className={styleSelling.buyerProfile} src={item.users_buyer?item.users_buyer.image_url:"Loading..."} alt="" />
                                         <div className='ms-3'>
                                             <h1 className={styleSelling.date}>
                                                 {item.createdAt ? moment(item.createdAt).format('DD MMM, HH:mm') : 'Loading...'}
