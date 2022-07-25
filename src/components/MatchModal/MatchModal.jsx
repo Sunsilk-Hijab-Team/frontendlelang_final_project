@@ -16,7 +16,7 @@ function MatchModal(props) {
     }
 
     useEffect(() => {
-        // console.log("ini propsss"+props.data);
+        console.log("ini propsss"+props.data);
     })
 
     // console.log("ini dari modal", items);
