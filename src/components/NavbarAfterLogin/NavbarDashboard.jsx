@@ -66,7 +66,7 @@ function NavScroll(props) {
                     </Navbar.Brand>
                 </Row>
 
-                <div className='d-flex justify-content-center'>
+                <div className={styleNavSeller.title}>
                     {props.title}
                 </div>
 
@@ -82,9 +82,9 @@ function NavScroll(props) {
                         <div className={styleNavSeller.iconSearch}>
                             <SearchCollapse />
                         </div>
-                        <Nav.Link className='p-0' href="#message">
+                        {/* <Nav.Link className='p-0' href="#message">
                             <img className={styleNavSeller.iconMessage} src={Message} alt="" />
-                        </Nav.Link>
+                        </Nav.Link> */}
 
                         <NotifModal />
 
@@ -118,7 +118,7 @@ function NavScroll(props) {
                                 </Nav.Link>
                             </Dropdown.Toggle>
 
-                            <Dropdown.Menu show={showDropdown} className={styleNavSeller.dropdown}>
+                            <Dropdown.Menu show={showDropdown} className='position-absolute me-4'>
                                 <Dropdown.Item href="/seller/dashboard/product-list">
                                 Dashboard
                                 </Dropdown.Item>

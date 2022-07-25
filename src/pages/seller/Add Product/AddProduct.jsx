@@ -29,22 +29,23 @@ function AddProduct() {
 
     const getCategory = async () => {
         setLoading(true)
-        try{
+        try {
             await axios.get(`${url}/api/v1/seller/category/all`, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
             })
-            .then(res => {
-                setItems(res.data.categories);
-                setLoading(false)
-            })
+                .then(res => {
+                    setItems(res.data.categories);
+                    console.log('rest dataa itemsss ctg****' + res.data.categories);
+                    setLoading(false)
+                })
             // .catch(err => {
             //     console.log(err);
             // })
 
-        } catch(error){
-             setLoading(false)
+        } catch (error) {
+            setLoading(false)
             console.log(error);
         }
     }
@@ -54,8 +55,13 @@ function AddProduct() {
     const [categoryId, setCategoryId] = useState('');
     const [price, setPrice] = useState('');
     const [imageUrl, setImageUrl] = useState([]);
-    // const reader = new FileReader();
-    // console.log("ini readerrr------------",reader);
+    const [previewImg, setPreviewImg] = useState('');
+
+    const reader = new FileReader();
+
+    if(imageUrl){
+        const fileArray = Array.from(imageUrl).map((files)=> URL.createObjectURL(files));
+    }
 
     const handlePost = async (e) => {
         setBtnLoading(true)
@@ -76,7 +82,7 @@ function AddProduct() {
             formData.append('image_url', file);
         })
 
-        try{
+        try {
             // console.log(name, description, categoryId, price, status, published, imageUrl);
             // console.log(formData,'isi');
             setBtnLoading(true)
@@ -86,28 +92,29 @@ function AddProduct() {
                     'Content-Type': 'multipart/form-data'
                 }
             })
-            .then( res => {
-                setBtnLoading(false)
-                // console.log(res.status, 'response');
-                if(res.status === 201){
-                    nav('/seller/dashboard/product-list');
-                    toast.success('Product has been added', {
-                        theme: 'colored',
-                        position: toast.POSITION.TOP_RIGHT,
-                        autoClose: 4000
-                    });
-                }
-            })
-            .catch((error => {
-                setBtnLoading(true)
-                // console.log(error.response.data.message, 'catch');
-            }))
-        } catch(error) {
+                .then(res => {
+                    setBtnLoading(false)
+                    // console.log(res.status, 'response');
+                    if (res.status === 201) {
+                        nav('/seller/dashboard/product-list');
+                        toast.success('Product has been added', {
+                            theme: 'colored',
+                            position: toast.POSITION.TOP_RIGHT,
+                            autoClose: 4000
+                        });
+                    }
+                })
+                .catch((error => {
+                    setBtnLoading(true)
+                    // console.log(error.response.data.message, 'catch');
+                }))
+        } catch (error) {
             setBtnLoading(true)
             // console.log(error.response.data.message, 'catch2');
         }
 
     }
+
 
     const handlePreview = async (e) => {
 
@@ -129,7 +136,7 @@ function AddProduct() {
             formData.append('image_url', file);
         })
 
-        try{
+        try {
             // console.log(name, description, categoryId, price, status, published, imageUrl);
             // console.log(formData,'isi');
             setBtnLoadings(true)
@@ -139,29 +146,29 @@ function AddProduct() {
                     'Content-Type': 'multipart/form-data'
                 }
             })
-            .then( res => {
-                setBtnLoadings(false)
-                // console.log(res.status, 'response');
-                if(res.status === 201){
-                    nav('/seller/dashboard/product-list');
-                    toast.success('Product has been added', {
-                        theme: 'colored',
-                        position: toast.POSITION.TOP_RIGHT,
-                        autoClose: 4000
-                    });
-                }
-            })
-            .catch((error => {
-                setBtnLoadings(true)
-                // console.log(error.response.data.message, 'catch');
-            }))
-        } catch(error) {
+                .then(res => {
+                    setBtnLoadings(false)
+                    // console.log(res.status, 'response');
+                    if (res.status === 201) {
+                        nav('/seller/dashboard/product-list');
+                        toast.success('Product has been added', {
+                            theme: 'colored',
+                            position: toast.POSITION.TOP_RIGHT,
+                            autoClose: 4000
+                        });
+                    }
+                })
+                .catch((error => {
+                    setBtnLoadings(true)
+                    // console.log(error.response.data.message, 'catch');
+                }))
+        } catch (error) {
             setBtnLoading(true)
             // console.log(error.response.data.message, 'catch2');
         }
 
     }
-
+    // console.log("itemsss"+items);
     useEffect(() => {
 
         token ? <></> : nav('/login')
@@ -178,67 +185,61 @@ function AddProduct() {
             {
                 loading ?
 
-                <Row className='d-flex justify-content-center'>
-                    <Spinner animation="border" role="status">
-                        <span className="visually-hidden">Loading...</span>
-                    </Spinner>
-                </Row>
+                    <Row className='d-flex justify-content-center'>
+                        <Spinner animation="border" role="status">
+                            <span className="visually-hidden">Loading...</span>
+                        </Spinner>
+                    </Row>
 
-                :
+                    :
 
-                <Container className='form'>
-                    <Form className={styleRegister.formStyle}>
-                        <Row>
-                            <Col sm={12}>
-                                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                                        <Form.Label className='add-product-label'>
-                                            Product Name
-                                        </Form.Label>
-                                        <Form.Control className={styleRegister.rounded} type="text" placeholder="Product Name" onChange={(e) => setName(e.target.value)} />
-                                    </Form.Group>
+                    <Container className='form'>
+                        <Form className={styleRegister.formStyle}>
+                            <Form.Group className="mb-3" controlId="formBasicEmail">
+                                <Form.Label className='add-product-label'>
+                                    Product Name
+                                </Form.Label>
+                                <Form.Control className={styleRegister.rounded} type="text" placeholder="Product Name" onChange={(e) => setName(e.target.value)} />
+                            </Form.Group>
 
-                                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                                        <Form.Label className='add-product-label'>Price</Form.Label>
-                                        <Form.Control className={styleRegister.rounded} type="number" placeholder="Rp 0,00" onChange={(e) => setPrice(e.target.value)} />
-                                    </Form.Group>
+                            <Form.Group className="mb-3" controlId="formBasicEmail">
+                                <Form.Label className='add-product-label'>Price</Form.Label>
+                                <Form.Control className={styleRegister.rounded} type="number" placeholder="Rp 0,00" onChange={(e) => setPrice(e.target.value)} />
+                            </Form.Group>
 
-                                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                                        <Form.Label className='add-product-label'>Category</Form.Label>
-                                        <Form.Select className={styleRegister.rounded} onChange={(e) => setCategoryId(e.target.value)}>
-                                            <option selected disabled> -- Choose Category -- </option>
-                                            {
+                            <Form.Group className="mb-3" controlId="formBasicEmail">
+                                <Form.Label className='add-product-label'>Category</Form.Label>
+                                <Form.Select className={styleRegister.rounded} onChange={(e) => setCategoryId(e.target.value)}>
+                                    <option selected disabled> -- Choose Category -- </option>
 
-                                                items.length > 0 ?
+                                    {
+                                        items != null ?
 
-                                                items.map((item, index) => {
-                                                    return (
-                                                        <option key={index} value={item.id}>{item.name}</option>
-                                                    )
-                                                })
+                                            items.map((item, index) => {
 
-                                                :
+                                                return (
+                                                    <option key={index} value={item.id}>{item.name}</option>
+                                                )
+                                            })
+                                            :
+                                            <option selected disabled> -- Category not found -- </option>
 
-                                                <option selected disabled> -- Category not found -- </option>
+                                    }
+                                </Form.Select>
+                                {/* <Form.Control className={styleRegister.rounded} type="email" placeholder="Choose Category"/> */}
+                            </Form.Group>
 
-                                            }
-                                        </Form.Select>
-                                        {/* <Form.Control className={styleRegister.rounded} type="email" placeholder="Choose Category"/> */}
-                                    </Form.Group>
-
-                                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                                        <Form.Label className='add-product-label'>Product Description</Form.Label>
-                                        <Form.Control className={styleRegister.rounded} type="text" placeholder="ex: Lorem ipsum dolor sit amet" onChange={(e) => setDescription(e.target.value)}  />
-                                    </Form.Group>
-                                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                                        <Form.Label className='add-product-label' for="add_img">
-                                            Gambar
-                                             <img className='image_2 m-2' src={Image_2} alt="" />
-                                            </Form.Label>
-                                        <Form.Control hidden id="add_img" className={styleRegister.rounded} type="file" multiple={true} placeholder="ex: Lorem ipsum dolor sit amet" onChange={(e) => setImageUrl(e.target.files)}  />
-                                    </Form.Group>
-
-
-                            </Col>
+                            <Form.Group className="mb-3" controlId="formBasicEmail">
+                                <Form.Label className='add-product-label'>Product Description</Form.Label>
+                                <Form.Control className={styleRegister.rounded} type="text" placeholder="ex: Lorem ipsum dolor sit amet" onChange={(e) => setDescription(e.target.value)} />
+                            </Form.Group>
+                            <Form.Group className="mb-3" controlId="formBasicEmail">
+                                <Form.Label className='add-product-label' for="add_img">
+                                    Pictures
+                                    <img className='image_2 m-2 d-flex' src={Image_2} alt="" />
+                                </Form.Label>
+                                <Form.Control hidden id="add_img" className={styleRegister.rounded} type="file" multiple={true} placeholder="ex: Lorem ipsum dolor sit amet" onChange={(e) => setImageUrl(e.target.files)} />
+                            </Form.Group>
 
                             {/* <Col sm={12} className='photo d-flex flex-column align-content-center'>
                                 <img className='image_1' src={Image_1} alt="" />
@@ -249,62 +250,61 @@ function AddProduct() {
                                 </div>
                                 <p className='add-photo-label-more'>Add More</p>
                             </Col> */}
-                        </Row>
-                    </Form>
-                    <Row>
-                        <Col>
-                            <div className='button-add-product mb-4'>
-                                {
+                        </Form>
+                        {/* <Row>
+                            <Col> */}
+                        <div className='button-add-product mb-4'>
+                            {
 
-                                    btnLoadings ?
-
-                                    <Button className='styleButton' variant="primary" disabled>
-                                    <Spinner
-                                    as="span"
-                                    animation="grow"
-                                    size="sm"
-                                    role="status"
-                                    aria-hidden="true"
-                                    />
-                                    Loading...
-                                    </Button>
-
-                                :
-                                <Button onClick={handlePreview} className='styleButtonPreview' type="submit">
-                                    Preview
-                                </Button>
-
-                                }
-
-                                <span></span>
-
-                                {
-
-                                    btnLoading ?
+                                btnLoadings ?
 
                                     <Button className='styleButton' variant="primary" disabled>
-                                    <Spinner
-                                    as="span"
-                                    animation="grow"
-                                    size="sm"
-                                    role="status"
-                                    aria-hidden="true"
-                                    />
-                                    Loading...
+                                        <Spinner
+                                            as="span"
+                                            animation="grow"
+                                            size="sm"
+                                            role="status"
+                                            aria-hidden="true"
+                                        />
+                                        Loading...
                                     </Button>
 
-                                :
+                                    :
+                                    <Button onClick={handlePreview} className='styleButtonPreview' type="submit">
+                                        Preview
+                                    </Button>
 
-                                <Button onClick={handlePost} className='styleButton' variant="primary" type="submit">
-                                    Post
-                                </Button>
-                                }
-                            </div>
-                        </Col>
-                        <Col>
-                        </Col>
-                    </Row>
-                </Container>
+                            }
+
+                            <span></span>
+
+                            {
+
+                                btnLoading ?
+
+                                    <Button className='styleButton' variant="primary" disabled>
+                                        <Spinner
+                                            as="span"
+                                            animation="grow"
+                                            size="sm"
+                                            role="status"
+                                            aria-hidden="true"
+                                        />
+                                        Loading...
+                                    </Button>
+
+                                    :
+
+                                    <Button onClick={handlePost} className='styleButton' variant="primary" type="submit">
+                                        Post
+                                    </Button>
+                            }
+                        </div>
+                        {/* </Col> */}
+                        {/* <Col>
+                            </Col> */}
+                        {/* </Row> */}
+                    </Container>
 
             }
         </div>

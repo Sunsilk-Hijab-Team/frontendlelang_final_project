@@ -187,8 +187,8 @@ hr.rounded {
 @media only screen and (max-width: 600px) {
     .modalContent {
         position: absolute;
-        top: 25%;
-        left: 50%;
+        top: 120%;
+        left: 60%;
         transform: translate(-50%, -50%);
         line-height: 1.4;
         background: #FFFFFF;

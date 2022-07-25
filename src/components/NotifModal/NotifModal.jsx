@@ -48,7 +48,7 @@ function NotifModal() {
           console.log(error);
       })
   }
-  console.log("notificationnn",notification);
+  // console.log("notificationnn",notification);
 
   useEffect(()=>{
       getAllNotification();
@@ -85,7 +85,7 @@ function NotifModal() {
                         <Col sm={10}>
                           <div>
                             <div>
-                              <h1 className={stylePopup.date}>Penawaran produk</h1>
+                              <h1 className={stylePopup.date}>{item.notif_message? item.notif_message: "Undefined"}</h1>
                               <h4 className={stylePopup.date}>
                                 {item.transaction_date ? moment(item.transaction_date).format('DD MMM, HH:mm') : 'undefined'}
                               </h4>

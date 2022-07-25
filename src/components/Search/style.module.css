@@ -1,6 +1,7 @@
 .search{
     display: flex;
     width: 400px;
+    /* margin-right: 230px; */
 }
 
 .rounded{
@@ -24,9 +25,10 @@
     
 }
 
-/* @media screen and (max-width:756px) {
+@media screen and (min-width:1280px) {
     .search{
-        display: none;
+        display: flex;
+        width: 400px;
+        margin-right: 230px;
     }
-    
-} */
+}
