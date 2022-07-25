@@ -1,5 +1,5 @@
 import { Card, Container, Row } from 'react-bootstrap';
-import styleCard from './styleCard.module.css'
+import styleCard from '../CardsDashboard/styleCard.module.css'
 import { useEffect, useState } from 'react';
 import NoImage from '../../images/no_image.png'
 import Spinner from 'react-bootstrap/Spinner';
@@ -54,7 +54,7 @@ function CardSold() {
             {
                 items.length>0 ?
 
-                <Row lg={4} md={2} sm={2}>
+                <Row lg={4} md={2} sm={2} xs={4}>
 
                 {
                     loading ?

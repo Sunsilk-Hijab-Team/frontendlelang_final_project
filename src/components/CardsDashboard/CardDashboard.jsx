@@ -72,11 +72,9 @@ function CardComponent() {
 
     return (
         <Container className={styleCard.container} md>
-
             {
                 items ?
-
-            <Row lg={4} md={2} sm={2}>
+            <Row lg={4} md={2} sm={2} xs={4}>
 
                 {
                     loading ?

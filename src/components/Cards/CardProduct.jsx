@@ -64,7 +64,7 @@ function CardComponent() {
             })
             .then(res => {
                 setFLoad(false)
-                console.log(res.data.Favorites, 'favorite')
+                // console.log(res.data.Favorites, 'favorite')
                 setFavorites(res.data.Favorites)
             })
         } catch(error){
@@ -111,7 +111,7 @@ function CardComponent() {
             .then(res => {
                 setTload(false)
                 getFavorite()
-                console.log(res, 'delete')
+                // console.log(res, 'delete')
             })
         } catch(error){
 
