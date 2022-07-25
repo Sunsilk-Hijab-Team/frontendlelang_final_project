@@ -35,8 +35,8 @@ function MyOrder(){
                 }
             }).then(res => {
                 setLoading(false)
-                setItems(res.data.Orders)
-                // console.log(res.data.Orders, 'or')
+                setItems(res.data.data.order)
+                console.log(res.data, 'orderssss')
                 // console.log("res ordersss ###"+res.data.Orders);
             })
         }catch(error){
@@ -76,39 +76,28 @@ function MyOrder(){
                                         </div>
                                     </div>
                                     <div className={styleOrder.product}>
-                                        <img className={styleOrder.buyerProfile} src="/assets/profile_buyer.jpg" alt="" />
-                                        <div className='ms-3'>
-                                            <h1 className={styleOrder.date}>
-                                                {item.createdAt ? moment(item.createdAt).format('DD MMM, HH:mm') : 'Loading...'}
-                                            </h1>
-                                            <h2 className={styleOrder.buyerName}>
-                                                {item.users_buyer?item.users_buyer.full_name:"Loading..."}
-                                            </h2>
-                                            <h1 className={styleOrder.date}>
-                                                {item.users_buyer?item.users_buyer.city:"Loading..."}
-                                            </h1>
-                                        </div>
                                         <h2 className={styleOrder.bid}>
                                             Bid {item.bid_price? Rupiah(item.bid_price):"Loading..."}
                                         </h2>
                                         <div className='status d-flex align-self-center mt-3'>
                                             {item.status === 'pending' ?
                                             <>
-                                                <a className="p-3">
-                                                    Tombol 1
-                                                </a>
-                                                <a className="p-3">
-                                                    Tombol 2
-                                                </a>
+                                             <p>Menunggu Konfirmasi</p>
                                             </>
                                             : item.status
                                             }
                                             {item.status === 'accepted' ?
 
                                             <>
-                                                <MatchModal data={item} />
+                                                <p>Tunggu ya, kamu akan segera dihubungi oleh seller</p>
                                             </>:
                                             <></>
+                                            }
+                                            {item.status === 'rejected' ?
+                                            <>
+                                                <a href={"/buyer/logged/rebid/"+item.id} >Bid Ulang</a>
+                                            </>
+                                            :<></>
                                             }
                                         </div>
 
@@ -117,7 +106,7 @@ function MyOrder(){
                                 </div>
                             );
                         })
-                        :  <p>Product Selling Empty</p>
+                        :  <p>Data Order Empty</p>
                         }
                     </Col>
                     <Col sm={3}></Col>
