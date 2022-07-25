@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import stylePopup from './styleMatchModal.module.css';
 import { Form, Row, Col, Button } from 'react-bootstrap';
-import { IoClose } from 'react-icons/io5'
+import { IoClose } from 'react-icons/io5';
+import {Link} from 'react-router-dom';
 import styleNotif from '../../pages/seller/Notification/Notification.module.css'
 import axios from 'axios';
 import {Rupiah} from '../../components/CostumFunction/Rupiah';
@@ -53,7 +54,7 @@ function MatchModal(props) {
                                         </div>
                                     </div>
                                     <div className='d-flex flex-row'>
-                                        <img className={styleNotif.buyerProfile} src="/assets/photo_product.jpg" alt="" />
+                                        <img className={styleNotif.buyerProfile} src="" alt="" />
                                         <div>
                                             <h1 className={stylePopup.productTitle}>
                                                 {props.data?props.data.products.name:"Loading..."}
@@ -69,11 +70,12 @@ function MatchModal(props) {
                                 </div>
                             </div>
 
-
-                            <button className={stylePopup.roundedButton}>
-                                Hubungi via Whatsapp
-                                <img className='d-flex ms-3' src="/assets/Whatsapp.svg" alt="" />
-                            </button>
+                            <a href="https://api.whatsapp.com/send?phone=${props.data.users_buyer.phone}`&text=Hai%20Kak">
+                                <button className={stylePopup.roundedButton}>
+                                    Hubungi via Whatsapp
+                                    <img className='d-flex ms-3' src="/assets/Whatsapp.svg" alt="" />
+                                </button>
+                            </a>
 
                             <div className={stylePopup.closeModal}
                                 onClick={togglePopup}
